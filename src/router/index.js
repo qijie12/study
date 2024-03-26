@@ -7,13 +7,13 @@ const routes = [
     name: 'Home',
     component: Home,
   },
-  // {
-  //   path: '/live',
-  //   name: 'live',
-  //   component: () => import('../views/live.vue'),
-  // },
-  // { path: '/num', 
-  //   name: 'num', 
+  {
+    path: '/live',
+    name: 'live',
+    component: () => import('../views/live.vue'),
+  },
+  // { path: '/num',
+  //   name: 'num',
   //   component: () => import('../views/num.vue')
   // },
 ];
