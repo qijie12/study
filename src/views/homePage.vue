@@ -64,7 +64,7 @@
               <a href=""> 少儿 </a>
               <a href=""> 纪录片 </a> -->
               <a href="" v-for="(item, index) in tvList" :key="index">{{
-                index.text
+                item.text
               }}</a>
             </span>
             <span>
@@ -317,165 +317,9 @@
 
       <!-- </div> -->
 
-      <ul id="video">
-        <li>
-          <img src="../assets/img/4.avif" />
-          <div>
-            <img src="../assets/img/3.avif" />
-            <a href="">
-              <p class="intro">王蓝莓的幸福生活</p>
-              <p class="protagonist">
-                <img src="../assets/img/1.avif" />王蓝莓
-              </p>
-              <span> "没有人能面无表情的看同学录" </span>
-            </a>
-          </div>
-        </li>
-        <li>
-          <img src="../assets/img/4.avif" />
-          <div>
-            <img src="../assets/img/3.avif" />
-            <a href="">
-              <p class="intro">王蓝莓的幸福生活</p>
-              <p class="protagonist">
-                <img src="../assets/img/1.avif" />王蓝莓
-              </p>
-              <span> "没有人能面无表情的看同学录" </span>
-            </a>
-          </div>
-        </li>
-        <li>
-          <img src="../assets/img/4.avif" />
-          <div>
-            <img src="../assets/img/3.avif" />
-            <a href="">
-              <p class="intro">王蓝莓的幸福生活</p>
-              <p class="protagonist">
-                <img src="../assets/img/1.avif" />王蓝莓
-              </p>
-              <span> "没有人能面无表情的看同学录" </span>
-            </a>
-          </div>
-        </li>
-        <li>
-          <img src="../assets/img/4.avif" />
-          <div>
-            <img src="../assets/img/3.avif" />
-            <a href="">
-              <p class="intro">王蓝莓的幸福生活</p>
-              <p class="protagonist">
-                <img src="../assets/img/1.avif" />王蓝莓
-              </p>
-              <span> "没有人能面无表情的看同学录" </span>
-            </a>
-          </div>
-        </li>
-        <li>
-          <img src="../assets/img/4.avif" />
-          <div>
-            <img src="../assets/img/3.avif" />
-            <a href="">
-              <p class="intro">王蓝莓的幸福生活</p>
-              <p class="protagonist">
-                <img src="../assets/img/1.avif" />王蓝莓
-              </p>
-              <span> "没有人能面无表情的看同学录" </span>
-            </a>
-          </div>
-        </li>
-        <li>
-          <img src="../assets/img/4.avif" />
-          <div>
-            <img src="../assets/img/3.avif" />
-            <a href="">
-              <p class="intro">王蓝莓的幸福生活</p>
-              <p class="protagonist">
-                <img src="../assets/img/1.avif" />王蓝莓
-              </p>
-              <span> "没有人能面无表情的看同学录" </span>
-            </a>
-          </div>
-        </li>
-        <li>
-          <img src="../assets/img/4.avif" />
-          <div>
-            <img src="../assets/img/3.avif" />
-            <a href="">
-              <p class="intro">王蓝莓的幸福生活</p>
-              <p class="protagonist">
-                <img src="../assets/img/1.avif" />王蓝莓
-              </p>
-              <span> "没有人能面无表情的看同学录" </span>
-            </a>
-          </div>
-        </li>
-        <li>
-          <img src="../assets/img/4.avif" />
-          <div>
-            <img src="../assets/img/3.avif" />
-            <a href="">
-              <p class="intro">王蓝莓的幸福生活</p>
-              <p class="protagonist">
-                <img src="../assets/img/1.avif" />王蓝莓
-              </p>
-              <span> "没有人能面无表情的看同学录" </span>
-            </a>
-          </div>
-        </li>
-        <li>
-          <img src="../assets/img/4.avif" />
-          <div>
-            <img src="../assets/img/3.avif" />
-            <a href="">
-              <p class="intro">王蓝莓的幸福生活</p>
-              <p class="protagonist">
-                <img src="../assets/img/1.avif" />王蓝莓
-              </p>
-              <span> "没有人能面无表情的看同学录" </span>
-            </a>
-          </div>
-        </li>
-        <li>
-          <img src="../assets/img/4.avif" />
-          <div>
-            <img src="../assets/img/3.avif" />
-            <a href="">
-              <p class="intro">王蓝莓的幸福生活</p>
-              <p class="protagonist">
-                <img src="../assets/img/1.avif" />王蓝莓
-              </p>
-              <span> "没有人能面无表情的看同学录" </span>
-            </a>
-          </div>
-        </li>
-        <li>
-          <img src="../assets/img/4.avif" />
-          <div>
-            <img src="../assets/img/3.avif" />
-            <a href="">
-              <p class="intro">王蓝莓的幸福生活</p>
-              <p class="protagonist">
-                <img src="../assets/img/1.avif" />王蓝莓
-              </p>
-              <span> "没有人能面无表情的看同学录" </span>
-            </a>
-          </div>
-        </li>
-        <li>
-          <img src="../assets/img/4.avif" />
-          <div>
-            <img src="../assets/img/3.avif" />
-            <a href="">
-              <p class="intro">王蓝莓的幸福生活</p>
-              <p class="protagonist">
-                <img src="../assets/img/1.avif" />王蓝莓
-              </p>
-              <span> "没有人能面无表情的看同学录" </span>
-            </a>
-          </div>
-        </li>
-      </ul>
+      
     </div>
+
   </div>
 </template>
 
