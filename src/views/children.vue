@@ -50,28 +50,28 @@
     </div>
 
     <div id="children">
-        <img src="./img/10.jpg" />
-        <div id="content">
-            <div id="vault">
-             <a href="" v-for="(item,index) in vaultList":key="index">
-                {{item.text}}</a>
-            </div>
+      <img src="../assets/img/10.jpg" />
+      <div id="content">
+        <div id="vault">
+          <a href="" v-for="(item, index) in vaultList" :key="index">
+            {{ item.text }}</a
+          >
+        </div>
 
-            <div id="hotbroadcast">
-              <h1>重磅热播</h1>
-              <div class="change">换一换</div>
-            </div>
+        <div id="hotbroadcast">
+          <h1>重磅热播</h1>
+          <div class="change">换一换</div>
+        </div>
 
-            <ul id="hotpicture">
-<li v-for="(item,index) in hotpicture" :key="index">
-            <img :src="item.url"/>
+        <ul id="hotpicture">
+          <li v-for="(item, index) in hotpicture" :key="index">
+            <img :src="item.url" />
             <a href="">
-                <p>{{item.name}}</p>
-                <span>{{item.syopnsis}}</span>
+              <p>{{ item.name }}</p>
+              <span>{{ item.synopsis }}</span>
             </a>
-        </li>
-
-              <!-- <li>
+          </li>
+          <!-- <li>
                 <img src="./img/3.avif" />
                 <b></b>
                 <a href="">
@@ -282,30 +282,152 @@
                   </div>
                 </div>
               </li> -->
-            </ul>
+        </ul>
+        <div id="recommend">
+          <h1>为你推荐</h1>
+        </div>
 
-            
-          </div>
+        <ul id="recommendtv">
+          <li v-for="(item, index) in recommendtvList" :key="index">
+            <img :src="item.url" />
+            <div class="caption">
+              <img :src="item.src" />
+              <div class="introduce">
+                <p class="tvname">{{ item.tvname }}</p>
+                <p class="name">{{ item.name }}</p>
+                <span>{{ item.synopsis }}</span>
+              </div>
+            </div>
+          </li>
+          <!-- <li>
+                <img src="../assets/img/2.avif" />
+                <div class="caption">
+                  <img src="../assets/img/5.avif" />
+                  <div class="introduce">
+                    <p class="tvname">玩伴</p>
+                    <p class="name">电视剧 孙涛 戴娇倩 都市生活</p>
+                    <span>搞笑！男子在街边卖内衣</span>
+                    <b></b>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <img src="../assets/img/1.avif" />
+                <div class="caption">
+                  <img src="../assets/img/5.avif" />
+                  <div class="introduce">
+                    <p class="tvname">我是余欢水</p>
+                    <p class="name">电视剧 郭京飞 苗苗 人物故事</p>
+                    <span>怂包到英雄的荒诞逆袭</span>
+                    <b></b>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <img src="../assets/img/4.avif" />
+                <div class="caption">
+                  <img src="../assets/img/5.avif" />
+                  <div class="introduce">
+                    <p class="tvname">爱你不放手</p>
+                    <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
+                    <span>李宗翰变身夺产抢子灭情男</span>
+                    <b></b>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <img src="../assets/img/2.avif" />
+                <div class="caption">
+                  <img src="../assets/img/5.avif" />
+                  <div class="introduce">
+                    <p class="tvname">爱你不放手</p>
+                    <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
+                    <span>李宗翰变身夺产抢子灭情男</span>
+                    <b></b>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <img src="../assets/img/1.avif" />
+                <div class="caption">
+                  <img src="../assets/img/5.avif" />
+                  <div class="introduce">
+                    <p class="tvname">爱你不放手</p>
+                    <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
+                    <span>李宗翰变身夺产抢子灭情男</span>
+                    <b></b>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <img src="../assets/img/4.avif" />
+                <div class="caption">
+                  <img src="../assets/img/5.avif" />
+                  <div class="introduce">
+                    <p class="tvname"> 繁花 </p>
+                    <p class="name">胡歌 马伊琍 时代传奇</p>
+                    <span> "宝总完成承诺离开和平饭店！大老板再次变成阿宝" </span>
+                    <b></b>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <img src="../assets/img/4.avif" />
+                <div class="caption">
+                  <img src="../assets/img/5.avif" />
+                  <div class="introduce">
+                    <p class="tvname">爱你不放手</p>
+                    <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
+                    <span>李宗翰变身夺产抢子灭情男</span>
+                    <b></b>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <img src="../assets/img/2.avif" />
+                <div class="caption">
+                  <img src="../assets/img/5.avif" />
+                  <div class="introduce">
+                    <p class="tvname"> 猎狐 </p>
+                    <p class="name"> 王凯 王鸥 经侦题材 </p>
+                    <span> "王凯王鸥飒爽集结海外追逃" </span>
+                    <b></b>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <img src="../assets/img/3.avif" />
+                <div class="caption">
+                  <img src="../assets/img/5.avif" />
+                  <div class="introduce">
+                    <p class="tvname">爱你不放手</p>
+                    <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
+                    <span>李宗翰变身夺产抢子灭情男</span>
+                    <b></b>
+                  </div>
+                </div>
+              </li> -->
+        </ul>
+      </div>
     </div>
-
   </div>
 </template>
 
 <script setup>
-  import {ref} from "vue";
+import { ref } from 'vue';
 
-import VIP from "../assets/img/VIP.png";
-import game from "../assets/img/game.png";
-import time from "../assets/img/time.png";
-import screenRecording from "../assets/img/screenRecording.png";
-import download from "../assets/img/download.png";
-import personage from "../assets/img/personage.png";
-import collect from "../assets/img/收藏.png";
-import odeToJoy from "../assets/img/1.avif";
-import playmate from "../assets/img/2.avif";
-import easyLife from "../assets/img/3.avif";
-import love from "../assets/img/4.avif";
-import blossoms from "../assets/img/5.avif";
+import VIP from '../assets/img/VIP.png';
+import game from '../assets/img/game.png';
+import time from '../assets/img/time.png';
+import screenRecording from '../assets/img/screenRecording.png';
+import download from '../assets/img/download.png';
+import personage from '../assets/img/personage.png';
+import collect from '../assets/img/收藏.png';
+import odeToJoy from '../assets/img/1.avif';
+import playmate from '../assets/img/2.avif';
+import easyLife from '../assets/img/3.avif';
+import love from '../assets/img/4.avif';
+import blossoms from '../assets/img/5.avif';
 
 const topList = ref([
   {
@@ -330,266 +452,264 @@ const topList = ref([
 
 const homePageList = ref([
   {
-    name: "首页",
+    name: '首页',
     url: collect,
   },
   {
-    name: "中视频",
+    name: '中视频',
     url: collect,
   },
   {
-    name: "电视剧",
+    name: '电视剧',
     url: collect,
   },
   {
-    name: "电影",
+    name: '电影',
     url: collect,
   },
   {
-    name: "综艺",
+    name: '综艺',
     url: collect,
   },
   {
-    name: "动漫",
+    name: '动漫',
     url: collect,
   },
   {
-    name: "少儿",
+    name: '少儿',
     url: collect,
   },
   {
-    name: "体育",
+    name: '体育',
     url: collect,
   },
   {
-    name: "纪录片",
+    name: '纪录片',
     url: collect,
   },
   {
-    name: "短剧",
+    name: '短剧',
     url: collect,
   },
   {
-    name: "NBA",
+    name: 'NBA',
     url: collect,
   },
   {
-    name: "VIP会员",
+    name: 'VIP会员',
     url: collect,
   },
   {
-    name: "游戏中心",
+    name: '游戏中心',
     url: collect,
   },
   {
-    name: "传奇游戏库",
+    name: '传奇游戏库',
     url: collect,
   },
   {
-    name: "科技",
+    name: '科技',
     url: collect,
   },
   {
-    name: "音乐",
+    name: '音乐',
     url: collect,
   },
   {
-    name: "F1",
+    name: 'F1',
     url: collect,
   },
   {
-    name: "WWE",
+    name: 'WWE',
     url: collect,
   },
   {
-    name: "知识",
+    name: '知识',
     url: collect,
   },
   {
-    name: "学堂",
+    name: '学堂',
     url: collect,
   },
   {
-    name: "艺术",
+    name: '艺术',
     url: collect,
   },
   {
-    name: "财经",
+    name: '财经',
     url: collect,
   },
   {
-    name: "生活",
+    name: '生活',
     url: collect,
   },
   {
-    name: "时尚",
+    name: '时尚',
     url: collect,
   },
   {
-    name: "健康",
+    name: '健康',
     url: collect,
   },
   {
-    name: "育儿",
+    name: '育儿',
     url: collect,
   },
   {
-    name: "汽车",
+    name: '汽车',
     url: collect,
   },
   {
-    name: "棋牌游戏库",
+    name: '棋牌游戏库',
     url: collect,
   },
 ]);
 
-const vaultList =ref([
-    {text:'少儿片库'},
-    {text:'益智'},
-    {text:'儿歌'},
-    {text:'玩具'},
-    {text:'英语'},
-    {text:'手工·绘画'},
-    {text:'魔幻·科幻'},
-    {text:'真人特摄'},
-    {text:'男孩'},
-    {text:'女孩'},
-])
+const vaultList = ref([
+  { text: '少儿片库' },
+  { text: '益智' },
+  { text: '儿歌' },
+  { text: '玩具' },
+  { text: '英语' },
+  { text: '手工·绘画' },
+  { text: '魔幻·科幻' },
+  { text: '真人特摄' },
+  { text: '男孩' },
+  { text: '女孩' },
+]);
 
-const hotpicture =ref([
-    {
-      url:easyLife,
-      name:'小日子',
-      syopnsis:'陈晓童瑶首搭守护小日子',  
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      syopnsis:'陈晓童瑶首搭守护小日子',  
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      syopnsis:'陈晓童瑶首搭守护小日子',  
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      syopnsis:'陈晓童瑶首搭守护小日子',  
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      syopnsis:'陈晓童瑶首搭守护小日子',  
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      syopnsis:'陈晓童瑶首搭守护小日子',  
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      syopnsis:'陈晓童瑶首搭守护小日子',  
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      syopnsis:'陈晓童瑶首搭守护小日子',  
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      syopnsis:'陈晓童瑶首搭守护小日子',  
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      syopnsis:'陈晓童瑶首搭守护小日子',  
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      syopnsis:'陈晓童瑶首搭守护小日子',  
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      syopnsis:'陈晓童瑶首搭守护小日子',  
-    },
-])
+const hotpicture = ref([
+  {
+    url: easyLife,
+    name: '小日子',
+    syopnsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    syopnsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    syopnsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    syopnsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    syopnsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    syopnsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    syopnsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    syopnsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    syopnsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    syopnsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    syopnsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    syopnsis: '陈晓童瑶首搭守护小日子',
+  },
+]);
 
-const recommendtvList =ref([
-    {
-       url:playmate,
-       src:blossoms,
-       tvname:' 飞驰人生 ',
-       name:' 韩寒沈腾联手搞笑 ',
-       syopnsis:'怂包到英雄的荒诞逆袭',
-    },
-    {
-       url:playmate,
-       src:blossoms,
-       tvname:' 飞驰人生 ',
-       name:' 韩寒沈腾联手搞笑 ',
-       syopnsis:'怂包到英雄的荒诞逆袭',
-    },
-    {
-       url:playmate,
-       src:blossoms,
-       tvname:' 飞驰人生 ',
-       name:' 韩寒沈腾联手搞笑 ',
-       syopnsis:'怂包到英雄的荒诞逆袭',
-    },
-    {
-       url:playmate,
-       src:blossoms,
-       tvname:' 飞驰人生 ',
-       name:' 韩寒沈腾联手搞笑 ',
-       syopnsis:'怂包到英雄的荒诞逆袭',
-    },
-    {
-       url:playmate,
-       src:blossoms,
-       tvname:' 飞驰人生 ',
-       name:' 韩寒沈腾联手搞笑 ',
-       syopnsis:'怂包到英雄的荒诞逆袭',
-    },
-    {
-       url:playmate,
-       src:blossoms,
-       tvname:' 飞驰人生 ',
-       name:' 韩寒沈腾联手搞笑 ',
-       syopnsis:'怂包到英雄的荒诞逆袭',
-    },
-    {
-       url:playmate,
-       src:blossoms,
-       tvname:' 飞驰人生 ',
-       name:' 韩寒沈腾联手搞笑 ',
-       syopnsis:'怂包到英雄的荒诞逆袭',
-    },
-    {
-       url:playmate,
-       src:blossoms,
-       tvname:' 飞驰人生 ',
-       name:' 韩寒沈腾联手搞笑 ',
-       syopnsis:'怂包到英雄的荒诞逆袭',
-    },
-    {
-       url:playmate,
-       src:blossoms,
-       tvname:' 飞驰人生 ',
-       name:' 韩寒沈腾联手搞笑 ',
-       syopnsis:'怂包到英雄的荒诞逆袭',
-    },
-])
-
-
+const recommendtvList = ref([
+  {
+    url: playmate,
+    src: blossoms,
+    tvname: ' 飞驰人生 ',
+    name: ' 韩寒沈腾联手搞笑 ',
+    synopsis: '怂包到英雄的荒诞逆袭',
+  },
+  {
+    url: playmate,
+    src: blossoms,
+    tvname: ' 飞驰人生 ',
+    name: ' 韩寒沈腾联手搞笑 ',
+    synopsis: '怂包到英雄的荒诞逆袭',
+  },
+  {
+    url: playmate,
+    src: blossoms,
+    tvname: ' 飞驰人生 ',
+    name: ' 韩寒沈腾联手搞笑 ',
+    synopsis: '怂包到英雄的荒诞逆袭',
+  },
+  {
+    url: playmate,
+    src: blossoms,
+    tvname: ' 飞驰人生 ',
+    name: ' 韩寒沈腾联手搞笑 ',
+    synopsis: '怂包到英雄的荒诞逆袭',
+  },
+  {
+    url: playmate,
+    src: blossoms,
+    tvname: ' 飞驰人生 ',
+    name: ' 韩寒沈腾联手搞笑 ',
+    synopsis: '怂包到英雄的荒诞逆袭',
+  },
+  {
+    url: playmate,
+    src: blossoms,
+    tvname: ' 飞驰人生 ',
+    name: ' 韩寒沈腾联手搞笑 ',
+    synopsis: '怂包到英雄的荒诞逆袭',
+  },
+  {
+    url: playmate,
+    src: blossoms,
+    tvname: ' 飞驰人生 ',
+    name: ' 韩寒沈腾联手搞笑 ',
+    synopsis: '怂包到英雄的荒诞逆袭',
+  },
+  {
+    url: playmate,
+    src: blossoms,
+    tvname: ' 飞驰人生 ',
+    name: ' 韩寒沈腾联手搞笑 ',
+    synopsis: '怂包到英雄的荒诞逆袭',
+  },
+  {
+    url: playmate,
+    src: blossoms,
+    tvname: ' 飞驰人生 ',
+    name: ' 韩寒沈腾联手搞笑 ',
+    synopsis: '怂包到英雄的荒诞逆袭',
+  },
+]);
 </script>
 
 <style lang="scss">
-   #home {
+#home {
   .top {
     top: 0;
     position: fixed;
@@ -608,8 +728,8 @@ const recommendtvList =ref([
       border-radius: 30px;
       overflow: hidden;
       display: flex;
-      position:relative;
-     transform:translate(50%,0);
+      position: relative;
+      transform: translate(50%, 0);
       .import {
         height: 48px;
         width: 420px;
@@ -684,7 +804,7 @@ const recommendtvList =ref([
       }
     }
   }
-  #children{
+  #children {
     > img {
       height: 600px;
       width: 100%;
@@ -699,20 +819,32 @@ const recommendtvList =ref([
         width: 100%;
         height: 48px;
         display: flex;
-        font-size:16px;
+        font-size: 16px;
         align-items: center;
-        justify-content:space-between;
-        margin-bottom:30px;
-       a{border:1px solid rgb(65, 64, 64);width:152px;height:40px;
-         background-color:#ffffff1A;color:#ffffff99;
-         text-align:center;line-height:40px;
-         border-radius:20px;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        a {
+          border: 1px solid rgb(65, 64, 64);
+          width: 152px;
+          height: 40px;
+          background-color: #ffffff1a;
+          color: #ffffff99;
+          text-align: center;
+          line-height: 40px;
+          border-radius: 20px;
         }
       }
-      #hotbroadcast{
-        display:flex;align-items:center;justify-content:space-between;
-        .change{color:#474646;font-size:14px;}
-        .change:hover{color:#ffffff;}
+      #hotbroadcast {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .change {
+          color: #474646;
+          font-size: 14px;
+        }
+        .change:hover {
+          color: #ffffff;
+        }
       }
 
       #hotpicture {
@@ -794,12 +926,11 @@ const recommendtvList =ref([
               margin-right: 5px;
             }
             .introduce {
-                
-              .tvname{
+              .tvname {
                 color: #ffffff;
                 font-size: 20px;
               }
-              .name{
+              .name {
                 color: #474646;
                 font-size: 14px;
               }
@@ -812,10 +943,6 @@ const recommendtvList =ref([
         }
       }
     }
-
-
   }
-
 }
-
 </style>

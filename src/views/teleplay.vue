@@ -1,6 +1,6 @@
 <template>
- <div id="home">
-   <div class="top">
+  <div id="home">
+    <div class="top">
       <span></span>
       <span class="input-box">
         <input type="" class="import" />
@@ -50,33 +50,29 @@
     </div>
 
     <div id="teleplay">
-        <img src="../assets/img/3.avif" />
-        <div id="content">
-          
-            <div id="vault">
+      <img src="../assets/img/3.avif" />
+      <div id="content">
+        <div id="vault">
+          <a href="" v-for="(item, index) in vaultList" :key="index">
+            {{ item.text }}</a
+          >
+        </div>
 
-     <a href="" v-for="(item,index) in vaultList" :key="index">
-        {{item.text}}</a>           
-          
-            </div>
+        <div id="hotbroadcast">
+          <h1>重磅热播</h1>
+          <div class="change">换一换</div>
+        </div>
 
-            <div id="hotbroadcast">
-              <h1>重磅热播</h1>
-              <div class="change">换一换</div>
-            </div>
+        <ul id="hotpicture">
+          <li v-for="(item, index) in hotpictureList" :key="index">
+            <img :src="item.url" />
+            <a href="">
+              <p>{{ item.name }}</p>
+              <span>{{ item.synopsis }}</span>
+            </a>
+          </li>
 
-            <ul id="hotpicture">
-
-            <li v-for="(item,index) in hotpictureList" :key="index">
-                <img :src="item.url"/>
-                <a href="">
-                    <p>{{item.name}}</p>
-                    <span>{{item.synopsis}}</span>
-                </a>
-            </li>
-
-
-              <!-- <li>
+          <!-- <li>
                 <img src="../assets/img/3.avif" />
                 <b></b>
                 <a href="">
@@ -172,159 +168,156 @@
                   <span> 高空甜恋 热血逐梦 </span>
                 </a>
               </li> -->
-            </ul>
+        </ul>
 
-            <div id="recommend">
-              <h1>为你推荐</h1>
-             
-            </div>
-
-            <ul id="recommendtv">
-
-          <li v-for="(item,index) in recommendtvList" :key="index">
-                <img :src="item.url"/>
-                <div class="caption"> 
-                    <img :src="item.src"/>
-                    <div class="introduce">
-                     <p class="tvname">{{item.text}}</p>
-                     <p class="name">{{item.name}}</p>
-                     <span>{{item.synopsis}}</span>
-                    </div>
-                    
-                </div>
-            </li>
-              <!-- <li>
-                <img src="../assets/img/2.avif" />
-                <div class="caption">
-                  <img src="../assets/img/5.avif" />
-                  <div class="introduce">
-                    <p class="tvname">玩伴</p>
-                    <p class="name">电视剧 孙涛 戴娇倩 都市生活</p>
-                    <span>搞笑！男子在街边卖内衣</span>
-                    <b></b>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <img src="../assets/img/1.avif" />
-                <div class="caption">
-                  <img src="../assets/img/5.avif" />
-                  <div class="introduce">
-                    <p class="tvname">我是余欢水</p>
-                    <p class="name">电视剧 郭京飞 苗苗 人物故事</p>
-                    <span>怂包到英雄的荒诞逆袭</span>
-                    <b></b>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <img src="../assets/img/4.avif" />
-                <div class="caption">
-                  <img src="../assets/img/5.avif" />
-                  <div class="introduce">
-                    <p class="tvname">爱你不放手</p>
-                    <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
-                    <span>李宗翰变身夺产抢子灭情男</span>
-                    <b></b>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <img src="../assets/img/2.avif" />
-                <div class="caption">
-                  <img src="../assets/img/5.avif" />
-                  <div class="introduce">
-                    <p class="tvname">爱你不放手</p>
-                    <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
-                    <span>李宗翰变身夺产抢子灭情男</span>
-                    <b></b>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <img src="../assets/img/1.avif" />
-                <div class="caption">
-                  <img src="../assets/img/5.avif" />
-                  <div class="introduce">
-                    <p class="tvname">爱你不放手</p>
-                    <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
-                    <span>李宗翰变身夺产抢子灭情男</span>
-                    <b></b>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <img src="../assets/img/4.avif" />
-                <div class="caption">
-                  <img src="../assets/img/5.avif" />
-                  <div class="introduce">
-                    <p class="tvname"> 繁花 </p>
-                    <p class="name">胡歌 马伊琍 时代传奇</p>
-                    <span> "宝总完成承诺离开和平饭店！大老板再次变成阿宝" </span>
-                    <b></b>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <img src="../assets/img/4.avif" />
-                <div class="caption">
-                  <img src="../assets/img/5.avif" />
-                  <div class="introduce">
-                    <p class="tvname">爱你不放手</p>
-                    <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
-                    <span>李宗翰变身夺产抢子灭情男</span>
-                    <b></b>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <img src="../assets/img/2.avif" />
-                <div class="caption">
-                  <img src="../assets/img/5.avif" />
-                  <div class="introduce">
-                    <p class="tvname"> 猎狐 </p>
-                    <p class="name"> 王凯 王鸥 经侦题材 </p>
-                    <span> "王凯王鸥飒爽集结海外追逃" </span>
-                    <b></b>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <img src="../assets/img/3.avif" />
-                <div class="caption">
-                  <img src="../assets/img/5.avif" />
-                  <div class="introduce">
-                    <p class="tvname">爱你不放手</p>
-                    <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
-                    <span>李宗翰变身夺产抢子灭情男</span>
-                    <b></b>
-                  </div>
-                </div>
-              </li> -->
-            </ul>
+        <div id="recommend">
+          <h1>为你推荐</h1>
         </div>
-        
-      </div>
 
- </div>
+        <bigListComp :list="recommendtvList"></bigListComp>
+        <!-- <ul id="recommendtv">
+          <li v-for="(item, index) in recommendtvList" :key="index">
+            <img :src="item.url" />
+            <div class="caption">
+              <img :src="item.src" />
+              <div class="introduce">
+                <p class="tvname">{{ item.text }}</p>
+                <p class="name">{{ item.name }}</p>
+                <span>{{ item.synopsis }}</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="../assets/img/2.avif" />
+            <div class="caption">
+              <img src="../assets/img/5.avif" />
+              <div class="introduce">
+                <p class="tvname">玩伴</p>
+                <p class="name">电视剧 孙涛 戴娇倩 都市生活</p>
+                <span>搞笑！男子在街边卖内衣</span>
+                <b></b>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="../assets/img/1.avif" />
+            <div class="caption">
+              <img src="../assets/img/5.avif" />
+              <div class="introduce">
+                <p class="tvname">我是余欢水</p>
+                <p class="name">电视剧 郭京飞 苗苗 人物故事</p>
+                <span>怂包到英雄的荒诞逆袭</span>
+                <b></b>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="../assets/img/4.avif" />
+            <div class="caption">
+              <img src="../assets/img/5.avif" />
+              <div class="introduce">
+                <p class="tvname">爱你不放手</p>
+                <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
+                <span>李宗翰变身夺产抢子灭情男</span>
+                <b></b>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="../assets/img/2.avif" />
+            <div class="caption">
+              <img src="../assets/img/5.avif" />
+              <div class="introduce">
+                <p class="tvname">爱你不放手</p>
+                <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
+                <span>李宗翰变身夺产抢子灭情男</span>
+                <b></b>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="../assets/img/1.avif" />
+            <div class="caption">
+              <img src="../assets/img/5.avif" />
+              <div class="introduce">
+                <p class="tvname">爱你不放手</p>
+                <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
+                <span>李宗翰变身夺产抢子灭情男</span>
+                <b></b>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="../assets/img/4.avif" />
+            <div class="caption">
+              <img src="../assets/img/5.avif" />
+              <div class="introduce">
+                <p class="tvname">繁花</p>
+                <p class="name">胡歌 马伊琍 时代传奇</p>
+                <span> "宝总完成承诺离开和平饭店！大老板再次变成阿宝" </span>
+                <b></b>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="../assets/img/4.avif" />
+            <div class="caption">
+              <img src="../assets/img/5.avif" />
+              <div class="introduce">
+                <p class="tvname">爱你不放手</p>
+                <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
+                <span>李宗翰变身夺产抢子灭情男</span>
+                <b></b>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="../assets/img/2.avif" />
+            <div class="caption">
+              <img src="../assets/img/5.avif" />
+              <div class="introduce">
+                <p class="tvname">猎狐</p>
+                <p class="name">王凯 王鸥 经侦题材</p>
+                <span> "王凯王鸥飒爽集结海外追逃" </span>
+                <b></b>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="../assets/img/3.avif" />
+            <div class="caption">
+              <img src="../assets/img/5.avif" />
+              <div class="introduce">
+                <p class="tvname">爱你不放手</p>
+                <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
+                <span>李宗翰变身夺产抢子灭情男</span>
+                <b></b>
+              </div>
+            </div>
+          </li>
+        </ul> -->
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
-  import{ref} from "vue";
-  import VIP from '../assets/img/VIP.png';
-  import game from '../assets/img/game.png';
-  import time from '../assets/img/time.png';
-  import screenRecording from '../assets/img/screenRecording.png';
-  import download from '../assets/img/download.png';
-  import personage from '../assets/img/personage.png';
-  import collect from '../assets/img/收藏.png';  
-  import odeToJoy from '../assets/img/1.avif';
-  import playmate from '../assets/img/2.avif';
-  import easyLife from '../assets/img/3.avif';
-  import love from '../assets/img/4.avif';
-  import blossoms from '../assets/img/5.avif';
- 
- const topList = ref([
+import { ref } from 'vue';
+import VIP from '../assets/img/VIP.png';
+import game from '../assets/img/game.png';
+import time from '../assets/img/time.png';
+import screenRecording from '../assets/img/screenRecording.png';
+import download from '../assets/img/download.png';
+import personage from '../assets/img/personage.png';
+import collect from '../assets/img/收藏.png';
+import odeToJoy from '../assets/img/1.avif';
+import playmate from '../assets/img/2.avif';
+import easyLife from '../assets/img/3.avif';
+import love from '../assets/img/4.avif';
+import blossoms from '../assets/img/5.avif';
+import bigListComp from '../components/bigListComp.vue';
+
+const topList = ref([
   {
     url: VIP,
   },
@@ -461,152 +454,151 @@ const homePageList = ref([
 ]);
 
 const vaultList = ref([
-    {text:'电视剧片库'},
-    {text:'X剧场'},
-    {text:'免费热剧'},
-    {text:'爱情'},
-    {text:'古装'},
-    {text:'悬疑'},
-    {text:'家庭'},
-    {text:' 传奇'},
-    {text:'电视剧片库'},
-    {text:'军旅'},
-])
+  { text: '电视剧片库' },
+  { text: 'X剧场' },
+  { text: '免费热剧' },
+  { text: '爱情' },
+  { text: '古装' },
+  { text: '悬疑' },
+  { text: '家庭' },
+  { text: ' 传奇' },
+  { text: '电视剧片库' },
+  { text: '军旅' },
+]);
 
-const hotpictureList =ref([
-    {
-      url:easyLife,
-      name:'小日子',
-      synopsis:'陈晓童瑶首搭守护小日子'
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      synopsis:'陈晓童瑶首搭守护小日子'
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      synopsis:'陈晓童瑶首搭守护小日子'
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      synopsis:'陈晓童瑶首搭守护小日子'
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      synopsis:'陈晓童瑶首搭守护小日子'
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      synopsis:'陈晓童瑶首搭守护小日子'
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      synopsis:'陈晓童瑶首搭守护小日子'
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      synopsis:'陈晓童瑶首搭守护小日子'
-    },
+const hotpictureList = ref([
+  {
+    url: easyLife,
+    name: '小日子',
+    synopsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    synopsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    synopsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    synopsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    synopsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    synopsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    synopsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    synopsis: '陈晓童瑶首搭守护小日子',
+  },
 
-    {
-      url:easyLife,
-      name:'小日子',
-      synopsis:'陈晓童瑶首搭守护小日子'
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      synopsis:'陈晓童瑶首搭守护小日子'
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      synopsis:'陈晓童瑶首搭守护小日子'
-    },
-    {
-      url:easyLife,
-      name:'小日子',
-      synopsis:'陈晓童瑶首搭守护小日子'
-    },
-    
-])
+  {
+    url: easyLife,
+    name: '小日子',
+    synopsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    synopsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    synopsis: '陈晓童瑶首搭守护小日子',
+  },
+  {
+    url: easyLife,
+    name: '小日子',
+    synopsis: '陈晓童瑶首搭守护小日子',
+  },
+]);
 
-const recommendtvList =ref ([
-    {
-      url:playmate,
-      src:love,
-      text:'玩伴',
-      name:'电视剧 孙涛 戴娇倩 都市生活',
-      synopsis:'怂包到英雄的荒诞逆袭',
-    },
-    {
-      url:playmate,
-      src:love,
-      text:'玩伴',
-      name:'电视剧 孙涛 戴娇倩 都市生活',
-      synopsis:'怂包到英雄的荒诞逆袭',
-    },
-    {
-      url:playmate,
-      src:love,
-      text:'玩伴',
-      name:'电视剧 孙涛 戴娇倩 都市生活',
-      synopsis:'怂包到英雄的荒诞逆袭',
-    },
-    {
-      url:playmate,
-      src:love,
-      text:'玩伴',
-      name:'电视剧 孙涛 戴娇倩 都市生活',
-      synopsis:'怂包到英雄的荒诞逆袭',
-    },
-    {
-      url:playmate,
-      src:love,
-      text:'玩伴',
-      name:'电视剧 孙涛 戴娇倩 都市生活',
-      synopsis:'怂包到英雄的荒诞逆袭',
-    },
-    {
-      url:playmate,
-      src:love,
-      text:'玩伴',
-      name:'电视剧 孙涛 戴娇倩 都市生活',
-      synopsis:'怂包到英雄的荒诞逆袭',
-    },
-    {
-      url:playmate,
-      src:love,
-      text:'玩伴',
-      name:'电视剧 孙涛 戴娇倩 都市生活',
-      synopsis:'怂包到英雄的荒诞逆袭',
-    },
-    {
-      url:playmate,
-      src:love,
-      text:'玩伴',
-      name:'电视剧 孙涛 戴娇倩 都市生活',
-      synopsis:'怂包到英雄的荒诞逆袭',
-    },
-    {
-      url:playmate,
-      src:love,
-      text:'玩伴',
-      name:'电视剧 孙涛 戴娇倩 都市生活',
-      synopsis:'怂包到英雄的荒诞逆袭',
-    },
-])
+const recommendtvList = ref([
+  {
+    url: playmate,
+    src: love,
+    text: '玩伴',
+    name: '电视剧 孙涛 戴娇倩 都市生活',
+    synopsis: '怂包到英雄的荒诞逆袭',
+  },
+  {
+    url: playmate,
+    src: love,
+    text: '玩伴',
+    name: '电视剧 孙涛 戴娇倩 都市生活',
+    synopsis: '怂包到英雄的荒诞逆袭',
+  },
+  {
+    url: playmate,
+    src: love,
+    text: '玩伴',
+    name: '电视剧 孙涛 戴娇倩 都市生活',
+    synopsis: '怂包到英雄的荒诞逆袭',
+  },
+  {
+    url: playmate,
+    src: love,
+    text: '玩伴',
+    name: '电视剧 孙涛 戴娇倩 都市生活',
+    synopsis: '怂包到英雄的荒诞逆袭',
+  },
+  {
+    url: playmate,
+    src: love,
+    text: '玩伴',
+    name: '电视剧 孙涛 戴娇倩 都市生活',
+    synopsis: '怂包到英雄的荒诞逆袭',
+  },
+  {
+    url: playmate,
+    src: love,
+    text: '玩伴',
+    name: '电视剧 孙涛 戴娇倩 都市生活',
+    synopsis: '怂包到英雄的荒诞逆袭',
+  },
+  {
+    url: playmate,
+    src: love,
+    text: '玩伴',
+    name: '电视剧 孙涛 戴娇倩 都市生活',
+    synopsis: '怂包到英雄的荒诞逆袭',
+  },
+  {
+    url: playmate,
+    src: love,
+    text: '玩伴',
+    name: '电视剧 孙涛 戴娇倩 都市生活',
+    synopsis: '怂包到英雄的荒诞逆袭',
+  },
+  {
+    url: playmate,
+    src: love,
+    text: '玩伴',
+    name: '电视剧 孙涛 戴娇倩 都市生活',
+    synopsis: '怂包到英雄的荒诞逆袭',
+  },
+]);
 </script>
 
 <style lang="scss">
- #home {
+#home {
   .top {
     top: 0;
     position: fixed;
@@ -625,8 +617,8 @@ const recommendtvList =ref ([
       border-radius: 30px;
       overflow: hidden;
       display: flex;
-      position:relative;
-     transform:translate(50%,0);
+      position: relative;
+      transform: translate(50%, 0);
       .import {
         height: 48px;
         width: 420px;
@@ -716,20 +708,32 @@ const recommendtvList =ref ([
         width: 100%;
         height: 48px;
         display: flex;
-        font-size:16px;
+        font-size: 16px;
         align-items: center;
-        justify-content:space-between;
-        margin-bottom:30px;
-       a{border:1px solid rgb(65, 64, 64);width:152px;height:40px;
-         background-color:#ffffff1A;color:#ffffff99;
-         text-align:center;line-height:40px;
-         border-radius:20px;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        a {
+          border: 1px solid rgb(65, 64, 64);
+          width: 152px;
+          height: 40px;
+          background-color: #ffffff1a;
+          color: #ffffff99;
+          text-align: center;
+          line-height: 40px;
+          border-radius: 20px;
         }
       }
-       #hotbroadcast{
-        display:flex;align-items:center;justify-content:space-between;
-        .change{color:#474646;font-size:14px;}
-        .change:hover{color:#ffffff;}
+      #hotbroadcast {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .change {
+          color: #474646;
+          font-size: 14px;
+        }
+        .change:hover {
+          color: #ffffff;
+        }
       }
       #hotpicture {
         display: grid;
@@ -782,55 +786,51 @@ const recommendtvList =ref ([
           }
         }
       }
-      #recommendtv {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 20px;
-        li {
-          height: 400px;
-          width: 100%;
-          border: 1px solid rgb(83, 82, 82);
-          border-bottom-left-radius: 15px;
-          border-bottom-right-radius: 15px;
-          background-color: #313131;
-          background-image: url('../assets/img/追.png');
-          background-repeat: no-repeat;
-          background-position: 460px 310px;
-          img {
-            height: 300px;
-          }
-          .caption {
-            padding: 10px;
-            height: 100px;
-            display: flex;
-            img {
-              height: 80px;
-              width: 57px;
-              margin-right: 5px;
-            }
-            .introduce {
-                
-              .tvname{
-                color: #ffffff;
-                font-size: 20px;
-              }
-              .name{
-                color: #474646;
-                font-size: 14px;
-              }
-              span {
-                color: #ffffff;
-                font-size: 16px;
-              }
-            }
-          }
-        }
-      }
+      // #recommendtv {
+      //   width: 100%;
+      //   display: grid;
+      //   grid-template-columns: repeat(3, 1fr);
+      //   grid-gap: 20px;
+      //   li {
+      //     height: 400px;
+      //     width: 100%;
+      //     border: 1px solid rgb(83, 82, 82);
+      //     border-bottom-left-radius: 15px;
+      //     border-bottom-right-radius: 15px;
+      //     background-color: #313131;
+      //     background-image: url('../assets/img/追.png');
+      //     background-repeat: no-repeat;
+      //     background-position: 460px 310px;
+      //     img {
+      //       height: 300px;
+      //     }
+      //     .caption {
+      //       padding: 10px;
+      //       height: 100px;
+      //       display: flex;
+      //       img {
+      //         height: 80px;
+      //         width: 57px;
+      //         margin-right: 5px;
+      //       }
+      //       .introduce {
+      //         .tvname {
+      //           color: #ffffff;
+      //           font-size: 20px;
+      //         }
+      //         .name {
+      //           color: #474646;
+      //           font-size: 14px;
+      //         }
+      //         span {
+      //           color: #ffffff;
+      //           font-size: 16px;
+      //         }
+      //       }
+      //     }
+      //   }
+      // }
     }
-
-
   }
-
 }
 </style>

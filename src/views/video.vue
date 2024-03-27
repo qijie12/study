@@ -1,4 +1,4 @@
- <template>
+<template>
   <div id="home">
     <div class="top">
       <span></span>
@@ -13,204 +13,30 @@
       </div>
     </div>
 
-    <div id="homePage">
-      <a href class="logo"><img src="../assets/img/tx.png" /></a>
-      <div class="homePage-Con">
-        <div class="front">
-          <a
-            name="1"
-            href="#"
-            v-for="(item, index) in homePageList"
-            :key="index"
-            >{{ item.name }}<img :src="item.url"
-          /></a>
-        </div>
-        <hr />
-        <div class="agreement">
-          <a href="" v-for="(item, index) in agreementList" :key="index">{{
-            item.text
-          }}</a>
-        </div>
-        <hr />
-        <div class="licence">
-          <a href="">粤网文[2023]2882-203号</a>
-          <a href="">网络视听许可证1904073号</a>
-          <a href="">粤公网安备<br />44030002000001号</a>
-          <p class="AT">
-            <a href="">关于腾讯</a><i>|</i><a href="">About Tencent</a>
-          </p>
-          <p><a href="">服务条款</a><i>|</i><a href="">广告设置</a> <i>|</i></p>
-          <p><a href="">腾讯招聘 客服中心</a><i>|</i></p>
-          <a href="">网站导航</a>
-          <a href="">Copyright © 1998 - 2024 Tencent. All Rights Reserved.</a>
-          <a href>腾讯公司 版权所有</a>
-          <img src="../assets/img/1f68341597825237110.avif" />
-        </div>
-      </div>
+    <leftMenuCom></leftMenuCom>
+
+    <div style="padding: 84px 40px 0 220px">
+      <bigListComp :list="videoList"></bigListComp>
     </div>
-
-    <ul id="video">
-      <li v-for="(item, index) in videoList" :key="index">
-        <img :src="item.url" />
-        <div>
-          <img :src="item.src" />
-          <a href="">
-          <p class="intro">{{ item.nametv }}</p>
-          <p class="protagonist"><img :src="item.pash"/>{{ item.name }}</p>
-          <span>{{ item.synopsis }}</span>
-          </a>
-        </div>
-      </li>
-
-      <!-- <li>
-        <img src="../assets/img/4.avif" />
-        <div>
-          <img src="../assets/img/3.avif" />
-          <a href="">
-            <p class="intro">王蓝莓的幸福生活</p>
-            <p class="protagonist"><img src="../assets/img/1.avif" />王蓝莓</p>
-            <span> "没有人能面无表情的看同学录" </span>
-          </a>
-        </div>
-      </li>
-      <li>
-        <img src="../assets/img/4.avif" />
-        <div>
-          <img src="../assets/img/3.avif" />
-          <a href="">
-            <p class="intro">王蓝莓的幸福生活</p>
-            <p class="protagonist"><img src="../assets/img/1.avif" />王蓝莓</p>
-            <span> "没有人能面无表情的看同学录" </span>
-          </a>
-        </div>
-      </li>
-      <li>
-        <img src="../assets/img/4.avif" />
-        <div>
-          <img src="../assets/img/3.avif" />
-          <a href="">
-            <p class="intro">王蓝莓的幸福生活</p>
-            <p class="protagonist"><img src="../assets/img/1.avif" />王蓝莓</p>
-            <span> "没有人能面无表情的看同学录" </span>
-          </a>
-        </div>
-      </li>
-      <li>
-        <img src="../assets/img/4.avif" />
-        <div>
-          <img src="../assets/img/3.avif" />
-          <a href="">
-            <p class="intro">王蓝莓的幸福生活</p>
-            <p class="protagonist"><img src="../assets/img/1.avif" />王蓝莓</p>
-            <span> "没有人能面无表情的看同学录" </span>
-          </a>
-        </div>
-      </li>
-      <li>
-        <img src="../assets/img/4.avif" />
-        <div>
-          <img src="../assets/img/3.avif" />
-          <a href="">
-            <p class="intro">王蓝莓的幸福生活</p>
-            <p class="protagonist"><img src="../assets/img/1.avif" />王蓝莓</p>
-            <span> "没有人能面无表情的看同学录" </span>
-          </a>
-        </div>
-      </li>
-      <li>
-        <img src="../assets/img/4.avif" />
-        <div>
-          <img src="../assets/img/3.avif" />
-          <a href="">
-            <p class="intro">王蓝莓的幸福生活</p>
-            <p class="protagonist"><img src="../assets/img/1.avif" />王蓝莓</p>
-            <span> "没有人能面无表情的看同学录" </span>
-          </a>
-        </div>
-      </li>
-      <li>
-        <img src="../assets/img/4.avif" />
-        <div>
-          <img src="../assets/img/3.avif" />
-          <a href="">
-            <p class="intro">王蓝莓的幸福生活</p>
-            <p class="protagonist"><img src="../assets/img/1.avif" />王蓝莓</p>
-            <span> "没有人能面无表情的看同学录" </span>
-          </a>
-        </div>
-      </li>
-      <li>
-        <img src="../assets/img/4.avif" />
-        <div>
-          <img src="../assets/img/3.avif" />
-          <a href="">
-            <p class="intro">王蓝莓的幸福生活</p>
-            <p class="protagonist"><img src="../assets/img/1.avif" />王蓝莓</p>
-            <span> "没有人能面无表情的看同学录" </span>
-          </a>
-        </div>
-      </li>
-      <li>
-        <img src="../assets/img/4.avif" />
-        <div>
-          <img src="../assets/img/3.avif" />
-          <a href="">
-            <p class="intro">王蓝莓的幸福生活</p>
-            <p class="protagonist"><img src="../assets/img/1.avif" />王蓝莓</p>
-            <span> "没有人能面无表情的看同学录" </span>
-          </a>
-        </div>
-      </li>
-      <li>
-        <img src="../assets/img/4.avif" />
-        <div>
-          <img src="../assets/img/3.avif" />
-          <a href="">
-            <p class="intro">王蓝莓的幸福生活</p>
-            <p class="protagonist"><img src="../assets/img/1.avif" />王蓝莓</p>
-            <span> "没有人能面无表情的看同学录" </span>
-          </a>
-        </div>
-      </li>
-      <li>
-        <img src="../assets/img/4.avif" />
-        <div>
-          <img src="../assets/img/3.avif" />
-          <a href="">
-            <p class="intro">王蓝莓的幸福生活</p>
-            <p class="protagonist"><img src="../assets/img/1.avif" />王蓝莓</p>
-            <span> "没有人能面无表情的看同学录" </span>
-          </a>
-        </div>
-      </li>
-      <li>
-        <img src="../assets/img/4.avif" />
-        <div>
-          <img src="../assets/img/3.avif" />
-          <a href="">
-            <p class="intro">王蓝莓的幸福生活</p>
-            <p class="protagonist"><img src="../assets/img/1.avif" />王蓝莓</p>
-            <span> "没有人能面无表情的看同学录" </span>
-          </a>
-        </div>
-      </li> -->
-    </ul>
   </div>
 </template>
 
 <script setup>
-  import { ref } from "vue";
-  import kingBlueberry from '../assets/img/4.avif';
-  import icons from '../assets/img/3.avif';
-  import VIP from '../assets/img/VIP.png';
-  import game from '../assets/img/game.png';
-  import time from '../assets/img/time.png';
-  import screenRecording from '../assets/img/screenRecording.png';
-  import download from '../assets/img/download.png';
-  import personage from '../assets/img/personage.png';
-  import collect from '../assets/img/收藏.png';
-  import easyLife from '../assets/img/3.avif';
-  import odeToJoy from '../assets/img/1.avif';
+import { ref } from 'vue';
+import kingBlueberry from '../assets/img/4.avif';
+import icons from '../assets/img/3.avif';
+import VIP from '../assets/img/VIP.png';
+import game from '../assets/img/game.png';
+import time from '../assets/img/time.png';
+import screenRecording from '../assets/img/screenRecording.png';
+import download from '../assets/img/download.png';
+import personage from '../assets/img/personage.png';
+import collect from '../assets/img/收藏.png';
+import easyLife from '../assets/img/3.avif';
+import odeToJoy from '../assets/img/1.avif';
+import bigListComp from '../components/bigListComp.vue';
+import leftMenuCom from '../components/leftMenuComp.vue';
+
 const topList = ref([
   {
     url: VIP,
@@ -347,110 +173,108 @@ const homePageList = ref([
   },
 ]);
 
-const videoList =ref([
-    {
-        url:kingBlueberry,
-        src:icons,
-        nametv:'王蓝莓的幸福生活',
-        pash:easyLife,
-        name:'王蓝',
-        synopsis:'没有人能面无表情的看同学录',
-    },
-     {
-        url:kingBlueberry,
-        src:icons,
-        pash:easyLife,
-        nametv:'王蓝莓的幸福生活',
-        name:'王蓝',
-        synopsis:'没有人能面无表情的看同学录',
-    },
-     {
-        url:kingBlueberry,
-        src:icons,
-        pash:easyLife,
-        nametv:'王蓝莓的幸福生活',
-        name:'王蓝',
-        synopsis:'没有人能面无表情的看同学录',
-    },
-     {
-        url:kingBlueberry,
-        src:icons,
-        pash:easyLife,
-        nametv:'王蓝莓的幸福生活',
-        name:'王蓝',
-        synopsis:'没有人能面无表情的看同学录',
-    },
-     {
-        url:kingBlueberry,
-        src:icons,
-        pash:easyLife,
-        nametv:'王蓝莓的幸福生活',
-        name:'王蓝',
-        synopsis:'没有人能面无表情的看同学录',
-    },
-     {
-        url:kingBlueberry,
-        src:icons,
-        pash:easyLife,
-        nametv:'王蓝莓的幸福生活',
-        name:'王蓝',
-        synopsis:'没有人能面无表情的看同学录',
-    },
-     {
-        url:kingBlueberry,
-        src:icons,
-        pash:easyLife,
-        nametv:'王蓝莓的幸福生活',
-        name:'王蓝',
-        synopsis:'没有人能面无表情的看同学录',
-    },
-     {
-        url:kingBlueberry,
-        src:icons,
-        pash:easyLife,
-        nametv:'王蓝莓的幸福生活',
-        name:'王蓝',
-        synopsis:'没有人能面无表情的看同学录',
-    },
-     {
-        url:kingBlueberry,
-        src:icons,
-        pash:easyLife,
-        nametv:'王蓝莓的幸福生活',
-        name:'王蓝',
-        synopsis:'没有人能面无表情的看同学录',
-    },
-     {
-        url:kingBlueberry,
-        src:icons,
-        pash:easyLife,
-        nametv:'王蓝莓的幸福生活',
-        name:'王蓝',
-        synopsis:'没有人能面无表情的看同学录',
-    },
-     {
-        url:kingBlueberry,
-        src:icons,
-        pash:easyLife,
-        nametv:'王蓝莓的幸福生活',
-        name:'王蓝',
-        synopsis:'没有人能面无表情的看同学录',
-    },
-     {
-        url:kingBlueberry,
-        src:icons,
-        pash:easyLife,
-        nametv:'王蓝莓的幸福生活',
-        name:'王蓝',
-        synopsis:'没有人能面无表情的看同学录',
-    },
-
- ])
+const videoList = ref([
+  {
+    url: kingBlueberry,
+    src: icons,
+    nametv: '王蓝莓的幸福生活',
+    pash: easyLife,
+    name: '王蓝',
+    synopsis: '没有人能面无表情的看同学录',
+  },
+  {
+    url: kingBlueberry,
+    src: icons,
+    pash: easyLife,
+    nametv: '王蓝莓的幸福生活',
+    name: '王蓝',
+    synopsis: '没有人能面无表情的看同学录',
+  },
+  {
+    url: kingBlueberry,
+    src: icons,
+    pash: easyLife,
+    nametv: '王蓝莓的幸福生活',
+    name: '王蓝',
+    synopsis: '没有人能面无表情的看同学录',
+  },
+  {
+    url: kingBlueberry,
+    src: icons,
+    pash: easyLife,
+    nametv: '王蓝莓的幸福生活',
+    name: '王蓝',
+    synopsis: '没有人能面无表情的看同学录',
+  },
+  {
+    url: kingBlueberry,
+    src: icons,
+    pash: easyLife,
+    nametv: '王蓝莓的幸福生活',
+    name: '王蓝',
+    synopsis: '没有人能面无表情的看同学录',
+  },
+  {
+    url: kingBlueberry,
+    src: icons,
+    pash: easyLife,
+    nametv: '王蓝莓的幸福生活',
+    name: '王蓝',
+    synopsis: '没有人能面无表情的看同学录',
+  },
+  {
+    url: kingBlueberry,
+    src: icons,
+    pash: easyLife,
+    nametv: '王蓝莓的幸福生活',
+    name: '王蓝',
+    synopsis: '没有人能面无表情的看同学录',
+  },
+  {
+    url: kingBlueberry,
+    src: icons,
+    pash: easyLife,
+    nametv: '王蓝莓的幸福生活',
+    name: '王蓝',
+    synopsis: '没有人能面无表情的看同学录',
+  },
+  {
+    url: kingBlueberry,
+    src: icons,
+    pash: easyLife,
+    nametv: '王蓝莓的幸福生活',
+    name: '王蓝',
+    synopsis: '没有人能面无表情的看同学录',
+  },
+  {
+    url: kingBlueberry,
+    src: icons,
+    pash: easyLife,
+    nametv: '王蓝莓的幸福生活',
+    name: '王蓝',
+    synopsis: '没有人能面无表情的看同学录',
+  },
+  {
+    url: kingBlueberry,
+    src: icons,
+    pash: easyLife,
+    nametv: '王蓝莓的幸福生活',
+    name: '王蓝',
+    synopsis: '没有人能面无表情的看同学录',
+  },
+  {
+    url: kingBlueberry,
+    src: icons,
+    pash: easyLife,
+    nametv: '王蓝莓的幸福生活',
+    name: '王蓝',
+    synopsis: '没有人能面无表情的看同学录',
+  },
+]);
 </script>
 
 <style lang="scss">
 #home {
- 
   .top {
     top: 0;
     position: fixed;
@@ -481,68 +305,13 @@ const videoList =ref([
         height: 48px;
         width: 60px;
         border-left: none;
-        background-image: url("../assets/img/search.png");
+        background-image: url('../assets/img/search.png');
         background-repeat: no-repeat;
         background-position: 50%;
       }
     }
     a {
       padding: 0 15px;
-    }
-  }
-  #homePage {
-    width: 210px;
-    height: 100vh;
-    top: 0;
-    padding: 20px 0 20px 20px;
-    position: fixed;
-    z-index: 1;
-    // background-color:rgba(230, 233, 240,.45);
-    .logo {
-      top: 0;
-    }
-    .homePage-Con {
-      overflow-y: scroll;
-      height: 100%;
-      a {
-        padding: 10px 0;
-        display: flex;
-        align-items: center;
-        font-size: 16px;
-      }
-      .front {
-        direction: rtl;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        flex-direction: column;
-        margin-top: 20px;
-      }
-      .agreement {
-        a {
-          font-size: 12px;
-        }
-      }
-      .licence {
-        padding-bottom: 60px;
-        a {
-          font-size: 12px;
-          padding: 5px 0;
-        }
-        p {
-          display: flex;
-          align-items: center;
-          color: #474646;
-          i {
-            font-style: unset;
-            margin: 0 5px;
-          }
-        }
-        img {
-          width: 122px;
-          height: 52px;
-        }
-      }
     }
   }
   #centerCon {
@@ -614,7 +383,7 @@ const videoList =ref([
           border-radius: 10px;
           border: 1px solid rgb(107, 106, 106);
           background-color: rgb(98, 36, 36, 0.3);
-          background-image: url("../assets/img/追.png");
+          background-image: url('../assets/img/追.png');
           background-repeat: no-repeat;
           background-position: 180px 160px;
         }
@@ -647,7 +416,7 @@ const videoList =ref([
           border-bottom-left-radius: 15px;
           border-bottom-right-radius: 15px;
           background-color: #313131;
-          background-image: url("../assets/img/追.png");
+          background-image: url('../assets/img/追.png');
           background-repeat: no-repeat;
           background-position: 460px 310px;
           img {
@@ -682,59 +451,59 @@ const videoList =ref([
     }
   }
 
-  #video {
-    padding: 84px 40px 0 220px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-    width: 100%;
-    li {
-      background-image: url("../assets/img/追.png");
-      background-repeat: no-repeat;
-      background-position: 460px 310px;
-      width: 100%;
-      height: 400px;
-      border: 1px solid rgb(85, 83, 83);
-      overflow: hidden;
-      border-radius: 20px;
-      background-color: #252525;
-      img {
-        height: 300px;
-        width: 100%;
-        margin-right: 5px;
-      }
-      div {
-        height: 90px;
-        width: 100%;
-        padding: 10px 15px;
-        display: flex;
-        position: relative;
+  // #video {
+  //   padding: 84px 40px 0 220px;
+  //   display: grid;
+  //   grid-template-columns: repeat(3, 1fr);
+  //   grid-gap: 20px;
+  //   width: 100%;
+  //   li {
+  //     background-image: url('../assets/img/追.png');
+  //     background-repeat: no-repeat;
+  //     background-position: 460px 310px;
+  //     width: 100%;
+  //     height: 400px;
+  //     border: 1px solid rgb(85, 83, 83);
+  //     overflow: hidden;
+  //     border-radius: 20px;
+  //     background-color: #252525;
+  //     img {
+  //       height: 300px;
+  //       width: 100%;
+  //       margin-right: 5px;
+  //     }
+  //     div {
+  //       height: 90px;
+  //       width: 100%;
+  //       padding: 10px 15px;
+  //       display: flex;
+  //       position: relative;
 
-        img {
-          height: 100%;
-          width: 57px;
-        }
-        a {
-          .intro {
-            color: #ffffff;
-            font-size: 20px;
-          }
+  //       img {
+  //         height: 100%;
+  //         width: 57px;
+  //       }
+  //       a {
+  //         .intro {
+  //           color: #ffffff;
+  //           font-size: 20px;
+  //         }
 
-          .protagonist {
-            color: #3b3b3b;
-            font-size: 14px;
-            img {
-              width: 20px;
-              height: 20px;
-            }
-          }
-          span {
-            color: #ffffff;
-            font-size: 16px;
-          }
-        }
-      }
-    }
-  }
+  //         .protagonist {
+  //           color: #3b3b3b;
+  //           font-size: 14px;
+  //           img {
+  //             width: 20px;
+  //             height: 20px;
+  //           }
+  //         }
+  //         span {
+  //           color: #ffffff;
+  //           font-size: 16px;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 }
 </style>

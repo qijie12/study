@@ -12,36 +12,51 @@ const routes = [
     name: 'live',
     component: () => import('../views/homePage.vue'),
   },
-  { path: '/video',
+  {
+    path: '/video',
     name: 'video',
-    component: () => import('../views/video.vue')
-  },
-  {path:'/teleplay',
-  name:'teleplay',
-  component: () =>import('../views/teleplay.vue')
+    component: () => import('../views/video.vue'),
   },
   {
-    path:'/movie',
-    name:'movie',
-    component: () =>import('../views/movie.vue')
+    path: '/teleplay',
+    name: 'teleplay',
+    component: () => import('../views/teleplay.vue'),
   },
   {
-    path:'/variety',
-    name:'variety',
-    component:() =>import ('../views/variety.vue')
+    path: '/movie',
+    name: 'movie',
+    component: () => import('../views/movie.vue'),
   },
   {
-    path:'/cartoon',
-    name:'cartoon',
-    component: () =>import ('../views/cartoon.vue')
+    path: '/variety',
+    name: 'variety',
+    component: () => import('../views/variety.vue'),
   },
   {
-    path:'/children',
-    name:'children',
-    component:() =>import('../views/children.vue')
+    path: '/cartoon',
+    name: 'cartoon',
+    component: () => import('../views/cartoon.vue'),
   },
-
-
+  {
+    path: '/children',
+    name: 'children',
+    component: () => import('../views/children.vue'),
+  },
+  {
+    path: '/NBA',
+    name: 'NBA',
+    component: () => import('../views/NBA.vue'),
+  },
+  {
+    path: '/documentary',
+    name: 'documentary',
+    component: () => import('../views/documentary.vue'),
+  },
+  {
+    path: '/playlet',
+    name: 'playlet',
+    component: () => import('../views/playlet.vue'),
+  },
 ];
 
 const router = createRouter({

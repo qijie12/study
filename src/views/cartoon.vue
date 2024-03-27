@@ -712,8 +712,6 @@ const recommendtvList = ref ([
       }
     }
 
-
   }
-
 }
 </style>
