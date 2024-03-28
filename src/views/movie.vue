@@ -1,53 +1,5 @@
 <template>
   <div id="home">
-    <!-- <div class="top">
-      <span></span>
-      <span class="input-box">
-        <input type="" class="import" />
-        <input type="" class="search" />
-      </span>
-      <div>
-        <a href v-for="(item, index) in topList" :key="index"
-          ><img :src="item.url"
-        /></a>
-      </div>
-    </div>
-
-    <div id="homePage">
-      <a href class="logo"><img src="../assets/img/tx.png" /></a>
-      <div class="homePage-Con">
-        <div class="front">
-          <a
-            name="1"
-            href="#"
-            v-for="(item, index) in homePageList"
-            :key="index"
-            >{{ item.name }}<img :src="item.url"
-          /></a>
-        </div>
-        <hr />
-        <div class="agreement">
-          <a href="" v-for="(item, index) in agreementList" :key="index">{{
-            item.text
-          }}</a>
-        </div>
-        <hr />
-        <div class="licence">
-          <a href="">粤网文[2023]2882-203号</a>
-          <a href="">网络视听许可证1904073号</a>
-          <a href="">粤公网安备<br />44030002000001号</a>
-          <p class="AT">
-            <a href="">关于腾讯</a><i>|</i><a href="">About Tencent</a>
-          </p>
-          <p><a href="">服务条款</a><i>|</i><a href="">广告设置</a> <i>|</i></p>
-          <p><a href="">腾讯招聘 客服中心</a><i>|</i></p>
-          <a href="">网站导航</a>
-          <a href="">Copyright © 1998 - 2024 Tencent. All Rights Reserved.</a>
-          <a href>腾讯公司 版权所有</a>
-          <img src="../assets/img/1f68341597825237110.avif" />
-        </div>
-      </div>
-    </div> -->
 
     <topComp></topComp>
     <leftMenuComp></leftMenuComp>
@@ -71,19 +23,7 @@
         <div id="recommend">
           <h1>为你推荐</h1>
         </div>
-        <!-- <ul id="recommendtv">
-          <li v-for="(item, index) in recommendtvList" :key="index">
-            <img :src="item.url" />
-            <div class="caption">
-              <img :src="item.src" />
-              <div class="introduce">
-                <p class="tvname">{{ item.tvname }}</p>
-                <p class="name">{{ item.name }}</p>
-                <span>{{ item.syopnsis }}</span>
-              </div>
-            </div>
-          </li>
-        </ul> -->
+
         <bigListComp :list="recommendtvList"></bigListComp>
 
       </div>
@@ -125,7 +65,7 @@ const hotpictureList = ref([
     syopnsis: "陈晓童瑶首搭守护小日子",
   },
   {
-    url: easyLife,
+    url: playmate,
     name: "小日子",
     syopnsis: "陈晓童瑶首搭守护小日子",
   },
@@ -140,7 +80,7 @@ const hotpictureList = ref([
     syopnsis: "陈晓童瑶首搭守护小日子",
   },
   {
-    url: easyLife,
+    url: odeToJoy,
     name: "小日子",
     syopnsis: "陈晓童瑶首搭守护小日子",
   },
@@ -155,7 +95,7 @@ const hotpictureList = ref([
     syopnsis: "陈晓童瑶首搭守护小日子",
   },
   {
-    url: easyLife,
+    url: odeToJoy,
     name: "小日子",
     syopnsis: "陈晓童瑶首搭守护小日子",
   },

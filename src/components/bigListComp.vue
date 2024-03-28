@@ -1,7 +1,7 @@
 <template>
   <div class="share-bigListComp-box">
     <ul class="bigListComp-Con">
-      <li v-for="(item, index) in list" :key="index">
+      <li v-for="(item, index) in text" :key="index">
         <img :src="item.url" />
         <div>
           <img :src="item.src" />
@@ -10,8 +10,8 @@
             <p class="protagonist">
               <img :src="item.pash" />
               {{ item.name }}
-              </p>
-            <span>{{ item.synopsis}}</span>
+            </p>
+            <span>{{ item.synopsis }}</span>
           </a>
         </div>
       </li>
@@ -26,10 +26,11 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  text: {
+    type: Array,
+    default: () => [],
+  },
 });
-
-
-
 </script>
 
 <style lang="scss">

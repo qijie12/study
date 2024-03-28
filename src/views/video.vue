@@ -1,37 +1,19 @@
 <template>
   <div id="home">
-    <!-- <div class="top">
-      <span></span>
-      <span class="input-box">
-        <input type="" class="import" />
-        <input type="" class="search" />
-      </span>
-      <div>
-        <a href v-for="(item, index) in topList" :key="index"
-          ><img :src="item.url"
-        /></a>
-      </div>
-    </div> -->
+    
     <topComp></topComp>
     <leftMenuComp></leftMenuComp>
 
     <div style="padding: 84px 40px 0 220px">
-      <bigListComp :list="videoList"></bigListComp>
+      <bigListComp :text="videoList"></bigListComp>
     </div>
-
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import kingBlueberry from '../assets/img/4.avif';
-import icons from '../assets/img/3.avif';
-import VIP from '../assets/img/VIP.png';
-import game from '../assets/img/game.png';
-import time from '../assets/img/time.png';
-import screenRecording from '../assets/img/screenRecording.png';
-import download from '../assets/img/download.png';
-import personage from '../assets/img/personage.png';
+import icons from '../assets/img/2.avif';
 import collect from '../assets/img/收藏.png';
 import easyLife from '../assets/img/3.avif';
 import odeToJoy from '../assets/img/1.avif';
@@ -40,150 +22,14 @@ import bigListComp from '../components/bigListComp.vue';
 import leftMenuComp from '../components/leftMenuComp.vue';
 import topComp from '../components/topComp.vue';
 
-// const topList = ref([
-//   {
-//     url: VIP,
-//   },
-//   {
-//     url: game,
-//   },
-//   {
-//     url: time,
-//   },
-//   {
-//     url: screenRecording,
-//   },
-//   {
-//     url: download,
-//   },
-//   {
-//     url: personage,
-//   },
-// ]);
-
-// const homePageList = ref([
-//   {
-//     name: '首页',
-//     url: collect,
-//   },
-//   {
-//     name: '中视频',
-//     url: collect,
-//   },
-//   {
-//     name: '电视剧',
-//     url: collect,
-//   },
-//   {
-//     name: '电影',
-//     url: collect,
-//   },
-//   {
-//     name: '综艺',
-//     url: collect,
-//   },
-//   {
-//     name: '动漫',
-//     url: collect,
-//   },
-//   {
-//     name: '少儿',
-//     url: collect,
-//   },
-//   {
-//     name: '体育',
-//     url: collect,
-//   },
-//   {
-//     name: '纪录片',
-//     url: collect,
-//   },
-//   {
-//     name: '短剧',
-//     url: collect,
-//   },
-//   {
-//     name: 'NBA',
-//     url: collect,
-//   },
-//   {
-//     name: 'VIP会员',
-//     url: collect,
-//   },
-//   {
-//     name: '游戏中心',
-//     url: collect,
-//   },
-//   {
-//     name: '传奇游戏库',
-//     url: collect,
-//   },
-//   {
-//     name: '科技',
-//     url: collect,
-//   },
-//   {
-//     name: '音乐',
-//     url: collect,
-//   },
-//   {
-//     name: 'F1',
-//     url: collect,
-//   },
-//   {
-//     name: 'WWE',
-//     url: collect,
-//   },
-//   {
-//     name: '知识',
-//     url: collect,
-//   },
-//   {
-//     name: '学堂',
-//     url: collect,
-//   },
-//   {
-//     name: '艺术',
-//     url: collect,
-//   },
-//   {
-//     name: '财经',
-//     url: collect,
-//   },
-//   {
-//     name: '生活',
-//     url: collect,
-//   },
-//   {
-//     name: '时尚',
-//     url: collect,
-//   },
-//   {
-//     name: '健康',
-//     url: collect,
-//   },
-//   {
-//     name: '育儿',
-//     url: collect,
-//   },
-//   {
-//     name: '汽车',
-//     url: collect,
-//   },
-//   {
-//     name: '棋牌游戏库',
-//     url: collect,
-//   },
-// ]);
-
 const videoList = ref([
   {
     url: kingBlueberry,
     src: icons,
-    tvname: '王蓝莓的幸福生活',
+    tvname: '王蓝莓的幸福生活`123123',
     pash: easyLife,
-    name: '王蓝',
-    synopsis: '没有人能面无表情的看同学录',
+    name: '王蓝111',
+    synopsis: '没有人能面无表情的看同学录323213',
   },
   {
     url: kingBlueberry,
@@ -198,14 +44,6 @@ const videoList = ref([
     src: icons,
     pash: easyLife,
     tvname: '王蓝莓的幸福生活',
-    name: '王蓝',
-    synopsis: '没有人能面无表情的看同学录',
-  },
-  {
-    url: kingBlueberry,
-    src: icons,
-    pash: easyLife,
-   tvname: '王蓝莓的幸福生活',
     name: '王蓝',
     synopsis: '没有人能面无表情的看同学录',
   },
@@ -253,7 +91,15 @@ const videoList = ref([
     url: kingBlueberry,
     src: icons,
     pash: easyLife,
-   tvname: '王蓝莓的幸福生活',
+    tvname: '王蓝莓的幸福生活',
+    name: '王蓝',
+    synopsis: '没有人能面无表情的看同学录',
+  },
+  {
+    url: kingBlueberry,
+    src: icons,
+    pash: easyLife,
+    tvname: '王蓝莓的幸福生活',
     name: '王蓝',
     synopsis: '没有人能面无表情的看同学录',
   },
@@ -278,7 +124,6 @@ const videoList = ref([
 
 <style lang="scss">
 #home {
- 
   #centerCon {
     > img {
       height: 600px;

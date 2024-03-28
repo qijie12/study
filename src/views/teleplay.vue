@@ -93,7 +93,7 @@ const vaultList = ref([
 
 const hotpictureList = ref([
   {
-    url: easyLife,
+    url: playmate,
     name: '小日子',
     synopsis: '陈晓童瑶首搭守护小日子',
   },
@@ -123,7 +123,7 @@ const hotpictureList = ref([
     synopsis: '陈晓童瑶首搭守护小日子',
   },
   {
-    url: easyLife,
+    url:  blossoms,
     name: '小日子',
     synopsis: '陈晓童瑶首搭守护小日子',
   },

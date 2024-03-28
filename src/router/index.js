@@ -57,6 +57,11 @@ const routes = [
     name: 'playlet',
     component: () => import('../views/playlet.vue'),
   },
+  {
+    path:'/game',
+    name:'game',
+    component: () => import ('../views/game.vue'),
+  },
 ];
 
 const router = createRouter({

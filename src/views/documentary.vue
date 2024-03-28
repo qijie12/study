@@ -17,7 +17,7 @@
           <div class="change">换一换</div>
         </div>
 
-      <hotBroadcastComp :list="hotpictureList"></hotBroadcastComp>
+        <hotBroadcastComp :list="hotpictureList"></hotBroadcastComp>
         <!-- <ul id="hotpicture">
           <li v-for="(item, index) in hotpictureList" :key="index">
             <img :src="item.url" />
@@ -43,7 +43,6 @@
               </div>
             </div>
           </li>
-       
         </ul>
       </div>
     </div>
@@ -59,9 +58,9 @@ import easyLife from '../assets/img/3.avif';
 import love from '../assets/img/4.avif';
 import blossoms from '../assets/img/5.avif';
 
-import topComp from "../components/topComp.vue";
-import leftMenuComp from "../components/leftMenuComp.vue";
-import hotBroadcastComp from "../components/hotBroadcastComp.vue";;
+import topComp from '../components/topComp.vue';
+import leftMenuComp from '../components/leftMenuComp.vue';
+import hotBroadcastComp from '../components/hotBroadcastComp.vue';
 
 const vaultList = ref([
   { text: ' 纪录片片库 ' },
