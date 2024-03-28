@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  fangyuxin0325:
+    specifier: 'link:'
+    version: 'link:'
   vue:
     specifier: ^3.4.21
     version: 3.4.21

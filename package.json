@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "fangyuxin0325": "link:",
     "vue": "^3.4.21",
     "vue-router": "next"
   },
