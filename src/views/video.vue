@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <div class="top">
+    <!-- <div class="top">
       <span></span>
       <span class="input-box">
         <input type="" class="import" />
@@ -11,13 +11,14 @@
           ><img :src="item.url"
         /></a>
       </div>
-    </div>
-
-    <leftMenuCom></leftMenuCom>
+    </div> -->
+    <topComp></topComp>
+    <leftMenuComp></leftMenuComp>
 
     <div style="padding: 84px 40px 0 220px">
       <bigListComp :list="videoList"></bigListComp>
     </div>
+
   </div>
 </template>
 
@@ -34,150 +35,152 @@ import personage from '../assets/img/personage.png';
 import collect from '../assets/img/收藏.png';
 import easyLife from '../assets/img/3.avif';
 import odeToJoy from '../assets/img/1.avif';
+
 import bigListComp from '../components/bigListComp.vue';
-import leftMenuCom from '../components/leftMenuComp.vue';
+import leftMenuComp from '../components/leftMenuComp.vue';
+import topComp from '../components/topComp.vue';
 
-const topList = ref([
-  {
-    url: VIP,
-  },
-  {
-    url: game,
-  },
-  {
-    url: time,
-  },
-  {
-    url: screenRecording,
-  },
-  {
-    url: download,
-  },
-  {
-    url: personage,
-  },
-]);
+// const topList = ref([
+//   {
+//     url: VIP,
+//   },
+//   {
+//     url: game,
+//   },
+//   {
+//     url: time,
+//   },
+//   {
+//     url: screenRecording,
+//   },
+//   {
+//     url: download,
+//   },
+//   {
+//     url: personage,
+//   },
+// ]);
 
-const homePageList = ref([
-  {
-    name: '首页',
-    url: collect,
-  },
-  {
-    name: '中视频',
-    url: collect,
-  },
-  {
-    name: '电视剧',
-    url: collect,
-  },
-  {
-    name: '电影',
-    url: collect,
-  },
-  {
-    name: '综艺',
-    url: collect,
-  },
-  {
-    name: '动漫',
-    url: collect,
-  },
-  {
-    name: '少儿',
-    url: collect,
-  },
-  {
-    name: '体育',
-    url: collect,
-  },
-  {
-    name: '纪录片',
-    url: collect,
-  },
-  {
-    name: '短剧',
-    url: collect,
-  },
-  {
-    name: 'NBA',
-    url: collect,
-  },
-  {
-    name: 'VIP会员',
-    url: collect,
-  },
-  {
-    name: '游戏中心',
-    url: collect,
-  },
-  {
-    name: '传奇游戏库',
-    url: collect,
-  },
-  {
-    name: '科技',
-    url: collect,
-  },
-  {
-    name: '音乐',
-    url: collect,
-  },
-  {
-    name: 'F1',
-    url: collect,
-  },
-  {
-    name: 'WWE',
-    url: collect,
-  },
-  {
-    name: '知识',
-    url: collect,
-  },
-  {
-    name: '学堂',
-    url: collect,
-  },
-  {
-    name: '艺术',
-    url: collect,
-  },
-  {
-    name: '财经',
-    url: collect,
-  },
-  {
-    name: '生活',
-    url: collect,
-  },
-  {
-    name: '时尚',
-    url: collect,
-  },
-  {
-    name: '健康',
-    url: collect,
-  },
-  {
-    name: '育儿',
-    url: collect,
-  },
-  {
-    name: '汽车',
-    url: collect,
-  },
-  {
-    name: '棋牌游戏库',
-    url: collect,
-  },
-]);
+// const homePageList = ref([
+//   {
+//     name: '首页',
+//     url: collect,
+//   },
+//   {
+//     name: '中视频',
+//     url: collect,
+//   },
+//   {
+//     name: '电视剧',
+//     url: collect,
+//   },
+//   {
+//     name: '电影',
+//     url: collect,
+//   },
+//   {
+//     name: '综艺',
+//     url: collect,
+//   },
+//   {
+//     name: '动漫',
+//     url: collect,
+//   },
+//   {
+//     name: '少儿',
+//     url: collect,
+//   },
+//   {
+//     name: '体育',
+//     url: collect,
+//   },
+//   {
+//     name: '纪录片',
+//     url: collect,
+//   },
+//   {
+//     name: '短剧',
+//     url: collect,
+//   },
+//   {
+//     name: 'NBA',
+//     url: collect,
+//   },
+//   {
+//     name: 'VIP会员',
+//     url: collect,
+//   },
+//   {
+//     name: '游戏中心',
+//     url: collect,
+//   },
+//   {
+//     name: '传奇游戏库',
+//     url: collect,
+//   },
+//   {
+//     name: '科技',
+//     url: collect,
+//   },
+//   {
+//     name: '音乐',
+//     url: collect,
+//   },
+//   {
+//     name: 'F1',
+//     url: collect,
+//   },
+//   {
+//     name: 'WWE',
+//     url: collect,
+//   },
+//   {
+//     name: '知识',
+//     url: collect,
+//   },
+//   {
+//     name: '学堂',
+//     url: collect,
+//   },
+//   {
+//     name: '艺术',
+//     url: collect,
+//   },
+//   {
+//     name: '财经',
+//     url: collect,
+//   },
+//   {
+//     name: '生活',
+//     url: collect,
+//   },
+//   {
+//     name: '时尚',
+//     url: collect,
+//   },
+//   {
+//     name: '健康',
+//     url: collect,
+//   },
+//   {
+//     name: '育儿',
+//     url: collect,
+//   },
+//   {
+//     name: '汽车',
+//     url: collect,
+//   },
+//   {
+//     name: '棋牌游戏库',
+//     url: collect,
+//   },
+// ]);
 
 const videoList = ref([
   {
     url: kingBlueberry,
     src: icons,
-    nametv: '王蓝莓的幸福生活',
+    tvname: '王蓝莓的幸福生活',
     pash: easyLife,
     name: '王蓝',
     synopsis: '没有人能面无表情的看同学录',
@@ -186,7 +189,7 @@ const videoList = ref([
     url: kingBlueberry,
     src: icons,
     pash: easyLife,
-    nametv: '王蓝莓的幸福生活',
+    tvname: '王蓝莓的幸福生活',
     name: '王蓝',
     synopsis: '没有人能面无表情的看同学录',
   },
@@ -194,7 +197,7 @@ const videoList = ref([
     url: kingBlueberry,
     src: icons,
     pash: easyLife,
-    nametv: '王蓝莓的幸福生活',
+    tvname: '王蓝莓的幸福生活',
     name: '王蓝',
     synopsis: '没有人能面无表情的看同学录',
   },
@@ -202,7 +205,7 @@ const videoList = ref([
     url: kingBlueberry,
     src: icons,
     pash: easyLife,
-    nametv: '王蓝莓的幸福生活',
+   tvname: '王蓝莓的幸福生活',
     name: '王蓝',
     synopsis: '没有人能面无表情的看同学录',
   },
@@ -210,7 +213,7 @@ const videoList = ref([
     url: kingBlueberry,
     src: icons,
     pash: easyLife,
-    nametv: '王蓝莓的幸福生活',
+    tvname: '王蓝莓的幸福生活',
     name: '王蓝',
     synopsis: '没有人能面无表情的看同学录',
   },
@@ -218,7 +221,7 @@ const videoList = ref([
     url: kingBlueberry,
     src: icons,
     pash: easyLife,
-    nametv: '王蓝莓的幸福生活',
+    tvname: '王蓝莓的幸福生活',
     name: '王蓝',
     synopsis: '没有人能面无表情的看同学录',
   },
@@ -226,7 +229,7 @@ const videoList = ref([
     url: kingBlueberry,
     src: icons,
     pash: easyLife,
-    nametv: '王蓝莓的幸福生活',
+    tvname: '王蓝莓的幸福生活',
     name: '王蓝',
     synopsis: '没有人能面无表情的看同学录',
   },
@@ -234,7 +237,7 @@ const videoList = ref([
     url: kingBlueberry,
     src: icons,
     pash: easyLife,
-    nametv: '王蓝莓的幸福生活',
+    tvname: '王蓝莓的幸福生活',
     name: '王蓝',
     synopsis: '没有人能面无表情的看同学录',
   },
@@ -242,7 +245,7 @@ const videoList = ref([
     url: kingBlueberry,
     src: icons,
     pash: easyLife,
-    nametv: '王蓝莓的幸福生活',
+    tvname: '王蓝莓的幸福生活',
     name: '王蓝',
     synopsis: '没有人能面无表情的看同学录',
   },
@@ -250,7 +253,7 @@ const videoList = ref([
     url: kingBlueberry,
     src: icons,
     pash: easyLife,
-    nametv: '王蓝莓的幸福生活',
+   tvname: '王蓝莓的幸福生活',
     name: '王蓝',
     synopsis: '没有人能面无表情的看同学录',
   },
@@ -258,7 +261,7 @@ const videoList = ref([
     url: kingBlueberry,
     src: icons,
     pash: easyLife,
-    nametv: '王蓝莓的幸福生活',
+    tvname: '王蓝莓的幸福生活',
     name: '王蓝',
     synopsis: '没有人能面无表情的看同学录',
   },
@@ -266,7 +269,7 @@ const videoList = ref([
     url: kingBlueberry,
     src: icons,
     pash: easyLife,
-    nametv: '王蓝莓的幸福生活',
+    tvname: '王蓝莓的幸福生活',
     name: '王蓝',
     synopsis: '没有人能面无表情的看同学录',
   },
@@ -275,45 +278,7 @@ const videoList = ref([
 
 <style lang="scss">
 #home {
-  .top {
-    top: 0;
-    position: fixed;
-    z-index: 1;
-    background-color: rgba(67, 66, 66, 0.5);
-    height: 84px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-right: 10px;
-    .input-box {
-      height: 48px;
-      width: 480px;
-      border: 1px solid transparent;
-      border-radius: 30px;
-      overflow: hidden;
-      display: flex;
-      position: relative;
-      transform: translate(50%, 0);
-      .import {
-        height: 48px;
-        width: 420px;
-        border-right: none;
-        padding-left: 20px;
-      }
-      .search {
-        height: 48px;
-        width: 60px;
-        border-left: none;
-        background-image: url('../assets/img/search.png');
-        background-repeat: no-repeat;
-        background-position: 50%;
-      }
-    }
-    a {
-      padding: 0 15px;
-    }
-  }
+ 
   #centerCon {
     > img {
       height: 600px;

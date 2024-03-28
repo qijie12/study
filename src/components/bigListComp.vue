@@ -6,9 +6,12 @@
         <div>
           <img :src="item.src" />
           <a href="">
-            <p class="intro">{{ item.nametv }}</p>
-            <p class="protagonist"><img :src="item.pash" />{{ item.name }}</p>
-            <span>{{ item.synopsis }}</span>
+            <p class="intro">{{ item.tvname }}</p>
+            <p class="protagonist">
+              <img :src="item.pash" />
+              {{ item.name }}
+              </p>
+            <span>{{ item.synopsis}}</span>
           </a>
         </div>
       </li>
@@ -24,6 +27,9 @@ const props = defineProps({
     default: () => [],
   },
 });
+
+
+
 </script>
 
 <style lang="scss">

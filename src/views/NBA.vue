@@ -1,59 +1,13 @@
 <template>
   <div id="home">
-    <div class="top">
-      <span></span>
-      <span class="input-box">
-        <input type="" class="import" />
-        <input type="" class="search" />
-      </span>
-      <div>
-        <a href v-for="(item, index) in topList" :key="index"
-          ><img :src="item.url"
-        /></a>
-      </div>
-    </div>
-
-    <div id="homePage">
-      <a href class="logo"><img src="../assets/img/tx.png" /></a>
-      <div class="homePage-Con">
-        <div class="front">
-          <a
-            name="1"
-            href="#"
-            v-for="(item, index) in homePageList"
-            :key="index"
-            >{{ item.name }}<img :src="item.url"
-          /></a>
-        </div>
-        <hr />
-        <div class="agreement">
-          <a href="" v-for="(item, index) in agreementList" :key="index">{{
-            item.text
-          }}</a>
-        </div>
-        <hr />
-        <div class="licence">
-          <a href="">粤网文[2023]2882-203号</a>
-          <a href="">网络视听许可证1904073号</a>
-          <a href="">粤公网安备<br />44030002000001号</a>
-          <p class="AT">
-            <a href="">关于腾讯</a><i>|</i><a href="">About Tencent</a>
-          </p>
-          <p><a href="">服务条款</a><i>|</i><a href="">广告设置</a> <i>|</i></p>
-          <p><a href="">腾讯招聘 客服中心</a><i>|</i></p>
-          <a href="">网站导航</a>
-          <a href="">Copyright © 1998 - 2024 Tencent. All Rights Reserved.</a>
-          <a href>腾讯公司 版权所有</a>
-          <img src="../assets/img/1f68341597825237110.avif" />
-        </div>
-      </div>
-    </div>
+    <topComp></topComp>
+    <leftMenuComp></leftMenuComp>
 
     <div id="sports">
       <img src="../assets/img/6.avif" />
       <div id="content">
-       
-        <div id="tvVip">
+       <div id="nbaList">
+        <div id="sportsVip">
           <a href="">体育超级VIP | 首3月40元/月</a>
         </div>
         <div id="vault">
@@ -66,6 +20,7 @@
           <a href=""> 极限运动 </a>
           <a href=""> 足球 </a>
         </div>
+      </div>
 
         <div id="hotbroadcast">
           <h1>热门赛程</h1>
@@ -73,29 +28,14 @@
         </div>
 
         <ul id="schedule">
-          <li>
-            <p>体育VIP</p>
-            <div>
-              <p>进行中</p>
-              <span> 23-24赛季常规赛 雷霆vs雄鹿重播 </span>
-            </div>
+          <li v-for="(item,index) in scheduleList" :key="index">
+             <p>{{item.tvname}}</p>
+             <div>
+              <p>{{item.name}}</p>
+              <span>{{item.synopsis}}</span>
+             </div>
           </li>
-          <li>
-            <p>畅享赛事</p>
-            <div>
-              <p>进行中</p>
-              <span> 23-24赛季常规赛 雷霆vs雄鹿重播 </span>
-            </div>
-          </li>
-          <li>
-            <p>体育VIP</p>
-            <div>
-              <p>2024-03-25 19:00:00</p>
-              <span>
-                有球必应：联盟判罚新尺度詹杜库谁吃亏？勇士火箭谁能进入附加赛？
-              </span>
-            </div>
-          </li>
+  
         </ul>
 
         <div id="recommend">
@@ -103,68 +43,14 @@
           <span>换一换</span>
         </div>
 
-        <ul id="NBA">
-          <li>
-            <img src="../assets/img/NBA1.webp" />
-            <p>詹眉最后4分钟得13分</p>
-            <span> 力挽狂澜！一举拿下比赛 </span>
+        <!-- <ul id="NBA">
+          <li v-for="(item,index) in NBAList" :key="index">
+            <img :src="item.url"/>
+            <p>{{item.text}}</p>
+            <span>{{item.synopsis}}</span>
           </li>
-          <li>
-            <img src="../assets/img/NBA1.webp" />
-            <p>詹眉最后4分钟得13分</p>
-            <span> 力挽狂澜！一举拿下比赛 </span>
-          </li>
-          <li>
-            <img src="../assets/img/NBA1.webp" />
-            <p>詹眉最后4分钟得13分</p>
-            <span> 力挽狂澜！一举拿下比赛 </span>
-          </li>
-          <li>
-            <img src="../assets/img/NBA1.webp" />
-            <p>詹眉最后4分钟得13分</p>
-            <span> 力挽狂澜！一举拿下比赛 </span>
-          </li>
-          <li>
-            <img src="../assets/img/NBA1.webp" />
-            <p>詹眉最后4分钟得13分</p>
-            <span> 力挽狂澜！一举拿下比赛 </span>
-          </li>
-          <li>
-            <img src="../assets/img/NBA1.webp" />
-            <p>詹眉最后4分钟得13分</p>
-            <span> 力挽狂澜！一举拿下比赛 </span>
-          </li>
-          <li>
-            <img src="../assets/img/NBA1.webp" />
-            <p>詹眉最后4分钟得13分</p>
-            <span> 力挽狂澜！一举拿下比赛 </span>
-          </li>
-          <li>
-            <img src="../assets/img/NBA1.webp" />
-            <p>詹眉最后4分钟得13分</p>
-            <span> 力挽狂澜！一举拿下比赛 </span>
-          </li>
-          <li>
-            <img src="../assets/img/NBA1.webp" />
-            <p>詹眉最后4分钟得13分</p>
-            <span> 力挽狂澜！一举拿下比赛 </span>
-          </li>
-          <li>
-            <img src="../assets/img/NBA1.webp" />
-            <p>詹眉最后4分钟得13分</p>
-            <span> 力挽狂澜！一举拿下比赛 </span>
-          </li>
-          <li>
-            <img src="../assets/img/NBA1.webp" />
-            <p>詹眉最后4分钟得13分</p>
-            <span> 力挽狂澜！一举拿下比赛 </span>
-          </li>
-          <li>
-            <img src="../assets/img/NBA1.webp" />
-            <p>詹眉最后4分钟得13分</p>
-            <span> 力挽狂澜！一举拿下比赛 </span>
-          </li>
-        </ul>
+        </ul> -->
+        <hotBroadcastComp :list="NBA"></hotBroadcastComp>
 
         <div id="recommend">
           <h1>球星⭐精彩发挥不错过</h1>
@@ -172,206 +58,63 @@
         </div>
 
         <ul id="quintessence">
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
+        <li v-for="(item,index) in quintessenceList" :key="index">
+          <img :src="item.url"/>
+          <p>{{item.text}}</p>
+          <span>{{item.synopsis}}</span>
+        </li>
+
+    
         </ul>
 
         <h1>TOP⚡十佳五佳浓缩精华</h1>
         <ul id="quintessence">
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
+ <li v-for="(item,index) in quintessenceList" :key="index">
+          <img :src="item.url"/>
+          <p>{{item.text}}</p>
+          <span>{{item.synopsis}}</span>
+        </li>
+          
         </ul>
 
         <h1>回放▶️焦点之战随时回看</h1>
         <ul id="quintessence">
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
+           <li v-for="(item,index) in quintessenceList" :key="index">
+          <img :src="item.url"/>
+          <p>{{item.text}}</p>
+          <span>{{item.synopsis}}</span>
+        </li>
+          
         </ul>
 
         <h1>原创✨天天都有诚意之作</h1>
         <ul id="quintessence">
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
+           <li v-for="(item,index) in quintessenceList" :key="index">
+          <img :src="item.url"/>
+          <p>{{item.text}}</p>
+          <span>{{item.synopsis}}</span>
+        </li>
+          
         </ul>
 
         <h1>本赛季单场高分排行</h1>
         <ul id="quintessence">
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
+           <li v-for="(item,index) in quintessenceList" :key="index">
+          <img :src="item.url"/>
+          <p>{{item.text}}</p>
+          <span>{{item.synopsis}}</span>
+        </li>
+         
         </ul>
 
         <h1>纪录片✌ 球迷尊享致敬传奇</h1>
         <ul id="quintessence">
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
-          <li>
-            <img src="../assets/img/6.avif" />
-            <p>湖人vs雄鹿</p>
-            <span> 双加时热血逆转 </span>
-          </li>
+           <li v-for="(item,index) in quintessenceList" :key="index">
+          <img :src="item.url"/>
+          <p>{{item.text}}</p>
+          <span>{{item.synopsis}}</span>
+        </li>
+         
         </ul>
       </div>
     </div>
@@ -381,253 +124,147 @@
 <script setup>
 import { ref } from 'vue';
 
-import VIP from '../assets/img/VIP.png';
-import game from '../assets/img/game.png';
-import time from '../assets/img/time.png';
-import screenRecording from '../assets/img/screenRecording.png';
-import download from '../assets/img/download.png';
-import personage from '../assets/img/personage.png';
-import collect from '../assets/img/收藏.png';
 import odeToJoy from '../assets/img/1.avif';
 import playmate from '../assets/img/2.avif';
 import easyLife from '../assets/img/3.avif';
 import love from '../assets/img/4.avif';
 import blossoms from '../assets/img/5.avif';
+import game from '../assets/img/6.avif';
 
-const topList = ref([
-  {
-    url: VIP,
-  },
-  {
-    url: game,
-  },
-  {
-    url: time,
-  },
-  {
-    url: screenRecording,
-  },
-  {
-    url: download,
-  },
-  {
-    url: personage,
-  },
-]);
+import topComp from "../components/topComp.vue";
+import leftMenuComp from "../components/leftMenuComp.vue";
+import hotBroadcastComp from "../components/hotBroadcastComp.vue";
 
-const homePageList = ref([
+const vaultList =ref([
+  {text:'体育片库'},
+  {text:'NBA'},
+  {text:'WWE'},
+  {text:'CBA'},
+  {text:'XGAMES'},
+  {text:'功夫搏击'},
+  {text:'极限运动'},
+  {text:'足球'},
+])
+
+const scheduleList =ref([
   {
-    name: '首页',
-    url: collect,
+    tvname:'体育VIP',
+    name:'进行中',
+    synopsis:'23-24赛季常规赛 雷霆vs雄鹿重播'
   },
   {
-    name: '中视频',
-    url: collect,
+    tvname:'畅享赛事',
+    name:'2024-03-25 19:00:00',
+    synopsis:'23-24赛季常规赛 雷霆vs雄鹿重播'
   },
   {
-    name: '电视剧',
-    url: collect,
+    tvname:'体育VIP',
+    name:'进行中',
+    synopsis:'有球必应：联盟判罚新尺度詹杜库谁吃亏？勇士火箭谁能进入附加赛？'
+  },
+])
+
+const NBAList = ref([
+  {
+    url:love,
+    text:'詹眉最后4分钟得13分',
+    synopsis:'力挽狂澜！一举拿下比赛',
   },
   {
-    name: '电影',
-    url: collect,
+    url:love,
+    text:'詹眉最后4分钟得13分',
+    synopsis:'力挽狂澜！一举拿下比赛',
   },
   {
-    name: '综艺',
-    url: collect,
+    url:love,
+    text:'詹眉最后4分钟得13分',
+    synopsis:'力挽狂澜！一举拿下比赛',
   },
   {
-    name: '动漫',
-    url: collect,
+    url:love,
+    text:'詹眉最后4分钟得13分',
+    synopsis:'力挽狂澜！一举拿下比赛',
   },
   {
-    name: '少儿',
-    url: collect,
+    url:love,
+    text:'詹眉最后4分钟得13分',
+    synopsis:'力挽狂澜！一举拿下比赛',
   },
   {
-    name: '体育',
-    url: collect,
+    url:love,
+    text:'詹眉最后4分钟得13分',
+    synopsis:'力挽狂澜！一举拿下比赛',
   },
   {
-    name: '纪录片',
-    url: collect,
+    url:love,
+    text:'詹眉最后4分钟得13分',
+    synopsis:'力挽狂澜！一举拿下比赛',
   },
   {
-    name: '短剧',
-    url: collect,
+    url:love,
+    text:'詹眉最后4分钟得13分',
+    synopsis:'力挽狂澜！一举拿下比赛',
   },
   {
-    name: 'NBA',
-    url: collect,
+    url:love,
+    text:'詹眉最后4分钟得13分',
+    synopsis:'力挽狂澜！一举拿下比赛',
   },
   {
-    name: 'VIP会员',
-    url: collect,
+    url:love,
+    text:'詹眉最后4分钟得13分',
+    synopsis:'力挽狂澜！一举拿下比赛',
   },
   {
-    name: '游戏中心',
-    url: collect,
+    url:love,
+    text:'詹眉最后4分钟得13分',
+    synopsis:'力挽狂澜！一举拿下比赛',
   },
   {
-    name: '传奇游戏库',
-    url: collect,
+    url:love,
+    text:'詹眉最后4分钟得13分',
+    synopsis:'力挽狂澜！一举拿下比赛',
+  },
+])
+
+const quintessenceList = ref([
+  {
+    url:game,
+    text:'湖人vs雄鹿',
+    synopsis:'双加时热血逆转',
   },
   {
-    name: '科技',
-    url: collect,
+    url:game,
+    text:'湖人vs雄鹿',
+    synopsis:'双加时热血逆转',
   },
   {
-    name: '音乐',
-    url: collect,
+    url:game,
+    text:'湖人vs雄鹿',
+    synopsis:'双加时热血逆转',
   },
   {
-    name: 'F1',
-    url: collect,
+    url:game,
+    text:'湖人vs雄鹿',
+    synopsis:'双加时热血逆转',
   },
   {
-    name: 'WWE',
-    url: collect,
+    url:game,
+    text:'湖人vs雄鹿',
+    synopsis:'双加时热血逆转',
   },
   {
-    name: '知识',
-    url: collect,
+    url:game,
+    text:'湖人vs雄鹿',
+    synopsis:'双加时热血逆转',
   },
-  {
-    name: '学堂',
-    url: collect,
-  },
-  {
-    name: '艺术',
-    url: collect,
-  },
-  {
-    name: '财经',
-    url: collect,
-  },
-  {
-    name: '生活',
-    url: collect,
-  },
-  {
-    name: '时尚',
-    url: collect,
-  },
-  {
-    name: '健康',
-    url: collect,
-  },
-  {
-    name: '育儿',
-    url: collect,
-  },
-  {
-    name: '汽车',
-    url: collect,
-  },
-  {
-    name: '棋牌游戏库',
-    url: collect,
-  },
-]);
+])
+
 </script>
 
 <style lang="scss">
 #home {
-  .top {
-    top: 0;
-    position: fixed;
-    z-index: 1;
-    background-color: rgba(67, 66, 66, 0.5);
-    height: 84px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-right: 10px;
-    .input-box {
-      height: 48px;
-      width: 480px;
-      border: 1px solid transparent;
-      border-radius: 30px;
-      overflow: hidden;
-      display: flex;
-      position: relative;
-      transform: translate(50%, 0);
-      .import {
-        height: 48px;
-        width: 420px;
-        border-right: none;
-        padding-left: 20px;
-      }
-      .search {
-        height: 48px;
-        width: 60px;
-        border-left: none;
-        background-image: url('../assets/img/search.png');
-        background-repeat: no-repeat;
-        background-position: 50%;
-      }
-    }
-    a {
-      padding: 0 15px;
-    }
-  }
-  #homePage {
-    width: 210px;
-    height: 100vh;
-    top: 0;
-    padding: 20px 0 20px 20px;
-    position: fixed;
-    z-index: 1;
-    // background-color:rgba(230, 233, 240,.45);
-    .logo {
-      top: 0;
-    }
-    .homePage-Con {
-      overflow-y: scroll;
-      height: 100%;
-      a {
-        padding: 10px 0;
-        display: flex;
-        align-items: center;
-        font-size: 16px;
-      }
-      .front {
-        direction: rtl;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        flex-direction: column;
-        margin-top: 20px;
-      }
-      .agreement {
-        a {
-          font-size: 12px;
-        }
-      }
-      .licence {
-        padding-bottom: 60px;
-        a {
-          font-size: 12px;
-          padding: 5px 0;
-        }
-        p {
-          display: flex;
-          align-items: center;
-          color: #474646;
-          i {
-            font-style: unset;
-            margin: 0 5px;
-          }
-        }
-        img {
-          width: 122px;
-          height: 52px;
-        }
-      }
-    }
-  }
-
+  
   #sports {
     > img {
       height: 600px;
@@ -639,23 +276,38 @@ const homePageList = ref([
     #content {
       padding: 0 40px 0 220px;
       width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      #tvVip {
-        >a {
+      
+
+      #nbaList{
+               height:48px;
+               width:100%;
+                margin-bottom: 30px;               
+                display: flex;
+                align-items:center;              
+               
+        #sportsVip {
           width: 295px;
-          height: 48px;
-        }
-      }
+          height: 40px;
+          line-height:40px;
+          border-radius:20px;border:1px solid red;
+          text-align:center;
+          background-color:rgba(255, 205, 73, .15);
+          margin-right:20px;
+
+          a{color:#ffdf8a;}
+          }
+       
+     
       #vault {
-        width: 100%;
-        height: 48px;
-        // display: flex;
+        border-left:#848383 1px solid;
+        padding-left:20px;
+        flex:1; 
+        height: 40px;
         font-size: 16px;
+        display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 30px;
+       
         .vip {
           height: 40px;
           width: 250px;
@@ -673,6 +325,7 @@ const homePageList = ref([
           line-height: 40px;
           border-radius: 20px;
         }
+      }
       }
       #hotbroadcast {
         display: flex;
