@@ -1,5 +1,5 @@
 <template>
-  <div class="share-leftMenuCom-box">
+  <div class="share-leftMenuComp-box">
     <div id="homePage">
       <a href class="logo"><img src="../assets/img/tx.png" /></a>
       <div class="homePage-Con">
@@ -9,9 +9,9 @@
             href="#"
             v-for="(item, index) in homePageList"
             :key="index"
-            @click="jump"
-            >{{ item.name }}<img :src="item.url"
-          /></a>
+            @click="jump">
+            {{ item.name }}<img :src="item.url"/>
+          </a>
         </div>
         <hr />
         <div class="agreement">
@@ -34,6 +34,7 @@
           <a href>腾讯公司 版权所有</a>
           <img src="../assets/img/1f68341597825237110.avif" />
         </div>
+
       </div>
     </div>
   </div>
@@ -45,6 +46,27 @@ import { useRouter } from 'vue-router';
 import collect from '../assets/img/收藏.png';
 
 const router = useRouter();
+
+const agreementList = ref([
+  {
+    text: '腾讯视频隐私保护指引',
+  },
+  {
+    text: '腾讯视频用户服务协议',
+  },
+  {
+    text: '腾讯视频第三方信息共享清单',
+  },
+  {
+    text: '腾讯视频已收集个人信息清单',
+  },
+  {
+    text: '腾讯儿童隐私保护声明',
+  },
+  {
+    text: '腾讯视频系列会员服务协议',
+  },
+]);
 
 const homePageList = ref([
   {
@@ -161,13 +183,11 @@ const homePageList = ref([
   },
 ]);
 
-const jump = () => {
-  router.push('/teleplay');
-};
+
 </script>
 
 <style lang="scss">
-.share-leftMenuCom-box {
+.share-leftMenuComp-box {
   #homePage {
     width: 210px;
     height: 100vh;

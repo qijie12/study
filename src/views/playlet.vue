@@ -1,210 +1,438 @@
 <template>
   <div id="home">
-    <div class="top">
-      <span></span>
-      <span class="input-box">
-        <input type="" class="import" />
-        <input type="" class="search" />
-      </span>
-      <div>
-        <a href v-for="(item, index) in topList" :key="index"
-          ><img :src="item.url"
-        /></a>
-      </div>
-    </div>
+    <topComp></topComp>
 
-    <div id="homePage">
-      <a href class="logo"><img src="../assets/img/tx.png" /></a>
-      <div class="homePage-Con">
-        <div class="front">
-          <a
-            name="1"
-            href="#"
-            v-for="(item, index) in homePageList"
-            :key="index"
-            >{{ item.name }}<img :src="item.url"
-          /></a>
+    <leftMenuComp></leftMenuComp>
+
+    <div id="playlet">
+      <img src="../assets/img/10.jpg" />
+      <div id="content">
+
+        <div id="hotbroadcast">
+          <h1>正在热播</h1>
+          <div class="change">换一换</div>
         </div>
-        <hr />
-        <div class="agreement">
-          <a href="" v-for="(item, index) in agreementList" :key="index">{{
-            item.text
-          }}</a>
+
+        <hotBroadcastComp></hotBroadcastComp>
+
+        <div id="dailyUpdate">
+          <div class="week">
+            <h1>每日更新</h1>
+            <a href="" v-for="(item, index) in weekList" :key="index">
+              {{ item.text }}
+            </a>
+          
+          </div>
+          <ul>
+            <li v-for="(item, index) in dailyUpdateList" :key="index">
+              <img :src="item.url" />
+              <p>{{ item.name }}</p>
+              <span>{{ item.synopsis }}</span>
+            </li>
+          </ul>
         </div>
-        <hr />
-        <div class="licence">
-          <a href="">粤网文[2023]2882-203号</a>
-          <a href="">网络视听许可证1904073号</a>
-          <a href="">粤公网安备<br />44030002000001号</a>
-          <p class="AT">
-            <a href="">关于腾讯</a><i>|</i><a href="">About Tencent</a>
-          </p>
-          <p><a href="">服务条款</a><i>|</i><a href="">广告设置</a> <i>|</i></p>
-          <p><a href="">腾讯招聘 客服中心</a><i>|</i></p>
-          <a href="">网站导航</a>
-          <a href="">Copyright © 1998 - 2024 Tencent. All Rights Reserved.</a>
-          <a href>腾讯公司 版权所有</a>
-          <img src="../assets/img/1f68341597825237110.avif" />
+
+        <div id="recommend">
+          <h1>为你推荐</h1>
         </div>
+      <bigListComp :list="recommendtvList"></bigListComp>
+     
       </div>
     </div>
-    
   </div>
 </template>
 
 <script setup>
-  import {ref} from "vue";
-import VIP from '../assets/img/VIP.png';
-import game from '../assets/img/game.png';
-import time from '../assets/img/time.png';
-import screenRecording from '../assets/img/screenRecording.png';
-import download from '../assets/img/download.png';
-import personage from '../assets/img/personage.png';
-import collect from '../assets/img/收藏.png';
-import odeToJoy from '../assets/img/1.avif';
-import playmate from '../assets/img/2.avif';
-import easyLife from '../assets/img/3.avif';
-import love from '../assets/img/4.avif';
-import blossoms from '../assets/img/5.avif';
+import {ref} from "vue";
+import odeToJoy from "../assets/img/1.avif";
+import playmate from "../assets/img/2.avif";
+import easyLife from "../assets/img/3.avif";
+import love from "../assets/img/4.avif";
+import blossoms from "../assets/img/5.avif";
+import cartoonCharacter from "../assets/img/10.jpg";
 
-const topList = ref([
+import topComp from "../components/topComp.vue";
+import leftMenuComp from "../components/leftMenuComp.vue";
+import hotBroadcastComp from "../components/hotBroadcastComp.vue";
+import bigListComp from "../components/bigListComp.vue";
+
+const vaultList = ref([
+  { text: "动漫片库" },
+  { text: "国漫" },
+  { text: "日漫" },
+  { text: "2D动画" },
+  { text: "3D动画" },
+  { text: "经典" },
+  { text: "战斗" },
+  { text: "魔幻" },
+  { text: "科幻" },
+  { text: " 推理" },
+]);
+
+const hotpictureList = ref([
   {
-    url: VIP,
+    url: blossoms,
+    name: " 名侦探柯南[普通话版] ",
+    ssynopsis: " 永恒的柯南 ",
   },
   {
-    url: game,
+    url: blossoms,
+    name: " 名侦探柯南[普通话版] ",
+    synopsis: " 永恒的柯南 ",
   },
   {
-    url: time,
+    url: blossoms,
+    name: " 名侦探柯南[普通话版] ",
+    synopsis: " 永恒的柯南 ",
   },
   {
-    url: screenRecording,
+    url: blossoms,
+    name: " 名侦探柯南[普通话版] ",
+    synopsis: " 永恒的柯南 ",
   },
   {
-    url: download,
+    url: blossoms,
+    name: " 名侦探柯南[普通话版] ",
+    synopsis: " 永恒的柯南 ",
   },
   {
-    url: personage,
+    url: blossoms,
+    name: " 名侦探柯南[普通话版] ",
+    synopsis: " 永恒的柯南 ",
+  },
+  {
+    url: blossoms,
+    name: " 名侦探柯南[普通话版] ",
+    synopsis: " 永恒的柯南 ",
+  },
+  {
+    url: blossoms,
+    name: " 名侦探柯南[普通话版] ",
+    synopsis: " 永恒的柯南 ",
+  },
+  {
+    url: blossoms,
+    name: " 名侦探柯南[普通话版] ",
+    synopsis: " 永恒的柯南 ",
+  },
+  {
+    url: blossoms,
+    name: " 名侦探柯南[普通话版] ",
+    synopsis: " 永恒的柯南 ",
+  },
+  {
+    url: blossoms,
+    name: " 名侦探柯南[普通话版] ",
+    synopsis: " 永恒的柯南 ",
+  },
+  {
+    url: blossoms,
+    name: " 名侦探柯南[普通话版] ",
+    synopsis: " 永恒的柯南 ",
   },
 ]);
 
-const homePageList = ref([
+const weekList = ref([
+  { text: "周一" },
+  { text: "周二" },
+  { text: "周三" },
+  { text: "周四" },
+  { text: "周五" },
+  { text: "周六" },
+  { text: "周日" },
+]);
+
+const dailyUpdateList = ref([
   {
-    name: '首页',
-    url: collect,
+    url: cartoonCharacter,
+    name: "从红月开始",
+    synopsis: "会员看全集",
   },
   {
-    name: '中视频',
-    url: collect,
+    url: cartoonCharacter,
+    name: "从红月开始",
+    synopsis: "会员看全集",
   },
   {
-    name: '电视剧',
-    url: collect,
+    url: cartoonCharacter,
+    name: "从红月开始",
+    synopsis: "会员看全集",
   },
   {
-    name: '电影',
-    url: collect,
+    url: cartoonCharacter,
+    name: "从红月开始",
+    synopsis: "会员看全集",
   },
   {
-    name: '综艺',
-    url: collect,
+    url: cartoonCharacter,
+    name: "从红月开始",
+    synopsis: "会员看全集",
   },
   {
-    name: '动漫',
-    url: collect,
-  },
-  {
-    name: '少儿',
-    url: collect,
-  },
-  {
-    name: '体育',
-    url: collect,
-  },
-  {
-    name: '纪录片',
-    url: collect,
-  },
-  {
-    name: '短剧',
-    url: collect,
-  },
-  {
-    name: 'NBA',
-    url: collect,
-  },
-  {
-    name: 'VIP会员',
-    url: collect,
-  },
-  {
-    name: '游戏中心',
-    url: collect,
-  },
-  {
-    name: '传奇游戏库',
-    url: collect,
-  },
-  {
-    name: '科技',
-    url: collect,
-  },
-  {
-    name: '音乐',
-    url: collect,
-  },
-  {
-    name: 'F1',
-    url: collect,
-  },
-  {
-    name: 'WWE',
-    url: collect,
-  },
-  {
-    name: '知识',
-    url: collect,
-  },
-  {
-    name: '学堂',
-    url: collect,
-  },
-  {
-    name: '艺术',
-    url: collect,
-  },
-  {
-    name: '财经',
-    url: collect,
-  },
-  {
-    name: '生活',
-    url: collect,
-  },
-  {
-    name: '时尚',
-    url: collect,
-  },
-  {
-    name: '健康',
-    url: collect,
-  },
-  {
-    name: '育儿',
-    url: collect,
-  },
-  {
-    name: '汽车',
-    url: collect,
-  },
-  {
-    name: '棋牌游戏库',
-    url: collect,
+    url: cartoonCharacter,
+    name: "从红月开始",
+    synopsis: "会员看全集",
   },
 ]);
 
+const recommendtvList = ref([
+  {
+    url: odeToJoy,
+    src: easyLife,
+    tvname: " 小品一家人 ",
+    name: "小品",
+    synopsis: " 原创动画 校园日常 小品  ",
+  },
+  {
+    url: odeToJoy,
+    src: easyLife,
+    tvname: " 小品一家人 ",
+    name: "小品",
+    synopsis: " 原创动画 校园日常 小品  ",
+  },
+  {
+    url: odeToJoy,
+    src: easyLife,
+    tvname: " 小品一家人 ",
+    name: "小品",
+    synopsis: " 原创动画 校园日常 小品  ",
+  },
+  {
+    url: odeToJoy,
+    src: easyLife,
+    tvname: " 小品一家人 ",
+    name: "小品",
+    synopsis: " 原创动画 校园日常 小品  ",
+  },
+  {
+    url: odeToJoy,
+    src: easyLife,
+    tvname: " 小品一家人 ",
+    name: "小品",
+    synopsis: " 原创动画 校园日常 小品  ",
+  },
+  {
+    url: odeToJoy,
+    src: easyLife,
+    tvname: " 小品一家人 ",
+    name: "小品",
+    synopsis: " 原创动画 校园日常 小品  ",
+  },
+  {
+    url: odeToJoy,
+    src: easyLife,
+    tvname: " 小品一家人 ",
+    name: "小品",
+    synopsis: " 原创动画 校园日常 小品  ",
+  },
+  {
+    url: odeToJoy,
+    src: easyLife,
+    tvname: " 小品一家人 ",
+    name: "小品",
+    synopsis: " 原创动画 校园日常 小品  ",
+  },
+  {
+    url: odeToJoy,
+    src: easyLife,
+    tvname: " 小品一家人 ",
+    name: "小品",
+    synopsis: " 原创动画 校园日常 小品  ",
+  },
+]);
 </script>
 
 <style lang="scss">
+#home {
+  
+  #playlet {
+    > img {
+      height: 600px;
+      width: 100%;
+      background-color: rgba(20, 20, 20, 0.2);
+      top: 0;
+      left: 0;
+    }
+    #content {
+      padding: 0 40px 0 220px;
+      width: 100%;
+      #vault {
+        width: 100%;
+        height: 48px;
+        display: flex;
+        font-size: 16px;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        a {
+          border: 1px solid rgb(65, 64, 64);
+          width: 152px;
+          height: 40px;
+          background-color: #ffffff1a;
+          color: #ffffff99;
+          text-align: center;
+          line-height: 40px;
+          border-radius: 20px;
+        }
+      }
+      #hotbroadcast {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .change {
+          color: #474646;
+          font-size: 14px;
+        }
+        .change:hover {
+          color: #ffffff;
+        }
+      }
 
+      #hotpicture {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-gap: 20px;
+        width: 100%;
+        margin: 10px 0;
+        li {
+          height: 210px;
+          width: 100%;
+          img {
+            height: 150px;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+          }
+          a {
+            p {
+              color: #ffffff;
+              font-size: 16px;
+            }
+            span {
+              color: #474646;
+              font-size: 14px;
+            }
+          }
+        }
+        li:hover {
+          border-radius: 10px;
+          border: 1px solid rgb(107, 106, 106);
+          background-color: rgb(98, 36, 36, 0.3);
+          background-image: url("../assets/img/追.png");
+          background-repeat: no-repeat;
+          background-position: 180px 160px;
+        }
+      }
+
+      #dailyUpdate {
+        .week {
+          margin-bottom:20px;
+          display: flex;
+          align-items: center;
+          h1 {
+            color: #ffffff;
+          }
+          a {
+            color: #ffffff99;
+            font-size: 20px;
+            padding-right: 20px;
+          }
+        }
+        ul {
+          margin-bottom: 30px;
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(6, 1fr);
+          grid-gap: 20px;
+          li {
+            width: 100%;
+            height: 210px;
+            img {
+              height: 145px;
+              width: 100%;
+              border-radius: 10px;
+              overflow: hidden;
+            }
+            p {
+              color: #ffffff;
+              font-size: 16px;
+            }
+            span {
+              color: #474646;
+              font-size: 14px;
+            }
+          }
+          li:hover {
+            border: 1px solid rgb(74, 73, 73);
+            border-radius: 10px;
+            overflow: hidden;
+          }
+        }
+      }
+
+      #recommend {
+        height: 48px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin-bottom:20px;
+
+        .science {
+          flex: 1;
+          font-size: 16px;
+          display: flex;
+          justify-content: space-between;
+          span > a {
+            color: white;
+          }
+        }
+      }
+      #recommendtv {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+        li {
+          height: 400px;
+          width: 100%;
+          border: 1px solid rgb(83, 82, 82);
+          border-bottom-left-radius: 15px;
+          border-bottom-right-radius: 15px;
+          background-color: #313131;
+          background-image: url("../assets/img/追.png");
+          background-repeat: no-repeat;
+          background-position: 460px 310px;
+          img {
+            width: 100%;
+            height: 300px;
+          }
+          .caption {
+            padding: 10px;
+            height: 100px;
+            display: flex;
+            img {
+              height: 80px;
+              width: 57px;
+              margin-right: 5px;
+            }
+            .introduce {
+              .tvname {
+                color: #ffffff;
+                font-size: 20px;
+              }
+              .name {
+                color: #474646;
+                font-size: 14px;
+              }
+              span {
+                color: #ffffff;
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 </style>
