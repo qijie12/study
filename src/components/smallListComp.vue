@@ -1,7 +1,7 @@
 <template>
   <div class="share-samllListComp-box">
     <ul>
-      <li v-for="(item, index) in gameList" :key="index">
+      <li v-for="(item, index) in list" :key="index">
         <img :src="item.url" />
         <p>{{ item.text }}</p>
         <span>{{ item.synopsis }}</span>
@@ -18,38 +18,15 @@ import { ref } from 'vue';
 
 import KPL from '../assets/img/pv_10025713403_em_601.webp';
 
-const gameList = ref([
-  {
-    url: KPL,
-    text: 'KPL春季赛 DRG vs WB',
-    synopsis: 'WB击败DRG勇夺关键积分',
+
+const props = defineProps({
+  list: {
+    type: Array,
+    default: () => [],
   },
-  {
-    url: KPL,
-    text: 'KPL春季赛 DRG vs WB',
-    synopsis: ' JDG让一追二翻盘LNG ',
-  },
-  {
-    url: KPL,
-    text: 'KPL春季赛 DRG vs WB',
-    synopsis: 'WB击败DRG勇夺关键积分',
-  },
-  {
-    url: KPL,
-    text: 'KPL春季赛 DRG vs WB',
-    synopsis: ' EDG不敌NIP苦吞七连败 ',
-  },
-  {
-    url: KPL,
-    text: 'KPL春季赛 DRG vs WB',
-    synopsis: 'WB击败DRG勇夺关键积分',
-  },
-  {
-    url: KPL,
-    text: 'KPL春季赛 DRG vs WB',
-    synopsis: ' 神Bin天降BLG险胜JDG ',
-  },
-]);
+  
+})
+
 </script>
 
 <style lang="scss">

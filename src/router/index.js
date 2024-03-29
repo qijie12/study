@@ -62,6 +62,11 @@ const routes = [
     name:'game',
     component: () => import ('../views/game.vue'),
   },
+  {
+    path:'/gameHub',
+    name:'gameHub',
+    component:() => import ('../views/gameHub.vue'),
+  },
 ];
 
 const router = createRouter({

@@ -35,12 +35,22 @@
         <div class="licence">
           <a href="">粤网文[2023]2882-203号</a>
           <a href="">网络视听许可证1904073号</a>
-          <a href="">粤公网安备<br />44030002000001号</a>
+          <a href="">粤公网安备<br>44030002000001号</a>
+          <a href="">:增值电信业务经营许可证<br>粤B2-20090059</a>
+          
+
           <p class="AT">
-            <a href="">关于腾讯</a><i>|</i><a href="">About Tencent</a>
+            <a href="">About Tencent</a>
+            <i>|</i>
+            <a href="">关于腾讯</a>
           </p>
-          <p><a href="">服务条款</a><i>|</i><a href="">广告设置</a> <i>|</i></p>
-          <p><a href="">腾讯招聘 客服中心</a><i>|</i></p>
+
+          <p><a href="">广告设置</a>
+          <i>|</i>
+          <a href="">服务条款</a>         
+          </p>
+
+          <p><a href=""><i>|</i>腾讯招聘 客服中心</a></p>
           <a href="">网站导航</a>
           <a href="">Copyright © 1998 - 2024 Tencent. All Rights Reserved.</a>
           <a href>腾讯公司 版权所有</a>
@@ -713,19 +723,22 @@ const recommendtvList = ref([
       padding: 0 15px;
     }
   }
+
   #homePage {
+     direction: rtl;
     width: 210px;
     height: 100vh;
     top: 0;
     padding: 20px 0 20px 20px;
     position: fixed;
     z-index: 1;
-    // background-color:rgba(230, 233, 240,.45);
+   
     .logo {
       top: 0;
     }
     .homePage-Con {
       overflow-y: scroll;
+      
       height: 100%;
       a {
         padding: 10px 0;
@@ -740,21 +753,35 @@ const recommendtvList = ref([
         align-items: flex-end;
         flex-direction: column;
         margin-top: 20px;
+       
       }
       .agreement {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-direction: column;
+        
+        
         a {
           font-size: 12px;
         }
       }
       .licence {
+        display: flex;
+        
+        align-items: flex-end;
+        flex-direction: column;
+        
         padding-bottom: 60px;
-        a {
+        a {direction:rtl;
           font-size: 12px;
           padding: 5px 0;
+          text-align: left;
         }
         p {
-          display: flex;
-          align-items: center;
+          direction:rtl;
+          // display: flex;
+          // align-items: center;
           color: #474646;
           i {
             font-style: unset;
@@ -764,6 +791,7 @@ const recommendtvList = ref([
         img {
           width: 122px;
           height: 52px;
+          margin-top:5px;
         }
       }
     }
