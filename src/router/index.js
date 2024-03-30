@@ -67,6 +67,11 @@ const routes = [
     name:'gameHub',
     component:() => import ('../views/gameHub.vue'),
   },
+  {
+    path:'/practice',
+    name:'practice',
+    component :() => import ('../views/practice.vue'),
+  },
   
 ];
 

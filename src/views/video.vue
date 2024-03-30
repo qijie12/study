@@ -120,6 +120,7 @@ const videoList = ref([
     synopsis: '没有人能面无表情的看同学录',
   },
 ]);
+
 </script>
 
 <style lang="scss">

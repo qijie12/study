@@ -199,7 +199,7 @@ const homePageList = ref([
 <style lang="scss">
 .share-leftMenuComp-box {
   #homePage {
-     direction: rtl;
+    direction: rtl;
     width: 210px;
     height: 100vh;
     top: 0;

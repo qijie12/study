@@ -17,7 +17,7 @@
       </div>
 
       <ul>
-        <li v-for="(item, index) in gamenameList" :key="index">
+        <li v-for="(item, index) in list" :key="index">
           <img :src="item.url" />
           <div class="peace">
             <img :src="item.src" />
@@ -131,246 +131,64 @@ import love from "../assets/img/4.avif";
 import blossoms from "../assets/img/5.avif";
 import cartoonCharacter from "../assets/img/10.jpg";
 
-const gamenameList = ref([
-  {
-    url: blossoms,
-    src: love,
-    text: "仙境传说：爱如初见",
-    synopsis: "再见如初，就是RO！",
-    into: "秒玩",
+const props = defineProps({
+  list: {
+    type: Array,
+    default: () => [],
   },
-  {
-    url: blossoms,
-    src: love,
-    text: "仙境传说：爱如初见",
-    synopsis: "再见如初，就是RO！",
-    into: "秒玩",
-  },
-  {
-    url: blossoms,
-    src: love,
-    text: "仙境传说：爱如初见",
-    synopsis: "再见如初，就是RO！",
-    into: "秒玩",
-  },
-  {
-    url: blossoms,
-    src: love,
-    text: "仙境传说：爱如初见",
-    synopsis: "再见如初，就是RO！",
-    into: "秒玩",
-  },
-  {
-    url: blossoms,
-    src: love,
-    text: "仙境传说：爱如初见",
-    synopsis: "再见如初，就是RO！",
-    into: "秒玩",
-  },
-  {
-    url: blossoms,
-    src: love,
-    text: "仙境传说：爱如初见",
-    synopsis: "再见如初，就是RO！",
-    into: "秒玩",
-  },
-]);
+})
+
+// const gamenameList = ref([
+//   {
+//     url: blossoms,
+//     src: love,
+//     text: "仙境传说：爱如初见",
+//     synopsis: "再见如初，就是RO！",
+//     into: "秒玩",
+//   },
+//   {
+//     url: blossoms,
+//     src: love,
+//     text: "仙境传说：爱如初见",
+//     synopsis: "再见如初，就是RO！",
+//     into: "秒玩",
+//   },
+//   {
+//     url: blossoms,
+//     src: love,
+//     text: "仙境传说：爱如初见",
+//     synopsis: "再见如初，就是RO！",
+//     into: "秒玩",
+//   },
+//   {
+//     url: blossoms,
+//     src: love,
+//     text: "仙境传说：爱如初见",
+//     synopsis: "再见如初，就是RO！",
+//     into: "秒玩",
+//   },
+//   {
+//     url: blossoms,
+//     src: love,
+//     text: "仙境传说：爱如初见",
+//     synopsis: "再见如初，就是RO！",
+//     into: "秒玩",
+//   },
+//   {
+//     url: blossoms,
+//     src: love,
+//     text: "仙境传说：爱如初见",
+//     synopsis: "再见如初，就是RO！",
+//     into: "秒玩",
+//   },
+// ]);
+
+
 </script>
 
 <style lang="scss">
 #share-combination-box {
-  .content {
-    width: 100%;
-    padding: 0 40px 0 220px;
-    .into {
-      width: 100%;
-      height: 200px;
-      // background-color:rgb(50, 53, 53);
-      display: flex;
-      .into-l {
-        width: 315px;
-        height: 210px;
-        padding: 15px;
-        text-align: center;
-        background-image: url("../assets/img/518edc17_pWVuZD5YsIgXv1CNlBYiHFI3ms1MvdKU.avif");
-        margin-right: 20px;
-        border-radius: 10px;
-        overflow: hidden;
-        .enter {
-          color: #ffffff;
-          font-size: 14px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          img {
-            width: 22px;
-            height: 22px;
-            margin-right: 10px;
-          }
-        }
-        .look {
-          color: #dbb75e;
-          font-size: 12px;
-          padding: 5px 0 20px 0;
-        }
-        .weal {
-          color: #fff;
-          font-size: 14px;
-          padding: 10px 0;
-        }
-
-        ul {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          grid-gap: 20px;
-          width: 100%;
-          li {
-            width: 100%;
-            display: flex;
-            span {
-              border: 1px solid rgb(97, 93, 93);
-              height: 36px;
-              width: 36px;
-              border-radius: 50%;
-              background-color: #4d4c4c;
-              display: block;
-              position: relative;
-              img {
-                height: 20px;
-                width: 20px;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-              }
-            }
-
-            p {
-              font-size: 10px;
-              color: #dbb75e;
-            }
-          }
-        }
-      }
-
-      .into-r {
-        flex: 1;
-        height: 200px;
-        // background-color:aqua;
-        .search {
-          height: 30px;
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          margin-bottom: 10px;
-          span {
-            font-size: 18px;
-            color: #dbb75e;
-          }
-          input {
-            height: 28px;
-            width: 290px;
-            border-radius: 20px;
-            background-image: url("../assets/img/search.png");
-            background-repeat: no-repeat;
-            background-position: 255px 2px;
-            padding-left: 15px;
-          }
-        }
-        ul {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          width: 100%;
-          grid-gap: 20px;
-          li {
-            border-radius: 10px;
-            height: 170px;
-            padding: 15px;
-            background-image: url("../assets/img/518edc17_pWVuZD5YsIgXv1CNlBYiHFI3ms1MvdKU.avif");
-            .tvname {
-              width: 100%;
-              display: flex;
-              align-items: center;
-              padding-bottom: 15px;
-              img {
-                height: 36px;
-                width: 36px;
-                margin-right: 10px;
-              }
-              span {
-                color: #ffffff;
-                font-size: 14px;
-              }
-            }
-            .num {
-              b {
-                color: #dbb75e;
-                display: block;
-              }
-              .numr {
-                color: rgba(255, 255, 255, 0.8);
-                font-size: 14px;
-              }
-            }
-            .gift {
-              padding-top: 5px;
-              display: flex;
-              align-items: center;
-              img {
-                height: 14px;
-                width: 14px;
-              }
-              span {
-                color: rgba(255, 255, 255, 0.8);
-                font-size: 12px;
-              }
-            }
-            .get {
-              display: flex;
-              justify-content: space-between;
-              padding-top: 15px;
-              span {
-                display: block;
-                height: 32px;
-                width: 135px;
-                border: 1px solid rgb(136, 135, 135);
-                border-radius: 20px;
-                text-align: center;
-                line-height: 30px;
-              }
-              .getl {
-                background-color: rgba(255, 220, 20, 0.1);
-                a {
-                  color: #ffdc14;
-                }
-              }
-              .getl:hover {
-                background-color: rgb(201, 179, 56);
-              }
-              .getr {
-                background-color: rgb(201, 179, 56);
-                a {
-                  color: #371e05;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    .hotIp {
-      margin: 60px 0 20px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      span {
-        color: #4d4c4c;
-        font-size: 14px;
-      }
-      span:hover {
-        color: #ffffff;
-      }
-    }
+ 
     .con-picture {
       height: 500px;
       width: 100%;
@@ -507,5 +325,5 @@ const gamenameList = ref([
       }
     }
   }
-}
+
 </style>
