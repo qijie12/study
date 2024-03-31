@@ -172,122 +172,118 @@
         <h1>游戏礼包</h1>
         <span><a href="">领取记录</a></span>
       </div>
-      
+
       <ul class="gamePack-con">
-             <li>
-              <div class="gamePack-top">
-                <img src="../assets/img/13.png">
-                <div>
-                   <span>二之国：交错世界</span>
-                   <a href=""> <span>秒玩</span></a>
-                </div>
-              </div>
-              <p>
-                <b>4</b>
-                <a href="">个免费礼包待领取></a>
-              </p>
-              <div class="gamePack-bottom">
-                     <div class="gamePack-bottom-l">
-                      <p><img src="../assets/img/lift.avif"/>每日礼包</p>
-                      <p><img src="../assets/img/lift.avif"/>每周礼包</p>
-                     </div>
-                     <div class="gamePack-bottom-r">
-                      <a href="">一键领取</a>
-                     </div>
-              </div>
-             </li>
-             <li>
-               <div class="gamePack-top">
-                <img src="../assets/img/13.png">
-                <div>
-                   <span>二之国：交错世界</span>
-                   <a href=""> <span>秒玩</span></a>
-                </div>
-              </div>
-              <p>
-                <b>4</b>
-                <a href="">个免费礼包待领取></a>
-              </p>
-              <div class="gamePack-bottom">
-                     <div class="gamePack-bottom-l">
-                      <p><img src="../assets/img/lift.avif"/>每日礼包</p>
-                      <p><img src="../assets/img/lift.avif"/>每周礼包</p>
-                     </div>
-                     <div class="gamePack-bottom-r">
-                      <a href="">一键领取</a>
-                     </div>
-              </div>
-             </li>
-             <li>
-               <div class="gamePack-top">
-                <img src="../assets/img/13.png">
-                <div>
-                   <span>二之国：交错世界</span>
-                   <a href=""> <span>秒玩</span></a>
-                </div>
-              </div>
-              <p>
-                <b>4</b>
-                <a href="">个免费礼包待领取></a>
-              </p>
-              <div class="gamePack-bottom">
-                     <div class="gamePack-bottom-l">
-                      <p><img src="../assets/img/lift.avif"/>每日礼包</p>
-                      <p><img src="../assets/img/lift.avif"/>每周礼包</p>
-                     </div>
-                     <div class="gamePack-bottom-r">
-                      <a href="">一键领取</a>
-                     </div>
-              </div>
-             </li>
-             <li>
-               <div class="gamePack-top">
-                <img src="../assets/img/13.png">
-                <div>
-                   <span>二之国：交错世界</span>
-                   <a href=""> <span>秒玩</span></a>
-                </div>
-              </div>
-              <p>
-                <b>4</b>
-                <a href="">个免费礼包待领取></a>
-              </p>
-              <div class="gamePack-bottom">
-                     <div class="gamePack-bottom-l">
-                      <p><img src="../assets/img/lift.avif"/>每日礼包</p>
-                      <p><img src="../assets/img/lift.avif"/>每周礼包</p>
-                     </div>
-                     <div class="gamePack-bottom-r">
-                      <a href="">一键领取</a>
-                     </div>
-              </div>
-             </li>
-             
+        <li>
+          <div class="gamePack-top">
+            <img src="../assets/img/13.png" />
+            <div>
+              <span>二之国：交错世界</span>
+              <a href=""> <span>秒玩</span></a>
+            </div>
+          </div>
+          <p>
+            <b>4</b>
+            <a href="">个免费礼包待领取></a>
+          </p>
+          <div class="gamePack-bottom">
+            <div class="gamePack-bottom-l">
+              <p><img src="../assets/img/lift.avif" />每日礼包</p>
+              <p><img src="../assets/img/lift.avif" />每周礼包</p>
+            </div>
+            <div class="gamePack-bottom-r">
+              <a href="">一键领取</a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="gamePack-top">
+            <img src="../assets/img/13.png" />
+            <div>
+              <span>二之国：交错世界</span>
+              <a href=""> <span>秒玩</span></a>
+            </div>
+          </div>
+          <p>
+            <b>4</b>
+            <a href="">个免费礼包待领取></a>
+          </p>
+          <div class="gamePack-bottom">
+            <div class="gamePack-bottom-l">
+              <p><img src="../assets/img/lift.avif" />每日礼包</p>
+              <p><img src="../assets/img/lift.avif" />每周礼包</p>
+            </div>
+            <div class="gamePack-bottom-r">
+              <a href="">一键领取</a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="gamePack-top">
+            <img src="../assets/img/13.png" />
+            <div>
+              <span>二之国：交错世界</span>
+              <a href=""> <span>秒玩</span></a>
+            </div>
+          </div>
+          <p>
+            <b>4</b>
+            <a href="">个免费礼包待领取></a>
+          </p>
+          <div class="gamePack-bottom">
+            <div class="gamePack-bottom-l">
+              <p><img src="../assets/img/lift.avif" />每日礼包</p>
+              <p><img src="../assets/img/lift.avif" />每周礼包</p>
+            </div>
+            <div class="gamePack-bottom-r">
+              <a href="">一键领取</a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="gamePack-top">
+            <img src="../assets/img/13.png" />
+            <div>
+              <span>二之国：交错世界</span>
+              <a href=""> <span>秒玩</span></a>
+            </div>
+          </div>
+          <p>
+            <b>4</b>
+            <a href="">个免费礼包待领取></a>
+          </p>
+          <div class="gamePack-bottom">
+            <div class="gamePack-bottom-l">
+              <p><img src="../assets/img/lift.avif" />每日礼包</p>
+              <p><img src="../assets/img/lift.avif" />每周礼包</p>
+            </div>
+            <div class="gamePack-bottom-r">
+              <a href="">一键领取</a>
+            </div>
+          </div>
+        </li>
       </ul>
 
       <h1>榜单速递</h1>
 
       <div class="listExpress">
-        <span ><a href="" >热门榜</a></span>
-        <span class="one"><a href="">新品榜</a></span>
-        <span class="one"><a href="">精选榜</a></span>
-        <span class="one"><a href="">传奇榜</a></span>
-        <span class="one"><a href="">卡牌榜</a></span>
-        <span class="one"><a href="">策略榜</a></span>
-        <span class="one"><a href="">仙侠榜</a></span>
+        <span><a href="">热门榜</a></span>
+        <span class="one" v-for="(item, index) in listExpress" :key="index">
+          <a href="">{{ item.text }}</a>
+        </span>
       </div>
 
       <ul class="listExpressCon">
         <li class="hotList">
           <div class="hotListTop">
             <span>热门榜</span>
-            <img src="../assets/img/red-spark.webp"/>
+            <img src="../assets/img/red-spark.webp" />
           </div>
           <div class="hotListBottom">
-             <ul>
+            <ul>
               <li>
                 <b>No.<span>1</span></b>
-                <img src="../assets/img/2.avif"/>
+                <img src="../assets/img/2.avif" />
                 <div class="hotListText">
                   <div>
                     <p>战地无疆</p>
@@ -298,7 +294,7 @@
               </li>
               <li>
                 <b>No.<span>2</span></b>
-                <img src="../assets/img/2.avif"/>
+                <img src="../assets/img/2.avif" />
                 <div class="hotListText">
                   <div>
                     <p>战地无疆</p>
@@ -309,7 +305,7 @@
               </li>
               <li>
                 <b>No.<span>3</span></b>
-                <img src="../assets/img/2.avif"/>
+                <img src="../assets/img/2.avif" />
                 <div class="hotListText">
                   <div>
                     <p>战地无疆</p>
@@ -321,8 +317,8 @@
               <li>
                 <b>
                   <span>4</span>
-                  </b>
-                <img src="../assets/img/2.avif"/>
+                </b>
+                <img src="../assets/img/2.avif" />
                 <div class="hotListText">
                   <div>
                     <p>战地无疆</p>
@@ -333,7 +329,7 @@
               </li>
               <li>
                 <b><span>5</span></b>
-                <img src="../assets/img/2.avif"/>
+                <img src="../assets/img/2.avif" />
                 <div class="hotListText">
                   <div>
                     <p>战地无疆</p>
@@ -344,7 +340,7 @@
               </li>
               <li>
                 <b><span>6</span></b>
-                <img src="../assets/img/2.avif"/>
+                <img src="../assets/img/2.avif" />
                 <div class="hotListText">
                   <div>
                     <p>战地无疆</p>
@@ -355,7 +351,7 @@
               </li>
               <li>
                 <b><span>7</span></b>
-                <img src="../assets/img/2.avif"/>
+                <img src="../assets/img/2.avif" />
                 <div class="hotListText">
                   <div>
                     <p>战地无疆</p>
@@ -366,7 +362,7 @@
               </li>
               <li>
                 <b><span>8</span></b>
-                <img src="../assets/img/2.avif"/>
+                <img src="../assets/img/2.avif" />
                 <div class="hotListText">
                   <div>
                     <p>战地无疆</p>
@@ -377,7 +373,7 @@
               </li>
               <li>
                 <b><span>9</span></b>
-                <img src="../assets/img/2.avif"/>
+                <img src="../assets/img/2.avif" />
                 <div class="hotListText">
                   <div>
                     <p>战地无疆</p>
@@ -388,7 +384,7 @@
               </li>
               <li>
                 <b><span>10</span></b>
-                <img src="../assets/img/2.avif"/>
+                <img src="../assets/img/2.avif" />
                 <div class="hotListText">
                   <div>
                     <p>战地无疆</p>
@@ -397,21 +393,20 @@
                   <span class="seconds"><a href="">秒玩</a></span>
                 </div>
               </li>
-
-             </ul>
+            </ul>
           </div>
         </li>
-        <li class="hotList">
-          <div class="hotListTop">
-            <span>热门榜</span>
-            <img src="../assets/img/red-spark.webp"/>
+        <li class="newList">
+          <div class="newListTop">
+            <span>新品榜</span>
+            <img src="../assets/img/q45.webp" />
           </div>
-          <div class="hotListBottom">
-             <ul>
+          <div class="newListBottom">
+            <ul>
               <li>
                 <b>No.<span>1</span></b>
-                <img src="../assets/img/2.avif"/>
-                <div class="hotListText">
+                <img src="../assets/img/2.avif" />
+                <div class="newListText">
                   <div>
                     <p>战地无疆</p>
                     <span>高代入感和自由度的战争策略手游</span>
@@ -421,8 +416,8 @@
               </li>
               <li>
                 <b>No.<span>2</span></b>
-                <img src="../assets/img/2.avif"/>
-                <div class="hotListText">
+                <img src="../assets/img/2.avif" />
+                <div class="newListText">
                   <div>
                     <p>战地无疆</p>
                     <span>高代入感和自由度的战争策略手游</span>
@@ -432,8 +427,8 @@
               </li>
               <li>
                 <b>No.<span>3</span></b>
-                <img src="../assets/img/2.avif"/>
-                <div class="hotListText">
+                <img src="../assets/img/2.avif" />
+                <div class="newListText">
                   <div>
                     <p>战地无疆</p>
                     <span>高代入感和自由度的战争策略手游</span>
@@ -443,11 +438,10 @@
               </li>
               <li>
                 <b>
-                  
                   <span>4</span>
-                  </b>
-                <img src="../assets/img/2.avif"/>
-                <div class="hotListText">
+                </b>
+                <img src="../assets/img/2.avif" />
+                <div class="newListText">
                   <div>
                     <p>战地无疆</p>
                     <span>高代入感和自由度的战争策略手游</span>
@@ -457,8 +451,8 @@
               </li>
               <li>
                 <b><span>5</span></b>
-                <img src="../assets/img/2.avif"/>
-                <div class="hotListText">
+                <img src="../assets/img/2.avif" />
+                <div class="newListText">
                   <div>
                     <p>战地无疆</p>
                     <span>高代入感和自由度的战争策略手游</span>
@@ -468,8 +462,8 @@
               </li>
               <li>
                 <b><span>6</span></b>
-                <img src="../assets/img/2.avif"/>
-                <div class="hotListText">
+                <img src="../assets/img/2.avif" />
+                <div class="newListText">
                   <div>
                     <p>战地无疆</p>
                     <span>高代入感和自由度的战争策略手游</span>
@@ -479,8 +473,8 @@
               </li>
               <li>
                 <b><span>7</span></b>
-                <img src="../assets/img/2.avif"/>
-                <div class="hotListText">
+                <img src="../assets/img/2.avif" />
+                <div class="newListText">
                   <div>
                     <p>战地无疆</p>
                     <span>高代入感和自由度的战争策略手游</span>
@@ -490,8 +484,8 @@
               </li>
               <li>
                 <b><span>8</span></b>
-                <img src="../assets/img/2.avif"/>
-                <div class="hotListText">
+                <img src="../assets/img/2.avif" />
+                <div class="newListText">
                   <div>
                     <p>战地无疆</p>
                     <span>高代入感和自由度的战争策略手游</span>
@@ -501,8 +495,8 @@
               </li>
               <li>
                 <b><span>9</span></b>
-                <img src="../assets/img/2.avif"/>
-                <div class="hotListText">
+                <img src="../assets/img/2.avif" />
+                <div class="newListText">
                   <div>
                     <p>战地无疆</p>
                     <span>高代入感和自由度的战争策略手游</span>
@@ -512,8 +506,8 @@
               </li>
               <li>
                 <b><span>10</span></b>
-                <img src="../assets/img/2.avif"/>
-                <div class="hotListText">
+                <img src="../assets/img/2.avif" />
+                <div class="newListText">
                   <div>
                     <p>战地无疆</p>
                     <span>高代入感和自由度的战争策略手游</span>
@@ -521,21 +515,20 @@
                   <span class="seconds"><a href="">秒玩</a></span>
                 </div>
               </li>
-              
-             </ul>
+            </ul>
           </div>
         </li>
-        <li class="hotList">
-          <div class="hotListTop">
+        <li class="choicenessList">
+          <div class="choicenessListTop">
             <span>热门榜</span>
-            <img src="../assets/img/red-spark.webp"/>
+            <img src="../assets/img/purple-leaf.webp" />
           </div>
-          <div class="hotListBottom">
-             <ul>
+          <div class="choicenessListBottom">
+            <ul>
               <li>
                 <b>No.<span>1</span></b>
-                <img src="../assets/img/2.avif"/>
-                <div class="hotListText">
+                <img src="../assets/img/2.avif" />
+                <div class="choicenessListText">
                   <div>
                     <p>战地无疆</p>
                     <span>高代入感和自由度的战争策略手游</span>
@@ -545,8 +538,8 @@
               </li>
               <li>
                 <b>No.<span>2</span></b>
-                <img src="../assets/img/2.avif"/>
-                <div class="hotListText">
+                <img src="../assets/img/2.avif" />
+                <div class="choicenessListText">
                   <div>
                     <p>战地无疆</p>
                     <span>高代入感和自由度的战争策略手游</span>
@@ -556,8 +549,8 @@
               </li>
               <li>
                 <b>No.<span>3</span></b>
-                <img src="../assets/img/2.avif"/>
-                <div class="hotListText">
+                <img src="../assets/img/2.avif" />
+                <div class="choicenessListText">
                   <div>
                     <p>战地无疆</p>
                     <span>高代入感和自由度的战争策略手游</span>
@@ -567,11 +560,10 @@
               </li>
               <li>
                 <b>
-                  
                   <span>4</span>
-                  </b>
-                <img src="../assets/img/2.avif"/>
-                <div class="hotListText">
+                </b>
+                <img src="../assets/img/2.avif" />
+                <div class="choicenessListText">
                   <div>
                     <p>战地无疆</p>
                     <span>高代入感和自由度的战争策略手游</span>
@@ -581,8 +573,8 @@
               </li>
               <li>
                 <b><span>5</span></b>
-                <img src="../assets/img/2.avif"/>
-                <div class="hotListText">
+                <img src="../assets/img/2.avif" />
+                <div class="choicenessListText">
                   <div>
                     <p>战地无疆</p>
                     <span>高代入感和自由度的战争策略手游</span>
@@ -592,8 +584,8 @@
               </li>
               <li>
                 <b><span>6</span></b>
-                <img src="../assets/img/2.avif"/>
-                <div class="hotListText">
+                <img src="../assets/img/2.avif" />
+                <div class="choicenessListText">
                   <div>
                     <p>战地无疆</p>
                     <span>高代入感和自由度的战争策略手游</span>
@@ -603,8 +595,8 @@
               </li>
               <li>
                 <b><span>7</span></b>
-                <img src="../assets/img/2.avif"/>
-                <div class="hotListText">
+                <img src="../assets/img/2.avif" />
+                <div class="choicenessListText">
                   <div>
                     <p>战地无疆</p>
                     <span>高代入感和自由度的战争策略手游</span>
@@ -614,8 +606,8 @@
               </li>
               <li>
                 <b><span>8</span></b>
-                <img src="../assets/img/2.avif"/>
-                <div class="hotListText">
+                <img src="../assets/img/2.avif" />
+                <div class="choicenessListText">
                   <div>
                     <p>战地无疆</p>
                     <span>高代入感和自由度的战争策略手游</span>
@@ -625,8 +617,8 @@
               </li>
               <li>
                 <b><span>9</span></b>
-                <img src="../assets/img/2.avif"/>
-                <div class="hotListText">
+                <img src="../assets/img/2.avif" />
+                <div class="choicenessListText">
                   <div>
                     <p>战地无疆</p>
                     <span>高代入感和自由度的战争策略手游</span>
@@ -636,8 +628,8 @@
               </li>
               <li>
                 <b><span>10</span></b>
-                <img src="../assets/img/2.avif"/>
-                <div class="hotListText">
+                <img src="../assets/img/2.avif" />
+                <div class="choicenessListText">
                   <div>
                     <p>战地无疆</p>
                     <span>高代入感和自由度的战争策略手游</span>
@@ -645,12 +637,274 @@
                   <span class="seconds"><a href="">秒玩</a></span>
                 </div>
               </li>
-              
-             </ul>
+            </ul>
           </div>
         </li>
       </ul>
 
+      <h1>周末宅家必玩经典</h1>
+      <secondsPlayComp :list="brainstormingList"></secondsPlayComp>
+
+      <h1>大屏云游戏专区</h1>
+
+      <div class="cloudGaming">
+        <div class="cloudGaming-l">
+          <div>
+            <p class="largeScreen">高清大屏才过瘾</p>
+            <p class="phone">手机太小看不清，还是电脑云游好</p>
+          </div>
+          <span></span>
+        </div>
+        <ul class="cloudGamingR">
+          <li v-for="(item, index) in cloudGamingRList" :key="index">
+            <img :src="item.url" />
+            <span>{{ item.text }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <h1>精选游戏</h1>
+
+      <div class="handpick">
+        <ul class="handpickL">
+          <li>
+            <img src="../assets/img/5.avif" />
+            <div class="peace">
+              <img src="../assets/img/4.avif" />
+              <div class="naruto">
+                <div class="narutoname">
+                  <p class="narutoname-t">仙境传说：爱如初见</p>
+                  <p class="narutoname-b">再见如初，就是RO！</p>
+                </div>
+
+                <div class="narutogame"><a href="">秒玩</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="../assets/img/5.avif" />
+            <div class="peace">
+              <img src="../assets/img/4.avif" />
+              <div class="naruto">
+                <div class="narutoname">
+                  <p class="narutoname-t">仙境传说：爱如初见</p>
+                  <p class="narutoname-b">再见如初，就是RO！</p>
+                </div>
+
+                <div class="narutogame"><a href="">秒玩</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="../assets/img/5.avif" />
+            <div class="peace">
+              <img src="../assets/img/4.avif" />
+              <div class="naruto">
+                <div class="narutoname">
+                  <p class="narutoname-t">仙境传说：爱如初见</p>
+                  <p class="narutoname-b">再见如初，就是RO！</p>
+                </div>
+
+                <div class="narutogame"><a href="">秒玩</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="../assets/img/5.avif" />
+            <div class="peace">
+              <img src="../assets/img/4.avif" />
+              <div class="naruto">
+                <div class="narutoname">
+                  <p class="narutoname-t">仙境传说：爱如初见</p>
+                  <p class="narutoname-b">再见如初，就是RO！</p>
+                </div>
+
+                <div class="narutogame"><a href="">秒玩</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="../assets/img/5.avif" />
+            <div class="peace">
+              <img src="../assets/img/4.avif" />
+              <div class="naruto">
+                <div class="narutoname">
+                  <p class="narutoname-t">仙境传说：爱如初见</p>
+                  <p class="narutoname-b">再见如初，就是RO！</p>
+                </div>
+
+                <div class="narutogame"><a href="">秒玩</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="../assets/img/5.avif" />
+            <div class="peace">
+              <img src="../assets/img/4.avif" />
+              <div class="naruto">
+                <div class="narutoname">
+                  <p class="narutoname-t">仙境传说：爱如初见</p>
+                  <p class="narutoname-b">再见如初，就是RO！</p>
+                </div>
+
+                <div class="narutogame"><a href="">秒玩</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="../assets/img/5.avif" />
+            <div class="peace">
+              <img src="../assets/img/4.avif" />
+              <div class="naruto">
+                <div class="narutoname">
+                  <p class="narutoname-t">仙境传说：爱如初见</p>
+                  <p class="narutoname-b">再见如初，就是RO！</p>
+                </div>
+
+                <div class="narutogame"><a href="">秒玩</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="../assets/img/5.avif" />
+            <div class="peace">
+              <img src="../assets/img/4.avif" />
+              <div class="naruto">
+                <div class="narutoname">
+                  <p class="narutoname-t">仙境传说：爱如初见</p>
+                  <p class="narutoname-b">再见如初，就是RO！</p>
+                </div>
+
+                <div class="narutogame"><a href="">秒玩</a></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <ul class="handpickR">
+          <li class="choicenessList">
+            <div class="choicenessListTop">
+              <span>热门榜</span>
+              <img src="../assets/img/purple-leaf.webp" />
+            </div>
+            <div class="choicenessListBottom">
+              <ul>
+                <li>
+                  <b>No.<span>1</span></b>
+                  <img src="../assets/img/2.avif" />
+                  <div class="choicenessListText">
+                    <div>
+                      <p>战地无疆</p>
+                      <span>高代入感和自由度的战争策略手游</span>
+                    </div>
+                    <span class="seconds"><a href="">秒玩</a></span>
+                  </div>
+                </li>
+                <li>
+                  <b>No.<span>2</span></b>
+                  <img src="../assets/img/2.avif" />
+                  <div class="choicenessListText">
+                    <div>
+                      <p>战地无疆</p>
+                      <span>高代入感和自由度的战争策略手游</span>
+                    </div>
+                    <span class="seconds"><a href="">秒玩</a></span>
+                  </div>
+                </li>
+                <li>
+                  <b>No.<span>3</span></b>
+                  <img src="../assets/img/2.avif" />
+                  <div class="choicenessListText">
+                    <div>
+                      <p>战地无疆</p>
+                      <span>高代入感和自由度的战争策略手游</span>
+                    </div>
+                    <span class="seconds"><a href="">秒玩</a></span>
+                  </div>
+                </li>
+                <li>
+                  <b>
+                    <span>4</span>
+                  </b>
+                  <img src="../assets/img/2.avif" />
+                  <div class="choicenessListText">
+                    <div>
+                      <p>战地无疆</p>
+                      <span>高代入感和自由度的战争策略手游</span>
+                    </div>
+                    <span class="seconds"><a href="">秒玩</a></span>
+                  </div>
+                </li>
+                <li>
+                  <b><span>5</span></b>
+                  <img src="../assets/img/2.avif" />
+                  <div class="choicenessListText">
+                    <div>
+                      <p>战地无疆</p>
+                      <span>高代入感和自由度的战争策略手游</span>
+                    </div>
+                    <span class="seconds"><a href="">秒玩</a></span>
+                  </div>
+                </li>
+                <li>
+                  <b><span>6</span></b>
+                  <img src="../assets/img/2.avif" />
+                  <div class="choicenessListText">
+                    <div>
+                      <p>战地无疆</p>
+                      <span>高代入感和自由度的战争策略手游</span>
+                    </div>
+                    <span class="seconds"><a href="">秒玩</a></span>
+                  </div>
+                </li>
+                <li>
+                  <b><span>7</span></b>
+                  <img src="../assets/img/2.avif" />
+                  <div class="choicenessListText">
+                    <div>
+                      <p>战地无疆</p>
+                      <span>高代入感和自由度的战争策略手游</span>
+                    </div>
+                    <span class="seconds"><a href="">秒玩</a></span>
+                  </div>
+                </li>
+                <li>
+                  <b><span>8</span></b>
+                  <img src="../assets/img/2.avif" />
+                  <div class="choicenessListText">
+                    <div>
+                      <p>战地无疆</p>
+                      <span>高代入感和自由度的战争策略手游</span>
+                    </div>
+                    <span class="seconds"><a href="">秒玩</a></span>
+                  </div>
+                </li>
+                <li>
+                  <b><span>9</span></b>
+                  <img src="../assets/img/2.avif" />
+                  <div class="choicenessListText">
+                    <div>
+                      <p>战地无疆</p>
+                      <span>高代入感和自由度的战争策略手游</span>
+                    </div>
+                    <span class="seconds"><a href="">秒玩</a></span>
+                  </div>
+                </li>
+                <li>
+                  <b><span>10</span></b>
+                  <img src="../assets/img/2.avif" />
+                  <div class="choicenessListText">
+                    <div>
+                      <p>战地无疆</p>
+                      <span>高代入感和自由度的战争策略手游</span>
+                    </div>
+                    <span class="seconds"><a href="">秒玩</a></span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -755,7 +1009,7 @@ const cardList = ref([
   },
 ]);
 
-const brainstorming = ref([
+const brainstormingList = ref([
   {
     url: KPL,
     src: love,
@@ -790,6 +1044,46 @@ const brainstorming = ref([
     text: "英雄联盟",
     synopsis: "战斗回合制策略游戏",
     into: "秒玩",
+  },
+]);
+
+const listExpress = ref([
+  { text: "新品榜" },
+  { text: "精选榜" },
+  { text: "传奇榜" },
+  { text: "卡牌榜" },
+  { text: "策略榜" },
+  { text: "仙侠榜" },
+]);
+
+const cloudGamingRList = ref([
+  {
+    url: hero,
+    text: "迷你世界",
+  },
+  {
+    url: hero,
+    text: "王者荣耀-支持iOS登录",
+  },
+  {
+    url: hero,
+    text: "黎明觉醒：生机",
+  },
+  {
+    url: hero,
+    text: "重返帝国",
+  },
+  {
+    url: hero,
+    text: "极无双2",
+  },
+  {
+    url: hero,
+    text: "斗罗大陆：魂师对决",
+  },
+  {
+    url: hero,
+    text: "传奇天下",
   },
 ]);
 </script>
@@ -1127,7 +1421,7 @@ const brainstorming = ref([
       span {
         display: block;
         height: 32px;
-        width: 120px;
+        width: 100px;
         border: 1px solid rgb(122, 120, 120);
         border-radius: 20px;
         background: rgba(242, 242, 242, 0.1);
@@ -1151,7 +1445,7 @@ const brainstorming = ref([
       width: 100%;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 20px;
-
+      margin-bottom: 50px;
       .hotList {
         width: 100%;
         height: 500px;
@@ -1181,11 +1475,24 @@ const brainstorming = ref([
           }
         }
 
+        .hotListBottom::-webkit-scrollbar {
+          width: 10px;
+        }
+        // .hotListBottom::-webkit-scrollbar-track {
+        //   background-color: black;
+        // }
+        //滑条的背景颜色
+        .hotListBottom::-webkit-scrollbar-thumb {
+          background: #4e4e4e;
+          border-radius: 25px;
+        }
+        //滑块
         .hotListBottom {
           overflow-y: scroll;
           height: 400px;
           width: 100%;
           background-color: #1c1c1c;
+
           > ul {
             padding: 15px;
             width: 100%;
@@ -1229,6 +1536,498 @@ const brainstorming = ref([
                   > span {
                     color: #605f5f;
                     font-size: 14px;
+                  }
+                }
+                .seconds {
+                  height: 32px;
+                  width: 68px;
+                  display: block;
+                  border: 1px solid rgb(111, 110, 110);
+                  border-radius: 20px;
+                  background-color: rgba(255, 220, 20, 0.1);
+                  text-align: center;
+                  line-height: 30px;
+                  a {
+                    color: #ffdc14;
+                    font-size: 13px;
+                  }
+                }
+                .seconds:hover,
+                a:hover {
+                  background-color: #dbb75e;
+                  color: #4d4c4c;
+                }
+              }
+            }
+          }
+        }
+      }
+      .newList {
+        width: 100%;
+        height: 500px;
+        border-radius: 10px;
+        border: 1px solid rgb(108, 107, 107);
+        overflow: hidden;
+        .newListTop {
+          height: 100px;
+          width: 100%;
+          position: relative;
+          z-index: 1;
+
+          background-image: url("../assets/img/blue-backgronud-image.webp");
+          line-height: 100px;
+          span {
+            display: block;
+            font-size: 24px;
+            color: #ffdc14;
+            margin-left: 15px;
+          }
+          img {
+            width: 200px;
+            height: 100px;
+            position: absolute;
+            right: 0;
+            top: -15px;
+          }
+        }
+
+        .newListBottom::-webkit-scrollbar {
+          width: 10px;
+        }
+        // .hotListBottom::-webkit-scrollbar-track {
+        //   background-color: black;
+        // }
+        //滑条的背景颜色
+        .newListBottom::-webkit-scrollbar-thumb {
+          background: #4e4e4e;
+          border-radius: 25px;
+        }
+        //滑块
+        .newListBottom {
+          overflow-y: scroll;
+          height: 400px;
+          width: 100%;
+          background-color: #1c1c1c;
+
+          > ul {
+            padding: 15px;
+            width: 100%;
+            display: grid;
+            grid-template-rows: repeat(10, 1fr);
+            grid-gap: 20px;
+            > li {
+              height: 64px;
+              width: 100%;
+              display: flex;
+              align-items: center;
+              b {
+                display: block;
+                color: #4d4c4c;
+                font-size: 12px;
+                //  margin-right:20px;
+                display: flex;
+                align-items: center;
+                width: 50px;
+                justify-content: center;
+                span {
+                  font-size: 20px;
+                }
+              }
+              img {
+                height: 100%;
+                width: 64px;
+                margin-right: 15px;
+                border-radius: 10px;
+              }
+              .newListText {
+                flex: 1;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                div {
+                  p {
+                    color: #ffffff;
+                    font-size: 18px;
+                  }
+                  > span {
+                    color: #605f5f;
+                    font-size: 14px;
+                  }
+                }
+                .seconds {
+                  height: 32px;
+                  width: 68px;
+                  display: block;
+                  border: 1px solid rgb(111, 110, 110);
+                  border-radius: 20px;
+                  background-color: rgba(255, 220, 20, 0.1);
+                  text-align: center;
+                  line-height: 30px;
+                  a {
+                    color: #ffdc14;
+                    font-size: 13px;
+                  }
+                }
+                .seconds:hover,
+                a:hover {
+                  background-color: #dbb75e;
+                  color: #4d4c4c;
+                }
+              }
+            }
+          }
+        }
+      }
+      .choicenessList {
+        width: 100%;
+        height: 500px;
+        border-radius: 10px;
+        border: 1px solid rgb(108, 107, 107);
+        overflow: hidden;
+        .choicenessListTop {
+          height: 100px;
+          width: 100%;
+          position: relative;
+          z-index: 1;
+
+          background-image: url("../assets/img/purple-background-image.webp");
+          line-height: 100px;
+          span {
+            display: block;
+            font-size: 24px;
+            color: #ffdc14;
+            margin-left: 15px;
+          }
+          img {
+            width: 200px;
+            height: 100px;
+            position: absolute;
+            right: 0;
+            top: -15px;
+          }
+        }
+
+        .choicenessListBottom::-webkit-scrollbar {
+          width: 10px;
+        }
+        // .hotListBottom::-webkit-scrollbar-track {
+        //   background-color: black;
+        // }
+        //滑条的背景颜色
+        .choicenessListBottom::-webkit-scrollbar-thumb {
+          background: #4e4e4e;
+          border-radius: 25px;
+        }
+        //滑块
+        .choicenessListBottom {
+          overflow-y: scroll;
+          height: 400px;
+          width: 100%;
+          background-color: #1c1c1c;
+
+          > ul {
+            padding: 15px;
+            width: 100%;
+            display: grid;
+            grid-template-rows: repeat(10, 1fr);
+            grid-gap: 20px;
+            > li {
+              height: 64px;
+              width: 100%;
+              display: flex;
+              align-items: center;
+              b {
+                display: block;
+                color: #4d4c4c;
+                font-size: 12px;
+                //  margin-right:20px;
+                display: flex;
+                align-items: center;
+                width: 50px;
+                justify-content: center;
+                span {
+                  font-size: 20px;
+                }
+              }
+              img {
+                height: 100%;
+                width: 64px;
+                margin-right: 15px;
+                border-radius: 10px;
+              }
+              .choicenessListText {
+                flex: 1;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                div {
+                  p {
+                    color: #ffffff;
+                    font-size: 18px;
+                  }
+                  > span {
+                    color: #605f5f;
+                    font-size: 14px;
+                  }
+                }
+                .seconds {
+                  height: 32px;
+                  width: 68px;
+                  display: block;
+                  border: 1px solid rgb(111, 110, 110);
+                  border-radius: 20px;
+                  background-color: rgba(255, 220, 20, 0.1);
+                  text-align: center;
+                  line-height: 30px;
+                  a {
+                    color: #ffdc14;
+                    font-size: 13px;
+                  }
+                }
+                .seconds:hover,
+                a:hover {
+                  background-color: #dbb75e;
+                  color: #4d4c4c;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .cloudGaming {
+      height: 275px;
+      width: 100%;
+      background-color: rgb(33, 49, 66);
+      display: flex;
+      .cloudGaming-l {
+        height: 275px;
+        width: 682px;
+        background-image: url("../assets/img/cartoon-character.webp");
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        display: flex;
+        div {
+          height: 274px;
+          width: 590px;
+          padding: 80px 40px;
+          .largeScreen {
+            font-size: 36px;
+            color: black;
+            margin-bottom: 30px;
+          }
+          .phone {
+            font-size: 16px;
+            color: #4e4e4e;
+          }
+        }
+
+        span {
+          display: block;
+          width: 90px;
+          height: 100%;
+          z-index: 5;
+          position: absolute;
+          right: 0;
+          border-bottom: 275px solid rgb(33, 49, 66);
+          border-left: 90px solid rgba(0, 0, 0, 0);
+        }
+      }
+      .cloudGamingR {
+        padding: 80px;
+        flex: 1;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-gap: 20px;
+        li {
+          height: 100%;
+          width: 100%;
+          text-align: center;
+          img {
+            height: 86px;
+            width: 90px;
+            border-radius: 10px;
+          }
+          span {
+            display: block;
+            color: #ffffff;
+            font-size: 14px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 86px;
+          }
+        }
+      }
+    }
+    .handpick {
+      display: flex;
+      height: 500px;
+      width: 100%;
+      .handpickL {
+        margin-right: 20px;
+        height: 100%;
+        width: 1300px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 20px;
+        li {
+          height: 240px;
+          width: 100%;
+          border: 1px solid rgb(82, 81, 81);
+          border-radius: 10px;
+          overflow: hidden;
+          background-color: #353434;
+          img {
+            height: 175px;
+            width: 100%;
+          }
+          .peace {
+            padding: 10px;
+            height: 60px;
+            display: flex;
+            width: 100%;
+
+            // justify-content: space-between;
+            img {
+              height: 100%;
+              width: 36px;
+              margin-right: 5px;
+            }
+            .naruto {
+              flex: 1;
+              padding: 10px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              .narutoname-t {
+                color: #ffffff;
+                font-size: 16px;
+              }
+              .narutoname-b {
+                color: #4d4c4c;
+                font-size: 12px;
+              }
+              .narutogame {
+                height: 32px;
+                width: 68px;
+                border: 1px solid rgb(93, 92, 92);
+                border-radius: 20px;
+                background: rgba(255, 220, 20, 0.1);
+                font-size: 13px;
+                text-align: center;
+                line-height: 30px;
+                a {
+                  color: #ffdc14;
+                }
+                a:hover {
+                  color: #353434;
+                }
+              }
+              .narutogame:hover {
+                background-color: #dbb75e;
+              }
+            }
+          }
+        }
+      }
+      .handpickR {
+        height: 100%;
+        flex: 1;
+        border-radius: 10px;
+        border: 1px solid rgb(108, 107, 107);
+        overflow: hidden;
+        .choicenessListTop {
+          height: 100px;
+          width: 100%;
+          position: relative;
+          z-index: 1;
+
+          background-image: url("../assets/img/purple-background-image.webp");
+          line-height: 100px;
+          span {
+            display: block;
+            font-size: 24px;
+            color: #ffdc14;
+            margin-left: 15px;
+          }
+          img {
+            width: 200px;
+            height: 100px;
+            position: absolute;
+            right: 0;
+            top: -15px;
+          }
+        }
+
+        .choicenessListBottom::-webkit-scrollbar {
+          width: 10px;
+        }
+        // .hotListBottom::-webkit-scrollbar-track {
+        //   background-color: black;
+        // }
+        //滑条的背景颜色
+        .choicenessListBottom::-webkit-scrollbar-thumb {
+          background: #4e4e4e;
+          border-radius: 25px;
+        }
+        //滑块
+        .choicenessListBottom {
+          overflow-y: scroll;
+          height: 400px;
+          width: 100%;
+          background-color: #1c1c1c;
+
+          > ul {
+            padding: 15px;
+            width: 100%;
+            display: grid;
+            grid-template-rows: repeat(10, 1fr);
+            grid-gap: 10px;
+            > li {
+              height: 64px;
+              width: 100%;
+              display: flex;
+              align-items: center;
+              b {
+                display: block;
+                color: #4d4c4c;
+                font-size: 12px;
+                //  margin-right:20px;
+                display: flex;
+                align-items: center;
+                width: 50px;
+                justify-content: center;
+                span {
+                  font-size: 20px;
+                }
+              }
+              img {
+                height: 34px;
+                width: 34px;
+                margin-right: 15px;
+                border-radius: 10px;
+              }
+              .choicenessListText {
+                flex: 1;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                div {
+                  p {
+                    color: #ffffff;
+                    font-size: 18px;
+                  }
+                  > span {
+                    color: #605f5f;
+                    font-size: 14px;
+                    display: block;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    width: 100px;
+                    overflow: hidden;
                   }
                 }
                 .seconds {

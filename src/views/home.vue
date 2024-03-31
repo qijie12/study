@@ -464,275 +464,273 @@
       </li>
     </ul> -->
 
-     <div id="center-con" class="teleplay">
-        <img src="./img/3.avif" />
-        <div id="content">
-          <!-- <div class="center-con"> -->
-            <div id="vault">
-              <a href=""> 电视剧片库 </a>
-              <a href=""> X剧场 </a>
-              <a href=""> 免费热剧 </a>
-              <a href=""> 爱情 </a>
-              <a href=""> 古装 </a>
-              <a href=""> 悬疑 </a>
-              <a href=""> 家庭 </a>
-              <a href=""> 传奇 </a>
-              <a href=""> 武侠 </a>
-              <a href=""> 军旅 </a>
-            </div>
+    <div id="center-con" class="teleplay">
+      <img src="./img/3.avif" />
+      <div id="content">
+        <!-- <div class="center-con"> -->
+        <div id="vault">
+          <a href=""> 电视剧片库 </a>
+          <a href=""> X剧场 </a>
+          <a href=""> 免费热剧 </a>
+          <a href=""> 爱情 </a>
+          <a href=""> 古装 </a>
+          <a href=""> 悬疑 </a>
+          <a href=""> 家庭 </a>
+          <a href=""> 传奇 </a>
+          <a href=""> 武侠 </a>
+          <a href=""> 军旅 </a>
+        </div>
 
-            <div id="hotbroadcast">
-              <h1>重磅热播</h1>
-              <div class="change">
-                <sapn class="tv">
-                  <span><a href="">全部</a></span>
-                  <a href=""> 电视剧 </a>
-                  <a href=""> 综艺 </a>
-                  <a href=""> 电影 </a>
-                  <a href=""> 动漫 </a>
-                  <a href=""> 少儿 </a>
-                  <a href=""> 纪录片 </a>
-                </sapn>
-                <span>
-                  <a href="">换一换</a>
-                </span>
-              </div>
-            </div>
-
-            <ul id="hotpicture">
-              <li>
-                <img src="./img/3.avif" />
-                <b></b>
-                <a href="">
-                  <p>小日子</p>
-                  <span> 陈晓童瑶首搭守护小日子 </span>
-                </a>
-              </li>
-              <li>
-                <img src="./img/1.avif" />
-                <p></p>
-                <a href="">
-                  <p>欢乐颂5</p>
-                  <span> 江疏影杨采钰五美复仇出击 </span>
-                </a>
-              </li>
-              <li>
-                <img src="./img/2.avif" />
-                <b></b>
-                <a href="">
-                  <p>完美世界</p>
-                  <span> 谁在称无敌，哪个言不败？ </span>
-                </a>
-              </li>
-              <li>
-                <img src="./img/1.avif" />
-                <p></p>
-                <a href="">
-                  <p>缉恶</p>
-                  <span> 谢苗、安志杰谁更能打？ </span>
-                </a>
-              </li>
-              <li>
-                <img src="./img/1.avif" />
-                <p></p>
-                <a href="">
-                  <p>大王饶命 第2季</p>
-                  <span> 灵气复苏爆笑修炼 </span>
-                </a>
-              </li>
-              <li>
-                <img src="./3.jpg" />
-                <b></b>
-                <a href="">
-                  <p>海王2：失落的王国</p>
-                  <span> 视觉狂欢！海底燃炸开战 </span>
-                </a>
-              </li>
-              <li>
-                <img src="./img/1.avif" />
-                <p></p>
-                <a href="">
-                  <p>执笔</p>
-                  <span> 执命运之笔 陷痴缠虐恋 </span>
-                </a>
-              </li>
-              <li>
-                <img src="./img/2.avif" />
-                <b></b>
-                <a href="">
-                  <p>哈哈哈哈哈 第4季</p>
-                  <span> 邓超陈赫鹿晗合体旅行 </span>
-                </a>
-              </li>
-              <li>
-                <img src="./img/4.avif" />
-                <p></p>
-                <a href="">
-                  <p>无染</p>
-                  <span> 以我仙髓 渡你魔念 </span>
-                </a>
-              </li>
-              <li>
-                <img src="./img/1.avif" />
-                <b></b>
-                <a href="">
-                  <p>谢谢你温暖我</p>
-                  <span> 林一李兰迪相爱救赎 </span>
-                </a>
-              </li>
-              <li>
-                <img src="./img/3.avif" />
-                <p></p>
-                <a href="">
-                  <p>半熟恋人 第3季</p>
-                  <span> 轻熟男女奔赴海岛寻爱 </span>
-                </a>
-              </li>
-              <li>
-                <img src="./img/4.avif" />
-                <b></b>
-                <a href="">
-                  <p>今天航班零投诉</p>
-                  <span> 高空甜恋 热血逐梦 </span>
-                </a>
-              </li>
-            </ul>
-
-            <div id="recommend">
-              <h1>为你推荐</h1>
-              <div class="science">
-                <span><a href="">全部</a></span>
-                <a href=""> 科幻 </a>
-                <a href=""> 都市生活 </a>
-                <a href=""> 武侠江湖 </a>
-                <a href=""> 真实事件改编 </a>
-                <a href=""> 原创动画 </a>
-                <a href=""> 奇幻冒险 </a>
-                <a href=""> 东方仙侠 </a>
-                <a href=""> 古装爱情 </a>
-                <a href=""> 欧美电影 </a>
-                <a href=""> 犯罪动作 </a>
-                <a href=""> 国漫 </a>
-                <a href=""> 甜虐爱情 </a>
-                <a href=""> 东北喜剧 </a>
-                <a href=""> 经典动画 </a>
-              </div>
-            </div>
-            <ul id="recommendtv">
-              <li>
-                <img src="./img/2.avif" />
-                <div class="caption">
-                  <img src="./img/5.avif" />
-                  <div class="introduce">
-                    <p class="tvname">玩伴</p>
-                    <p class="name">电视剧 孙涛 戴娇倩 都市生活</p>
-                    <span>搞笑！男子在街边卖内衣</span>
-                    <b></b>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <img src="./img/1.avif" />
-                <div class="caption">
-                  <img src="./img/5.avif" />
-                  <div class="introduce">
-                    <p class="tvname">我是余欢水</p>
-                    <p class="name">电视剧 郭京飞 苗苗 人物故事</p>
-                    <span>怂包到英雄的荒诞逆袭</span>
-                    <b></b>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <img src="./img/4.avif" />
-                <div class="caption">
-                  <img src="./img/5.avif" />
-                  <div class="introduce">
-                    <p class="tvname">爱你不放手</p>
-                    <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
-                    <span>李宗翰变身夺产抢子灭情男</span>
-                    <b></b>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <img src="./img/2.avif" />
-                <div class="caption">
-                  <img src="./img/5.avif" />
-                  <div class="introduce">
-                    <p class="tvname">爱你不放手</p>
-                    <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
-                    <span>李宗翰变身夺产抢子灭情男</span>
-                    <b></b>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <img src="./img/1.avif" />
-                <div class="caption">
-                  <img src="./img/5.avif" />
-                  <div class="introduce">
-                    <p class="tvname">爱你不放手</p>
-                    <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
-                    <span>李宗翰变身夺产抢子灭情男</span>
-                    <b></b>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <img src="./img/4.avif" />
-                <div class="caption">
-                  <img src="./img/5.avif" />
-                  <div class="introduce">
-                    <p class="tvname"> 繁花 </p>
-                    <p class="name">胡歌 马伊琍 时代传奇</p>
-                    <span> "宝总完成承诺离开和平饭店！大老板再次变成阿宝" </span>
-                    <b></b>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <img src="./img/4.avif" />
-                <div class="caption">
-                  <img src="./img/5.avif" />
-                  <div class="introduce">
-                    <p class="tvname">爱你不放手</p>
-                    <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
-                    <span>李宗翰变身夺产抢子灭情男</span>
-                    <b></b>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <img src="./img/2.avif" />
-                <div class="caption">
-                  <img src="./img/5.avif" />
-                  <div class="introduce">
-                    <p class="tvname"> 猎狐 </p>
-                    <p class="name"> 王凯 王鸥 经侦题材 </p>
-                    <span> "王凯王鸥飒爽集结海外追逃" </span>
-                    <b></b>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <img src="./img/3.avif" />
-                <div class="caption">
-                  <img src="./img/5.avif" />
-                  <div class="introduce">
-                    <p class="tvname">爱你不放手</p>
-                    <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
-                    <span>李宗翰变身夺产抢子灭情男</span>
-                    <b></b>
-                  </div>
-                </div>
-              </li>
-            </ul>
+        <div id="hotbroadcast">
+          <h1>重磅热播</h1>
+          <div class="change">
+            <sapn class="tv">
+              <span><a href="">全部</a></span>
+              <a href=""> 电视剧 </a>
+              <a href=""> 综艺 </a>
+              <a href=""> 电影 </a>
+              <a href=""> 动漫 </a>
+              <a href=""> 少儿 </a>
+              <a href=""> 纪录片 </a>
+            </sapn>
+            <span>
+              <a href="">换一换</a>
+            </span>
           </div>
         </div>
-      <!-- </div> -->
 
+        <ul id="hotpicture">
+          <li>
+            <img src="./img/3.avif" />
+            <b></b>
+            <a href="">
+              <p>小日子</p>
+              <span> 陈晓童瑶首搭守护小日子 </span>
+            </a>
+          </li>
+          <li>
+            <img src="./img/1.avif" />
+            <p></p>
+            <a href="">
+              <p>欢乐颂5</p>
+              <span> 江疏影杨采钰五美复仇出击 </span>
+            </a>
+          </li>
+          <li>
+            <img src="./img/2.avif" />
+            <b></b>
+            <a href="">
+              <p>完美世界</p>
+              <span> 谁在称无敌，哪个言不败？ </span>
+            </a>
+          </li>
+          <li>
+            <img src="./img/1.avif" />
+            <p></p>
+            <a href="">
+              <p>缉恶</p>
+              <span> 谢苗、安志杰谁更能打？ </span>
+            </a>
+          </li>
+          <li>
+            <img src="./img/1.avif" />
+            <p></p>
+            <a href="">
+              <p>大王饶命 第2季</p>
+              <span> 灵气复苏爆笑修炼 </span>
+            </a>
+          </li>
+          <li>
+            <img src="./3.jpg" />
+            <b></b>
+            <a href="">
+              <p>海王2：失落的王国</p>
+              <span> 视觉狂欢！海底燃炸开战 </span>
+            </a>
+          </li>
+          <li>
+            <img src="./img/1.avif" />
+            <p></p>
+            <a href="">
+              <p>执笔</p>
+              <span> 执命运之笔 陷痴缠虐恋 </span>
+            </a>
+          </li>
+          <li>
+            <img src="./img/2.avif" />
+            <b></b>
+            <a href="">
+              <p>哈哈哈哈哈 第4季</p>
+              <span> 邓超陈赫鹿晗合体旅行 </span>
+            </a>
+          </li>
+          <li>
+            <img src="./img/4.avif" />
+            <p></p>
+            <a href="">
+              <p>无染</p>
+              <span> 以我仙髓 渡你魔念 </span>
+            </a>
+          </li>
+          <li>
+            <img src="./img/1.avif" />
+            <b></b>
+            <a href="">
+              <p>谢谢你温暖我</p>
+              <span> 林一李兰迪相爱救赎 </span>
+            </a>
+          </li>
+          <li>
+            <img src="./img/3.avif" />
+            <p></p>
+            <a href="">
+              <p>半熟恋人 第3季</p>
+              <span> 轻熟男女奔赴海岛寻爱 </span>
+            </a>
+          </li>
+          <li>
+            <img src="./img/4.avif" />
+            <b></b>
+            <a href="">
+              <p>今天航班零投诉</p>
+              <span> 高空甜恋 热血逐梦 </span>
+            </a>
+          </li>
+        </ul>
 
+        <div id="recommend">
+          <h1>为你推荐</h1>
+          <div class="science">
+            <span><a href="">全部</a></span>
+            <a href=""> 科幻 </a>
+            <a href=""> 都市生活 </a>
+            <a href=""> 武侠江湖 </a>
+            <a href=""> 真实事件改编 </a>
+            <a href=""> 原创动画 </a>
+            <a href=""> 奇幻冒险 </a>
+            <a href=""> 东方仙侠 </a>
+            <a href=""> 古装爱情 </a>
+            <a href=""> 欧美电影 </a>
+            <a href=""> 犯罪动作 </a>
+            <a href=""> 国漫 </a>
+            <a href=""> 甜虐爱情 </a>
+            <a href=""> 东北喜剧 </a>
+            <a href=""> 经典动画 </a>
+          </div>
+        </div>
+        <ul id="recommendtv">
+          <li>
+            <img src="./img/2.avif" />
+            <div class="caption">
+              <img src="./img/5.avif" />
+              <div class="introduce">
+                <p class="tvname">玩伴</p>
+                <p class="name">电视剧 孙涛 戴娇倩 都市生活</p>
+                <span>搞笑！男子在街边卖内衣</span>
+                <b></b>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="./img/1.avif" />
+            <div class="caption">
+              <img src="./img/5.avif" />
+              <div class="introduce">
+                <p class="tvname">我是余欢水</p>
+                <p class="name">电视剧 郭京飞 苗苗 人物故事</p>
+                <span>怂包到英雄的荒诞逆袭</span>
+                <b></b>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="./img/4.avif" />
+            <div class="caption">
+              <img src="./img/5.avif" />
+              <div class="introduce">
+                <p class="tvname">爱你不放手</p>
+                <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
+                <span>李宗翰变身夺产抢子灭情男</span>
+                <b></b>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="./img/2.avif" />
+            <div class="caption">
+              <img src="./img/5.avif" />
+              <div class="introduce">
+                <p class="tvname">爱你不放手</p>
+                <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
+                <span>李宗翰变身夺产抢子灭情男</span>
+                <b></b>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="./img/1.avif" />
+            <div class="caption">
+              <img src="./img/5.avif" />
+              <div class="introduce">
+                <p class="tvname">爱你不放手</p>
+                <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
+                <span>李宗翰变身夺产抢子灭情男</span>
+                <b></b>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="./img/4.avif" />
+            <div class="caption">
+              <img src="./img/5.avif" />
+              <div class="introduce">
+                <p class="tvname">繁花</p>
+                <p class="name">胡歌 马伊琍 时代传奇</p>
+                <span> "宝总完成承诺离开和平饭店！大老板再次变成阿宝" </span>
+                <b></b>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="./img/4.avif" />
+            <div class="caption">
+              <img src="./img/5.avif" />
+              <div class="introduce">
+                <p class="tvname">爱你不放手</p>
+                <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
+                <span>李宗翰变身夺产抢子灭情男</span>
+                <b></b>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="./img/2.avif" />
+            <div class="caption">
+              <img src="./img/5.avif" />
+              <div class="introduce">
+                <p class="tvname">猎狐</p>
+                <p class="name">王凯 王鸥 经侦题材</p>
+                <span> "王凯王鸥飒爽集结海外追逃" </span>
+                <b></b>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img src="./img/3.avif" />
+            <div class="caption">
+              <img src="./img/5.avif" />
+              <div class="introduce">
+                <p class="tvname">爱你不放手</p>
+                <p class="name">电视剧 李宗翰 李康宜 家长里短</p>
+                <span>李宗翰变身夺产抢子灭情男</span>
+                <b></b>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- </div> -->
   </div>
 </template>
 
@@ -772,8 +770,8 @@
       border-radius: 30px;
       overflow: hidden;
       display: flex;
-      position:relative;
-     transform:translate(50%,0);
+      position: relative;
+      transform: translate(50%, 0);
       .import {
         height: 48px;
         width: 420px;
@@ -784,7 +782,7 @@
         height: 48px;
         width: 60px;
         border-left: none;
-        background-image: url('../assets/img/search.png');
+        background-image: url("../assets/img/search.png");
         background-repeat: no-repeat;
         background-position: 50%;
       }
@@ -917,7 +915,7 @@
           border-radius: 10px;
           border: 1px solid rgb(107, 106, 106);
           background-color: rgb(98, 36, 36, 0.3);
-          background-image: url('../assets/img/追.png');
+          background-image: url("../assets/img/追.png");
           background-repeat: no-repeat;
           background-position: 180px 160px;
         }
@@ -950,7 +948,7 @@
           border-bottom-left-radius: 15px;
           border-bottom-right-radius: 15px;
           background-color: #313131;
-          background-image: url('../assets/img/追.png');
+          background-image: url("../assets/img/追.png");
           background-repeat: no-repeat;
           background-position: 460px 310px;
           img {
@@ -983,39 +981,60 @@
         }
       }
     }
-
-
   }
 
-  #video{
-    padding:84px 40px 0 220px;
-    display:grid;grid-template-columns:repeat(3,1fr);
-    grid-gap:20px;width:100%;
-    li{
-      background-image: url('../assets/img/追.png');
-          background-repeat: no-repeat;
-          background-position: 460px 310px;
-      width:100%;height:400px;
-      border:1px solid rgb(85, 83, 83);
-      overflow:hidden;border-radius:20px;
-      background-color:#252525;
-     img{height:300px;width:100%;margin-right:5px;}
-     div{
-      height:90px;width:100%;padding:10px 15px;
-      display: flex;position:relative;
-     
-      img{height:100%;width:57px;}  
-      a{
-        .intro{color:#ffffff;font-size:20px;}
-        
-        .protagonist{
-         
-          color:#3b3b3b;font-size:14px;
-          img{width:20px;height:20px;}
+  #video {
+    padding: 84px 40px 0 220px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    width: 100%;
+    li {
+      background-image: url("../assets/img/追.png");
+      background-repeat: no-repeat;
+      background-position: 460px 310px;
+      width: 100%;
+      height: 400px;
+      border: 1px solid rgb(85, 83, 83);
+      overflow: hidden;
+      border-radius: 20px;
+      background-color: #252525;
+      img {
+        height: 300px;
+        width: 100%;
+        margin-right: 5px;
+      }
+      div {
+        height: 90px;
+        width: 100%;
+        padding: 10px 15px;
+        display: flex;
+        position: relative;
+
+        img {
+          height: 100%;
+          width: 57px;
         }
-        span{color:#ffffff;font-size:16px;}
+        a {
+          .intro {
+            color: #ffffff;
+            font-size: 20px;
+          }
+
+          .protagonist {
+            color: #3b3b3b;
+            font-size: 14px;
+            img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+          span {
+            color: #ffffff;
+            font-size: 16px;
+          }
         }
-     }
+      }
     }
   }
 }

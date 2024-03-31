@@ -72,6 +72,11 @@ const routes = [
     name:'practice',
     component :() => import ('../views/practice.vue'),
   },
+  {
+    path:'/legendGame',
+    name:'legendGame',
+    component :() => import ('../views/legendGame.vue'),
+  },
   
 ];
 
