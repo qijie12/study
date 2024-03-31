@@ -9,7 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "fangyuxin0325": "link:",
+    "postcss-px-to-viewport": "^1.1.1",
+    "vant": "^4.8.8",
     "vue": "^3.4.21",
     "vue-router": "next"
   },
