@@ -4,7 +4,14 @@ const routes = [{
   path:'/home',
   name:'home',
   component :() => import('../views/home.vue'),
-}];
+},
+  {
+    path:'/Eam',
+    name:'Eam',
+    component :() => import('../views/Eam.vue'),
+  },
+];
+ 
 
 const router = createRouter({
   history: createWebHistory(),
