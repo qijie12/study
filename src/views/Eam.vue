@@ -1,6 +1,6 @@
 <template>
 <div id="all">
-
+   <topComp></topComp>
 </div>
 </template>
 
