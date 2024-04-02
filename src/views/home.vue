@@ -233,26 +233,6 @@ const danmuList = ref([
   },
 ]);
 
-// const activeList = ref([
-//   {
-//     url: homePage1,
-//     text: "Home",
-//     src: homePage,
-//     path: "/home",
-//   },
-//   {
-//     url: eam,
-//     text: "Eam moeny",
-//   },
-//   {
-//     url: game,
-//     text: "Games ",
-//   },
-//   {
-//     url: me,
-//     text: "Me",
-//   },
-// ]);
 
 const jump = (params) => {
   router.push(params.path);

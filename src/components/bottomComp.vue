@@ -1,6 +1,6 @@
 <template>
-   <div id="share-bottomComp-box">
-      <van-tabbar v-model="active">
+  <div id="share-bottomComp-box">
+    <van-tabbar v-model="active">
       <van-tabbar-item
         v-for="(item, index) in activeList"
         :key="index"
@@ -18,7 +18,7 @@
       </van-tabbar-item>
     </van-tabbar>
 
-        <!-- <van-tabbar v-model="active">
+    <!-- <van-tabbar v-model="active">
       <van-tabbar-item>
         <template #icon>
           <img src="../assets/img/home1.png" />
@@ -44,28 +44,36 @@
         Eam moeny
       </van-tabbar-item>
     </van-tabbar> -->
-  
-   </div>
+  </div>
 </template>
 
 <script setup>
-  import {ref} from 'vue';
-  import { useRoute,useRouter } from "vue-router";
+import { ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
 
+import homePage from "../assets/img/home.png";
 import homePage1 from "../assets/img/home1.png";
 import eam from "../assets/img/eam_money.png";
+import eam1 from "../assets/img/eam_money1.png";
 import game from "../assets/img/game.png";
+import game1 from "../assets/img/game1.png";
 import me from "../assets/img/me.png";
-import homePage from "../assets/img/home.png";
-import headPortrait from '../assets/img/img23-0452ef16.png';
-  const route = useRoute()
+import me1 from "../assets/img/me1.png";
 
-  const props = defineProps({
+import headPortrait from "../assets/img/img23-0452ef16.png";
+const route = useRoute();
+const router = useRouter();
+
+const props = defineProps({
   list: {
     type: Array,
     default: () => [],
   },
 });
+
+const jump = (params) => {
+  router.push(params.path);
+};
 
 const activeList = ref([
   {
@@ -77,28 +85,32 @@ const activeList = ref([
   {
     url: eam,
     text: "Eam moeny",
+    path: "/Eam",
+    src: eam1,
   },
   {
     url: game,
     text: "Games ",
+    path: "/games",
+    src: game1,
   },
   {
     url: me,
     text: "Me",
+    path: "/Me",
+    src: me1,
   },
 ]);
-
-
 </script>
 
 <style lang="scss">
-  #share-bottomComp-box{
-    .van-tabbar{
+#share-bottomComp-box {
+  .van-tabbar {
     bottom: 0;
-    left: 0;  
+    left: 0;
     position: fixed;
     border-top: 1px solid rgb(88, 87, 87);
-    z-index:5;
+    z-index: 5;
     img {
       height: 21px;
       width: 21px;
@@ -112,5 +124,5 @@ const activeList = ref([
       }
     }
   }
-  }
+}
 </style>

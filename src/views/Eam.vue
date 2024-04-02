@@ -17,7 +17,7 @@
       <div class="task">
         <div class="task_title">💎 The daily update task</div>
         <ul>
-          <li v-for="(item, index) in taskList" :key="index" >
+          <li v-for="(item, index) in taskList" :key="index">
             <div class="game">
               <img :src="item.url" />
               <div class="game_con">
@@ -26,7 +26,14 @@
               </div>
             </div>
             <div class="security_deposit">
-              <div class="vip">{{ item.text_vip }}</div>
+              <div
+                class="vip"
+                :style="{
+                  background: item.background,
+                }"
+              >
+                {{ item.text_vip }}
+              </div>
               <div class="deposit_amount">{{ item.con }}</div>
             </div>
             <div class="recharge_amount">
@@ -60,7 +67,6 @@
               </div>
 
             </li> -->
-        
         </ul>
       </div>
     </div>
@@ -103,6 +109,8 @@ const taskList = ref([
     text_vip: " VIP1",
     con: "SECURITY DEPOSIT: 50",
     num: "+₹20",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture2,
@@ -113,6 +121,8 @@ const taskList = ref([
     text_vip: " VIP1",
     con: "SECURITY DEPOSIT: 70",
     num: "+₹20",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture3,
@@ -123,6 +133,8 @@ const taskList = ref([
     text_vip: " VIP1",
     con: "SECURITY DEPOSIT: 90",
     num: "+₹30",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture4,
@@ -133,6 +145,8 @@ const taskList = ref([
     text_vip: " VIP1",
     con: "SECURITY DEPOSIT: 50",
     num: "+₹50",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture5,
@@ -143,6 +157,8 @@ const taskList = ref([
     text_vip: " VIP2",
     con: "SECURITY DEPOSIT: 50",
     num: "+₹50",
+    background:
+      "linear-gradient(to right, rgb(156, 52, 169) 50%, rgb(242, 94, 67))",
   },
   {
     url: gamePicture6,
@@ -153,6 +169,8 @@ const taskList = ref([
     text_vip: " VIP2",
     con: "SECURITY DEPOSIT: 50",
     num: "+₹50",
+    background:
+      "linear-gradient(to right, rgb(156, 52, 169), rgb(242, 94, 67))",
   },
   {
     url: gamePicture7,
@@ -163,6 +181,8 @@ const taskList = ref([
     text_vip: " VIP2",
     con: "SECURITY DEPOSIT: 50",
     num: "+₹50",
+    background:
+      "linear-gradient(to right, rgb(156, 52, 169) 40%, rgb(242, 94, 67))",
   },
   {
     url: gamePicture8,
@@ -173,6 +193,8 @@ const taskList = ref([
     text_vip: " VIP2",
     con: "SECURITY DEPOSIT: 100",
     num: "+₹100",
+    background:
+      "linear-gradient(to right, rgb(156, 52, 169) 40%, rgb(242, 94, 67))",
   },
   {
     url: gamePicture9,
@@ -183,6 +205,8 @@ const taskList = ref([
     text_vip: " VIP3",
     con: "SECURITY DEPOSIT: 80",
     num: "+₹80",
+    background:
+      "linear-gradient(to right, rgb(255, 209, 148) 50%, rgb(209, 145, 60))",
   },
   {
     url: gamePicture10,
@@ -193,6 +217,8 @@ const taskList = ref([
     text_vip: " VIP3",
     con: "SECURITY DEPOSIT: 80",
     num: "+₹80",
+    background:
+      "linear-gradient(to right, rgb(255, 209, 148) 50%, rgb(209, 145, 60))",
   },
   {
     url: gamePicture1,
@@ -203,6 +229,8 @@ const taskList = ref([
     text_vip: " VIP1",
     con: "SECURITY DEPOSIT: 50",
     num: "+₹20",
+    background:
+      "linear-gradient(to right, rgb(255, 209, 148) 50%, rgb(209, 145, 60))",
   },
   {
     url: gamePicture2,
@@ -213,6 +241,8 @@ const taskList = ref([
     text_vip: " VIP1",
     con: "SECURITY DEPOSIT: 70",
     num: "+₹20",
+    background:
+      "linear-gradient(to right, rgb(255, 153, 102) 50%, rgb(255, 94, 98))",
   },
   {
     url: gamePicture3,
@@ -223,6 +253,8 @@ const taskList = ref([
     text_vip: " VIP1",
     con: "SECURITY DEPOSIT: 90",
     num: "+₹30",
+    background:
+      "linear-gradient(to right, rgb(255, 153, 102) 50%, rgb(255, 94, 98))",
   },
   {
     url: gamePicture4,
@@ -233,6 +265,8 @@ const taskList = ref([
     text_vip: " VIP1",
     con: "SECURITY DEPOSIT: 50",
     num: "+₹50",
+    background:
+      "linear-gradient(to right, rgb(255, 153, 102) 50%, rgb(255, 94, 98))",
   },
   {
     url: gamePicture5,
@@ -243,6 +277,8 @@ const taskList = ref([
     text_vip: " VIP2",
     con: "SECURITY DEPOSIT: 50",
     num: "+₹50",
+    background:
+      "linear-gradient(to right, rgb(106, 130, 251) 50%, rgb(222, 203, 164))",
   },
   {
     url: gamePicture6,
@@ -253,6 +289,8 @@ const taskList = ref([
     text_vip: " VIP2",
     con: "SECURITY DEPOSIT: 50",
     num: "+₹50",
+    background:
+      "linear-gradient(to right, rgb(106, 130, 251) 50%, rgb(222, 203, 164))",
   },
   {
     url: gamePicture7,
@@ -263,6 +301,8 @@ const taskList = ref([
     text_vip: " VIP2",
     con: "SECURITY DEPOSIT: 50",
     num: "+₹50",
+    background:
+      "linear-gradient(to right, rgb(106, 130, 251) 50%, rgb(222, 203, 164))",
   },
   {
     url: gamePicture8,
@@ -273,6 +313,8 @@ const taskList = ref([
     text_vip: " VIP2",
     con: "SECURITY DEPOSIT: 100",
     num: "+₹100",
+    background:
+      "linear-gradient(to right, rgb(251, 211, 134) 50%, rgb(247, 129, 126))",
   },
   {
     url: gamePicture9,
@@ -283,6 +325,8 @@ const taskList = ref([
     text_vip: " VIP3",
     con: "SECURITY DEPOSIT: 80",
     num: "+₹80",
+    background:
+      "linear-gradient(to right, rgb(251, 211, 134) 50%, rgb(247, 129, 126))",
   },
   {
     url: gamePicture10,
@@ -293,6 +337,8 @@ const taskList = ref([
     text_vip: " VIP3",
     con: "SECURITY DEPOSIT: 80",
     num: "+₹80",
+    background:
+      "linear-gradient(to right, rgb(251, 211, 134) 50%, rgb(247, 129, 126))",
   },
   {
     url: gamePicture1,
@@ -303,6 +349,8 @@ const taskList = ref([
     text_vip: " VIP1",
     con: "SECURITY DEPOSIT: 50",
     num: "+₹20",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture2,
@@ -313,6 +361,8 @@ const taskList = ref([
     text_vip: " VIP1",
     con: "SECURITY DEPOSIT: 70",
     num: "+₹20",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture3,
@@ -323,6 +373,8 @@ const taskList = ref([
     text_vip: " VIP1",
     con: "SECURITY DEPOSIT: 90",
     num: "+₹30",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture4,
@@ -333,6 +385,8 @@ const taskList = ref([
     text_vip: " VIP1",
     con: "SECURITY DEPOSIT: 50",
     num: "+₹50",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture5,
@@ -343,6 +397,8 @@ const taskList = ref([
     text_vip: " VIP2",
     con: "SECURITY DEPOSIT: 50",
     num: "+₹50",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture6,
@@ -353,6 +409,8 @@ const taskList = ref([
     text_vip: " VIP2",
     con: "SECURITY DEPOSIT: 50",
     num: "+₹50",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture7,
@@ -363,6 +421,8 @@ const taskList = ref([
     text_vip: " VIP2",
     con: "SECURITY DEPOSIT: 50",
     num: "+₹50",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture8,
@@ -373,6 +433,8 @@ const taskList = ref([
     text_vip: " VIP2",
     con: "SECURITY DEPOSIT: 100",
     num: "+₹100",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture9,
@@ -383,6 +445,8 @@ const taskList = ref([
     text_vip: " VIP3",
     con: "SECURITY DEPOSIT: 80",
     num: "+₹80",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture10,
@@ -393,6 +457,8 @@ const taskList = ref([
     text_vip: " VIP3",
     con: "SECURITY DEPOSIT: 80",
     num: "+₹80",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture1,
@@ -403,6 +469,8 @@ const taskList = ref([
     text_vip: " VIP1",
     con: "SECURITY DEPOSIT: 50",
     num: "+₹20",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture2,
@@ -413,6 +481,8 @@ const taskList = ref([
     text_vip: " VIP1",
     con: "SECURITY DEPOSIT: 70",
     num: "+₹20",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture3,
@@ -423,6 +493,8 @@ const taskList = ref([
     text_vip: " VIP1",
     con: "SECURITY DEPOSIT: 90",
     num: "+₹30",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture4,
@@ -433,6 +505,8 @@ const taskList = ref([
     text_vip: " VIP1",
     con: "SECURITY DEPOSIT: 50",
     num: "+₹50",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture5,
@@ -443,6 +517,8 @@ const taskList = ref([
     text_vip: " VIP2",
     con: "SECURITY DEPOSIT: 50",
     num: "+₹50",
+    background:
+      "linear-gradient(to right, rgb(36, 115, 155) 50%, rgb(151, 101, 76))",
   },
   {
     url: gamePicture6,
@@ -453,6 +529,8 @@ const taskList = ref([
     text_vip: " VIP2",
     con: "SECURITY DEPOSIT: 50",
     num: "+₹50",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture7,
@@ -463,6 +541,8 @@ const taskList = ref([
     text_vip: " VIP2",
     con: "SECURITY DEPOSIT: 50",
     num: "+₹50",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture8,
@@ -473,6 +553,8 @@ const taskList = ref([
     text_vip: " VIP2",
     con: "SECURITY DEPOSIT: 100",
     num: "+₹100",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture9,
@@ -483,6 +565,8 @@ const taskList = ref([
     text_vip: " VIP3",
     con: "SECURITY DEPOSIT: 80",
     num: "+₹80",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
   {
     url: gamePicture10,
@@ -493,6 +577,8 @@ const taskList = ref([
     text_vip: " VIP3",
     con: "SECURITY DEPOSIT: 80",
     num: "+₹80",
+    background:
+      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
   },
 ]);
 </script>
@@ -564,7 +650,7 @@ const taskList = ref([
       width: 100%;
       padding: 0 15px;
       background-color: rgb(244, 244, 244);
-      padding-bottom:150px;
+      padding-bottom: 150px;
       .task_title {
         width: 100%;
         height: 60px;
@@ -623,11 +709,11 @@ const taskList = ref([
             .vip {
               height: 100%;
               width: 55px;
-              background: linear-gradient(
-                to right,
-                rgb(36, 175, 155) 50%,
-                rgb(151, 201, 76)
-              );
+              // background: linear-gradient(
+              //   to right,
+              //   rgb(36, 175, 155) 50%,
+              //   rgb(151, 201, 76)
+              // );
               color: rgb(255, 255, 255);
               font-size: 15px;
               font-weight: bold;
