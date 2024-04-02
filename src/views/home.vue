@@ -1,24 +1,9 @@
 <template>
   <div id="all">
-    <!-- <div class="top">
-      <img class="download" src="../assets/img/download (2).png" />
-      <div class="topUp">
-        <img src="../assets/img/money.png" />
-        <b>₹140.00</b>
-        <span class="iconfont icon-jiahao"></span>
-      </div>
-      <div class="head">
-        <img class="Mich" src="../assets/img/head.png" />
-        <div class="vipbox">
-          <img class="iconVip" src="../assets/img/background.png" />
-          <span>VIP 4</span>
-        </div>
-      </div>
-    </div>  -->
     <topComp></topComp>
 
-    <hr />
-    <div class="swiper">
+   <div id="center_con">
+     <div class="swiper">
       <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
         <van-swipe-item><img src="../assets/img/swiper.png" /></van-swipe-item>
         <van-swipe-item><img src="../assets/img/swiper2.png" /></van-swipe-item>
@@ -84,7 +69,9 @@
               <b>Basic tasks</b>
               <span>Complete all tasks at this level.</span>
             </div>
-            <div class="progress"></div>
+            <div class="progress">
+              <b>0</b>&nbsp;/&nbsp;4
+            </div>
           </li>
 
           <li>
@@ -93,7 +80,10 @@
               <b style="color: #c67a1e">Double bonus tasks</b>
               <span> Complete the game time tasks and withdraw. </span>
             </div>
-            <div class="progress" style="background-color: #edd4a5"></div>
+            <div class="progress" style="background-color: #edd4a5;
+            color:rgb(198, 122, 30);">
+               <b>0</b>&nbsp;/&nbsp;4
+            </div>
           </li>
 
           <li>
@@ -104,7 +94,9 @@
                 Complete unlimited doubling tasks to unlock unlimited rewards.
               </span>
             </div>
-            <div class="progress" style="background-color: #f9b1b7"></div>
+            <div class="progress" style="background-color: #f9b1b7;">
+              <b class="iconfont icon-gou" style="color:rgb(233, 81, 85);"></b>
+            </div>
           </li>
         </ul>
       </div>
@@ -115,7 +107,7 @@
         <img class="taskMoney" src="../assets/img/taskMoney.png" />
         <img
           class="giftPicture"
-          src="../assets/img/upload_live_carrom-clash-logo_17015433035476.png"
+          src="../assets/img/game_picuure1.png"
         />
         <p>Try the game for 2 minutes and give feedback</p>
         <div>
@@ -168,66 +160,27 @@
       </div>
     </div>
 
-    <van-tabbar v-model="active">
-      <van-tabbar-item
-        v-for="(item, index) in activeList"
-        :key="index"
-        @click="jump(item)"
-        :class="{ active: route.fullPath.indexOf(item.path) !== -1 }"
-      >
-        <template #icon>
-          <img
-            v-if="route.fullPath.indexOf(item.path) !== -1"
-            :src="item.src"
-          />
-          <img v-else :src="item.url" />
-        </template>
-        {{ item.text }}
-      </van-tabbar-item>
-    </van-tabbar>
+   </div>
 
-    <!-- <van-tabbar v-model="active">
-      <van-tabbar-item>
-        <template #icon>
-          <img src="../assets/img/home1.png" />
-        </template>
-        Home
-      </van-tabbar-item>
-      <van-tabbar-item>
-        <template #icon>
-          <img src="../assets/img/eam money.png" />
-        </template>
-        Eam moeny
-      </van-tabbar-item>
-      <van-tabbar-item>
-        <template #icon>
-          <img src="../assets/img/game.png" />
-        </template>
-        Eam moeny
-      </van-tabbar-item>
-      <van-tabbar-item>
-        <template #icon>
-          <img src="../assets/img/me.png" />
-        </template>
-        Eam moeny
-      </van-tabbar-item>
-    </van-tabbar> -->
-  </div>
+   <bottomComp></bottomComp>
+
+ </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import headPortrait from "../assets/img/img23-0452ef16.png";
 import topComp from "../components/topComp.vue";
-import homePage1 from "../assets/img/home1.png";
-import eam from "../assets/img/eam money.png";
+import bottomComp from '../components/bottomComp.vue';
+
+
+import eam from "../assets/img/eam_money.png";
 import game from "../assets/img/game.png";
 import me from "../assets/img/me.png";
-import homePage from "../assets/img/home.png";
+import headPortrait from '../assets/img/img23-0452ef16.png';
 
-const route = useRoute();
 
+const route = useRoute(); 
 const router = useRouter();
 const showPopover = ref(false);
 
@@ -280,26 +233,26 @@ const danmuList = ref([
   },
 ]);
 
-const activeList = ref([
-  {
-    url: homePage1,
-    text: "Home",
-    src: homePage,
-    path: "/home",
-  },
-  {
-    url: eam,
-    text: "Eam moeny",
-  },
-  {
-    url: game,
-    text: "Games ",
-  },
-  {
-    url: me,
-    text: "Me",
-  },
-]);
+// const activeList = ref([
+//   {
+//     url: homePage1,
+//     text: "Home",
+//     src: homePage,
+//     path: "/home",
+//   },
+//   {
+//     url: eam,
+//     text: "Eam moeny",
+//   },
+//   {
+//     url: game,
+//     text: "Games ",
+//   },
+//   {
+//     url: me,
+//     text: "Me",
+//   },
+// ]);
 
 const jump = (params) => {
   router.push(params.path);
@@ -318,11 +271,16 @@ onMounted(() => {
   max-height: none;
   overflow-y: scroll;
 
-  .swiper {
+ #center_con{
+  width:100%;
+  margin-top:20px;
+  margin-bottom:40px;
+   .swiper {
     width: 100%;
     height: 170px;
     padding: 15px 15px 0 15px;
     margin-top: 35px;
+    background:linear-gradient(to bottom,rgba(255, 255, 255),rgba(254, 254, 254),rgba(253, 253, 253),rgba(252, 252, 252),rgba(251, 251, 251),rgba(250, 250, 250),rgba(249, 249, 249),);
     .my-swipe {
       //   padding: 10px;
       width: 100%;
@@ -341,9 +299,11 @@ onMounted(() => {
     width: 100%;
     height: 60px;
     padding: 10px 0;
+    background-color:rgba(248,248,248);
     .van-notice-bar {
-      background-color: #fff;
+      background-color:rgba(248,248,248);
       width: 100%;
+      padding:0;
       .van-notice-bar__content {
         display: flex;
         width: 100%;
@@ -372,8 +332,8 @@ onMounted(() => {
   #center {
     width: 100%;
     padding: 0 15px;
-    background-color: #f2f2f3;
     padding-bottom: 20px;
+    background-color:rgba(244,244,244);
     .picture {
       position: relative;
       margin-bottom: 15px;
@@ -399,10 +359,11 @@ onMounted(() => {
     .recharge {
       width: 100%;
       height: 100px;
-      border-radius: 5px;
-      border: 1px solid rgb(184, 183, 183);
+      overflow:hidden;
+      border-radius: 8px;
+      border: 1px solid transparent;
       margin-bottom: 15px;
-      background-color: #fff;
+      background-color: rgba(244,244,244);
       .rechargeTop {
         width: 100%;
         height: 27px;
@@ -412,6 +373,7 @@ onMounted(() => {
         padding: 0 10px;
         border-bottom: 1px solid #f1f1f1;
         line-height: 27px;
+        background-color: rgba(255,255,255);
         span {
           color: #ffcd17;
           text-decoration: underline;
@@ -419,6 +381,7 @@ onMounted(() => {
         }
       }
       .rechargeBottom {
+        background-color: rgba(255,255,255);
         width: 100%;
         height: 74px;
         display: flex;
@@ -512,11 +475,19 @@ onMounted(() => {
             height: 18px;
             background: #81deff;
             border-radius: 0 5px 0 5px;
+            color:rgb(38, 139, 203);
+            font-weight:bold;
+            text-align:center;
+            line-height:18px;
+           b{
+              color:rgb(255, 255, 255);
+            }
           }
         }
       }
     }
     .gift {
+      margin-top:15px;
       width: 100%;
       height: 390px;
       background: linear-gradient(to bottom, #ffa36a 40%, #e56f2c, #d73925 60%);
@@ -533,6 +504,7 @@ onMounted(() => {
         left: 50%;
         top: 35%;
         transform: translate(-50%, -50%);
+        animation: dashboardSpin 1.5s linear infinite;
       }
       .taskMoney {
         width: 100%;
@@ -691,22 +663,7 @@ onMounted(() => {
       }
     }
   }
-  .van-tabbar {
-    position: fixed;
-    border-top: 1px solid rgb(88, 87, 87);
-    // position: relative;
-    img {
-      height: 21px;
-      width: 21px;
-    }
-    .van-tabbar-item {
-      font-size: 14px;
-      font-weight: bold;
-      color: #dddddd;
-      &.active {
-        color: #ffcd17;
-      }
-    }
-  }
+ }
+  
 }
 </style>

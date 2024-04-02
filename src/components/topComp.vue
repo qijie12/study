@@ -38,6 +38,13 @@ import money from "../assets/img/money.png";
 import headPng from "../assets/img/head.png";
 import background from "../assets/img/background.png";
 
+const props =defineProps({
+  list: {
+    type: Array,
+    default: () => []
+  }
+})
+
 const topList = ref([
   {
     url: money,
@@ -56,6 +63,7 @@ const headList = ref([
 <style lang="scss">
 #share-topComp-box {
   .top {
+    flex:1;
     height: 52px;
     width: 100%;
     padding: 0 15px;
@@ -63,9 +71,11 @@ const headList = ref([
     justify-content: space-between;
     align-items: center;
     position: fixed;
+    top: 0;
+    left: 0;
     z-index: 10;
-    border-bottom: 1px solid rgb(95, 95, 95);
-    background-color: #ffffff;
+    border-bottom: 1px solid #222222;
+    background-color: rgb(255, 255, 255);
     .download {
       height: 30px;
       width: 30px;
