@@ -92,7 +92,7 @@ const headList = ref([
       padding: 0 8px;
       img {
         height: 25px;
-        width: 30px;
+        width: 25px;
       }
     }
     .head {
