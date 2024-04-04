@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1161713",
+      "name": "arrow-left",
+      "font_class": "arrow-left",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
       "icon_id": "5510029",
       "name": "交易记录",
       "font_class": "jiaoyijilu",

@@ -19,7 +19,17 @@ const routes = [{
     path:'/Me',
     name:'Me',
     component :() =>import('../views/Me.vue'),
-  }
+  },
+  {
+    path:'/login',
+    name:'login',
+    component : () =>import ('../views/login/index.vue'),
+  },
+  {
+    path:'/sign_in',
+    name:'sign_in',
+    component :() =>import('../views/login/sign_in.vue'),
+  },
 ];
  
 
