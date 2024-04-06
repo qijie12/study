@@ -6,6 +6,41 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "4485674",
+      "name": "眼睛",
+      "font_class": "yanjing1",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "4354835",
+      "name": "闭眼睛",
+      "font_class": "biyanjing",
+      "unicode": "e901",
+      "unicode_decimal": 59649
+    },
+    {
+      "icon_id": "4167495",
+      "name": "1_强安全保护",
+      "font_class": "_qianganquanbaohu",
+      "unicode": "e66e",
+      "unicode_decimal": 58990
+    },
+    {
+      "icon_id": "2270122",
+      "name": "手机",
+      "font_class": "shouji",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "6056165",
+      "name": "锁",
+      "font_class": "suo",
+      "unicode": "e672",
+      "unicode_decimal": 58994
+    },
+    {
       "icon_id": "1161713",
       "name": "arrow-left",
       "font_class": "arrow-left",

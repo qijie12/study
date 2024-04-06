@@ -1,15 +1,14 @@
 <template>
   <div id="all">
     <div class="iconfont icon-arrow-left"></div>
-    <div class="sign">Sign in</div>
+    <img class="picture" src="../../assets/img/money50.png" />
+    <div class="register">Register</div>
 
     <div class="choose">
       <van-tabs
         color="#ffcd17"
         line-width="60px"
         line-height="2px"
-        title-active-color="black"
-        title-inactive-color="#ccc"
         v-model:active="active"
         @click-tab="onClickTab"
       >
@@ -23,8 +22,8 @@
         <van-cell-group inset>
           <van-field
             v-model="username"
-            name="用户名"
-            placeholder="Phone number"
+            error
+            placeholder="phone number"
             :rules="[
               {
                 required: true,
@@ -34,14 +33,13 @@
           >
             <template #left-icon>
               <span class="iconfont icon-shouji"></span>
-              <span class="num">+91</span>
+              <span style="color: #8da5a7; padding-right: 10px">+91</span>
             </template>
           </van-field>
 
           <van-field
             v-model="password"
             :type="open"
-            name="密码"
             placeholder="Password"
             :rules="[
               { required: true, message: 'Please enter your login password' },
@@ -64,21 +62,35 @@
               ></span>
             </template>
           </van-field>
-        </van-cell-group>
-        <div style="margin: 16px">
-          <!-- <van-button round block type="primary"> 提交 </van-button> -->
 
-          <div class="retrieve">
-            <span>forgot your password?</span>
-          </div>
-
+          <van-field
+            v-model="sms"
+            center
+            clearable
+            placeholder="verification code"
+            :rules="[
+              { required: true, message: 'Please enter the verification code' },
+            ]"
+          >
+            <template #left-icon>
+              <span
+                class="iconfont icon-_qianganquanbaohu"
+                style="font-size: 25px"
+              ></span>
+            </template>
+            <template #button>
+              <van-button size="small" type="primary">
+                <span>Code</span>
+              </van-button>
+            </template>
+          </van-field>
           <div class="option">
             <van-button native-type="submit" type="primary" block
               >Login</van-button
             >
             <van-button type="primary" block>Register</van-button>
           </div>
-        </div>
+        </van-cell-group>
       </van-form>
     </div>
   </div>
@@ -86,13 +98,11 @@
 
 <script setup>
 import { ref } from "vue";
-import { showToast } from "vant";
-
-const active = ref(0);
-const onClickTab = ({ title }) => showToast(title);
-
 const username = ref("");
 const password = ref("");
+const sms = ref("");
+const active = ref(0);
+const onClickTab = ({ title }) => showToast(title);
 const onSubmit = (values) => {
   console.log("submit", values);
 };
@@ -107,6 +117,7 @@ const show = () => {
 
 <style lang="scss">
 #all {
+  padding: 0 16px;
   width: 100%;
   height: 100vh;
   background-color: rgb(255, 255, 255);
@@ -114,11 +125,16 @@ const show = () => {
   .iconfont {
     width: 100%;
     height: 30px;
-    padding: 20px;
+    padding: 20px 0;
     font-size: 20px;
     color: #303030;
   }
-  .sign {
+  .picture {
+    margin-top: 5px;
+    width: 100%;
+    height: 88px;
+  }
+  .register {
     text-align: center;
     color: rgb(48, 48, 48);
     font-size: 18px;
@@ -126,68 +142,49 @@ const show = () => {
     margin-top: 10px;
   }
   .choose {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 25px;
     .van-tabs {
       .van-tab {
-        &:first-child {
-          margin-right: 100px;
-        }
-        .van-tab__text {
-          //   color: black;
-          font-weight: bold;
-          font-size: 18px;
-        }
+        font-size: 18px;
       }
     }
   }
   .information {
-    margin-top: 18px;
-    border-radius: 0;
-    .van-form {
-      .van-cell-group {
-        border-radius: 0;
-        .van-cell {
-          background-color: rgb(241, 241, 241);
-          margin-bottom: 10px;
-          padding: 10px 0;
-        }
-        .van-field {
-          .iconfont {
-            margin-right: 5px;
-            color: rgb(142, 165, 167);
-          }
-          .num {
-            color: #8da5a7;
-            padding-right: 10px;
-          }
-          .input_word {
-            color: rgb(153, 153, 153);
-            font-weight: bold;
-          }
-          ::placeholder {
-            color: rgb(177, 177, 177);
-            font-weight: bold;
-          }
+    margin-top: 20px;
+    width: 100%;
+
+    .van-cell {
+      width: 100%;
+      padding: 10px 0;
+      background-color: rgb(241, 241, 241);
+    }
+
+    .van-cell-group:first-child {
+      border-radius: 0;
+    }
+    .van-field {
+      margin-bottom: 10px;
+
+      ::placeholder {
+        color: rgb(177, 177, 177);
+        font-weight: bold;
+      }
+      .van-button {
+        background: linear-gradient(
+          to right,
+          rgb(255, 233, 0),
+          rgb(254, 186, 0)
+        );
+        border-color: transparent;
+        margin-right: 15px;
+        font-size: 14px;
+        span {
+          color: #303030;
+          font-weight: bold;
         }
       }
     }
   }
 
-  .retrieve {
-    width: 100%;
-    padding: 0 15px;
-    display: flex;
-    justify-content: flex-end;
-    font-size: 12px;
-    font-weight: bold;
-    text-decoration: underline;
-    span {
-      color: #303030;
-    }
-  }
   .option {
     width: 100%;
     margin-top: 40px;
