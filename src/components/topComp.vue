@@ -1,7 +1,7 @@
 <template>
   <div id="share-topComp-box">
     <div class="top">
-      <img class="download" src="../assets/img/download (2).png" />
+      <img class="download" src="../assets/img/download (2).png" @click="jumpLeft"/>
 
       <div class="topUp" v-for="(item, index) in topList" :key="index">
         <img :src="item.url" />
@@ -14,7 +14,7 @@
         <span class="iconfont icon-jiahao"></span>
       </div> -->
       <div class="head" v-for="(item, index) in headList" :key="index">
-        <img :src="item.url" class="Mich" />
+        <img :src="item.url" class="Mich"  @click="jump" />
         <div class="vipbox">
           <img :src="item.src" class="iconVip" />
           <span>{{ item.text }}</span>
@@ -28,6 +28,10 @@
         </div>
       </div> -->
     </div>
+
+    <!-- <leftList v-model="show"></leftList> -->
+    <leftList ref="leftListRef"></leftList>
+    
   </div>
 </template>
 
@@ -35,8 +39,21 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import money from "../assets/img/money.png";
-import headPng from "../assets/img/head.png";
+import headPng from "../assets/img/mich11111.png";
 import background from "../assets/img/background.png";
+import leftList from '../views/leftList.vue'
+
+// const show = ref(false)
+const leftListRef = ref()
+const router =useRouter();
+const jump =()=>{
+  router.push('./login')
+};
+
+const jumpLeft =()=>{
+  // show.value = true
+  leftListRef.value?.loadParams()
+};
 
 const props =defineProps({
   list: {

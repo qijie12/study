@@ -1,6 +1,7 @@
 <template>
-  <div id="all">
-    <div class="iconfont icon-arrow-left"></div>
+  <div id="share-sign_in-box">
+    <div class="iconfont icon-arrow-left" @click="jumplogin"></div>
+
     <div class="sign">Sign in</div>
 
     <div class="choose">
@@ -11,10 +12,9 @@
         title-active-color="black"
         title-inactive-color="#ccc"
         v-model:active="active"
-        @click-tab="onClickTab"
       >
-        <van-tab title="Phone"></van-tab>
-        <van-tab title="Email"></van-tab>
+        <van-tab title="Phone" ></van-tab>
+        <van-tab title="Email"> </van-tab>
       </van-tabs>
     </div>
 
@@ -22,6 +22,7 @@
       <van-form @submit="onSubmit">
         <van-cell-group inset>
           <van-field
+            v-if="!active"
             v-model="username"
             name="用户名"
             placeholder="Phone number"
@@ -35,6 +36,21 @@
             <template #left-icon>
               <span class="iconfont icon-shouji"></span>
               <span class="num">+91</span>
+            </template>
+          </van-field>
+
+          <van-field
+          v-else
+            v-model="password"
+            :type="open"
+            name="邮箱"
+            placeholder="Email"
+            :rules="[
+              { required: true, message: 'Please enter yuor login password' },
+            ]"
+          >
+            <template #left-icon>
+              <span class="iconfont icon-youxiang"></span>
             </template>
           </van-field>
 
@@ -66,8 +82,6 @@
           </van-field>
         </van-cell-group>
         <div style="margin: 16px">
-          <!-- <van-button round block type="primary"> 提交 </van-button> -->
-
           <div class="retrieve">
             <span>forgot your password?</span>
           </div>
@@ -76,7 +90,9 @@
             <van-button native-type="submit" type="primary" block
               >Login</van-button
             >
-            <van-button type="primary" block>Register</van-button>
+            <van-button type="primary" block @click="jumpRegister"
+              >Register</van-button
+            >
           </div>
         </div>
       </van-form>
@@ -87,9 +103,21 @@
 <script setup>
 import { ref } from "vue";
 import { showToast } from "vant";
+import { useRouter, useRoute } from "vue-router";
+const router = useRouter();
+const route = useRoute();
 
+const jumplogin = () => {
+  router.push("/login");
+};
+
+const jumpRegister = () => {
+  router.push("/Register");
+};
+
+
+const email = ref("");
 const active = ref(0);
-const onClickTab = ({ title }) => showToast(title);
 
 const username = ref("");
 const password = ref("");
@@ -106,12 +134,12 @@ const show = () => {
 </script>
 
 <style lang="scss">
-#all {
+#share-sign_in-box {
   width: 100%;
   height: 100vh;
   background-color: rgb(255, 255, 255);
   font-family: PingFang SC-Bold, PingFang SC;
-  .iconfont {
+  .icon-arrow-left {
     width: 100%;
     height: 30px;
     padding: 20px;
@@ -152,10 +180,10 @@ const show = () => {
         .van-cell {
           background-color: rgb(241, 241, 241);
           margin-bottom: 10px;
-          padding: 10px 0;
+          padding: 10px ;
         }
         .van-field {
-          .iconfont {
+          > .icon-shouji {
             margin-right: 5px;
             color: rgb(142, 165, 167);
           }

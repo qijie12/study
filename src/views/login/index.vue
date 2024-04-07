@@ -1,6 +1,7 @@
 <template>
- <div id="all">
-   <div class="iconfont icon-arrow-left"></div>
+ <div id="share-index-box">
+   <div class="iconfont icon-arrow-left" @click="jumpHome('/home')"></div>
+
    <div class="enroll">
     <p class="hello">Hello !</p>
     <p class="sign_up">Sign Up to your account</p>
@@ -21,35 +22,44 @@
      <li>
         <div>
             <img src="../../assets/img/phone.png" style="width:25px;height:25px;"/>
-            <span>Continue with Phone</span>
+            <span @click="jumpHome('/Register')">Continue with Phone</span>
         </div>
      </li>
      <li>
         <div>
             <img src="../../assets/img/email.png" style="width:25px;height:25px;"/>
-            <span>Continue with Email</span>
+            <span @click="jumpHome('/Register')">Continue with Email</span>
         </div>
      </li>
    </ul>
    <div class="select">
     <span class="select_L">Already have an account? </span>
-    <span class="select_R">Sign in</span>
+    <span class="select_R" @click="jumpHome('/sign_in')">Sign in</span>
    </div>
  </div>
 </template>
 
 <script setup>
  import {ref} from 'vue';
+ import {useRouter} from 'vue-router';
+ const router = useRouter();
+
+ const jumpHome = (path) =>{
+   router.push(path);
+ };
+
+// const skip=ref(0);
+// const text=ref(""); 
 
 </script>
 
-<style lang="scss">
- #all{
+<style lang="scss" scoped>
+ #share-index-box{
    font-family: PingFang SC-Bold,PingFang SC;
    width:100%;
    height:100vh;
    background-color:rgb(255, 255, 255);
-   .iconfont{
+   >.icon-arrow-left{
       width:100%;
       height:30px;
       padding:20px;

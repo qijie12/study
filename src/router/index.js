@@ -35,6 +35,11 @@ const routes = [{
     name:'Register',
     component:() =>import('../views/login/Register.vue'),
   },
+  {
+    path:'/leftList',
+    name:'leftList',
+    component:()=>import('../views/leftList.vue'),
+  },
 ];
  
 

@@ -1,5 +1,5 @@
 <template>
-  <div id="all">
+  <div id="share-home-box">
     <topComp></topComp>
 
     <div id="center_con">
@@ -183,7 +183,7 @@ import eam from "../assets/img/eam_money.png";
 import game from "../assets/img/game.png";
 import me from "../assets/img/me.png";
 import headPortrait from "../assets/img/img23-0452ef16.png";
-import axios from 'axios'
+import axios from 'axios';
 
 const route = useRoute();
 const router = useRouter();
@@ -257,7 +257,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-#all {
+#share-home-box {
   background-color: #fff;
   display: flex;
   flex-direction: column;

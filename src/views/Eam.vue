@@ -1,5 +1,5 @@
 <template>
-  <div id="all">
+  <div id="share-Eam-box">
     <topComp></topComp>
     <div id="center_Con">
       <div class="income">
@@ -584,7 +584,7 @@ const taskList = ref([
 </script>
 
 <style lang="scss">
-#all {
+#share-Eam-box {
   #center_Con {
     margin-top: 52px;
 

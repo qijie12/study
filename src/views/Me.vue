@@ -1,5 +1,5 @@
 <template>
-  <div id="all">
+  <div id="share-Me-box">
     <topComp></topComp>
     <div class="center_con">
       <div class="personal_id">
@@ -14,9 +14,9 @@
             <div class="VIP_progress">
               <span class="Vip">VIP1</span>
               <van-progress
-                :percentage="0"
-                stroke-width="5"
-                color="black"
+                :percentage="100"
+                stroke-width="4"
+                color="rgb(35, 33, 46)"
                 show-pivot="false"
               />
             </div>
@@ -34,7 +34,15 @@
             <div class="con_right">
                  <p class="iconfont icon-jiaoyijilu"></p>
                  <p class="deal">Transaction records</p>
-                 <div><span>Records</span></div>   
+                 <div>
+                  <span>
+                    <van-cell title="Records" is-link @click="showPopup" />
+<van-popup v-model:show="show"    :style="{ width: '85%', height: '35%',}">
+  <div class="tips">Tips</div>
+  <div class="notice">Please go to login first</div>
+</van-popup>
+                  </span>
+                 </div>     
             </div>
         </div>
         <ul class="me_con_bottom">
@@ -59,17 +67,33 @@
       </div>
     </div>
 
+
     <bottomComp></bottomComp>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
+// import reminderComp from '../components/reminderComp.vue';
+
+import {useRouter} from 'vue-router';
 import topComp from "../components/topComp.vue";
 import bottomComp from "../components/bottomComp.vue";
 import message from '../assets/img/message.png';
 import telegram from '../assets/img/telegram.png';
 import deposit from '../assets/img/deposit.png';
+
+const router =useRouter;
+
+// const jumpReminser=ref([
+//   router.pash('/reminderComp')
+// ]);
+
+
+const show = ref(false);
+const showPopup = () => {
+      show.value = true;
+    };
 
 const ulList = ref([
     {
@@ -88,7 +112,7 @@ const ulList = ref([
 </script>
 
 <style lang="scss">
-#all {
+#share-Me-box {
   .center_con {
     font-family: PingFang SC-Bold, PingFang SC;
     padding: 52px 0;
@@ -188,7 +212,7 @@ const ulList = ref([
            background-color: rgb(233, 225, 171);
            margin: 0 10px;
           }
-        .con_left{
+        >.con_left{
           flex:1;
           height:100%;
           padding:10px 0;
@@ -231,7 +255,7 @@ const ulList = ref([
           flex-direction:column;
           align-items:center;
           justify-content:space-between;
-            .iconfont{
+            >.icon-jiaoyijilu{
                font-size:42px;
             }
             .deal{
@@ -252,8 +276,18 @@ const ulList = ref([
                 font-size:12px;
                 font-weight:bold;
                 color:#303030;
+                .van-cell{
+                  .van-popup{
+                   .tips{
+                    width:100%;
+                    display:flex;
+                    justify-content:center;
+                   }
+                  }
+                }
             }
             }
+
         }  
       }
       .me_con_bottom {
@@ -273,7 +307,7 @@ const ulList = ref([
           justify-content: space-between;
           align-items: center;
           flex-direction: column;
-          img {
+          >img {
             width: 35px;
             height: 35px;
           }

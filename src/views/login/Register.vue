@@ -1,6 +1,6 @@
 <template>
-  <div id="all">
-    <div class="iconfont icon-arrow-left"></div>
+  <div id="share-Register-box">
+    <div class="iconfont icon-arrow-left" @click="jump('/login')"></div>
     <img class="picture" src="../../assets/img/money50.png" />
     <div class="register">Register</div>
 
@@ -9,7 +9,7 @@
         color="#ffcd17"
         line-width="60px"
         line-height="2px"
-        v-model:active="active"
+        v-model:active="skip"
         @click-tab="onClickTab"
       >
         <van-tab title="Phone"></van-tab>
@@ -21,6 +21,7 @@
       <van-form @submit="onSubmit">
         <van-cell-group inset>
           <van-field
+          v-if="!skip"
             v-model="username"
             error
             placeholder="phone number"
@@ -34,6 +35,23 @@
             <template #left-icon>
               <span class="iconfont icon-shouji"></span>
               <span style="color: #8da5a7; padding-right: 10px">+91</span>
+            </template>
+          </van-field>
+
+          <van-field
+          v-else
+            v-model="username"
+            error
+            placeholder="email"
+            :rules="[
+              {
+                required: true,
+                message: 'Please fill in your cell phone number',
+              },
+            ]"
+          >
+            <template #left-icon>
+              <span class="iconfont icon-youxiang"></span>
             </template>
           </van-field>
 
@@ -88,7 +106,7 @@
             <van-button native-type="submit" type="primary" block
               >Login</van-button
             >
-            <van-button type="primary" block>Register</van-button>
+            <van-button type="primary" block @click="jump('/sign_in')">Return</van-button>
           </div>
         </van-cell-group>
       </van-form>
@@ -98,6 +116,14 @@
 
 <script setup>
 import { ref } from "vue";
+import {useRouter} from 'vue-router';
+
+const router=useRouter();
+
+const jump=(params)=>{
+  router.push(params);
+};
+
 const username = ref("");
 const password = ref("");
 const sms = ref("");
@@ -106,6 +132,9 @@ const onClickTab = ({ title }) => showToast(title);
 const onSubmit = (values) => {
   console.log("submit", values);
 };
+
+const skip=ref(0);
+const email =ref("");
 
 const close = ref(true);
 const open = ref("password");
@@ -116,13 +145,13 @@ const show = () => {
 </script>
 
 <style lang="scss">
-#all {
-  padding: 0 16px;
+#share-Register-box {
+ 
   width: 100%;
   height: 100vh;
   background-color: rgb(255, 255, 255);
   font-family: PingFang SC-Bold, PingFang SC;
-  .iconfont {
+  .icon-arrow-left {
     width: 100%;
     height: 30px;
     padding: 20px 0;
@@ -133,6 +162,7 @@ const show = () => {
     margin-top: 5px;
     width: 100%;
     height: 88px;
+     padding: 0 16px;
   }
   .register {
     text-align: center;
@@ -151,10 +181,14 @@ const show = () => {
   .information {
     margin-top: 20px;
     width: 100%;
-
+  .van-form{
+    width:100%;
+    padding:0;
+    margin:0;
+  }
     .van-cell {
       width: 100%;
-      padding: 10px 0;
+      padding: 10px;
       background-color: rgb(241, 241, 241);
     }
 
@@ -175,7 +209,7 @@ const show = () => {
           rgb(254, 186, 0)
         );
         border-color: transparent;
-        margin-right: 15px;
+        margin-right: 5px;
         font-size: 14px;
         span {
           color: #303030;

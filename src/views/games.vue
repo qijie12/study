@@ -1,5 +1,5 @@
 <template>
- <div id="all">
+ <div id="share-games-box">
     <topComp></topComp>
     <div class="center-con">
        <img src="../assets/img/game_top_img.png"/>
@@ -206,7 +206,7 @@ const liList =ref([
 </script>
 
 <style lang="scss">
- #all{
+ #share-games-box{
    .center-con{
     width:100%;
     padding:65px 15px 200px 15px;

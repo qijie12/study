@@ -1,0 +1,137 @@
+<template>
+  <div id="share-leftList-box">
+    <van-popup v-model:show="show" position="left">
+        <div class="top">
+          <img src="../assets/img/logo5-dsn.png" />
+          <span class="iconfont icon-cha" @click="jump"></span>
+        </div>
+        <ul>
+          <li v-for="(item, index) in ulList" :key="index">
+            <img :src="item.url" />
+            <b>{{ item.text }}</b>
+          </li>
+        </ul>
+    </van-popup>
+  </div>
+</template>
+
+<script setup>
+import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
+
+import aim from "../assets/img/aim.png";
+import sports from "../assets/img/sports.png";
+import puzzle from "../assets/img/puzzle.png";
+import action from "../assets/img/action.png";
+import card from "../assets/img/card.png";
+import car from "../assets/img/car.png";
+import bike from "../assets/img/bike.png";
+
+const show = ref(false)
+
+// const props = defineProps({
+//     modelValue: {
+//         type: Boolean,
+//         dafult: false
+//     }
+// })
+
+// const emits = defineEmits(['update:modelValue'])
+
+// const show = computed({
+//     get: () => {
+//         return props.modelValue
+//     },
+//     set: (v) => {
+//         emits('update:modelValue', v)
+//     }
+// })
+
+const loadParams = () => {
+    show.value = true
+}
+
+const router = useRouter();
+const jump = () => {
+  router.go(-1);
+};
+
+const ulList = ref([
+  {
+    url: aim,
+    text: "adventure",
+  },
+  {
+    url: sports,
+    text: "sports",
+  },
+  {
+    url: puzzle,
+    text: "puzzle",
+  },
+  {
+    url: action,
+    text: "action",
+  },
+  {
+    url: card,
+    text: "card",
+  },
+  {
+    url: car,
+    text: "car",
+  },
+  {
+    url: bike,
+    text: "bike",
+  },
+]);
+
+defineExpose({
+    loadParams,
+})
+</script>
+
+<style lang="scss">
+#share-leftList-box {
+    .van-popup {
+        width: 270px;
+        height: 100vh;
+    }
+    .top {  
+      background-color: rgb(255, 255, 255);
+      display: flex;
+      justify-content: space-between;
+      > img {
+        width: 150px;
+        height: 75px;
+      }
+      .icon-cha {
+        color: #949495;
+        font-size: 25px;
+      }
+    }
+     ul {
+      background-color: rgb(255, 255, 255);
+      padding: 20px 0 0 20px;
+      width: 100%;
+      display: grid;
+      grid-template-rows: repeat(7, 1fr);
+      grid-gap: 5px;
+      li {
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        img {
+          width: 20px;
+          height: 20px;
+          margin-right: 15px;
+        }
+        b {
+          font-size: 14px;
+        }
+      }
+    }
+}
+</style>
