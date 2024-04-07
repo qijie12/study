@@ -1,22 +1,22 @@
 <template>
   <div id="share-leftList-box">
     <van-popup v-model:show="show" position="left">
-        <div class="top">
-          <img src="../assets/img/logo5-dsn.png" />
-          <span class="iconfont icon-cha" @click="jump"></span>
-        </div>
-        <ul>
-          <li v-for="(item, index) in ulList" :key="index">
-            <img :src="item.url" />
-            <b>{{ item.text }}</b>
-          </li>
-        </ul>
+      <div class="box-top">
+        <img src="../assets/img/logo5-dsn.png" />
+        <span class="iconfont icon-cha" @click="goback"></span>
+      </div>
+      <ul>
+        <li v-for="(item, index) in ulList" :key="index">
+          <img :src="item.url" />
+          <b>{{ item.text }}</b>
+        </li>
+      </ul>
     </van-popup>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed,} from "vue";
 import { useRouter } from "vue-router";
 
 import aim from "../assets/img/aim.png";
@@ -26,8 +26,6 @@ import action from "../assets/img/action.png";
 import card from "../assets/img/card.png";
 import car from "../assets/img/car.png";
 import bike from "../assets/img/bike.png";
-
-const show = ref(false)
 
 // const props = defineProps({
 //     modelValue: {
@@ -46,14 +44,15 @@ const show = ref(false)
 //         emits('update:modelValue', v)
 //     }
 // })
+const show = ref(false);
 
 const loadParams = () => {
-    show.value = true
-}
+  show.value = true;
+};
 
 const router = useRouter();
-const jump = () => {
-  router.go(-1);
+const goback = () => {
+  show.value = false;
 };
 
 const ulList = ref([
@@ -88,50 +87,52 @@ const ulList = ref([
 ]);
 
 defineExpose({
-    loadParams,
-})
+  loadParams,
+});
 </script>
 
 <style lang="scss">
 #share-leftList-box {
-    .van-popup {
-        width: 270px;
-        height: 100vh;
+  .van-popup {
+    width: 270px;
+    height: 100vh;
+  }
+  .box-top {
+    width: 100%;
+    padding: 10px 16px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+    img {
+      width: 150px;
+      height: 75px;
     }
-    .top {  
-      background-color: rgb(255, 255, 255);
-      display: flex;
-      justify-content: space-between;
-      > img {
-        width: 150px;
-        height: 75px;
-      }
-      .icon-cha {
-        color: #949495;
-        font-size: 25px;
-      }
+    .icon-cha {
+      color: #949495;
+      font-size: 25px;
     }
-     ul {
-      background-color: rgb(255, 255, 255);
-      padding: 20px 0 0 20px;
+  }
+  ul {
+    background-color: rgb(255, 255, 255);
+    padding-left: 30px;
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(7, 1fr);
+    grid-gap: 5px;
+    li {
       width: 100%;
-      display: grid;
-      grid-template-rows: repeat(7, 1fr);
-      grid-gap: 5px;
-      li {
-        width: 100%;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        img {
-          width: 20px;
-          height: 20px;
-          margin-right: 15px;
-        }
-        b {
-          font-size: 14px;
-        }
+      height: 40px;
+      display: flex;
+      align-items: center;
+      img {
+        width: 20px;
+        height: 20px;
+        margin-right: 15px;
+      }
+      b {
+        font-size: 14px;
       }
     }
+  }
 }
 </style>

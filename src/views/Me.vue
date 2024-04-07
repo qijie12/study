@@ -25,30 +25,36 @@
       </div>
       <div class="me_con">
         <div class="me_con_top">
-            <div class="con_left">
-                 <p class="money">₹140.00</p>
-                 <p class="wallet">Wallet balance</p>
-                 <div><span>Withdraw money</span></div>   
+          <div class="con_left">
+            <p class="money">₹140.00</p>
+            <p class="wallet">Wallet balance</p>
+            <div class="withdraw"><span @click="hint">Withdraw money</span></div>
+          </div>
+          <div class="halving_line"></div>
+          <div class="con_right">
+            <p class="iconfont icon-jiaoyijilu"></p>
+            <p class="deal">Transaction records</p>
+            <div>
+              <span @click="hint">Records</span>
+              <reminderComp v-model="showCenter"></reminderComp>
+              <!-- <van-popup
+                v-model:show="showCenter"
+                position="center"
+                :style="{ height: '38%', width: '80%' }"
+              >
+                <div class="tips" style="text-align: center">Tips</div>
+                <div class="into">Please go to login first</div>
+                <div class="ok"><span>OK</span></div>
+                <div class="cancle"><span>Cancel</span></div>
+              </van-popup>
+             -->
             </div>
-            <div class="halving_line"></div>
-            <div class="con_right">
-                 <p class="iconfont icon-jiaoyijilu"></p>
-                 <p class="deal">Transaction records</p>
-                 <div>
-                  <span>
-                    <van-cell title="Records" is-link @click="showPopup" />
-<van-popup v-model:show="show"    :style="{ width: '85%', height: '35%',}">
-  <div class="tips">Tips</div>
-  <div class="notice">Please go to login first</div>
-</van-popup>
-                  </span>
-                 </div>     
-            </div>
+          </div>
         </div>
         <ul class="me_con_bottom">
-          <li v-for="(item,index) in ulList" :kry="index">
-             <img :src="item.url"/>
-             <span>{{item.text}}</span>
+          <li v-for="(item, index) in ulList" :kry="index" @click="hint">
+            <img :src="item.url" />
+            <span>{{ item.text }}</span>
           </li>
 
           <!-- <li>
@@ -67,48 +73,52 @@
       </div>
     </div>
 
-
     <bottomComp></bottomComp>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
-// import reminderComp from '../components/reminderComp.vue';
+import reminderComp from "../components/reminderComp.vue";
 
-import {useRouter} from 'vue-router';
+import { useRouter } from "vue-router";
 import topComp from "../components/topComp.vue";
 import bottomComp from "../components/bottomComp.vue";
-import message from '../assets/img/message.png';
-import telegram from '../assets/img/telegram.png';
-import deposit from '../assets/img/deposit.png';
+import message from "../assets/img/message.png";
+import telegram from "../assets/img/telegram.png";
+import deposit from "../assets/img/deposit.png";
 
-const router =useRouter;
+const router = useRouter;
 
 // const jumpReminser=ref([
 //   router.pash('/reminderComp')
 // ]);
 
-
+const reminderCompRef = ref();
 const show = ref(false);
 const showPopup = () => {
-      show.value = true;
-    };
+  show.value = true;
+};
+
+const showCenter = ref(false);
+const hint = () => {
+  showCenter.value = true;
+};
 
 const ulList = ref([
-    {
-        url:message,
-        text:'Message'
-    },
-    {
-        url:telegram,
-        text:'Telegram'
-    },
-    {
-        url:deposit,
-        text:'Deposit'
-    },
-])
+  {
+    url: message,
+    text: "Message",
+  },
+  {
+    url: telegram,
+    text: "Telegram",
+  },
+  {
+    url: deposit,
+    text: "Deposit",
+  },
+]);
 </script>
 
 <style lang="scss">
@@ -166,7 +176,7 @@ const ulList = ref([
               justify-content: center;
               align-items: center;
               font-weight: bold;
-              span {
+              > span {
                 color: rgb(48, 48, 48);
               }
             }
@@ -206,89 +216,129 @@ const ulList = ref([
         border-radius: 5px;
         display: flex;
         align-items: center;
-      .halving_line {
-           height: 100px;
-           width:2px;
-           background-color: rgb(233, 225, 171);
-           margin: 0 10px;
-          }
-        >.con_left{
-          flex:1;
-          height:100%;
-          padding:10px 0;
-          display:flex;
-          flex-direction:column;
-          align-items:center;
-          justify-content:space-between;
-
-          .money{
-             font-size:24px;
-             color: #303030;
-             font-weight: 500;  
-          }
-          .wallet{
-            font-size:14px;
-            color:#303030;
-            font-weight:bold;
-          }
-           >div{
-            width:120px;
-            height:30px;
-            border:1px solid transparent;
-            border-radius:20px;
-            background:linear-gradient(to right,rgb(253, 234, 59),rgb(253, 191, 49));
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            >span{
-                font-size:12px;
-                font-weight:bold;
-                color:#303030;
-            }
-           }  
+        .halving_line {
+          height: 100px;
+          width: 2px;
+          background-color: rgb(233, 225, 171);
+          margin: 0 10px;
         }
-        .con_right{
-          flex:1;
-          height:100%;
-          padding:10px 0;
-          display:flex;
-          flex-direction:column;
-          align-items:center;
-          justify-content:space-between;
-            >.icon-jiaoyijilu{
-               font-size:42px;
-            }
-            .deal{
-                font-weight:700;
-                font-size:14px;
-                color: #303030;
-            }
-            >div{
-            width:120px;
-            height:30px;
-            border:1px solid transparent;
-            border-radius:20px;
-            background:rgb(241, 241, 241);
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            >span{
-                font-size:12px;
-                font-weight:bold;
-                color:#303030;
-                .van-cell{
-                  .van-popup{
-                   .tips{
-                    width:100%;
-                    display:flex;
-                    justify-content:center;
-                   }
-                  }
-                }
-            }
-            }
+        > .con_left {
+          flex: 1;
+          height: 100%;
+          padding: 10px 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
 
-        }  
+          .money {
+            font-size: 24px;
+            color: #303030;
+            font-weight: 500;
+          }
+          .wallet {
+            font-size: 14px;
+            color: #303030;
+            font-weight: bold;
+          }
+          > div {
+            width: 120px;
+            height: 30px;
+            border: 1px solid transparent;
+            border-radius: 20px;
+            background: linear-gradient(
+              to right,
+              rgb(253, 234, 59),
+              rgb(253, 191, 49)
+            );
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            > span {
+              font-size: 12px;
+              font-weight: bold;
+              color: #303030;
+              .van-popup {
+                .tips {
+                  display: flex;
+                  justify-content: center;
+                }
+              }
+            }
+          }
+        }
+        .con_right {
+          flex: 1;
+          height: 100%;
+          padding: 10px 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          > .icon-jiaoyijilu {
+            font-size: 42px;
+          }
+          .deal {
+            font-weight: 700;
+            font-size: 14px;
+            color: #303030;
+          }
+          > div {
+            width: 120px;
+            height: 30px;
+            border: 1px solid transparent;
+            border-radius: 20px;
+            background: rgb(241, 241, 241);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .van-popup {
+              width: 100%;
+              display: flex;
+              // justify-content: center;
+              align-items: center;
+              flex-direction: column;
+              padding: 0 10px;
+              .tips {
+                width: 100%;
+                font-weight: bold;
+                padding: 10px 0;
+                font-size: 18px;
+                border-bottom: 1px solid #f1f1f1;
+              }
+              .into {
+                padding: 60px 0;
+                font-size: 14px;
+                font-weight: bold;
+              }
+              .ok,
+              .cancle {
+                width: 100%;
+                height: 50px;
+                background: linear-gradient(
+                  to right,
+                  rgb(255, 234, 0),
+                  rgb(254, 187, 0)
+                );
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+                font-weight: bold;
+                font-size: 14px;
+              }
+              .cancle {
+                margin-top: 10px;
+                background: rgb(241, 241, 241);
+              }
+            }
+            > span {
+              font-size: 12px;
+              font-weight: bold;
+              color: #303030;
+            }
+          }
+        }
       }
       .me_con_bottom {
         width: 100%;
@@ -307,7 +357,7 @@ const ulList = ref([
           justify-content: space-between;
           align-items: center;
           flex-direction: column;
-          >img {
+          > img {
             width: 35px;
             height: 35px;
           }

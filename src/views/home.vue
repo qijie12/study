@@ -52,7 +52,8 @@
             <b>Wallet balance</b>
             <span>Withdraw</span>
           </div>
-          <div class="rechargeBottom">
+
+          <div class="rechargeBottom" @click="hint">
             <div>
               <img src="../assets/img/icon-coin.png" />
               <span>₹0,00</span>
@@ -60,7 +61,7 @@
             <span class="iconfont icon-youjiantou"></span>
           </div>
         </div>
-
+        <reminderComp v-model="showCenter"></reminderComp>
         <div class="milestone">
           <div class="milestoneTop">
             <img src="../assets/img/icon-gift.png" />
@@ -109,10 +110,10 @@
         </div>
 
         <div class="gift">
-         <b>💎 Money-making tasks</b>
-         <div class="light">
-           <img  src="../assets/img/tasklight.png"/>
-         </div>
+          <b>💎 Money-making tasks</b>
+          <div class="light">
+            <img src="../assets/img/tasklight.png" />
+          </div>
 
           <img class="taskMoney" src="../assets/img/taskMoney.png" />
           <img class="giftPicture" src="../assets/img/game_picuure1.png" />
@@ -174,16 +175,22 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import topComp from "../components/topComp.vue";
 import bottomComp from "../components/bottomComp.vue";
+import reminderComp from "../components/reminderComp.vue";
 
 import eam from "../assets/img/eam_money.png";
 import game from "../assets/img/game.png";
 import me from "../assets/img/me.png";
 import headPortrait from "../assets/img/img23-0452ef16.png";
-import axios from 'axios';
+import axios from "axios";
+
+const showCenter = ref(false);
+const hint = () => {
+  showCenter.value = true;
+};
 
 const route = useRoute();
 const router = useRouter();
@@ -243,16 +250,19 @@ const jump = (params) => {
 };
 
 const getService = () => {
-  axios.get('https://minibk.tlkgame.site/api/get_customer_service_list', {}).then(res => {
-    console.log(res, 'res------------9696')
-  }).catch(err => {
-    console.log(err, 'err------------9696')
-  })
-}
+  axios
+    .get("https://minibk.tlkgame.site/api/get_customer_service_list", {})
+    .then((res) => {
+      console.log(res, "res------------9696");
+    })
+    .catch((err) => {
+      console.log(err, "err------------9696");
+    });
+};
 
 onMounted(() => {
   console.log(route, "route-------------96");
-  getService()
+  getService();
 });
 </script>
 
@@ -341,8 +351,9 @@ onMounted(() => {
         margin-bottom: 15px;
         width: 100%;
         height: 90px;
-        box-shadow: #32325d40 0 1.6vw 3.2vw -0.53333vw, #0000004d 0 0.8vw 1.86667vw -0.8vw;
-        border-radius:5px;
+        box-shadow: #32325d40 0 1.6vw 3.2vw -0.53333vw,
+          #0000004d 0 0.8vw 1.86667vw -0.8vw;
+        border-radius: 5px;
         img {
           width: 100%;
           height: 90px;
@@ -352,7 +363,7 @@ onMounted(() => {
           height: 33px;
           border: 1px solid transparent;
           border-radius: 20px;
-          background: linear-gradient(to bottom, #ffa36a , #ff6634);
+          background: linear-gradient(to bottom, #ffa36a, #ff6634);
           text-align: center;
           line-height: 31px;
           position: absolute;
@@ -500,7 +511,7 @@ onMounted(() => {
           to bottom,
           rgb(252, 191, 18),
           rgb(230, 95, 22),
-          rgb(209, 6, 25),
+          rgb(209, 6, 25)
         );
         position: relative;
         b {
@@ -511,16 +522,16 @@ onMounted(() => {
         .light {
           height: 249px;
           width: 249px;
-          position:relative;
+          position: relative;
           left: 52%;
-          top: 25%;       
+          top: 25%;
           transform: translate(-50%, -50%);
-          >img{
-               height: 235px;
-               width: 235px;
-               animation: lightImage 1.5s linear infinite;
-               position: absolute;
-          } 
+          > img {
+            height: 235px;
+            width: 235px;
+            animation: lightImage 1.5s linear infinite;
+            position: absolute;
+          }
         }
         @keyframes lightImage {
           from {
@@ -544,14 +555,14 @@ onMounted(() => {
           top: 35%;
           transform: translate(-50%, -50%);
         }
-        >p {
+        > p {
           padding: 0px 10px 20px 10px;
           font-size: 14px;
           color: #fff;
           font-weight: bold;
-          text-align:center;
+          text-align: center;
         }
-       .start {
+        .start {
           margin: auto;
           width: 325px;
           height: 53px;

@@ -7,7 +7,10 @@
         <div class="income_con">
           <div class="withdraw">
             <p>₹0,00</p>
-            <div><span>Withdraw money</span></div>
+            <div class="box-withdraw">
+              <span class="box-money" @click="hint">Withdraw money</span>
+              <reminderComp v-model="showCenter"></reminderComp>
+            </div>
           </div>
           <div class="money_img">
             <img src="../assets/img/money111.png" />
@@ -75,10 +78,11 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import topComp from "../components/topComp.vue";
 import bottomComp from "../components/bottomComp.vue";
+import reminderComp from "../components/reminderComp.vue";
 
 import background_yellow from "../assets/img/background-yellow.png";
 import lock_img from "../assets/img/lock.png";
@@ -98,6 +102,12 @@ import gamePicture10 from "../assets/img/game_picture10.jpg";
 // };
 const route = useRoute();
 const router = useRouter();
+
+const showCenter = ref(false);
+const hint = () => {
+  showCenter.value = true;
+};
+
 
 const taskList = ref([
   {
@@ -619,15 +629,16 @@ const taskList = ref([
             font-weight: bold;
             color: rgb(255, 255, 255);
           }
-          > div {
+          .box-withdraw {
             height: 30px;
             width: 121px;
             border: 1px solid transparent;
             border-radius: 20px;
             background-color: rgb(255, 255, 255);
-            text-align: center;
-            line-height: 28px;
-            span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .box-money {
               color: #ff7a8a;
               font-weight: bold;
               font-size: 12px;
@@ -639,7 +650,7 @@ const taskList = ref([
           flex: 1;
           height: 100%;
           padding: 10px;
-          img {
+          > img {
             width: 120px;
             height: 82px;
           }
