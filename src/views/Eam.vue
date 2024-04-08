@@ -41,7 +41,7 @@
             </div>
             <div class="recharge_amount">
               <img :src="item.src" />
-              <b>{{ item.num }}</b>
+              <b @click="hint">{{ item.num }}</b>
             </div>
             <div class="lock">
               <img :src="item.img" />
@@ -595,6 +595,7 @@ const taskList = ref([
 
 <style lang="scss">
 #share-Eam-box {
+  font-family: PingFang SC-Bold, PingFang SC;
   #center_Con {
     margin-top: 52px;
 
@@ -642,7 +643,7 @@ const taskList = ref([
               color: #ff7a8a;
               font-weight: bold;
               font-size: 12px;
-              font-family: var(--van-base-font);
+              font-family:PingFang SC-Bold, PingFang SC;
             }
           }
         }
@@ -754,8 +755,8 @@ const taskList = ref([
             > b {
               z-index: 5;
               position: relative;
-              top: -32px;
-              left: 35px;
+              top: -36px;
+              left: 28px;
               font-size: 18px;
               color: rgb(48, 48, 48);
             }
@@ -771,7 +772,7 @@ const taskList = ref([
             justify-content: center;
             align-items: center;
             border-top-left-radius: 5px;
-            img {
+            >img {
               width: 22px;
               height: 22px;
             }

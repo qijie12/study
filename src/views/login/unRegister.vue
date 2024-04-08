@@ -1,5 +1,5 @@
 <template>
-  <div id="share-Register-box">
+  <div id="share-unRegister-box">
     <div class="iconfont icon-arrow-left" @click="jump('/login')"></div>
     <img class="picture" src="../../assets/img/money50.png" />
     <div class="register">Register</div>
@@ -134,7 +134,7 @@ const onSubmit = (values) => {
   console.log("submit", values);
 };
 
-const skip=ref(0);
+const skip=ref(1);
 const email =ref('');
 
 const close = ref(true);
@@ -146,7 +146,7 @@ const show = () => {
 </script>
 
 <style lang="scss">
-#share-Register-box {
+#share-unRegister-box {
  
   width: 100%;
   height: 100vh;

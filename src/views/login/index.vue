@@ -28,7 +28,7 @@
      <li>
         <div>
             <img src="../../assets/img/email.png" style="width:25px;height:25px;"/>
-            <span @click="jumpHome('/Register')">Continue with Email</span>
+            <span @click="jumpHome('/unRegister')">Continue with Email</span>
         </div>
      </li>
    </ul>
@@ -92,7 +92,7 @@
     display:grid;
     grid-template-rows:repeat(4,1fr);
     grid-gap:10px;
-    li{
+    >li{
        width:100%;
        height:50px;
        border:1px solid black;
@@ -103,10 +103,10 @@
        >div{
           display:flex;
           align-items:center;
-          img{
+          >img{
             margin-right:5px;
           }
-          span{
+          >span{
             font-weight:bold;
             color: #000;
             font-size:14px;

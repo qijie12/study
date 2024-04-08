@@ -6,9 +6,37 @@
         <span class="iconfont icon-cha" @click="goback"></span>
       </div>
       <ul>
-        <li v-for="(item, index) in ulList" :key="index">
+        <!-- <li v-for="(item, index) in ulList" :key="index">
           <img :src="item.url" />
           <b>{{ item.text }}</b>
+        </li> -->
+        <li @click="jumpadventure">
+          <img src="../assets/img/aim.png"/>
+          <b>adventure</b>
+        </li>
+        <li @click="jumpsports">
+          <img src="../assets/img/sports.png"/>
+          <b>sports</b>
+        </li>
+        <li @click="jumppuzzle">
+          <img src="../assets/img/puzzle.png"/>
+          <b>puzzle</b>
+        </li>
+        <li @click="jumpaction">
+          <img src="../assets/img/action.png"/>
+          <b>action</b>
+        </li>
+        <li @click="jumpcard">
+          <img src="../assets/img/card.png"/>
+          <b>card</b>
+        </li>
+        <li @click="jumpcar">
+          <img src="../assets/img/car.png"/>
+          <b>car</b>
+        </li>
+        <li @click="jumpbike">
+          <img src="../assets/img/bike.png"/>
+          <b>bike</b>
         </li>
       </ul>
     </van-popup>
@@ -20,7 +48,7 @@ import { ref, computed,} from "vue";
 import { useRouter } from "vue-router";
 
 import aim from "../assets/img/aim.png";
-import sports from "../assets/img/sports.png";
+import sports from "../assets/img/aim.png";
 import puzzle from "../assets/img/puzzle.png";
 import action from "../assets/img/action.png";
 import card from "../assets/img/card.png";
@@ -54,37 +82,58 @@ const router = useRouter();
 const goback = () => {
   show.value = false;
 };
+const jumpadventure=()=>{
+  router.push("/List")
+};
+const jumpsports=()=>{
+  router.push("/Sports")
+};
+const jumppuzzle=()=>{
+  router.push("/Puzzle")
+};
+const jumpaction=()=>{
+  router.push("/Action")
+};
+const jumpcard=()=>{
+  router.push("/Card")
+};
+const jumpcar=()=>{
+  router.push("/Car")
+};
+const jumpbike=()=>{
+  router.push("/Bike")
+};
 
-const ulList = ref([
-  {
-    url: aim,
-    text: "adventure",
-  },
-  {
-    url: sports,
-    text: "sports",
-  },
-  {
-    url: puzzle,
-    text: "puzzle",
-  },
-  {
-    url: action,
-    text: "action",
-  },
-  {
-    url: card,
-    text: "card",
-  },
-  {
-    url: car,
-    text: "car",
-  },
-  {
-    url: bike,
-    text: "bike",
-  },
-]);
+// const ulList = ref([
+//   {
+//     url: aim,
+//     text: "adventure",
+//   },
+//   {
+//     url: sports,
+//     text: "sports",
+//   },
+//   {
+//     url: puzzle,
+//     text: "puzzle",
+//   },
+//   {
+//     url: action,
+//     text: "action",
+//   },
+//   {
+//     url: card,
+//     text: "card",
+//   },
+//   {
+//     url: car,
+//     text: "car",
+//   },
+//   {
+//     url: bike,
+//     text: "bike",
+//   },
+// ]);
 
 defineExpose({
   loadParams,

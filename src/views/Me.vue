@@ -3,14 +3,27 @@
     <topComp></topComp>
     <div class="center_con">
       <div class="personal_id">
-        <img class="redact" src="../assets/img/write.png" />
+        <img class="redact" src="../assets/img/write.png" @click="hint" />
         <div class="grade">
-          <img src="../assets/img/head.png" />
+          <img src="../assets/img/mich11111.png" />
           <div class="grade_con">
             <div class="ID">
               <span>ID：10000502 </span>
-              <div><span></span>Copy</div>
+
+              <div class="div-box">
+                <span @click="prompt">Copy</span>
+
+                <van-popup               
+                v-model:show="showSucceed"
+                position="center"
+                :style="{ height: '5%',width:'32%',}"
+                >
+                Copy Success!
+              </van-popup>
+              </div>
             </div>
+
+
             <div class="VIP_progress">
               <span class="Vip">VIP1</span>
               <van-progress
@@ -28,7 +41,9 @@
           <div class="con_left">
             <p class="money">₹140.00</p>
             <p class="wallet">Wallet balance</p>
-            <div class="withdraw"><span @click="hint">Withdraw money</span></div>
+            <div class="withdraw">
+              <span @click="hint">Withdraw money</span>
+            </div>
           </div>
           <div class="halving_line"></div>
           <div class="con_right">
@@ -105,6 +120,13 @@ const hint = () => {
   showCenter.value = true;
 };
 
+
+
+const showSucceed = ref(false);
+const prompt = () => {
+  showSucceed.value = true;
+};
+
 const ulList = ref([
   {
     url: message,
@@ -162,11 +184,11 @@ const ulList = ref([
               color: #303030;
               font-weight: bold;
             }
-            > div {
+            .div-box{
               width: 60px;
               height: 30px;
               border: 1px solid transparent;
-              border-radius: 5px;
+              border-radius: 7px;
               background: linear-gradient(
                 to right,
                 rgb(253, 234, 59),
@@ -178,6 +200,19 @@ const ulList = ref([
               font-weight: bold;
               > span {
                 color: rgb(48, 48, 48);
+              }
+              >.van-overlay{
+                background-color:rgba(255, 255, 255, 0);
+              }
+              >.van-popup{
+                 background-color:rgb(72, 72, 72,0.6);
+                 display:flex;
+                 justify-content:center;
+                 align-items:center;
+                 border-radius:10px;
+                 color:#ffffff;
+                 font-weight:300;
+                 font-size:14px;
               }
             }
           }
@@ -258,7 +293,7 @@ const ulList = ref([
               font-size: 12px;
               font-weight: bold;
               color: #303030;
-              .van-popup {
+              >.van-popup-center {
                 .tips {
                   display: flex;
                   justify-content: center;
@@ -291,47 +326,7 @@ const ulList = ref([
             background: rgb(241, 241, 241);
             display: flex;
             justify-content: center;
-            align-items: center;
-            .van-popup {
-              width: 100%;
-              display: flex;
-              // justify-content: center;
-              align-items: center;
-              flex-direction: column;
-              padding: 0 10px;
-              .tips {
-                width: 100%;
-                font-weight: bold;
-                padding: 10px 0;
-                font-size: 18px;
-                border-bottom: 1px solid #f1f1f1;
-              }
-              .into {
-                padding: 60px 0;
-                font-size: 14px;
-                font-weight: bold;
-              }
-              .ok,
-              .cancle {
-                width: 100%;
-                height: 50px;
-                background: linear-gradient(
-                  to right,
-                  rgb(255, 234, 0),
-                  rgb(254, 187, 0)
-                );
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 5px;
-                font-weight: bold;
-                font-size: 14px;
-              }
-              .cancle {
-                margin-top: 10px;
-                background: rgb(241, 241, 241);
-              }
-            }
+            align-items: center;  
             > span {
               font-size: 12px;
               font-weight: bold;

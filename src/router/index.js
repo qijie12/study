@@ -36,9 +36,54 @@ const routes = [{
     component:() =>import('../views/login/Register.vue'),
   },
   {
+    path:'/unRegister',
+    name:'unRegister',
+    component:() =>import('../views/login/unRegister.vue'),
+  },
+  {
     path:'/leftList',
     name:'leftList',
     component:()=>import('../views/leftList.vue'),
+  },
+  {
+    path:'/support',
+    name:'support',
+    component:()=>import('../views/login/support.vue'),
+  },
+  {
+    path:'/List',
+    name:'List',
+    component:()=>import('../views/List/Adventure.vue'),
+  },
+  {
+    path:'/Sports',
+    name:'Sports',
+    component:()=>import('../views/List/Sports.vue'),
+  },
+  {
+    path:'/Puzzle',
+    name:'Puzzle',
+    component:()=>import('../views/List/Puzzle.vue'),
+  },
+  {
+    path:'/Action',
+    name:'Action',
+    component:()=>import('../views/List/Action.vue')
+  },
+  {
+    path:'/Card',
+    name:'Card',
+    component:()=>import('../views/List/Card.vue')
+  },
+  {
+    path:'/Car',
+    name:'Car',
+    component:()=>import('../views/List/Car.vue')
+  },
+  {
+    path:'/Bike',
+    name:'Bike',
+    component:()=>import('../views/List/Bike.vue')
   },
 ];
  

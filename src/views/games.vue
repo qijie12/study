@@ -8,14 +8,13 @@
        <p class="hot">Hot</p>
        <ul>
 
-<li v-for="(item,index) in liList" :key="index" > 
+<li v-for="(item,index) in liList" :key="index"  @click="jumpLogin"> 
   <img :src="item.url"/>
     <div v-if="item.imageUrl">
-        <img :src="item.imageUrl" alt="Image"/>
+        <img :src="item.imageUrl" alt="Image" />
         <span>{{item.text}}</span>
    </div>
 </li>
-
 <!-- showText属性用于指示是否要显示文字，以及imageUrl属性用于指定图像的路径 -->
 <!-- 
         <li>
@@ -44,16 +43,12 @@
     </div>
 
 
-
-
-
-
     <bottomComp></bottomComp>
  </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref,computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import topComp from "../components/topComp.vue";
 import bottomComp from "../components/bottomComp.vue";
@@ -68,6 +63,13 @@ import hot_pictuer from '../assets/img/hot_background.png';
 
 const route = useRoute();
 const router = useRouter();
+
+
+const jumpLogin =()=>{
+  router.push("/login");
+};
+
+
 
 const liList =ref([
   {

@@ -44,16 +44,16 @@
       <div id="center">
         <div class="picture">
           <img src="../assets/img/money50.png" />
-          <div><span>CLAIM</span></div>
+          <div><span @click="jumpHello">CLAIM</span></div>
         </div>
 
-        <div class="recharge">
+        <div class="recharge"  @click="hint">
           <div class="rechargeTop">
             <b>Wallet balance</b>
             <span>Withdraw</span>
           </div>
 
-          <div class="rechargeBottom" @click="hint">
+          <div class="rechargeBottom">
             <div>
               <img src="../assets/img/icon-coin.png" />
               <span>₹0,00</span>
@@ -119,7 +119,7 @@
           <img class="giftPicture" src="../assets/img/game_picuure1.png" />
           <p>Try the game for 2 minutes and give feedback</p>
           <div class="start">
-            <span>START EARNING</span>
+            <span @click="hint">START EARNING</span>
           </div>
         </div>
       </div>
@@ -187,10 +187,19 @@ import me from "../assets/img/me.png";
 import headPortrait from "../assets/img/img23-0452ef16.png";
 import axios from "axios";
 
-const showCenter = ref(false);
-const hint = () => {
-  showCenter.value = true;
-};
+const jumpHello=() =>{
+  router.push('/login')
+}
+
+const showCenter=ref(false);
+const hint=()=>{
+  showCenter.value=true;
+}
+
+// const showCenter = ref(false);
+// const hint = () => {
+//   showCenter.value = true;
+// };
 
 const route = useRoute();
 const router = useRouter();
@@ -268,6 +277,7 @@ onMounted(() => {
 
 <style lang="scss">
 #share-home-box {
+  font-family: PingFang SC-Bold, PingFang SC;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -299,7 +309,7 @@ onMounted(() => {
         height: 100%;
         border-radius: 5px;
         .van-swipe-item {
-          img {
+          >img {
             height: 100%;
             width: 100%;
           }
@@ -333,7 +343,7 @@ onMounted(() => {
         flex-direction: columns;
         justify-content: center;
         margin-right: 10px;
-        img {
+        >img {
           width: 20px;
           height: 20px;
           margin: 0 5px;
@@ -354,11 +364,11 @@ onMounted(() => {
         box-shadow: #32325d40 0 1.6vw 3.2vw -0.53333vw,
           #0000004d 0 0.8vw 1.86667vw -0.8vw;
         border-radius: 5px;
-        img {
+        >img {
           width: 100%;
           height: 90px;
         }
-        div {
+        >div {
           width: 90px;
           height: 33px;
           border: 1px solid transparent;
@@ -391,7 +401,7 @@ onMounted(() => {
           border-bottom: 1px solid #f1f1f1;
           line-height: 27px;
           background-color: rgba(255, 255, 255);
-          span {
+          >span {
             color: #ffcd17;
             text-decoration: underline;
             font-weight: bold;
@@ -405,15 +415,15 @@ onMounted(() => {
           align-items: center;
           justify-content: space-between;
           padding: 0 10px;
-          div {
+          >div {
             display: flex;
             align-items: center;
-            img {
+            >img {
               height: 50px;
               width: 50px;
               margin-right: 10px;
             }
-            span {
+            >span {
               font-size: 24px;
             }
           }
@@ -434,21 +444,21 @@ onMounted(() => {
           display: flex;
           align-items: center;
           margin-bottom: 15px;
-          img {
+          >img {
             height: 24px;
             width: 24px;
             margin-right: 5px;
           }
-          b {
+          >b {
             font-size: 18px;
           }
         }
-        ul {
+        >ul {
           width: 100%;
           display: grid;
           grid-template-rows: repeat(3, 1fr);
           grid-gap: 10px;
-          li {
+          >li {
             width: 100%;
             height: 80px;
             display: flex;
@@ -469,14 +479,14 @@ onMounted(() => {
               z-index: 1;
               padding-left: 85px;
 
-              b {
+              >b {
                 display: block;
                 height: 20px;
                 color: #5997cb;
                 margin-bottom: 8px;
                 font-size: 14px;
               }
-              span {
+              >span {
                 color: #bab3ab;
                 font-size: 12px;
                 display: block;
@@ -496,7 +506,7 @@ onMounted(() => {
               font-weight: bold;
               text-align: center;
               line-height: 18px;
-              b {
+              >b {
                 color: rgb(255, 255, 255);
               }
             }
@@ -514,12 +524,13 @@ onMounted(() => {
           rgb(209, 6, 25)
         );
         position: relative;
-        b {
+        >b {
           display: block;
           padding: 10px;
           font-size: 20px;
         }
         .light {
+          font-family: PingFang SC-Bold, PingFang SC;
           height: 249px;
           width: 249px;
           position: relative;
@@ -573,7 +584,7 @@ onMounted(() => {
           display: flex;
           align-items: center;
           justify-content: center;
-          span {
+          >span {
             font-weight: bold;
             color: #303030;
           }
@@ -611,13 +622,13 @@ onMounted(() => {
       .partners {
         width: 100%;
         text-align: center;
-        p {
+        >p {
           font-weight: bold;
           font-size: 14px;
           color: #303030;
           padding-bottom: 5px;
         }
-        b {
+        >b {
           color: #999999;
           font-size: 12px;
         }
@@ -643,7 +654,7 @@ onMounted(() => {
           left: 50%;
           transform: translate(-50%, -50%);
           text-align: center;
-          img {
+          >img {
             width: 87px;
             height: 20px;
             margin-bottom: 20px;
@@ -657,7 +668,7 @@ onMounted(() => {
             // display: grid;
             // grid-template-columns: repeat(3, 1fr);
             margin-bottom: 20px;
-            li {
+            >li {
               font-size: 12px;
               height: 25px;
               text-decoration: underline;
@@ -670,7 +681,7 @@ onMounted(() => {
           .icon {
             display: flex;
             justify-content: center;
-            li {
+            >li {
               height: 24px;
               width: 24px;
               border: 1px solid transparent;
@@ -681,7 +692,7 @@ onMounted(() => {
               &:last-child {
                 margin-right: 0;
               }
-              img {
+              >img {
                 width: 15px;
                 height: 15px;
                 position: absolute;
@@ -690,7 +701,7 @@ onMounted(() => {
               }
             }
           }
-          p {
+          >p {
             color: #a69999;
             font-size: 10px;
             font-weight: bold;

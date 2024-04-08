@@ -83,7 +83,7 @@
         </van-cell-group>
         <div style="margin: 16px">
           <div class="retrieve">
-            <span>forgot your password?</span>
+            <span @click="jumpSupport">forgot your password?</span>
           </div>
 
           <div class="option">
@@ -114,7 +114,8 @@ const jumplogin = () => {
 const jumpRegister = () => {
   router.push("/Register");
 };
-
+const jumpSupport=()=>
+router.push("/support");
 
 const email = ref("");
 const active = ref(0);
