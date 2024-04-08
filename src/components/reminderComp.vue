@@ -1,15 +1,14 @@
 <template>
-  <div id="share-reminderComp-box" >
+  <div id="share-reminderComp-box">
     <van-popup
       v-model:show="showCenter"
       position="center"
-      :style="{ height: '38%', width: '80%' }"
+      :style="{ width: '80%' }"
     >
       <div class="tips-box" style="text-align: center">Tips</div>
       <div class="into-box">Please go to login first</div>
       <div class="ok-box" @click="hint"><span>OK</span></div>
       <div class="cancle-box" @click="conceal"><span>Cancel</span></div>
-
     </van-popup>
   </div>
 </template>
@@ -18,15 +17,15 @@
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 
-const popup=ref(true);
+const popup = ref(true);
 // const showCenter=ref(false);
 
-const hint=()=>{
-  router.push('/login')
+const hint = () => {
+  router.push("/login");
 };
-const conceal=()=>{
-  showCenter.value=false;
-}
+const conceal = () => {
+  showCenter.value = false;
+};
 
 const props = defineProps({
   modelValue: {
@@ -47,22 +46,20 @@ const showCenter = computed({
 });
 
 const router = useRouter();
-
-
 </script>
 
 <style lang="scss">
 #share-reminderComp-box {
   font-family: PingFang SC-Bold, PingFang SC;
-  >.van-popup {  
-    overflow:hidden;
+  > .van-popup {
+    overflow: hidden;
     width: 100%;
     display: flex;
     // justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 0 10px;
-    border-radius:5px;
+    padding: 10px;
+    border-radius: 5px;
     .tips-box {
       width: 100%;
       font-weight: bold;
@@ -71,14 +68,14 @@ const router = useRouter();
       border-bottom: 1px solid #f1f1f1;
     }
     .into-box {
-      padding:35px 0 ;
+      padding: 60px 0;
       font-size: 14px;
       font-weight: bold;
     }
     .ok-box,
     .cancle-box {
       width: 100%;
-      height:45px;
+      height: 45px;
       background: linear-gradient(to right, rgb(255, 234, 0), rgb(254, 187, 0));
       display: flex;
       justify-content: center;
@@ -88,7 +85,7 @@ const router = useRouter();
       font-size: 14px;
     }
     .cancle-box {
-      margin-top:8px;
+      margin-top: 8px;
       background: rgb(241, 241, 241);
     }
   }

@@ -22,10 +22,10 @@
         <ul>
           <li v-for="(item, index) in taskList" :key="index">
             <div class="game">
-              <img :src="item.url" />
+              <img :src="item.info.icon" />
               <div class="game_con">
-                <p>{{ item.text_p }}</p>
-                <b>{{ item.text_b }}</b>
+                <p>{{ item.game_title }}</p>
+                <b>{{ item.game_brief }}</b>
               </div>
             </div>
             <div class="security_deposit">
@@ -35,16 +35,18 @@
                   background: item.background,
                 }"
               >
-                {{ item.text_vip }}
+                VIP{{ item.user_level }}
               </div>
-              <div class="deposit_amount">{{ item.con }}</div>
+              <div class="deposit_amount">
+                SECURITY DEPOSIT: {{ item.start_amount }}
+              </div>
             </div>
             <div class="recharge_amount">
-              <img :src="item.src" />
-              <b @click="hint">{{ item.num }}</b>
+              <img :src="background_yellow" />
+              <b @click="hint">+₹{{ item.game_reward }}</b>
             </div>
             <div class="lock">
-              <img :src="item.img" />
+              <img :src="lock_img" />
             </div>
           </li>
 
@@ -78,11 +80,12 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import topComp from "../components/topComp.vue";
 import bottomComp from "../components/bottomComp.vue";
 import reminderComp from "../components/reminderComp.vue";
+import axios from "axios";
 
 import background_yellow from "../assets/img/background-yellow.png";
 import lock_img from "../assets/img/lock.png";
@@ -108,489 +111,25 @@ const hint = () => {
   showCenter.value = true;
 };
 
+const eamFunc = () => {
+  axios
+    .get("https://minibk.disneygo.org/api/get_sys_config_by_type?type=16", {})
+    .then((res) => {
+      let arr = res.data.data.content.game;
+      arr.some((item) => {
+        item.background =
+          "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))";
+      });
+      taskList.value = arr;
+      console.log(arr, "arr------------");
+    })
+    .catch((err) => {});
+};
+onMounted(() => {
+  eamFunc();
+});
 
-const taskList = ref([
-  {
-    url: gamePicture1,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP1",
-    con: "SECURITY DEPOSIT: 50",
-    num: "+₹20",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture2,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Complete mini-game hours for high commissions",
-    text_vip: " VIP1",
-    con: "SECURITY DEPOSIT: 70",
-    num: "+₹20",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture3,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Add your own personal receptionist",
-    text_b: "Add a dedicated receptionist to get high commissions",
-    text_vip: " VIP1",
-    con: "SECURITY DEPOSIT: 90",
-    num: "+₹30",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture4,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP1",
-    con: "SECURITY DEPOSIT: 50",
-    num: "+₹50",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture5,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP2",
-    con: "SECURITY DEPOSIT: 50",
-    num: "+₹50",
-    background:
-      "linear-gradient(to right, rgb(156, 52, 169) 50%, rgb(242, 94, 67))",
-  },
-  {
-    url: gamePicture6,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP2",
-    con: "SECURITY DEPOSIT: 50",
-    num: "+₹50",
-    background:
-      "linear-gradient(to right, rgb(156, 52, 169), rgb(242, 94, 67))",
-  },
-  {
-    url: gamePicture7,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP2",
-    con: "SECURITY DEPOSIT: 50",
-    num: "+₹50",
-    background:
-      "linear-gradient(to right, rgb(156, 52, 169) 40%, rgb(242, 94, 67))",
-  },
-  {
-    url: gamePicture8,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Consumer Satisfaction Survey Task",
-    text_b: "🥤 Love trying drinks? Earn cash for it! 🌟",
-    text_vip: " VIP2",
-    con: "SECURITY DEPOSIT: 100",
-    num: "+₹100",
-    background:
-      "linear-gradient(to right, rgb(156, 52, 169) 40%, rgb(242, 94, 67))",
-  },
-  {
-    url: gamePicture9,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP3",
-    con: "SECURITY DEPOSIT: 80",
-    num: "+₹80",
-    background:
-      "linear-gradient(to right, rgb(255, 209, 148) 50%, rgb(209, 145, 60))",
-  },
-  {
-    url: gamePicture10,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP3",
-    con: "SECURITY DEPOSIT: 80",
-    num: "+₹80",
-    background:
-      "linear-gradient(to right, rgb(255, 209, 148) 50%, rgb(209, 145, 60))",
-  },
-  {
-    url: gamePicture1,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP1",
-    con: "SECURITY DEPOSIT: 50",
-    num: "+₹20",
-    background:
-      "linear-gradient(to right, rgb(255, 209, 148) 50%, rgb(209, 145, 60))",
-  },
-  {
-    url: gamePicture2,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Complete mini-game hours for high commissions",
-    text_vip: " VIP1",
-    con: "SECURITY DEPOSIT: 70",
-    num: "+₹20",
-    background:
-      "linear-gradient(to right, rgb(255, 153, 102) 50%, rgb(255, 94, 98))",
-  },
-  {
-    url: gamePicture3,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Add your own personal receptionist",
-    text_b: "Add a dedicated receptionist to get high commissions",
-    text_vip: " VIP1",
-    con: "SECURITY DEPOSIT: 90",
-    num: "+₹30",
-    background:
-      "linear-gradient(to right, rgb(255, 153, 102) 50%, rgb(255, 94, 98))",
-  },
-  {
-    url: gamePicture4,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP1",
-    con: "SECURITY DEPOSIT: 50",
-    num: "+₹50",
-    background:
-      "linear-gradient(to right, rgb(255, 153, 102) 50%, rgb(255, 94, 98))",
-  },
-  {
-    url: gamePicture5,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP2",
-    con: "SECURITY DEPOSIT: 50",
-    num: "+₹50",
-    background:
-      "linear-gradient(to right, rgb(106, 130, 251) 50%, rgb(222, 203, 164))",
-  },
-  {
-    url: gamePicture6,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP2",
-    con: "SECURITY DEPOSIT: 50",
-    num: "+₹50",
-    background:
-      "linear-gradient(to right, rgb(106, 130, 251) 50%, rgb(222, 203, 164))",
-  },
-  {
-    url: gamePicture7,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP2",
-    con: "SECURITY DEPOSIT: 50",
-    num: "+₹50",
-    background:
-      "linear-gradient(to right, rgb(106, 130, 251) 50%, rgb(222, 203, 164))",
-  },
-  {
-    url: gamePicture8,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Consumer Satisfaction Survey Task",
-    text_b: "🥤 Love trying drinks? Earn cash for it! 🌟",
-    text_vip: " VIP2",
-    con: "SECURITY DEPOSIT: 100",
-    num: "+₹100",
-    background:
-      "linear-gradient(to right, rgb(251, 211, 134) 50%, rgb(247, 129, 126))",
-  },
-  {
-    url: gamePicture9,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP3",
-    con: "SECURITY DEPOSIT: 80",
-    num: "+₹80",
-    background:
-      "linear-gradient(to right, rgb(251, 211, 134) 50%, rgb(247, 129, 126))",
-  },
-  {
-    url: gamePicture10,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP3",
-    con: "SECURITY DEPOSIT: 80",
-    num: "+₹80",
-    background:
-      "linear-gradient(to right, rgb(251, 211, 134) 50%, rgb(247, 129, 126))",
-  },
-  {
-    url: gamePicture1,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP1",
-    con: "SECURITY DEPOSIT: 50",
-    num: "+₹20",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture2,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Complete mini-game hours for high commissions",
-    text_vip: " VIP1",
-    con: "SECURITY DEPOSIT: 70",
-    num: "+₹20",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture3,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Add your own personal receptionist",
-    text_b: "Add a dedicated receptionist to get high commissions",
-    text_vip: " VIP1",
-    con: "SECURITY DEPOSIT: 90",
-    num: "+₹30",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture4,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP1",
-    con: "SECURITY DEPOSIT: 50",
-    num: "+₹50",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture5,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP2",
-    con: "SECURITY DEPOSIT: 50",
-    num: "+₹50",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture6,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP2",
-    con: "SECURITY DEPOSIT: 50",
-    num: "+₹50",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture7,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP2",
-    con: "SECURITY DEPOSIT: 50",
-    num: "+₹50",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture8,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Consumer Satisfaction Survey Task",
-    text_b: "🥤 Love trying drinks? Earn cash for it! 🌟",
-    text_vip: " VIP2",
-    con: "SECURITY DEPOSIT: 100",
-    num: "+₹100",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture9,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP3",
-    con: "SECURITY DEPOSIT: 80",
-    num: "+₹80",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture10,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP3",
-    con: "SECURITY DEPOSIT: 80",
-    num: "+₹80",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture1,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP1",
-    con: "SECURITY DEPOSIT: 50",
-    num: "+₹20",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture2,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Complete mini-game hours for high commissions",
-    text_vip: " VIP1",
-    con: "SECURITY DEPOSIT: 70",
-    num: "+₹20",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture3,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Add your own personal receptionist",
-    text_b: "Add a dedicated receptionist to get high commissions",
-    text_vip: " VIP1",
-    con: "SECURITY DEPOSIT: 90",
-    num: "+₹30",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture4,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP1",
-    con: "SECURITY DEPOSIT: 50",
-    num: "+₹50",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture5,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP2",
-    con: "SECURITY DEPOSIT: 50",
-    num: "+₹50",
-    background:
-      "linear-gradient(to right, rgb(36, 115, 155) 50%, rgb(151, 101, 76))",
-  },
-  {
-    url: gamePicture6,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP2",
-    con: "SECURITY DEPOSIT: 50",
-    num: "+₹50",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture7,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP2",
-    con: "SECURITY DEPOSIT: 50",
-    num: "+₹50",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture8,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Consumer Satisfaction Survey Task",
-    text_b: "🥤 Love trying drinks? Earn cash for it! 🌟",
-    text_vip: " VIP2",
-    con: "SECURITY DEPOSIT: 100",
-    num: "+₹100",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture9,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP3",
-    con: "SECURITY DEPOSIT: 80",
-    num: "+₹80",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-  {
-    url: gamePicture10,
-    src: background_yellow,
-    img: lock_img,
-    text_p: "Play game and provide feedback",
-    text_b: "Play the mini-game and write feedback",
-    text_vip: " VIP3",
-    con: "SECURITY DEPOSIT: 80",
-    num: "+₹80",
-    background:
-      "linear-gradient(to right, rgb(36, 175, 155) 50%, rgb(151, 201, 76))",
-  },
-]);
+const taskList = ref([]);
 </script>
 
 <style lang="scss">
@@ -643,7 +182,7 @@ const taskList = ref([
               color: #ff7a8a;
               font-weight: bold;
               font-size: 12px;
-              font-family:PingFang SC-Bold, PingFang SC;
+              font-family: PingFang SC-Bold, PingFang SC;
             }
           }
         }
@@ -772,7 +311,7 @@ const taskList = ref([
             justify-content: center;
             align-items: center;
             border-top-left-radius: 5px;
-            >img {
+            > img {
               width: 22px;
               height: 22px;
             }

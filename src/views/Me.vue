@@ -13,16 +13,15 @@
               <div class="div-box">
                 <span @click="prompt">Copy</span>
 
-                <van-popup               
-                v-model:show="showSucceed"
-                position="center"
-                :style="{ height: '5%',width:'32%',}"
+                <van-popup
+                  v-model:show="showSucceed"
+                  position="center"
+                  :style="{ height: '5%', width: '32%' }"
                 >
-                Copy Success!
-              </van-popup>
+                  Copy Success!
+                </van-popup>
               </div>
             </div>
-
 
             <div class="VIP_progress">
               <span class="Vip">VIP1</span>
@@ -120,8 +119,6 @@ const hint = () => {
   showCenter.value = true;
 };
 
-
-
 const showSucceed = ref(false);
 const prompt = () => {
   showSucceed.value = true;
@@ -184,7 +181,7 @@ const ulList = ref([
               color: #303030;
               font-weight: bold;
             }
-            .div-box{
+            .div-box {
               width: 60px;
               height: 30px;
               border: 1px solid transparent;
@@ -201,18 +198,18 @@ const ulList = ref([
               > span {
                 color: rgb(48, 48, 48);
               }
-              >.van-overlay{
-                background-color:rgba(255, 255, 255, 0);
+              > .van-overlay {
+                background-color: rgba(255, 255, 255, 0);
               }
-              >.van-popup{
-                 background-color:rgb(72, 72, 72,0.6);
-                 display:flex;
-                 justify-content:center;
-                 align-items:center;
-                 border-radius:10px;
-                 color:#ffffff;
-                 font-weight:300;
-                 font-size:14px;
+              > .van-popup {
+                background-color: rgb(72, 72, 72, 0.6);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 10px;
+                color: #ffffff;
+                font-weight: 300;
+                font-size: 14px;
               }
             }
           }
@@ -228,6 +225,9 @@ const ulList = ref([
             }
             .van-progress {
               flex: 1;
+              .van-progress__pivot {
+                display: none;
+              }
             }
           }
         }
@@ -293,7 +293,7 @@ const ulList = ref([
               font-size: 12px;
               font-weight: bold;
               color: #303030;
-              >.van-popup-center {
+              > .van-popup-center {
                 .tips {
                   display: flex;
                   justify-content: center;
@@ -326,7 +326,7 @@ const ulList = ref([
             background: rgb(241, 241, 241);
             display: flex;
             justify-content: center;
-            align-items: center;  
+            align-items: center;
             > span {
               font-size: 12px;
               font-weight: bold;

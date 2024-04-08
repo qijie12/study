@@ -13,7 +13,7 @@
         title-inactive-color="#ccc"
         v-model:active="active"
       >
-        <van-tab title="Phone" ></van-tab>
+        <van-tab title="Phone"></van-tab>
         <van-tab title="Email"> </van-tab>
       </van-tabs>
     </div>
@@ -23,8 +23,7 @@
         <van-cell-group inset>
           <van-field
             v-if="!active"
-            v-model="username"
-            name="用户名"
+            v-model="phone"
             placeholder="Phone number"
             :rules="[
               {
@@ -40,10 +39,8 @@
           </van-field>
 
           <van-field
-          v-else
-            v-model="password"
-            :type="open"
-            name="邮箱"
+            v-else
+            v-model="email"
             placeholder="Email"
             :rules="[
               { required: true, message: 'Please enter yuor login password' },
@@ -57,7 +54,6 @@
           <van-field
             v-model="password"
             :type="open"
-            name="密码"
             placeholder="Password"
             :rules="[
               { required: true, message: 'Please enter your login password' },
@@ -104,6 +100,8 @@
 import { ref } from "vue";
 import { showToast } from "vant";
 import { useRouter, useRoute } from "vue-router";
+import axios from "axios";
+
 const router = useRouter();
 const route = useRoute();
 
@@ -114,16 +112,33 @@ const jumplogin = () => {
 const jumpRegister = () => {
   router.push("/Register");
 };
-const jumpSupport=()=>
-router.push("/support");
+const jumpSupport = () => router.push("/support");
 
-const email = ref("");
 const active = ref(0);
 
-const username = ref("");
+const phone = ref("");
+const email = ref("");
 const password = ref("");
+
 const onSubmit = (values) => {
-  console.log("submit", values);
+  let params = {
+    email: email.value,
+    password: password.value,
+    phone: phone.value,
+    type: active.value ? "email" : "phone",
+  };
+  axios
+    .post("https://minibk.disneygo.org/api/login", params)
+    .then((res) => {
+      // console.log(res, "res------------9696");
+    })
+    .catch((err) => {
+      // console.log(err, "err------------9696");
+    });
+
+  // https://minibk.disneygo.org/api/game/all-game-list
+  // https://minibk.disneygo.org/api/get_sys_config_by_type?type=16
+  // https://minibk.disneygo.org/api/get_customer_service_list
 };
 
 const close = ref(true);
@@ -181,7 +196,7 @@ const show = () => {
         .van-cell {
           background-color: rgb(241, 241, 241);
           margin-bottom: 10px;
-          padding: 10px ;
+          padding: 10px;
         }
         .van-field {
           > .icon-shouji {
