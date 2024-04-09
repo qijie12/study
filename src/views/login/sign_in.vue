@@ -235,7 +235,6 @@ const show = () => {
   .option {
     width: 100%;
     margin-top: 40px;
-    padding: 0 15px;
 
     .van-button {
       background-color: rgb(255, 255, 255);

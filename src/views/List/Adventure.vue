@@ -7,10 +7,17 @@
 </template>
 
 <script setup>
- import {ref} from "vue";
+ import {ref, onMounted} from "vue";
  import topComp from '../../components/topComp.vue';
  import bottomComp from '../../components/bottomComp.vue';
 
+ import {useRoute} from 'vue-router';
+
+ const route = useRoute();
+
+ onMounted(() => {
+   console.log(route.query.name, 'route--------')
+ })
 </script>
 
 <style lang="scss">

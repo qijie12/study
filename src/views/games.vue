@@ -70,8 +70,16 @@ const jumpLogin = () => {
 
 const gamesFunc = (values) => {
   axios
-    .get("https://minibk.disneygo.org/api/get_customer_service_list")
-    .then((res) => {})
+    .get("https://minibk.disneygo.org/api/game/all-game-list")
+    .then((res) => {
+      console.log(res,"------------------------>");
+      liList.value=res.data.data.cate_info.game_list.action;
+      liList.value=res.data.data.cate_info.card;
+      liList.value=res.data.data.cate_info.car;
+      liList.value=res.data.data.cate_info.bike;
+      liList.value=res.data.data.cate_info.sports;
+      liList.value=res.data.data.cate_info.puzzle;
+    })
     .catch((err) => {});
 };
 onMounted(() => {

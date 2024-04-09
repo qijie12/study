@@ -1,7 +1,8 @@
 <template>
   <div id="share-Register-box">
-    <div class="iconfont icon-arrow-left" @click="jump('/login')"></div>
-    <img class="picture" src="../../assets/img/money50.png" />
+    <div class="iconfont icon-arrow-left" @click="jump('/login')">
+    </div>
+    <img class="picture" src="../../assets/img/money50.png"/>
     <div class="register">Register</div>
 
     <div class="choose">
@@ -105,7 +106,7 @@
           </van-field>
           <div class="option">
             <van-button native-type="submit" type="primary" block
-              >Login</van-button
+              >Sign up</van-button
             >
             <van-button type="primary" block @click="jump('/sign_in')">Return</van-button>
           </div>
@@ -116,10 +117,13 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import {useRouter} from 'vue-router';
+import axios from "axios";
+import { ref,onMounted} from "vue";
+import { useRouter, useRoute } from "vue-router";
+//请求方法：get post delete put
+const router = useRouter();
+const route = useRoute();
 
-const router=useRouter();
 
 const jump=(params)=>{
   router.push(params);
@@ -143,6 +147,48 @@ const show = () => {
   close.value = !close.value;
   open.value = close.value ? "password" : "text";
 };
+
+// https://minibk.tlkgame.site/api/send_auth_verify_code?email=12377777777%40qq.com&type=email&use=2  POST
+const codeFunc =(values)=>{
+  let params={};
+  axios
+  .post(" https://minibk.tlkgame.site/api/send_auth_verify_code?email=12377777777%40qq.com&type=email&use=2",params)
+  .then((res)=>{
+     console.log(res,"11111111111111111111111");
+  })
+  .catch((err)=>{
+
+  })
+};
+
+// https://minibk.tlkgame.site/api/register?name=&email=12377777777%40qq.com&password=A12345678&area_code=%2B91&invite_code=&verify_code=3761&type=email   POST
+const registerFunc=(values)=>{
+  let params={};
+  axios
+  .post("https://minibk.tlkgame.site/api/register?name=&email=12377777777%40qq.com&password=A12345678&area_code=%2B91&invite_code=&verify_code=3761&type=email",params)
+  .then((res)=>{
+    console.log(res,"22222222222222222");
+  })
+  .catch((err)=>{})
+} ;
+
+const pictureFunc=(values)=>{
+  let params={};
+  axios
+   .get("https://disneygo.org/png/teamBg1-c31ca016.png",params)
+   .then((res)=>{
+     console.log(res,'33333333333333333');
+   })
+   .catch((err)=>{})
+};
+
+onMounted(()=>{
+  codeFunc();
+  registerFunc();
+  pictureFunc();
+});
+
+
 </script>
 
 <style lang="scss">
@@ -152,10 +198,9 @@ const show = () => {
   height: 100vh;
   background-color: rgb(255, 255, 255);
   font-family: PingFang SC-Bold, PingFang SC;
-  .icon-arrow-left {
+  >.icon-arrow-left {
     width: 100%;
-    height: 30px;
-    padding: 20px 0;
+    padding: 20px 0 0px 16px;
     font-size: 20px;
     color: #303030;
   }
@@ -223,7 +268,6 @@ const show = () => {
   .option {
     width: 100%;
     margin-top: 40px;
-    padding: 0 15px;
 
     .van-button {
       background-color: rgb(255, 255, 255);

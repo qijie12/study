@@ -269,7 +269,7 @@ const taskList = ref([]);
               font-size: 15px;
               font-weight: bold;
               text-align: center;
-              margin-right: 5px;
+              // margin-right: 5px;
               border-bottom-left-radius: 5px;
             }
             .deposit_amount {
@@ -279,6 +279,7 @@ const taskList = ref([]);
               color: rgb(202, 152, 39);
               font-weight: bold;
               font-size: 12px;
+              padding-left: 5px;
             }
           }
           .recharge_amount {
@@ -294,7 +295,7 @@ const taskList = ref([]);
             > b {
               z-index: 5;
               position: relative;
-              top: -36px;
+              top: -37px;
               left: 28px;
               font-size: 18px;
               color: rgb(48, 48, 48);

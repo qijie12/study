@@ -61,8 +61,7 @@
    background-color:rgb(255, 255, 255);
    >.icon-arrow-left{
       width:100%;
-      height:30px;
-      padding:20px;
+      padding:16px;
       font-size:20px;
       color: #303030;
    }
@@ -88,7 +87,7 @@
    .continue{
     margin-top:80px;
     width:100%;
-    padding:0 15px;
+    padding:0 16px;
     display:grid;
     grid-template-rows:repeat(4,1fr);
     grid-gap:10px;

@@ -14,7 +14,8 @@
 </template>
 
 <script setup>
- import {ref} from "vue";
+ import {ref,onMounted} from "vue";
+ import {useRoute,useRouter} from 'vue-router';
  import topComp from '../../components/topComp.vue';
  import bottomComp from '../../components/bottomComp.vue';
 
@@ -25,6 +26,13 @@ import gamePicture7 from "../../assets/img/game_picture7.jpg";
 import gamePicture8 from "../../assets/img/game_picture8.png";
 import gamePicture9 from "../../assets/img/game_picture9.jpg";
 import gamePicture10 from "../../assets/img/game_picture10.jpg";
+const route=useRoute();
+const router=useRouter();
+
+ onMounted(() => {
+   console.log(route.query.name, 'route--------')
+ })
+
 
 const ul_List =ref([
     {url:gamePicture2,},

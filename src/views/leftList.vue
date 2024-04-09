@@ -82,26 +82,61 @@ const router = useRouter();
 const goback = () => {
   show.value = false;
 };
-const jumpadventure=()=>{
-  router.push("/List")
+const jumpadventure=(params)=>{
+  router.push({
+    path: "/List",
+    query: {
+      name: 'adventure',
+    }
+  })
 };
-const jumpsports=()=>{
-  router.push("/Sports")
+const jumpsports=(params)=>{
+  router.push({
+    path:"/Sports",
+    query:{
+      name:"sports",
+    }
+  })
 };
-const jumppuzzle=()=>{
-  router.push("/Puzzle")
+const jumppuzzle=(params)=>{
+  router.push({
+    path:"/Puzzle",
+    query:{
+      name:"puzzle",
+    }
+  })
 };
-const jumpaction=()=>{
-  router.push("/Action")
+const jumpaction=(params)=>{
+  router.push({
+    path:"/Action",
+    query:{
+      name:"action",       
+    }
+  })
 };
-const jumpcard=()=>{
-  router.push("/Card")
+const jumpcard=(params)=>{
+  router.push({
+    path:"/Card",
+    query:{
+      name:"card", 
+    }
+  })
 };
-const jumpcar=()=>{
-  router.push("/Car")
+const jumpcar=(params)=>{
+  router.push({
+    path:"/Car",
+    query:{
+      name:"car", 
+    }
+  })
 };
-const jumpbike=()=>{
-  router.push("/Bike")
+const jumpbike=(params)=>{
+  router.push({
+    path:"/Bike",
+    query:{
+      name:"bike",
+    }
+  })
 };
 
 // const ulList = ref([

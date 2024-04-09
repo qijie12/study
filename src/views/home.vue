@@ -281,17 +281,27 @@ const imgFunc = () => {
   axios
     .get("https://minibk.disneygo.org/api/get_sys_config_by_type?type=1", {})
     .then((res) => {
-      console.log(res, "res-----");
-      console.log(res.data.data.content.banner, "res.data-----");
+        // console.log(res, "res-----");
+        // console.log(res.data.data.content.banner, "res.data-----");
       vanList.value = res.data.data.content.banner;
     })
     .catch((err) => {});
 };
 
+// const danmuFunc =()=>{
+//   axios
+//    .get("https://minibk.disneygo.org/api/transaction/get_transaction_list?limit=1000&page=1",{})
+//    .then((res)=>{
+//       console.log(res,"----------------------->");
+//       danmuList.value=res.data.date;
+//    })
+//    .catch((err)=>{})
+// };
 onMounted(() => {
   // console.log(route, "route-------------96");
   getService();
   imgFunc();
+  // danmuFunc();
 });
 </script>
 
@@ -391,7 +401,6 @@ onMounted(() => {
         > div {
           width: 90px;
           height: 33px;
-          border: 1px solid transparent;
           border-radius: 20px;
           background: linear-gradient(to bottom, #ffa36a, #ff6634);
           text-align: center;
@@ -400,6 +409,7 @@ onMounted(() => {
           bottom: 10px;
           right: 10px;
           color: #fff;
+          >span{font-size:14px;}
         }
       }
 

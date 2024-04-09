@@ -152,10 +152,9 @@ const show = () => {
   height: 100vh;
   background-color: rgb(255, 255, 255);
   font-family: PingFang SC-Bold, PingFang SC;
-  .icon-arrow-left {
+  >.icon-arrow-left {
     width: 100%;
-    height: 30px;
-    padding: 20px 0;
+    padding: 20px 0 0 16px;
     font-size: 20px;
     color: #303030;
   }
@@ -163,7 +162,7 @@ const show = () => {
     margin-top: 5px;
     width: 100%;
     height: 88px;
-     padding: 0 16px;
+    padding: 0 16px;
   }
   .register {
     text-align: center;
@@ -223,7 +222,6 @@ const show = () => {
   .option {
     width: 100%;
     margin-top: 40px;
-    padding: 0 15px;
 
     .van-button {
       background-color: rgb(255, 255, 255);
