@@ -125,8 +125,19 @@ const eamFunc = () => {
     })
     .catch((err) => {});
 };
+
+const rechargeFunc=()=>{
+ axios 
+  .get("https://minibk.disneygo.org/api/get_sys_config_by_type?type=17",{})
+  .then((res)=>{
+    console.log(res,"//////////////////");
+  })
+  .catch((err)=>{})
+}
+
 onMounted(() => {
   eamFunc();
+  rechargeFunc();
 });
 
 const taskList = ref([]);

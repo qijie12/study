@@ -8,10 +8,10 @@
       <p class="hot">Hot</p>
       <ul>
         <li v-for="(item, index) in liList" :key="index" @click="jumpLogin">
-          <img :src="item.url" />
-          <div v-if="item.imageUrl">
-            <img :src="item.imageUrl" alt="Image" />
-            <span>{{ item.text }}</span>
+          <img :src="item.icon" />
+          <div>
+            <img :src="hot_pictuer" alt="Image" />
+            <span>HOT</span>
           </div>
         </li>
         <!-- showText属性用于指示是否要显示文字，以及imageUrl属性用于指定图像的路径 -->
@@ -64,6 +64,8 @@ import hot_pictuer from "../assets/img/hot_background.png";
 const route = useRoute();
 const router = useRouter();
 
+const liList = ref([]);
+
 const jumpLogin = () => {
   router.push("/login");
 };
@@ -72,154 +74,32 @@ const gamesFunc = (values) => {
   axios
     .get("https://minibk.disneygo.org/api/game/all-game-list")
     .then((res) => {
-      console.log(res,"------------------------>");
-      liList.value=res.data.data.cate_info.game_list.action;
-      liList.value=res.data.data.cate_info.card;
-      liList.value=res.data.data.cate_info.car;
-      liList.value=res.data.data.cate_info.bike;
-      liList.value=res.data.data.cate_info.sports;
-      liList.value=res.data.data.cate_info.puzzle;
+      console.log(res, "------------------------>");
+      for (const key in res.data.data.game_list) {
+        if(key !== 'others' && key !== 'originais') {
+          liList.value.push(...res.data.data.game_list[key])
+        }
+      }
+      
+      //  = res.data.data.game_list.puzzle;
     })
     .catch((err) => {});
 };
+
+const conFunc = () => {
+  axios
+    .get("https://minibk.disneygo.org/api/get_sys_config_by_type?type=4")
+    .then((res) => {
+      console.log(res, "????????????");
+    })
+    .catch((err) => {});
+};
+
 onMounted(() => {
   gamesFunc();
+  conFunc();
+  // topPictureFunc();
 });
-
-const liList = ref([
-  {
-    url: gamePicture2,
-    text: "HOT",
-    imageUrl: hot_pictuer,
-  },
-  {
-    url: gamePicture8,
-    text: "HOT",
-    imageUrl: hot_pictuer,
-  },
-  {
-    url: gamePicture5,
-    text: "HOT",
-    imageUrl: hot_pictuer,
-  },
-  {
-    url: gamePicture6,
-  },
-  {
-    url: gamePicture7,
-  },
-  {
-    url: gamePicture9,
-  },
-  {
-    url: gamePicture2,
-  },
-  {
-    url: gamePicture6,
-  },
-  {
-    url: gamePicture5,
-  },
-  {
-    url: gamePicture9,
-  },
-  {
-    url: gamePicture10,
-  },
-  {
-    url: gamePicture2,
-  },
-  {
-    url: gamePicture5,
-  },
-  {
-    url: gamePicture6,
-  },
-  {
-    url: gamePicture7,
-  },
-  {
-    url: gamePicture8,
-  },
-  {
-    url: gamePicture10,
-  },
-  {
-    url: gamePicture9,
-  },
-  {
-    url: gamePicture7,
-  },
-  {
-    url: gamePicture10,
-  },
-  {
-    url: gamePicture2,
-  },
-  {
-    url: gamePicture5,
-  },
-  {
-    url: gamePicture6,
-  },
-  {
-    url: gamePicture10,
-  },
-  {
-    url: gamePicture9,
-  },
-  {
-    url: gamePicture8,
-  },
-  {
-    url: gamePicture7,
-  },
-  {
-    url: gamePicture6,
-  },
-  {
-    url: gamePicture5,
-  },
-  {
-    url: gamePicture2,
-  },
-  {
-    url: gamePicture10,
-  },
-  {
-    url: gamePicture6,
-  },
-  {
-    url: gamePicture8,
-  },
-  {
-    url: gamePicture9,
-  },
-  {
-    url: gamePicture10,
-  },
-  {
-    url: gamePicture2,
-  },
-  {
-    url: gamePicture5,
-  },
-  {
-    url: gamePicture6,
-  },
-  {
-    url: gamePicture8,
-  },
-  {
-    url: gamePicture9,
-  },
-  {
-    url: gamePicture10,
-  },
-  {
-    url: gamePicture2,
-  },
-]);
 </script>
 
 <style lang="scss">
@@ -295,6 +175,7 @@ const liList = ref([
             left: 2px;
             top: 2px;
           }
+        
         }
       }
     }

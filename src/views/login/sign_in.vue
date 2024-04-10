@@ -97,7 +97,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref,onMounted } from "vue";
 import { showToast } from "vant";
 import { useRouter, useRoute } from "vue-router";
 import axios from "axios";
@@ -130,7 +130,7 @@ const onSubmit = (values) => {
   axios
     .post("https://minibk.disneygo.org/api/login", params)
     .then((res) => {
-      // console.log(res, "res------------9696");
+      console.log(res, "res------------9696");
     })
     .catch((err) => {
       // console.log(err, "err------------9696");
@@ -147,6 +147,10 @@ const show = () => {
   close.value = !close.value;
   open.value = close.value ? "password" : "text";
 };
+
+onMounted(()=>{
+  onSubmit();
+})
 </script>
 
 <style lang="scss">

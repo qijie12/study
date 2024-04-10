@@ -38,7 +38,7 @@
       <div class="me_con">
         <div class="me_con_top">
           <div class="con_left">
-            <p class="money">₹140.00</p>
+            <p class="money">₹0,00</p>
             <p class="wallet">Wallet balance</p>
             <div class="withdraw">
               <span @click="hint">Withdraw money</span>
@@ -92,17 +92,18 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref,onMounted} from "vue";
 import reminderComp from "../components/reminderComp.vue";
-
-import { useRouter } from "vue-router";
+import { useRouter,useRoute } from "vue-router";
 import topComp from "../components/topComp.vue";
 import bottomComp from "../components/bottomComp.vue";
 import message from "../assets/img/message.png";
 import telegram from "../assets/img/telegram.png";
 import deposit from "../assets/img/deposit.png";
+import axios from "axios";
 
-const router = useRouter;
+const router = useRouter();
+const route = useRoute();
 
 // const jumpReminser=ref([
 //   router.pash('/reminderComp')
@@ -138,6 +139,23 @@ const ulList = ref([
     text: "Deposit",
   },
 ]);
+
+const walletFunc=()=>{
+  let params={
+
+    if:false,
+  }
+  axios
+   .get("https://www.facebook.com/tr/?id=3738388059813452&ev=SubscribedButtonClick&dl=https%3A%2F%2Fdisneygo.org%2FMe%2Findex&rl=&if=false&ts=1712730849279&cd[buttonFeatures]=%7B%22classList%22%3A%22van-button%20van-button--primary%20van-button--normal%22%2C%22destination%22%3A%22%22%2C%22id%22%3A%22%22%2C%22imageUrl%22%3A%22linear-gradient(90deg%2C%20rgb(255%2C%20236%2C%201)%200%25%2C%20rgb(255%2C%20187%2C%201)%20100%25)%22%2C%22innerText%22%3A%22Withdraw%20money%22%2C%22numChildButtons%22%3A2%2C%22tag%22%3A%22button%22%2C%22type%22%3A%22button%22%2C%22name%22%3A%22%22%2C%22value%22%3A%22%22%7D&cd[buttonText]=Withdraw%20money&cd[formFeatures]=%5B%5D&cd[pageFeatures]=%7B%22title%22%3A%22DisneyGO%22%7D&sw=390&sh=844&v=2.9.153&r=stable&ec=8&o=4126&fbp=fb.1.1711938755696.1965684066&ler=empty&cdl=API_unavailable&it=1712730620973&coo=false&es=automatic&tm=3&rqm=GET")
+   .then((res)=>{
+    console.log(res,"---------------")
+   })
+   .catch((err)=>{})
+}
+
+onMounted(()=>{
+  walletFunc();
+})
 </script>
 
 <style lang="scss">

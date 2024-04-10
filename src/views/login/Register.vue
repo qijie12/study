@@ -172,20 +172,19 @@ const registerFunc=(values)=>{
   .catch((err)=>{})
 } ;
 
-const pictureFunc=(values)=>{
-  let params={};
-  axios
-   .get("https://disneygo.org/png/teamBg1-c31ca016.png",params)
-   .then((res)=>{
-     console.log(res,'33333333333333333');
-   })
-   .catch((err)=>{})
-};
+// const pictureFunc=(values)=>{
+//   axios
+//    .get("https://disneygo.org/png/teamBg1-c31ca016.png",{})
+//    .then((res)=>{
+//      console.log(res,'33333333333333333');
+//    })
+//    .catch((err)=>{})
+// };
 
 onMounted(()=>{
   codeFunc();
   registerFunc();
-  pictureFunc();
+  // pictureFunc();
 });
 
 

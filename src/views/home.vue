@@ -120,7 +120,7 @@
           </div>
 
           <img class="taskMoney" src="../assets/img/taskMoney.png" />
-          <img class="giftPicture" src="../assets/img/game_picuure1.png" />
+          <img class="giftPicture" src="../assets/img/game_picuure1.png"/>
           <p>Try the game for 2 minutes and give feedback</p>
           <div class="start">
             <span @click="hint">START EARNING</span>
@@ -268,7 +268,7 @@ const jump = (params) => {
 
 const getService = () => {
   axios
-    .get("https://minibk.tlkgame.site/api/get_customer_service_list", {})
+    .get("https://minibk.tlkgame.site/api/get_customer_service_list")
     .then((res) => {
       // console.log(res, "res------------9696");
     })
@@ -279,7 +279,7 @@ const getService = () => {
 
 const imgFunc = () => {
   axios
-    .get("https://minibk.disneygo.org/api/get_sys_config_by_type?type=1", {})
+    .get("https://minibk.disneygo.org/api/get_sys_config_by_type?type=1")
     .then((res) => {
         // console.log(res, "res-----");
         // console.log(res.data.data.content.banner, "res.data-----");
@@ -297,12 +297,35 @@ const imgFunc = () => {
 //    })
 //    .catch((err)=>{})
 // };
+const lightPictureFunc=()=>{
+  axios.get("https://storage.googleapis.com/download/storage/v1/b/cos.iqosij.xyz/o/upload%2Flive%2Fcarrom-clash-logo_17015433035476.png?generation=1701543303523762&alt=media")
+  .then((res)=>{
+    console.log(res);
+    
+  })
+  .catch((err)=>{})
+};
+const claimFunc=()=>{
+  axios
+  .get("https://minigame.disneygo.org/api/v1/task/task-info")
+  .then((res)=>{
+    console.log(res,"***************")
+  })
+  .catch((err)=>{})
+};
+
+
+
 onMounted(() => {
   // console.log(route, "route-------------96");
   getService();
   imgFunc();
   // danmuFunc();
+  lightPictureFunc();
+  claimFunc();
 });
+
+
 </script>
 
 <style lang="scss">
