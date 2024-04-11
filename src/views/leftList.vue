@@ -6,47 +6,46 @@
         <span class="iconfont icon-cha" @click="goback"></span>
       </div>
       <ul>
-        <!-- <li v-for="(item, index) in ulList" :key="index">
-          <img :src="item.url" />
-          <b>{{ item.text }}</b>
-        </li> -->
-        <li @click="jumpadventure">
+        <li v-for="(item, index) in ulList" :key="index" @click="jumppuzzle(item.display_name)">
+          <img :src="item.icon" />
+          <b>{{ item.display_name }}</b>
+        </li>
+        <!-- <li @click="jumppuzzle('adventure')">
           <img src="../assets/img/aim.png"/>
           <b>adventure</b>
         </li>
-        <li @click="jumpsports">
+        <li @click="jumppuzzle('sports')">
           <img src="../assets/img/sports.png"/>
           <b>sports</b>
         </li>
-        <li @click="jumppuzzle">
+        <li @click="jumppuzzle('puzzle')">
           <img src="../assets/img/puzzle.png"/>
           <b>puzzle</b>
         </li>
-        <li @click="jumpaction">
+        <li @click="jumppuzzle('action')">
           <img src="../assets/img/action.png"/>
           <b>action</b>
         </li>
-        <li @click="jumpcard">
+        <li @click="jumppuzzle('card')">
           <img src="../assets/img/card.png"/>
           <b>card</b>
         </li>
-        <li @click="jumpcar">
+        <li @click="jumppuzzle('car')">
           <img src="../assets/img/car.png"/>
           <b>car</b>
         </li>
-        <li @click="jumpbike">
+        <li @click="jumppuzzle('bike')">
           <img src="../assets/img/bike.png"/>
           <b>bike</b>
-        </li>
+        </li> --> 
       </ul>
     </van-popup>
   </div>
 </template>
 
 <script setup>
-import { ref, computed,} from "vue";
-import { useRouter } from "vue-router";
-
+import { ref, computed, onMounted } from "vue";
+import { useRouter,useRoute} from "vue-router";
 import aim from "../assets/img/aim.png";
 import sports from "../assets/img/aim.png";
 import puzzle from "../assets/img/puzzle.png";
@@ -54,6 +53,11 @@ import action from "../assets/img/action.png";
 import card from "../assets/img/card.png";
 import car from "../assets/img/car.png";
 import bike from "../assets/img/bike.png";
+import { useCounterStore } from '../store/index.js'
+
+const route = useRoute();
+const router = useRouter();
+const useCounter = useCounterStore()
 
 // const props = defineProps({
 //     modelValue: {
@@ -78,97 +82,25 @@ const loadParams = () => {
   show.value = true;
 };
 
-const router = useRouter();
+
 const goback = () => {
   show.value = false;
 };
-const jumpadventure=(params)=>{
-  router.push({
-    path: "/List",
-    query: {
-      name: 'adventure',
-    }
-  })
-};
-const jumpsports=(params)=>{
-  router.push({
-    path:"/Sports",
-    query:{
-      name:"sports",
-    }
-  })
-};
-const jumppuzzle=(params)=>{
-  router.push({
-    path:"/Puzzle",
-    query:{
-      name:"puzzle",
-    }
-  })
-};
-const jumpaction=(params)=>{
-  router.push({
-    path:"/Action",
-    query:{
-      name:"action",       
-    }
-  })
-};
-const jumpcard=(params)=>{
-  router.push({
-    path:"/Card",
-    query:{
-      name:"card", 
-    }
-  })
-};
-const jumpcar=(params)=>{
-  router.push({
-    path:"/Car",
-    query:{
-      name:"car", 
-    }
-  })
-};
-const jumpbike=(params)=>{
-  router.push({
-    path:"/Bike",
-    query:{
-      name:"bike",
-    }
-  })
+const jumppuzzle=(name)=>{
+  // router.push({
+  //   path:"/Puzzle",
+  //   query:{
+  //     name,
+  //   }
+  // })
+  window.location.href = `/Puzzle?name=${name}`
 };
 
-// const ulList = ref([
-//   {
-//     url: aim,
-//     text: "adventure",
-//   },
-//   {
-//     url: sports,
-//     text: "sports",
-//   },
-//   {
-//     url: puzzle,
-//     text: "puzzle",
-//   },
-//   {
-//     url: action,
-//     text: "action",
-//   },
-//   {
-//     url: card,
-//     text: "card",
-//   },
-//   {
-//     url: car,
-//     text: "car",
-//   },
-//   {
-//     url: bike,
-//     text: "bike",
-//   },
-// ]);
+const ulList = computed(() => {
+  return useCounter.classifyList
+});
+
+onMounted(()=>{});
 
 defineExpose({
   loadParams,

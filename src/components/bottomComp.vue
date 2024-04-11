@@ -2,7 +2,7 @@
   <div id="share-bottomComp-box">
     <van-tabbar v-model="active">
       <van-tabbar-item
-        v-for="(item, index) in activeList"
+        v-for="(item, index) in menuList"
         :key="index"
         @click="jump(item)"
         :class="{ active: route.fullPath.indexOf(item.path) !== -1 }"
@@ -10,11 +10,11 @@
         <template #icon>
           <img
             v-if="route.fullPath.indexOf(item.path) !== -1"
-            :src="item.src"
+            :src="item.meta.src"
           />
-          <img v-else :src="item.url" />
+          <img v-else :src="item.meta.url" />
         </template>
-        {{ item.text }}
+        {{ item.meta.text }}
       </van-tabbar-item>
     </van-tabbar>
 
@@ -48,59 +48,25 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { ref, computed, onMounted } from "vue";
+import { useRoute,useRouter } from "vue-router";
 
-import homePage from "../assets/img/home.png";
-import homePage1 from "../assets/img/home1.png";
-import eam from "../assets/img/eam_money.png";
-import eam1 from "../assets/img/eam_money1.png";
-import game from "../assets/img/game.png";
-import game1 from "../assets/img/game1.png";
-import me from "../assets/img/me.png";
-import me1 from "../assets/img/me1.png";
-
-import headPortrait from "../assets/img/img23-0452ef16.png";
-const route = useRoute();
+const route = useRoute()
 const router = useRouter();
 
-const props = defineProps({
-  list: {
-    type: Array,
-    default: () => [],
-  },
-});
+const activeList = ref([]);
+
+const menuList = computed(() => {
+  let arr = router.options.routes.filter(item => item?.meta?.isMenu)
+  return arr
+})
 
 const jump = (params) => {
   router.push(params.path);
 };
 
-const activeList = ref([
-  {
-    url: homePage1,
-    text: "Home",
-    src: homePage,
-    path: "/home",
-  },
-  {
-    url: eam,
-    text: "Eam moeny",
-    path: "/Eam",
-    src: eam1,
-  },
-  {
-    url: game,
-    text: "Games ",
-    path: "/games",
-    src: game1,
-  },
-  {
-    url: me,
-    text: "Me",
-    path: "/Me",
-    src: me1,
-  },
-]);
+onMounted(() => {
+})
 </script>
 
 <style lang="scss">

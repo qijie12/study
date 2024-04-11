@@ -9,7 +9,7 @@
       <ul>
         <li v-for="(item, index) in liList" :key="index" @click="jumpLogin">
           <img :src="item.icon" />
-          <div>
+          <div v-if="index === 0">
             <img :src="hot_pictuer" alt="Image" />
             <span>HOT</span>
           </div>
@@ -48,8 +48,6 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import axios from "axios";
-
 import topComp from "../components/topComp.vue";
 import bottomComp from "../components/bottomComp.vue";
 import gamePicture2 from "../assets/img/game_picture2.jpg";
@@ -60,46 +58,27 @@ import gamePicture8 from "../assets/img/game_picture8.png";
 import gamePicture9 from "../assets/img/game_picture9.jpg";
 import gamePicture10 from "../assets/img/game_picture10.jpg";
 import hot_pictuer from "../assets/img/hot_background.png";
+import { useCounterStore } from "../store/index.js";
 
 const route = useRoute();
 const router = useRouter();
+const useCounter = useCounterStore();
 
-const liList = ref([]);
+const liList = computed(() => {
+  let arr = [];
+  for (const key in useCounter.gameList) {
+    if (key !== "others" && key !== "originais") {
+      arr.push(...useCounter.gameList[key]);
+    }
+  }
+  return arr;
+});
 
 const jumpLogin = () => {
   router.push("/login");
 };
 
-const gamesFunc = (values) => {
-  axios
-    .get("https://minibk.disneygo.org/api/game/all-game-list")
-    .then((res) => {
-      console.log(res, "------------------------>");
-      for (const key in res.data.data.game_list) {
-        if(key !== 'others' && key !== 'originais') {
-          liList.value.push(...res.data.data.game_list[key])
-        }
-      }
-      
-      //  = res.data.data.game_list.puzzle;
-    })
-    .catch((err) => {});
-};
-
-const conFunc = () => {
-  axios
-    .get("https://minibk.disneygo.org/api/get_sys_config_by_type?type=4")
-    .then((res) => {
-      console.log(res, "????????????");
-    })
-    .catch((err) => {});
-};
-
-onMounted(() => {
-  gamesFunc();
-  conFunc();
-  // topPictureFunc();
-});
+onMounted(() => {});
 </script>
 
 <style lang="scss">
@@ -175,7 +154,6 @@ onMounted(() => {
             left: 2px;
             top: 2px;
           }
-        
         }
       }
     }

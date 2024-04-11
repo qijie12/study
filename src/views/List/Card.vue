@@ -4,8 +4,8 @@
     <div class="Card-con">
         <p>card</p>
         <ul>
-           <li v-for="(item,index) in ul_List" :key="index">
-            <img :src="item.url"/>
+           <li v-for="(item,index) in li_List" :key="index">
+            <img :src="item.icon"/>
            </li>
         </ul>
     </div>
@@ -14,9 +14,11 @@
 </template>
 
 <script setup>
- import {ref} from "vue";
+ import {ref,onMounted} from "vue";
  import topComp from '../../components/topComp.vue';
  import bottomComp from '../../components/bottomComp.vue';
+ import axios from "axios";
+ import {useRoute,useRouter} from "vue-router";
 
 import gamePicture2 from "../../assets/img/game_picture2.jpg";
 import gamePicture5 from "../../assets/img/game_picture5.jpg";
@@ -25,11 +27,32 @@ import gamePicture7 from "../../assets/img/game_picture7.jpg";
 import gamePicture8 from "../../assets/img/game_picture8.png";
 import gamePicture9 from "../../assets/img/game_picture9.jpg";
 import gamePicture10 from "../../assets/img/game_picture10.jpg";
+const route=useRoute();
+const router=useRouter();
 
-const ul_List =ref([
+const li_List =ref([
     {url:gamePicture2,},
     {url:gamePicture5,},
 ]);
+const name = ref('')
+
+const gamesFunc = () => {
+  axios
+    .get("https://minibk.disneygo.org/api/game/all-game-list")
+    .then((res) => {
+      console.log(res, "------------------------>");
+      li_List.value = res.data.data.game_list[name.value]
+      // console.log(res.data.data.game_list, 'game_list-----------')
+      // console.log(res.data.data.game_list[name.value], 'game_list-----------')
+    })
+    .catch((err) => {});
+};
+
+onMounted(()=>{
+  let params = new URL(window.location.href).searchParams.get('name')
+  name.value = params;
+   gamesFunc();
+});
 </script>
 
 <style lang="scss">
