@@ -104,7 +104,7 @@
               </van-button>
             </template>
           </van-field>
-          <div class="option">
+          <div class="option" @showType="showInto">
             <van-button native-type="submit" type="primary" block
               >Sign up</van-button
             >
@@ -140,6 +140,17 @@ const open = ref("password");
 const jump = (params) => {
   router.push(params);
 };
+
+const props = defineProps({
+
+})
+const emits =defineEmits([
+   "showType"
+])
+
+const showInto =()=>{
+
+}
 
 const showFailToastFunc = (params) => {
   if (!skip.value) {
