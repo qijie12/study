@@ -1,8 +1,7 @@
 <template>
   <div id="share-Register-box">
-    <div class="iconfont icon-arrow-left" @click="jump('/login')">
-    </div>
-    <img class="picture" src="../../assets/img/money50.png"/>
+    <div class="iconfont icon-arrow-left" @click="jump('/login')"></div>
+    <img class="picture" src="../../assets/img/money50.png" />
     <div class="register">Register</div>
 
     <div class="choose">
@@ -12,9 +11,8 @@
         line-height="2px"
         v-model:active="skip"
         @click-tab="onClickTab"
-
       >
-        <van-tab title="Phone" ></van-tab>
+        <van-tab title="Phone"></van-tab>
         <van-tab title="Email"></van-tab>
       </van-tabs>
     </div>
@@ -23,9 +21,8 @@
       <van-form @submit="onSubmit">
         <van-cell-group inset>
           <van-field
-          v-if="!skip"
+            v-if="!skip"
             v-model="username"
-            error
             placeholder="phone number"
             :rules="[
               {
@@ -41,14 +38,13 @@
           </van-field>
 
           <van-field
-          v-else
+            v-else
             v-model="username"
-            error
             placeholder="email"
             :rules="[
               {
                 required: true,
-                message: 'Please fill in your cell phone number',
+                message: 'Please fill in your cell e-mail number',
               },
             ]"
           >
@@ -99,8 +95,12 @@
               ></span>
             </template>
             <template #button>
-              <van-button size="small" type="primary">
-                <span>Code</span>
+              <van-button
+                size="small"
+                type="primary"
+                @click="showFailToastFunc"
+              >
+                <span>code</span>
               </van-button>
             </template>
           </van-field>
@@ -108,7 +108,9 @@
             <van-button native-type="submit" type="primary" block
               >Sign up</van-button
             >
-            <van-button type="primary" block @click="jump('/sign_in')">Return</van-button>
+            <van-button type="primary" block @click="jump('/sign_in')"
+              >Return</van-button
+            >
           </div>
         </van-cell-group>
       </van-form>
@@ -118,59 +120,90 @@
 
 <script setup>
 import axios from "axios";
-import { ref,onMounted} from "vue";
+import { ref, onMounted, createApp } from "vue";
 import { useRouter, useRoute } from "vue-router";
+import { showFailToast, showToast } from "vant";
+
 //请求方法：get post delete put
 const router = useRouter();
 const route = useRoute();
-
-
-const jump=(params)=>{
-  router.push(params);
-};
 
 const username = ref("");
 const password = ref("");
 const sms = ref("");
 const active = ref(0);
-const onClickTab = ({ title }) => showToast(title);
+const skip = ref(0);
+const email = ref("");
+const close = ref(true);
+const open = ref("password");
+
+const jump = (params) => {
+  router.push(params);
+};
+
+const showFailToastFunc = (params) => {
+  if (!skip.value) {
+    showFailToast({
+      message: "please enter your phone address",
+      duration: 2000,
+      className: "inputToast",
+    });
+  } else {
+    showFailToast({
+      message: "please enter your e-mail address",
+      duration: 2000,
+      className: "inputToast",
+    });
+  }
+  console.log("12345-------");
+  // showFailToast({
+  //   message: "please enter your phone address",
+  //   duration: 2000,
+  //   className: "inputToast",
+  // });
+};
+// const showFailToastFunc=({message})=>showToast(message);
+
+const onClickTab = () => {
+  console.log(skip.value, "skip-------------");
+};
+
 const onSubmit = (values) => {
   console.log("submit", values);
 };
 
-const skip=ref(0);
-const email =ref('');
-
-const close = ref(true);
-const open = ref("password");
 const show = () => {
   close.value = !close.value;
   open.value = close.value ? "password" : "text";
 };
 
 // https://minibk.tlkgame.site/api/send_auth_verify_code?email=12377777777%40qq.com&type=email&use=2  POST
-const codeFunc =(values)=>{
-  let params={};
+const codeFunc = (values) => {
+  let params = {};
   axios
-  .post(" https://minibk.tlkgame.site/api/send_auth_verify_code?email=12377777777%40qq.com&type=email&use=2",params)
-  .then((res)=>{
-     console.log(res,"11111111111111111111111");
-  })
-  .catch((err)=>{
-
-  })
+    .post(
+      " https://minibk.tlkgame.site/api/send_auth_verify_code?email=12377777777%40qq.com&type=email&use=2",
+      params
+    )
+    .then((res) => {
+      console.log(res, "11111111111111111111111");
+    })
+    .catch((err) => {});
 };
 
 // https://minibk.tlkgame.site/api/register?name=&email=12377777777%40qq.com&password=A12345678&area_code=%2B91&invite_code=&verify_code=3761&type=email   POST
-const registerFunc=(values)=>{
-  let params={};
+const registerFunc = (values) => {
+  let params = {};
   axios
-  .post("https://minibk.tlkgame.site/api/register?name=&email=12377777777%40qq.com&password=A12345678&area_code=%2B91&invite_code=&verify_code=3761&type=email",params)
-  .then((res)=>{
-    console.log(res,"22222222222222222");
-  })
-  .catch((err)=>{})
-} ;
+    .post(
+      "https://minibk.tlkgame.site/api/register?name=&email=12377777777%40qq.com&password=A12345678&area_code=%2B91&invite_code=&verify_code=3761&type=email",
+      params
+    )
+    .then((res) => {
+      console.log(res, "22222222222222222");
+    })
+    .catch((err) => {});
+};
 
 // const pictureFunc=(values)=>{
 //   axios
@@ -181,23 +214,20 @@ const registerFunc=(values)=>{
 //    .catch((err)=>{})
 // };
 
-onMounted(()=>{
+onMounted(() => {
   codeFunc();
   registerFunc();
   // pictureFunc();
 });
-
-
 </script>
 
 <style lang="scss">
 #share-Register-box {
- 
   width: 100%;
   height: 100vh;
   background-color: rgb(255, 255, 255);
   font-family: PingFang SC-Bold, PingFang SC;
-  >.icon-arrow-left {
+  > .icon-arrow-left {
     width: 100%;
     padding: 20px 0 0px 16px;
     font-size: 20px;
@@ -207,7 +237,7 @@ onMounted(()=>{
     margin-top: 5px;
     width: 100%;
     height: 88px;
-     padding: 0 16px;
+    padding: 0 16px;
   }
   .register {
     text-align: center;
@@ -226,11 +256,11 @@ onMounted(()=>{
   .information {
     margin-top: 20px;
     width: 100%;
-  .van-form{
-    width:100%;
-    padding:0;
-    margin:0;
-  }
+    .van-form {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
     .van-cell {
       width: 100%;
       padding: 10px;
@@ -280,5 +310,9 @@ onMounted(()=>{
       border: transparent;
     }
   }
+}
+
+.inputToast {
+  width: 240px;
 }
 </style>

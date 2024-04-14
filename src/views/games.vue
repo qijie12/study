@@ -41,7 +41,7 @@
       </ul>
     </div>
 
-    <bottomComp></bottomComp>
+    <bottomComp @update="jumpLogin" :list="[1, 2, 3, 4]"></bottomComp>
   </div>
 </template>
 
@@ -58,25 +58,27 @@ import gamePicture8 from "../assets/img/game_picture8.png";
 import gamePicture9 from "../assets/img/game_picture9.jpg";
 import gamePicture10 from "../assets/img/game_picture10.jpg";
 import hot_pictuer from "../assets/img/hot_background.png";
-import { useCounterStore } from "../store/index.js";
+import { useSystemStore } from "../store/index2.js";
 
 const route = useRoute();
 const router = useRouter();
-const useCounter = useCounterStore();
+const useSystem = useSystemStore();
 
 const liList = computed(() => {
   let arr = [];
-  for (const key in useCounter.gameList) {
+  for (const key in useSystem.gameList) {
     if (key !== "others" && key !== "originais") {
-      arr.push(...useCounter.gameList[key]);
+      arr.push(...useSystem.gameList[key]);
     }
   }
   return arr;
 });
 
-const jumpLogin = () => {
-  router.push("/login");
+const jumpLogin = (name) => {
+  console.log(name, "name-------------");
+  // router.push("/login");
 };
+jumpLogin();
 
 onMounted(() => {});
 </script>

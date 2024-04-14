@@ -1,7 +1,11 @@
 <template>
   <div id="share-topComp-box">
     <div class="top">
-      <img class="download" src="../assets/img/download (2).png" @click="jumpLeft"/>
+      <img
+        class="download"
+        src="../assets/img/download (2).png"
+        @click="jumpLeft"
+      />
 
       <div class="topUp" v-for="(item, index) in topList" :key="index">
         <img :src="item.url" />
@@ -14,7 +18,7 @@
         <span class="iconfont icon-jiahao"></span>
       </div> -->
       <div class="head" v-for="(item, index) in headList" :key="index">
-        <img :src="item.url" class="Mich"  @click="jump" />
+        <img :src="useCounter?.userInfo?.avatar" class="Mich" @click="jump" />
         <div class="vipbox">
           <img :src="item.src" class="iconVip" />
           <span>{{ item.text }}</span>
@@ -31,7 +35,6 @@
 
     <!-- <leftList v-model="show"></leftList> -->
     <leftList ref="leftListRef"></leftList>
-    
   </div>
 </template>
 
@@ -41,26 +44,29 @@ import { useRouter } from "vue-router";
 import money from "../assets/img/money.png";
 import headPng from "../assets/img/mich11111.png";
 import background from "../assets/img/background.png";
-import leftList from '../views/leftList.vue'
+import leftList from "../views/leftList.vue";
+import { useCounterStore } from "../store/index.js";
+
+const useCounter = useCounterStore();
 
 // const show = ref(false)
-const leftListRef = ref()
-const router =useRouter();
-const jump =()=>{
-  router.push('./login')
+const leftListRef = ref();
+const router = useRouter();
+const jump = () => {
+  router.push("./login");
 };
 
-const jumpLeft =()=>{
+const jumpLeft = () => {
   // show.value = true
-  leftListRef.value?.loadParams()
+  leftListRef.value?.loadParams();
 };
 
-const props =defineProps({
+const props = defineProps({
   list: {
     type: Array,
-    default: () => []
-  }
-})
+    default: () => [],
+  },
+});
 
 const topList = ref([
   {
@@ -80,7 +86,7 @@ const headList = ref([
 <style lang="scss">
 #share-topComp-box {
   .top {
-    flex:1;
+    flex: 1;
     height: 52px;
     width: 100%;
     padding: 0 15px;
