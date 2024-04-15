@@ -18,17 +18,17 @@ import { ref, onMounted, computed } from "vue";
 import topComp from "../../components/topComp.vue";
 import bottomComp from "../../components/bottomComp.vue";
 import { useRoute } from "vue-router";
-import { useCounterStore } from "../../store/index.js";
+import { useSystemStore } from "../../store/index2.js";
 
 const route = useRoute();
-const useCounter = useCounterStore();
+const useSystem = useSystemStore();
 
 const name = ref("");
 
 const ul_List = computed(() => {
   let params = new URL(window.location.href).searchParams.get("name");
   name.value = params;
-  return useCounter.gameList[name.value];
+  return useSystem.gameList[name.value];
 });
 
 onMounted(() => {});

@@ -1,11 +1,17 @@
 <script setup>
 import { onMounted } from "vue";
-import { useCounterStore } from "./store/index.js";
+// import { useCounterStore } from "./store/index.js";
+import { useSystemStore } from "./store/index2.js";
 
-const useCounter = useCounterStore();
+const useSystem = useSystemStore();
+
+// const useCounter = useCounterStore();
 
 onMounted(() => {
-  useCounter.getGame();
+  // useCounter.getGame();
+  // useCounter.getUserInfo();
+  useSystem.getGames();
+  useSystem.getUserInfo();
 });
 </script>
 

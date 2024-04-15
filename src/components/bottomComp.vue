@@ -49,24 +49,23 @@
 
 <script setup>
 import { ref, computed, onMounted } from "vue";
-import { useRoute,useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
-const route = useRoute()
+const route = useRoute();
 const router = useRouter();
 
 const activeList = ref([]);
 
 const menuList = computed(() => {
-  let arr = router.options.routes.filter(item => item?.meta?.isMenu)
-  return arr
-})
+  let arr = router.options.routes.filter((item) => item?.meta?.isMenu);
+  return arr;
+});
 
 const jump = (params) => {
   router.push(params.path);
 };
 
-onMounted(() => {
-})
+onMounted(() => {});
 </script>
 
 <style lang="scss">

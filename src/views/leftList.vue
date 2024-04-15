@@ -6,7 +6,11 @@
         <span class="iconfont icon-cha" @click="goback"></span>
       </div>
       <ul>
-        <li v-for="(item, index) in ulList" :key="index" @click="jumppuzzle(item.display_name)">
+        <li
+          v-for="(item, index) in ulList"
+          :key="index"
+          @click="jumppuzzle(item.title)"
+        >
           <img :src="item.icon" />
           <b>{{ item.display_name }}</b>
         </li>
@@ -37,7 +41,7 @@
         <li @click="jumppuzzle('bike')">
           <img src="../assets/img/bike.png"/>
           <b>bike</b>
-        </li> --> 
+        </li> -->
       </ul>
     </van-popup>
   </div>
@@ -45,7 +49,7 @@
 
 <script setup>
 import { ref, computed, onMounted } from "vue";
-import { useRouter,useRoute} from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 import aim from "../assets/img/aim.png";
 import sports from "../assets/img/aim.png";
 import puzzle from "../assets/img/puzzle.png";
@@ -53,11 +57,12 @@ import action from "../assets/img/action.png";
 import card from "../assets/img/card.png";
 import car from "../assets/img/car.png";
 import bike from "../assets/img/bike.png";
-import { useCounterStore } from '../store/index.js'
+import { useSystemStore } from "../store/index2.js";
 
 const route = useRoute();
 const router = useRouter();
-const useCounter = useCounterStore()
+
+const useSystem = useSystemStore();
 
 // const props = defineProps({
 //     modelValue: {
@@ -82,25 +87,24 @@ const loadParams = () => {
   show.value = true;
 };
 
-
 const goback = () => {
   show.value = false;
 };
-const jumppuzzle=(name)=>{
+const jumppuzzle = (name) => {
   // router.push({
   //   path:"/Puzzle",
   //   query:{
   //     name,
   //   }
   // })
-  window.location.href = `/Puzzle?name=${name}`
+  window.location.href = `/Puzzle?name=${name}`;
 };
 
 const ulList = computed(() => {
-  return useCounter.classifyList
+  return useSystem.classifyList;
 });
 
-onMounted(()=>{});
+onMounted(() => {});
 
 defineExpose({
   loadParams,

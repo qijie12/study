@@ -43,7 +43,7 @@
             v-model="email"
             placeholder="Email"
             :rules="[
-              { required: true, message: 'Please enter yuor login password' },
+              { required: true, message: 'Please enter your e-mail address' },
             ]"
           >
             <template #left-icon>
@@ -97,10 +97,14 @@
 </template>
 
 <script setup>
-import { ref,onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import { showToast } from "vant";
 import { useRouter, useRoute } from "vue-router";
-import axios from "axios";
+import { useSystemStore } from "../../store/index2.js";
+import { setItem } from "../../common/auth.js";
+import { login } from "../../api/login/index.js";
+
+const useSystem = useSystemStore();
 
 const router = useRouter();
 const route = useRoute();
@@ -120,25 +124,17 @@ const phone = ref("");
 const email = ref("");
 const password = ref("");
 
-const onSubmit = (values) => {
+const onSubmit = async (values) => {
   let params = {
     email: email.value,
     password: password.value,
     phone: phone.value,
     type: active.value ? "email" : "phone",
   };
-  axios
-    .post("https://minibk.disneygo.org/api/login", params)
-    .then((res) => {
-      console.log(res, "res------------9696");
-    })
-    .catch((err) => {
-      // console.log(err, "err------------9696");
-    });
-
-  // https://minibk.disneygo.org/api/game/all-game-list
-  // https://minibk.disneygo.org/api/get_sys_config_by_type?type=16
-  // https://minibk.disneygo.org/api/get_customer_service_list
+  let res = await login(params);
+  useSystem.setUserInfo(res.data.user);
+  setItem("token", res.data.token);
+  router.push("/home");
 };
 
 const close = ref(true);
@@ -148,9 +144,7 @@ const show = () => {
   open.value = close.value ? "password" : "text";
 };
 
-onMounted(()=>{
-  onSubmit();
-})
+onMounted(() => {});
 </script>
 
 <style lang="scss">

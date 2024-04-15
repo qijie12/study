@@ -122,6 +122,11 @@ const routes = [
     name: 'Bike',
     component: () => import('../views/List/Bike.vue'),
   },
+  {
+    path:'/practice',//-演练-//
+    name:'practice',
+    component:()=>import('../views/practice.vue'),
+  },
 ];
 
 const router = createRouter({
