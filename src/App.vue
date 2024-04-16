@@ -10,8 +10,8 @@ const useSystem = useSystemStore();
 onMounted(() => {
   // useCounter.getGame();
   // useCounter.getUserInfo();
-  useSystem.getGames();
-  useSystem.getUserInfo();
+  // useSystem.getGames();
+  // useSystem.getUserInfo();
 });
 </script>
 

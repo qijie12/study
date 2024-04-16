@@ -1,6 +1,6 @@
 <template>
   <div id="share-bottomComp-box">
-    <van-tabbar v-model="active">
+    <!-- <van-tabbar v-model="active">
       <van-tabbar-item
         v-for="(item, index) in menuList"
         :key="index"
@@ -16,34 +16,44 @@
         </template>
         {{ item.meta.text }}
       </van-tabbar-item>
-    </van-tabbar>
+    </van-tabbar> -->
 
-    <!-- <van-tabbar v-model="active">
-      <van-tabbar-item>
+    <van-tabbar v-model="active">
+      <van-tabbar-item @click="lighten(0)">
         <template #icon>
-          <img src="../assets/img/home1.png" />
+          <img src="../assets/img/home11-img.png" v-if="showLighten" style="height:20px;width:20px;"/>
+          <img src="../assets/img/home.png" v-else style="height:20px;width:20px;"/>
         </template>
         Home
       </van-tabbar-item>
-      <van-tabbar-item>
+      <van-tabbar-item @click="lighten(1)">
         <template #icon>
-          <img src="../assets/img/eam money.png" />
+          <img src="../assets/img/promo-img.png" v-if="showLighten" style="height:24px;width:23px;"/>
+          <img src="../assets/img/promo1-img.png" v-else style="height:24px;width:23px;"/>
         </template>
-        Eam moeny
+        Promo
       </van-tabbar-item>
       <van-tabbar-item>
         <template #icon>
-          <img src="../assets/img/game.png" />
+          <img src="../assets/img/logo-dice.png" style="height:26px;width:26px;"/>
         </template>
-        Eam moeny
+        Games
       </van-tabbar-item>
       <van-tabbar-item>
         <template #icon>
-          <img src="../assets/img/me.png" />
+          <img src="../assets/img/deposit-img.png" />
         </template>
-        Eam moeny
+        Deposit
       </van-tabbar-item>
-    </van-tabbar> -->
+      <van-tabbar-item @click="lighten(2)">
+        <template #icon>
+          <img src="../assets/img/me-img.png" v-if="showLighten"/>
+          <img src="../assets/img/me1.png" v-else/>
+        </template>
+        Me
+      </van-tabbar-item>
+    </van-tabbar>
+
   </div>
 </template>
 
@@ -51,21 +61,27 @@
 import { ref, computed, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
-const route = useRoute();
-const router = useRouter();
+// const route = useRoute();
+// const router = useRouter();
 
-const activeList = ref([]);
+// const activeList = ref([]);
 
-const menuList = computed(() => {
-  let arr = router.options.routes.filter((item) => item?.meta?.isMenu);
-  return arr;
+// const menuList = computed(() => {
+//   let arr = router.options.routes.filter((item) => item?.meta?.isMenu);
+//   return arr;
+// });
+
+// const jump = (params) => {
+//   router.push(params.path);
+// };
+
+// onMounted(() => {});
+const active = ref(0);
+const showLighten=ref(true);
+const lighten =(()=>{
+   showLighten.value=false;
 });
 
-const jump = (params) => {
-  router.push(params.path);
-};
-
-onMounted(() => {});
 </script>
 
 <style lang="scss">

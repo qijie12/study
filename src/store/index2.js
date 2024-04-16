@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { defineStore } from 'pinia';
-import { getInfo, getGame } from '../api/login/index';
+// import { getInfo, getGame } from '../api/login/index';
 
 export const useSystemStore = defineStore('system', {
   //state 存放状态
