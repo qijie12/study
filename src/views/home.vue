@@ -103,6 +103,7 @@
 
 <script setup>
 import { ref } from "vue";
+import {useRoute} from 'vue-router'
 import topComp from "../components/topComp.vue";
 import bottomComp from '../components/bottomComp.vue';
 import headImg from '../assets/img/img23-0452ef16.png';
@@ -110,6 +111,8 @@ import swipe1 from '../assets/img/swipe-img1.png';
 import swipe2 from '../assets/img/swipe-img2.png';
 import swipe3 from '../assets/img/swipe-img3.png';
 import swipe4 from '../assets/img/swiper2.png';
+
+const route = useRoute();
 
 const rollList = ref([
     {

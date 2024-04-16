@@ -19,50 +19,41 @@
     </van-tabbar> -->
 
     <van-tabbar v-model="active">
-      <van-tabbar-item @click="lighten(0)">
+      <van-tabbar-item
+        v-for="(item, index) in menuList"
+        :key="index"
+        @click="lighten(item)"
+      >
         <template #icon>
-          <img src="../assets/img/home11-img.png" v-if="showLighten" style="height:20px;width:20px;"/>
-          <img src="../assets/img/home.png" v-else style="height:20px;width:20px;"/>
+          <img
+            v-if="route.fullPath.indexOf(item.path) === -1"
+            :src="item.url"
+            
+          />
+          <img :src="item.active" v-else />
         </template>
-        Home
-      </van-tabbar-item>
-      <van-tabbar-item @click="lighten(1)">
-        <template #icon>
-          <img src="../assets/img/promo-img.png" v-if="showLighten" style="height:24px;width:23px;"/>
-          <img src="../assets/img/promo1-img.png" v-else style="height:24px;width:23px;"/>
-        </template>
-        Promo
-      </van-tabbar-item>
-      <van-tabbar-item>
-        <template #icon>
-          <img src="../assets/img/logo-dice.png" style="height:26px;width:26px;"/>
-        </template>
-        Games
-      </van-tabbar-item>
-      <van-tabbar-item>
-        <template #icon>
-          <img src="../assets/img/deposit-img.png" />
-        </template>
-        Deposit
-      </van-tabbar-item>
-      <van-tabbar-item @click="lighten(2)">
-        <template #icon>
-          <img src="../assets/img/me-img.png" v-if="showLighten"/>
-          <img src="../assets/img/me1.png" v-else/>
-        </template>
-        Me
+        <span :class="{ active: route.fullPath.indexOf(item.path) !== -1 }">{{
+          item.title
+        }}</span>
       </van-tabbar-item>
     </van-tabbar>
-
   </div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import home from "../assets/img/home11-img.png";
+import home_active from "../assets/img/home.png";
+import promo from "../assets/img/promo-img.png";
+import promo_active from "../assets/img/promo1-img.png";
+import dice_active from "../assets/img/logo-dice.png";
+import deposit from "../assets/img/deposit-img.png";
+import me from "../assets/img/me-img.png";
+import me_active from "../assets/img/me1.png";
 
-// const route = useRoute();
-// const router = useRouter();
+const route = useRoute();
+const router = useRouter();
 
 // const activeList = ref([]);
 
@@ -77,11 +68,43 @@ import { useRoute, useRouter } from "vue-router";
 
 // onMounted(() => {});
 const active = ref(0);
-const showLighten=ref(true);
-const lighten =(()=>{
-   showLighten.value=false;
-});
+const showLighten = ref(true);
+const menuList = ref([
+  {
+    path: "/home",
+    title: "Home",
+    url: home,
+    active: home_active,
+  },
+  {
+    path: "/promo",
+    title: "Promo",
+    url: promo,
+    active: promo_active,
+  },
+  {
+    path: "/Games",
+    title: "Games",
+    url: dice_active,
+    active: dice_active,
+  },
+  {
+    path: "/deposit",
+    title: "Deposit",
+    url: deposit,
+    active: deposit,
+  },
+  {
+    path: "/me",
+    title: "Me",
+    url: me,
+    active: me_active,
+  },
+]);
 
+const lighten = (params) => {
+  router.push(params.path);
+};
 </script>
 
 <style lang="scss">
@@ -100,8 +123,12 @@ const lighten =(()=>{
       font-size: 14px;
       font-weight: bold;
       color: #dddddd;
-      &.active {
-        color: #ffcd17;
+      .van-tabbar-item__text {
+        span {
+          &.active {
+            color: #ffcd17;
+          }
+        }
       }
     }
   }
