@@ -1,156 +1,120 @@
 <template>
   <div id="share-topComp-box">
-    <div class="top">
-      <img
-        class="download"
-        src="../assets/img/download (2).png"
-        @click="jumpLeft"
-      />
+     <div class="box-top">
+          <span class="iconfont icon-cuowu"></span>
+          <img src="../assets/img/logo-dice.png"/>
+          <div class="top_title">
+            <b>LURSSENVIP</b>
+            <p>Online gaming at your fingertips</p>
+          </div>
+          <div class="top_button"><span>Download</span></div>
+     </div>
 
-      <div class="topUp" v-for="(item, index) in topList" :key="index">
-        <img :src="item.url" />
-        <b>{{ item.num }}</b>
-        <span class="iconfont icon-jiahao"></span>
-      </div>
-      <!-- <div class="topUp">
-        <img src="../assets/img/money.png" />
-        <b>₹140.00</b>
-        <span class="iconfont icon-jiahao"></span>
-      </div> -->
-      <div class="head" v-for="(item, index) in headList" :key="index">
-        <img :src="useCounter?.userInfo?.avatar" class="Mich" @click="jump" />
-        <div class="vipbox">
-          <img :src="item.src" class="iconVip" />
-          <span>{{ item.text }}</span>
-        </div>
-      </div>
-      <!-- <div class="head">
-        <img class="Mich" src="../assets/img/head.png" />
-        <div class="vipbox">
-          <img class="iconVip" src="../assets/img/background.png" />
-          <span>VIP 4</span>
-        </div>
-      </div> -->
-    </div>
-
-    <!-- <leftList v-model="show"></leftList> -->
-    <leftList ref="leftListRef"></leftList>
+     <div class="box-bottom">
+       <span></span>
+       <div class="bottom_title">
+         <img class="title_img" src="../assets/img/logo-dice.png"/>
+         <b>LURSSENVIP</b>
+       </div>
+       <img class="bottom_flag" src="../assets/img/flag-img.png"/>
+     </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import money from "../assets/img/money.png";
-import headPng from "../assets/img/mich11111.png";
-import background from "../assets/img/background.png";
-import leftList from "../views/leftList.vue";
-import { useCounterStore } from "../store/index.js";
 
-const useCounter = useCounterStore();
 
-// const show = ref(false)
-const leftListRef = ref();
-const router = useRouter();
-const jump = () => {
-  router.push("./login");
-};
-
-const jumpLeft = () => {
-  // show.value = true
-  leftListRef.value?.loadParams();
-};
-
-const props = defineProps({
-  list: {
-    type: Array,
-    default: () => [],
-  },
-});
-
-const topList = ref([
-  {
-    url: money,
-    num: "₹140.00",
-  },
-]);
-const headList = ref([
-  {
-    url: headPng,
-    src: background,
-    text: "VIP 4",
-  },
-]);
 </script>
 
 <style lang="scss">
 #share-topComp-box {
-  .top {
-    flex: 1;
-    height: 52px;
+    font-family:PingFang SC-Bold, PingFang SC;
     width: 100%;
-    padding: 0 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex: 1;
     position: fixed;
     top: 0;
-    left: 0;
     z-index: 10;
-    border-bottom: 1px solid #222222;
-    background-color: rgb(255, 255, 255);
-    .download {
-      height: 30px;
-      width: 30px;
-    }
-    .topUp {
-      height: 30px;
-      width: 150px;
-      background-color: #f9f9f9;
-      border: 1px solid #f1f1f1;
-      border-radius: 5px;
+    height:88px;
+    .box-top{ 
+      height:48px;
+      width: 100%;
+      padding:6px 0 6px 6px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 0 8px;
-      img {
-        height: 25px;
-        width: 25px;
+      position:relative;
+      background:#fff;
+      >.icon-cuowu{
+        font-size:20px;
+        padding:0 12px 0 4px;
       }
-    }
-    .head {
-      position: relative;
-      padding-top: 10px;
-      height: 52px;
-      .Mich {
-        width: 30px;
-        height: 30px;
+      >img{
+        height:36px;
+        width:36px;
       }
-      .vipbox {
-        position: absolute;
-        bottom: 4px;
-        left: -3px;
-        height: 14px;
-        width: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .iconVip {
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          bottom: 0px;
-          left: 0px;
-          z-index: 1;
+      .top_title{
+        padding-left:10px;
+        display:flex;
+        justify-content:space-between;
+        flex-direction:column;
+        height:34px;
+        >b{
+          color:#000;
+          font-size:14px;
         }
-        span {
-          z-index: 11;
-          font-size: 10px;
-          white-space: nowrap;
-          color: #fff;
+        >p{
+          font-size:10px;
+          color:#676767;
         }
       }
+      .top_button{
+         width:94px;
+         height:30px;
+         background:linear-gradient(#fe8a8a 0, #ee3838 100%);
+         border-radius:20px;
+         display:flex;
+         justify-content:center;
+         align-items:center;
+         position:absolute;
+         right:0;
+         margin-right:6px;
+         span{
+          color:#fff;
+          font-size:14px;
+         }
+      }
     }
-  }
+    .box-bottom{
+      padding:0 12px;
+      height:40px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color:#fad9d5;
+      position:relative;
+      .bottom_title{
+        display:flex;
+        align-items:center;
+        position:absolute;
+        left:50%;
+        transform:translateX(-50%);
+         .title_img{
+          width:22px;
+          height:22px;
+         }
+         >b{
+          padding-left:10px;
+          color:#323233;
+          font-size:15px;
+         } 
+      }
+      .bottom_flag{
+        width:24px;
+        height:24px;
+      }
+    }
+ 
 }
 </style>

@@ -8,8 +8,17 @@
       </div>
       <img class="top_img" src="../assets/img/flag-img.png" />
     </div>
+
     <div class="center_con">
-      <div class="cen_img">
+      <div class="cen_img" v-for="(item,index) in imgList" :key="index">
+          <img :src="item.url"/>
+          <div class="cen_text">
+            <span class="cen_time">{{item.time}}</span>
+            <span class="iconfont icon-youjiantou"></span>
+          </div>
+      </div>
+
+      <!-- <div class="cen_img">
         <img src="../assets/img/turnplate.png" />
         <div class="cen_text">
           <span class="cen_time">2024-03-11 09:28:20~2024-04-30 20:09:56</span>
@@ -22,7 +31,7 @@
           <span class="cen_time">2024-04-10 08:00:00~2024-04-30 08:00:00</span>
           <span class="iconfont icon-youjiantou"></span>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <bottomComp></bottomComp>
@@ -30,10 +39,31 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import bottomComp from "../components/bottomComp.vue";
+import turnplate from '../assets/img/turnplate.png';
+import personage from '../assets/img/upload_live.png';
+import { activity } from '../api/activity';
 
+const imgList = ref([
+  {
+    url:turnplate,
+    time:'2024-03-11 09:28:20~2024-04-30 20:09:56',
+  },
+  {
+    url:personage,
+    time:'2024-04-10 08:00:00~2024-04-30 08:00:00',
+  },
+])
 
+const getActivity = async() => {
+  let res = await activity()
+  console.log(res, 'res----------')
+}
+
+onMounted(() => {
+  getActivity()
+})
 </script>
 
 <style lang="scss">
