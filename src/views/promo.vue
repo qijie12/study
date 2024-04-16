@@ -33,7 +33,9 @@
 import { ref } from "vue";
 import bottomComp from "../components/bottomComp.vue";
 
-
+const props = defineProps({
+    
+});
 </script>
 
 <style lang="scss">
@@ -94,7 +96,7 @@ import bottomComp from "../components/bottomComp.vue";
           color: red;
           font-size: 12px;
         }
-        >.icon-youjiantou {
+        > .icon-youjiantou {
           color: rgb(100, 101, 101);
         }
       }
