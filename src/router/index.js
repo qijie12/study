@@ -83,6 +83,11 @@ const routes = [
     name: 'register',
     component: () => import('../views/loginBox/register.vue'),
   },
+  {
+    path:'/download',
+    name:'/download',
+    component:()=>import('../views/loginBox/download.vue')
+  },
 ];
 
 const router = createRouter({

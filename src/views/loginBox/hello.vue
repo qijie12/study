@@ -1,6 +1,6 @@
 <template>
   <div id="share-hello-box">
-    <div class="iconfont icon-arrow-left"></div>
+    <div class="iconfont icon-arrow-left" @click="jump_home"></div>
     <div class="hello_title">
        <b>Hello !</b>
        <p>Sign Up to your account</p>
@@ -37,6 +37,9 @@
  const router = useRouter()//路由地址
  const jump_sign = () => {
     router.push('/sign_in')
+ };
+ const jump_home=()=>{
+  router.push('/home')
  }
 </script>
 
