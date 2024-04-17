@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1506752",
+      "name": "邀请码",
+      "font_class": "yaoqingma",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    },
+    {
       "icon_id": "16039154",
       "name": "错误",
       "font_class": "cuowu",

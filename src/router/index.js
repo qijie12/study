@@ -79,8 +79,8 @@ const routes = [
     component: () => import('../views/loginBox/sign_in.vue'),
   },
   {
-    path: '/deposit',
-    name: 'deposit',
+    path: '/register',
+    name: 'register',
     component: () => import('../views/loginBox/register.vue'),
   },
 ];
