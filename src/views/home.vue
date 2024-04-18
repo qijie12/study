@@ -275,7 +275,8 @@ const gameList = ref([
     vip: "VIP1",
     ensure: "SECURITY DEPOSIT: 50",
     num: "+₹20",
-    backgroundColor: "linear-gradient(to right,rgb(36, 176, 156),rgb(152, 202, 77))"
+    backgroundColor:
+      "linear-gradient(to right,rgb(36, 176, 156),rgb(152, 202, 77))",
   },
   {
     url: game_img2,
@@ -285,7 +286,8 @@ const gameList = ref([
     vip: "VIP1",
     ensure: "SECURITY DEPOSIT: 70",
     num: "+₹20",
-    backgroundColor: "linear-gradient(90deg, #9C34A9 15%, #F25E43 75%)"
+    backgroundColor:
+      "linear-gradient(to right,rgb(36, 176, 156),rgb(152, 202, 77))",
   },
   {
     url: game_img3,
@@ -295,6 +297,7 @@ const gameList = ref([
     vip: "VIP2",
     ensure: "SECURITY DEPOSIT: 90",
     num: "+₹30",
+    backgroundColor: "linear-gradient(90deg, #9C34A9 15%, #F25E43 75%)",
   },
   {
     url: game_img4,
@@ -304,6 +307,7 @@ const gameList = ref([
     vip: "VIP2",
     ensure: "SECURITY DEPOSIT: 20",
     num: "+₹20",
+    backgroundColor: "linear-gradient(90deg, #9C34A9 15%, #F25E43 75%)",
   },
   {
     url: game_img5,
@@ -313,6 +317,7 @@ const gameList = ref([
     vip: "VIP3",
     ensure: "SECURITY DEPOSIT: 20",
     num: "+₹20",
+    backgroundColor: "linear-gradient(90deg, #FFD194 15%, #D1913C 75%)",
   },
   {
     url: game_img6,
@@ -322,6 +327,7 @@ const gameList = ref([
     vip: "VIP3",
     ensure: "SECURITY DEPOSIT: 100",
     num: "+₹100",
+    backgroundColor: "linear-gradient(90deg, #FFD194 15%, #D1913C 75%)",
   },
   {
     url: game_img7,
@@ -331,6 +337,7 @@ const gameList = ref([
     vip: "VIP4",
     ensure: "SECURITY DEPOSIT: 120",
     num: "+₹120",
+    backgroundColor: "linear-gradient(90deg, #FF9966 15%, #FF5E62 75%)",
   },
   {
     url: game_img8,
@@ -340,6 +347,7 @@ const gameList = ref([
     vip: "VIP4",
     ensure: "SECURITY DEPOSIT:120",
     num: "+₹120",
+    backgroundColor: "linear-gradient(90deg, #FF9966 15%, #FF5E62 75%)",
   },
 ]);
 </script>
@@ -570,7 +578,7 @@ const gameList = ref([
   .button {
     background: rgb(244, 244, 244);
     width: 100%;
-    padding:15px;
+    padding: 15px;
     .van-button {
       width: 100%;
       height: 50px;
@@ -601,14 +609,14 @@ const gameList = ref([
         transform: translateX(-50%);
         .rotate {
           width: 233px;
-          height:233px;
+          height: 233px;
           animation: rotate 1.5s linear infinite; /* 旋转动画 */
           @keyframes rotate {
             from {
-               rotate:(0deg);
+              rotate: (0deg);
             }
             to {
-             rotate:(360deg);
+              rotate: (360deg);
             }
           }
         }

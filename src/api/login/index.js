@@ -11,8 +11,3 @@ export function login(params) {
     data: params,
   });
 }
-
-
-
-
-

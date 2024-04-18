@@ -18,7 +18,7 @@
       <van-cell-group inset>
         <van-field
           v-if="!active"
-          v-model="username"
+          v-model="phone"
           placeholder="phone number"
           :rules="[
             {
@@ -34,7 +34,7 @@
         </van-field>
         <van-field
           v-else
-          v-model="username"
+          v-model="email"
           placeholder="Email"
           :rules="[
             { required: true, message: 'Please enter your e-mail address' },
@@ -70,7 +70,7 @@
     <div class="forgot">forgot your password?</div>
 
     <div class="button">
-      <van-button type="primary" block> Login </van-button>
+      <van-button type="primary" block @click="call_login"> Login </van-button>
       <van-button type="primary" block @click="jump_register">
         Register
       </van-button>
@@ -79,11 +79,15 @@
 </template>
 
 <script setup>
+import { all } from "axios";
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
+import { login } from "../../api/login";
+
 const router = useRouter();
 const active = ref(0);
-const username = ref("");
+const phone = ref("");
+const email = ref("");
 const password = ref("");
 const appear = ref(false);
 const onSubmit = () => {};
@@ -94,11 +98,24 @@ const switchover = () => {
 const jump_register = () => {
   router.push("/register");
 };
+
 const jump_hello = () => {
   router.push("/hello");
 };
 
+const call_login = async () => {
+  let params = {
+    phone: phone.value,
+    email: email.value,
+    password: password.value,
+    type: active.value ? "email" : "phone",
+  };
+  let res = await login(params);
+  console.log(res, "res5555555555555--------------");
+};
+
 onMounted(() => {});
+defineExpose({});
 </script>
 
 <style lang="scss">

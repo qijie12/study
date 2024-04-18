@@ -19,7 +19,6 @@
     <van-form @submit="onSubmit">
       <van-cell-group inset>
         <van-field
- 
           v-if="!active"
           v-model="username"
           placeholder="phone number"
@@ -102,7 +101,9 @@
     </van-form>
 
     <div class="Button">
-      <van-button type="primary" block> Sign up </van-button>
+      <van-button type="primary" block @click="call_Register">
+        Sign up
+      </van-button>
       <van-button type="primary" block @click="jump_return">
         Return
       </van-button>
@@ -113,6 +114,7 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { Register } from "../../api/Register";
 const router = useRouter();
 const active = ref("false");
 const username = ref();
@@ -128,9 +130,20 @@ const emerge = () => {
 const jump_return = () => {
   router.push("/sign_in");
 };
-const jump_hello=()=>{
-  router.push('/hello')
-}
+const jump_hello = () => {
+  router.push("/hello");
+};
+
+// const call_Register = async()=>{
+//   let res = await Register(params);
+//   console.log(res, "111111111111111");
+// };
+
+const call_Register = () => {
+  Register().then((res) => {
+    console.log(res.data.data, "......................");
+  });
+};
 </script>
 
 <style lang="scss">
