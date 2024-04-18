@@ -104,7 +104,7 @@ onMounted(() => {});
 <style lang="scss">
 #share-signz-box {
   font-family: PingFang SC-Bold, PingFang SC;
-  width: 100%;
+  width: 100vw;
   height: 10vh;
   padding: 20px 15px 0 15px;
   > .icon-arrow-left {

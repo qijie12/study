@@ -19,6 +19,7 @@
     <van-form @submit="onSubmit">
       <van-cell-group inset>
         <van-field
+ 
           v-if="!active"
           v-model="username"
           placeholder="phone number"

@@ -1,10 +1,15 @@
 <template>
-  <div>46456</div>
+  <div id="share-games-box">
+    <topComp></topComp>
+  </div>
 </template>
 
-<script>
-export default {};
+<script setup>
+import topComp from '../components/topComp.vue';
 </script>
 
-<style scoped>
+<style lang="scss">
+ #share-games-box{
+
+ } 
 </style>
