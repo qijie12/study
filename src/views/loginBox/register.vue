@@ -20,7 +20,7 @@
       <van-cell-group inset>
         <van-field
           v-if="!active"
-          v-model="username"
+          v-model="phone"
           placeholder="phone number"
           :rules="[
             {
@@ -36,7 +36,7 @@
         </van-field>
         <van-field
           v-else
-          v-model="username"
+          v-model="email"
           placeholder="Email"
           :rules="[
             { required: true, message: 'Please enter your e-mail address' },
@@ -48,6 +48,7 @@
         </van-field>
         <van-field
           v-model="password"
+           maxlength="20"
           :type="show ? 'text' : 'password'"
           placeholder="Password"
           :rules="[
@@ -84,12 +85,19 @@
           </template>
 
           <template #right-icon>
-            <van-button type="primary" style="width: 54px; height: 31px"
-              >Code</van-button
-            >
+            <van-button 
+            type="primary" 
+            style="width: 54px; height: 31px"
+            @click="call_verification"
+           >
+            Code
+           </van-button>
           </template>
         </van-field>
-        <van-field clearable v-model="invitation" placeholder="invitation code">
+        <van-field 
+        clearable 
+        v-model="invitation" 
+        placeholder="invitation code">
           <template #left-icon>
             <span class="iconfont icon-yaoqingma"></span>
           </template>
@@ -115,13 +123,16 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { Register } from "../../api/Register";
+import {Verification} from '../../api/Verification';
 const router = useRouter();
 const active = ref("false");
-const username = ref();
-const verification = ref();
-const invitation = ref();
-const password = ref();
+const phone = ref("");
+const email =ref("");
+const verification = ref("");
+const invitation = ref("");
+const password = ref("");
 const show = ref(false);
+
 const onClickTab = () => {};
 const onSubmit = () => {};
 const emerge = () => {
@@ -134,16 +145,38 @@ const jump_hello = () => {
   router.push("/hello");
 };
 
-// const call_Register = async()=>{
-//   let res = await Register(params);
-//   console.log(res, "111111111111111");
+ const call_Register = async()=>{
+  let params = {
+     phone:phone.value,
+     email: email.value,
+     password:password.value,
+     verification:verification.value,
+     invitation:invitation.value,
+     type:active.value?'email':'phone'
+  };
+   let res = await Register(params);
+  console.log(res, "111111111111111");
+ };
+
+// const call_Register = () => {
+//   let params={
+//      phone:phone.value,
+//      email: email.value,
+//      password:password.value,
+//      verification:verification.value,
+//      invitation:invitation.value,
+//      type:active.value?'email':'phone',
+//   };
+//   Register(params).then((res) => {
+//     console.log(res, "Register......................");
+//   });
 // };
 
-const call_Register = () => {
-  Register().then((res) => {
-    console.log(res.data.data, "......................");
-  });
-};
+const call_verification= async()=>{
+
+  let res =await Verification();
+  console.log(res,'verification--------------')
+}
 </script>
 
 <style lang="scss">

@@ -46,6 +46,7 @@
         </van-field>
         <van-field
           v-model="password"
+          maxlength="20"
           :type="appear ? 'text' : 'password'"
           placeholder="Password"
           :rules="[
@@ -112,6 +113,7 @@ const call_login = async () => {
   };
   let res = await login(params);
   console.log(res, "res5555555555555--------------");
+  router.push('/home');
 };
 
 onMounted(() => {});

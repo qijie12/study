@@ -43,7 +43,7 @@ import { ref, onMounted } from "vue";
 import bottomComp from "../components/bottomComp.vue";
 import turnplate from "../assets/img/turnplate.png";
 import personage from "../assets/img/upload_live.png";
-import { activity } from "../api/activity";
+
 
 const imgList = ref([
   {
@@ -56,10 +56,7 @@ const imgList = ref([
   },
 ]);
 
-const getActivity = async () => {
-  let res = await activity();
-  console.log(res, "res----------");
-};
+
 
 onMounted(() => {
   getActivity();
