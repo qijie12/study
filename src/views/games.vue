@@ -86,22 +86,46 @@
           </li> -->
         </ul>
 
-        <ul class="gamesCon">
+        <!-- <ul class="gamesCon">
           <li v-for="(item,index) in gamesConList" :key="index">
              <img :src="item.url"/>
              <span>{{item.text}}</span>
              <div class="hot_tag">
                <img :src="item.src" />
              </div>
-          </li>
-          <!-- <li>
+          </li>         
+        </ul> -->
+        <!-- <li>
             <img src="../assets/img/game_picture2.jpg"/>
             <span>Win - Diamond</span>
             <div class="hot_tag" >
               <img src="../assets/img/hot_game-111.png" />
             </div>
-          </li> -->
-        </ul> 
+          </li> --> 
+
+        <ul class="img_container">
+           <li>
+            <img src="../assets/img/play-img1.png"/>
+           </li>
+           <li>
+            <img src="../assets/img/play-img2.png"/>
+           </li>
+           <li>
+            <img src="../assets/img/play-img3.png"/>
+           </li>
+           <li>
+            <img src="../assets/img/play-img4.png"/>
+           </li>
+           <li>
+            <img src="../assets/img/play-img5.png"/>
+           </li>
+           <li>
+            <img src="../assets/img/play-img6.png"/>
+           </li>
+           <li>
+            <img src="../assets/img/play-img7.png"/>
+           </li>
+        </ul>
     </div>
   <bottomComp></bottomComp>
   </div>
@@ -249,6 +273,7 @@ const gamesConList =ref([
     }
   }
   .func{
+    z-index:5;
     width:100%;
     height:67px;
     border-radius:12px 12px 0 0;
@@ -313,7 +338,7 @@ const gamesConList =ref([
   }
   .gamesCon-box{
     display:flex;   
-    padding-right:10px;
+    padding-right:8px;
      background:rgb(246, 245, 243);
     .gamsList{
       width:70px;
@@ -322,7 +347,7 @@ const gamesConList =ref([
       background-color:#ffffff;
       display:grid;
       grid-template-rows:repeat(6,1fr);
-      margin-right:10px;
+      margin-right:8px;
       >li{
         width:100%;
         height:60px;
@@ -379,6 +404,25 @@ const gamesConList =ref([
             height:20px;
             width:100%;
           }
+        }
+      }
+    }
+    .img_container{
+      
+      height:800px;
+      overflow-y:scroll;
+      margin-bottom:120px;
+      flex:1;
+      display:grid;
+      grid-template-rows:repeat(9,1fr);
+      grid-gap:7px;
+      li{
+        width:100%;
+        height:94px;
+        >img{
+          width:100%;
+          height:100%;
+          border-radius:10px;
         }
       }
     }

@@ -11,7 +11,7 @@
 
     <div class="center_con">
       <div class="cen_img" v-for="(item, index) in imgList" :key="index">
-        <img :src="item.url" />
+        <img :src="item.url" @click="call_Activity"/>
         <div class="cen_text">
           <span class="cen_time">{{ item.time }}</span>
           <span class="iconfont icon-youjiantou"></span>
@@ -43,7 +43,7 @@ import { ref, onMounted } from "vue";
 import bottomComp from "../components/bottomComp.vue";
 import turnplate from "../assets/img/turnplate.png";
 import personage from "../assets/img/upload_live.png";
-
+import {Activity} from '../api/Activity';
 
 const imgList = ref([
   {
@@ -56,10 +56,13 @@ const imgList = ref([
   },
 ]);
 
-
+const call_Activity =async()=>{
+  let res =await Activity();
+  console.log(res,'Activity-----------------')
+};
 
 onMounted(() => {
-  getActivity();
+  
 });
 </script>
 
