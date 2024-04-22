@@ -27,8 +27,7 @@
         <template #icon>
           <img
             v-if="route.fullPath.indexOf(item.path) === -1"
-            :src="item.url"
-            
+            :src="item.url"   
           />
           <img :src="item.active" v-else />
         </template>
@@ -109,6 +108,7 @@ const lighten = (params) => {
 
 <style lang="scss">
 #share-bottomComp-box {
+  font-family: PingFang SC-Bold, PingFang SC;
   .van-tabbar {
     bottom: 0;
     left: 0;

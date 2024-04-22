@@ -6,7 +6,6 @@
       class="my-swipe"
       :autoplay="3000"
       :loop="false"
-      :width="300"
       :show-indicators="false"
     >
       <van-swipe-item>
@@ -85,7 +84,6 @@
             <b>Live</b>
           </li> -->
         </ul>
-
         <!-- <ul class="gamesCon">
           <li v-for="(item,index) in gamesConList" :key="index">
              <img :src="item.url"/>
@@ -148,6 +146,12 @@ import contest1 from '../assets/img/contest-img1.png';
 import fishing1 from '../assets/img/fishing-img1.png';
 import slot1 from '../assets/img/slot-img1.png';
 import live1 from '../assets/img/live-img1.png';
+
+// import 'swiper/css';
+// import 'swiper/css/effect-coverflow';
+// import 'swiper/css/pagination';
+// import { Swiper, SwiperSlide } from 'swiper/vue';
+// import { EffectCoverflow, Pagination, Autoplay } from 'swiper';
 
 
 const gameListList =ref([
@@ -249,13 +253,14 @@ const gamesConList =ref([
   font-family: PingFang SC-Bold, PingFang SC;
   background:rgb(246, 245, 243);
   .my-swipe {
+    width: 100%;
     margin-top: 98px;
     text-align: center;
     // padding:0 20px;
     .van-swipe-item {
-      margin: 0 25px 0 10px;
+      padding: 0 10px 0 10px;
       > img {
-        width: 315px;
+        width: 100%;
         height: 115px;
         border-radius: 8px;
         border-color: #e5e7eb;

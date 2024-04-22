@@ -60,7 +60,7 @@
     <div class="task_title">💎 The daily update task</div>
 
     <ul class="game_list">
-      <li v-for="(item, index) in gameList" :key="index">
+      <li v-for="(item, index) in gameList" :key="index" @click="showBottom">
         <div class="game_top">
           <img :src="item.url" />
           <div class="game_text">
@@ -101,6 +101,11 @@
          </div>
        </li> -->
     </ul>
+    <van-popup
+      v-model:show="showBottom"
+      position="bottom"
+      :style="{ height: '30%' }"
+    />
 
     <div class="button">
       <van-button
