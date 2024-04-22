@@ -178,8 +178,10 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { ref, onMounted } from "vue";
+import { useRoute,useRouter } from "vue-router";
+
+const route = useRoute()
 const router = useRouter();
 
 const jumpHome = () => {
@@ -203,6 +205,12 @@ const amountList = ref([
 
 const active=ref(0);
 
+onMounted(() => {
+  let params = route.query;
+  if(params?.tab) {
+    active.value = 1
+  }
+})
 </script>
 
 <style lang="scss">

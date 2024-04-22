@@ -54,8 +54,8 @@
 
     <div class="gamesCon-box">
         <ul class="gamsList">
-          <li v-for="(item,index) in gameListList" :key="index">
-            <img :src="item.url"/>
+          <li :class="{active: gameIndex === index}" v-for="(item,index) in gameListList" :key="index" @click="gameFunc(index)">
+            <img :src="gameIndex === index ? item.src : item.url"/>
             <b>{{item.text}}</b>
           </li>
 
@@ -102,6 +102,9 @@
           </li> --> 
 
         <ul class="img_container">
+          <!-- <li v-for="(item,index) in imgList" :key="index">
+            <img :src="item.url"/>
+          </li> -->
            <li>
             <img src="../assets/img/play-img1.png"/>
            </li>
@@ -141,42 +144,54 @@ import game_img6 from '../assets/img/game_picture7.jpg';
 import game_img7 from '../assets/img/game_picture8.png';
 import tag from '../assets/img/hot_game-111.png';
 import hot1 from '../assets/img/hot-img1.png';
+import hot from '../assets/img/hot-img.png';
 import lottery1 from '../assets/img/lottery-img1.png';
+import lottery from '../assets/img/lottery-img.png';
 import contest1 from '../assets/img/contest-img1.png';
+import contest from '../assets/img/contest-img.png';
 import fishing1 from '../assets/img/fishing-img1.png';
+import fishing from '../assets/img/fishing-img.png';
 import slot1 from '../assets/img/slot-img1.png';
+import slot from '../assets/img/slot-img.png';
 import live1 from '../assets/img/live-img1.png';
+import live from '../assets/img/live-img.png';
 
 // import 'swiper/css';
 // import 'swiper/css/effect-coverflow';
 // import 'swiper/css/pagination';
 // import { Swiper, SwiperSlide } from 'swiper/vue';
 // import { EffectCoverflow, Pagination, Autoplay } from 'swiper';
-
+const gameIndex = ref(0)
 
 const gameListList =ref([
   {
     url:hot1,
+    src:hot,
     text:'Hot',
   },
   {
     url:lottery1,
+    src:lottery,
     text:'Lottery',
   },
   {
     url:contest1,
+    src:contest,
     text:'Contest',
   },
   {
     url:fishing1,
+    src:fishing,
     text:'Fishing',
   },
   {
     url:slot1,
+    src:slot,
     text:'Slot',
   },
   {
     url:live1,
+    src:live,
     text:'Live',
   },
 ])
@@ -244,6 +259,14 @@ const gamesConList =ref([
   },
 
 ])
+
+const gameFunc = (index) => {
+  gameIndex.value = index
+}
+
+// const imgList =ref([
+
+// ])
 </script>
 
 <style lang="scss">
@@ -358,17 +381,35 @@ const gamesConList =ref([
         height:60px;
         font-size:12px;
         display:flex;
+        flex-direction: column;
         justify-content:center;
         align-items:center;
         position:relative;
+        &:first-child {
+          border-radius: 0 20px 0 0;
+        }
+        &:last-child {
+          border-radius: 0 0 20px 0;
+        }
+        
         >img{
           width:32px;
           height:32px;
         }
         >b{
           color:#ff5454;
-          position:absolute;
-          top:68%;
+          // position:absolute;
+          // top:68%;
+          margin-top: -7px;
+          text-shadow: -1px 1px 0 #fff, 1px 1px 0 #fff, 1px -1px 0 #fff, -1px -1px 0 #fff;
+          
+        }
+        &.active {
+          background: #ff5454;
+          >b {
+            color: #fff;
+            text-shadow: -1px 1px 0 #ff5454, 1px 1px 0 #ff5454, 1px -1px 0 #ff5454, -1px -1px 0 #ff5454;
+          }
         }
       }
     }

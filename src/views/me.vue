@@ -31,7 +31,7 @@
       <ul class="func">
         <li>
           <img src="../assets/img/withsrawal-img2.png" />
-          <span>Withdrawal</span>
+          <span @click="jumpWith">Withdrawal</span>
         </li>
         <li>
           <img src="../assets/img/financial_record.png" />
@@ -112,7 +112,18 @@
 
 <script setup>
 import {ref} from 'vue';
+import {useRouter} from 'vue-router';
 import bottomComp from '../components/bottomComp.vue';
+const router =useRouter();
+
+const jumpWith =()=>{
+  router.push({
+    path: '/deposit',
+    query: {
+      tab: 'withdrawal'
+    }
+  })
+};
 </script>
 
 <style lang="scss">
