@@ -210,7 +210,7 @@ onMounted(() => {
   if(params?.tab) {
     active.value = 1
   }
-})
+});
 </script>
 
 <style lang="scss">

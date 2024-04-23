@@ -9,8 +9,10 @@
           <div class="information_con">
             <p class="hlm">hlm</p>
             <p class="id">
-              <span class="id_num">ID: 10000507</span>
-              <span class="iconfont icon-fuzhi"></span>
+              <span class="id_num">{{id}}</span>
+              <span class="iconfont icon-fuzhi" @click="copyID">
+              </span>
+              
             </p>
           </div>
         </div>
@@ -45,7 +47,14 @@
     </div>
     
     <ul class="personage">
-        <li>
+      <li v-for="(item,index) in personageList" :key="index" @click="jumpPerson(item)">
+        <img :src="item.url"/>
+        <div class="personage_title">
+          <span class="tit">{{item.text}}</span>
+          <span class="iconfont icon-youjiantou"></span>
+        </div>
+      </li>
+        <!-- <li>
           <img src="../assets/img/personage-img.png"/>
           <div class="personage_title">
             <span class="tit">Personal Info</span>
@@ -79,11 +88,18 @@
             <span class="tit">Notice</span>
             <span class="iconfont icon-youjiantou"></span>
           </div>
-        </li>
+        </li> -->
     </ul>
 
     <ul class="set">
-       <li>
+       <li v-for="(item,index) in setList" :key="index" @click="jump(item)">
+        <img :src="item.url"/>
+        <div class="personage_title">
+          <span class="tit">{{item.text}}</span>
+          <span class="iconfont icon-youjiantou"></span>
+        </div>
+      </li>
+       <!-- <li>
           <img src="../assets/img/FAQ-img.png"/>
           <div class="personage_title">
             <span class="tit">FAQs</span>
@@ -103,7 +119,7 @@
             <span class="tit">LOGOUT</span>
             <span class="iconfont icon-youjiantou"></span>
           </div>
-        </li>
+        </li> -->
     </ul>
 
     <bottomComp></bottomComp>
@@ -114,7 +130,30 @@
 import {ref} from 'vue';
 import {useRouter} from 'vue-router';
 import bottomComp from '../components/bottomComp.vue';
+import { showSuccessToast} from 'vant';
+import personage from '../assets/img/personage-img.png';
+import agent from '../assets/img/agent_img222.png';
+import bet_Records from '../assets/img/bet-records.png';
+import announcement from '../assets/img/announcement-img.png';
+import notice from '../assets/img/notice-img.png';
+import FAQ from '../assets/img/FAQ-img.png';
+import about_us from '../assets/img/about-us-img.png';
+import logout from '../assets/img/logout-img.png';
+
 const router =useRouter();
+
+const id=ref('ID:10000507');
+const copyID =()=>{
+   const input = document.createElement('input');
+      input.setAttribute('value', id.value);
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+      // alert('已复制ID: ' + id.value);
+      showSuccessToast('Successful \n replication')
+};
+
 
 const jumpWith =()=>{
   router.push({
@@ -124,6 +163,79 @@ const jumpWith =()=>{
     }
   })
 };
+
+const personageList=ref([
+  {
+    url:personage,
+    text:'Personal Info',
+    path:'/personalInfo'
+  },
+  {
+    url:agent,
+    text:'Agent Management',
+  },
+  {
+    url:bet_Records,
+    text:'Bet Records',
+  },
+  {
+    url:announcement,
+    text:'Announcement',
+  },
+  {
+    url:notice,
+    text:'Notice',
+  },
+])
+
+const setList =ref([
+  {
+    url:FAQ,
+    text:'FAQs',
+    path:'/FAQ_About',
+  },
+  {
+    url:about_us,
+    text:'About Us',
+    path: '/FAQ_About',
+    query: {
+      tab: 'About Us'
+    }
+  },
+  {
+    url:logout,
+    text:'LOGOUT',
+    path:'/hello',
+  },
+])
+
+const jumpPerson=(params)=>{
+  if(params.path){
+    router.push(params.path)
+  }
+};
+
+const jump = (params) => {
+  if(params.path && !params.query) {
+    router.push(params.path)
+  }else if(params.query){
+    router.push({
+      path: params.path,
+      query:params.query,
+    })
+  }
+}
+
+// const getRoute = (path, query) => {
+//   if(!path || !query) {
+//     console.log("path/query不存在")
+//     return false
+//   }
+//    console.log("path/query存在")
+// }
+
+// getRoute('1', '2')
+
 </script>
 
 <style lang="scss">
@@ -313,6 +425,7 @@ const jumpWith =()=>{
       margin-top:12px ;
       display:grid;
       grid-template-rows:repeat(3,1fr);
+    
       >li{
         padding:0 15px;
         width:100%;

@@ -88,6 +88,16 @@ const routes = [
     name:'/download',
     component:()=>import('../views/loginBox/download.vue')
   },
+  {
+    path:'/FAQ_About',
+    name:'FAQ_About',
+    component:()=>import('../views/personalBox/FAQ_About.vue')
+  },
+  {
+    path:'/personalInfo',
+    name:'personalInfo',
+    component:()=>import('../views/personalBox/personalInfo.vue')
+  },
 ];
 
 const router = createRouter({
