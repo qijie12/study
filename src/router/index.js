@@ -98,6 +98,26 @@ const routes = [
     name:'personalInfo',
     component:()=>import('../views/personalBox/personalInfo.vue')
   },
+  {
+    path:'/notice',
+    name:'notice',
+    component:()=>import('../views/personalBox/notice.vue')
+  },
+  {
+    path:'/announcement',
+    name:'announcement',
+    component:()=>import('../views/personalBox/announcement.vue') 
+  },
+  {
+    path:'/financial',
+    name:'financial',
+    component:()=>import('../views/personalBox/financial.vue')
+  },
+  {
+    path:'/cs',
+    name:'cs',
+    component:()=>import('../views/personalBox/cs.vue')
+  },
 ];
 
 const router = createRouter({

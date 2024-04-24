@@ -102,9 +102,6 @@
           </li> --> 
 
         <ul class="img_container">
-          <!-- <li v-for="(item,index) in imgList" :key="index">
-            <img :src="item.url"/>
-          </li> -->
            <li>
             <img src="../assets/img/play-img1.png"/>
            </li>
@@ -264,9 +261,7 @@ const gameFunc = (index) => {
   gameIndex.value = index
 }
 
-// const imgList =ref([
 
-// ])
 </script>
 
 <style lang="scss">

@@ -31,9 +31,13 @@
       </div>
 
       <ul class="func">
-        <li>
+       <li v-for="(item,index) in funcList" :key="index" @click="jumpDif(item)">
+        <img :src="item.url"/>
+        <span>{{item.text}}</span>
+       </li>
+        <!-- <li  @click="jumpWith">
           <img src="../assets/img/withsrawal-img2.png" />
-          <span @click="jumpWith">Withdrawal</span>
+          <span>Withdrawal</span>
         </li>
         <li>
           <img src="../assets/img/financial_record.png" />
@@ -42,7 +46,7 @@
         <li>
           <img src="../assets/img/cs-img.png" />
           <span>CS</span>
-        </li>
+        </li> -->
       </ul> 
     </div>
     
@@ -139,6 +143,11 @@ import notice from '../assets/img/notice-img.png';
 import FAQ from '../assets/img/FAQ-img.png';
 import about_us from '../assets/img/about-us-img.png';
 import logout from '../assets/img/logout-img.png';
+import withsrawal from '../assets/img/withsrawal-img2.png';
+import financial from '../assets/img/financial_record.png';
+import cs from '../assets/img/cs-img.png';
+
+
 
 const router =useRouter();
 
@@ -155,14 +164,34 @@ const copyID =()=>{
 };
 
 
-const jumpWith =()=>{
-  router.push({
-    path: '/deposit',
-    query: {
-      tab: 'withdrawal'
+// const jumpWith =()=>{
+//   router.push({
+//     path: '/deposit',
+//     query: {
+//       tab: 'withdrawal'
+//     }
+//   })
+// };
+const funcList =ref([
+  {
+    url:withsrawal,
+    text:'Withdrawal',
+    path:'/deposit',
+    query:{
+      tab:'withdrawal'
     }
-  })
-};
+  },
+  {
+    url:financial,
+    text:'Financial',
+    path:'/financial',
+  },
+  {
+    url:cs,
+    text:'CS',
+    path:'/cs'
+  },
+]);
 
 const personageList=ref([
   {
@@ -181,12 +210,16 @@ const personageList=ref([
   {
     url:announcement,
     text:'Announcement',
+    path:'/announcement',
   },
   {
     url:notice,
     text:'Notice',
+    path:'/notice',
   },
 ])
+
+
 
 const setList =ref([
   {
@@ -209,11 +242,23 @@ const setList =ref([
   },
 ])
 
-const jumpPerson=(params)=>{
+
+const jumpPerson= (params)=>{
   if(params.path){
     router.push(params.path)
-  }
+  };
 };
+
+const jumpDif=(params)=>{
+  if(params.path && !params.query){
+    router.push(params.path)
+  }else if(params.query){
+    router.push({
+      path:params.path,
+      query:params.query,
+    })
+  }
+}; 
 
 const jump = (params) => {
   if(params.path && !params.query) {
@@ -383,8 +428,9 @@ const jump = (params) => {
           height: 32px;
         }
         > span {
-          padding-top: 3px;
+          padding-top:5px;
           width: 100px;
+          line-height: 1;
         }
       }
     }
@@ -425,7 +471,7 @@ const jump = (params) => {
       margin-top:12px ;
       display:grid;
       grid-template-rows:repeat(3,1fr);
-    
+      padding-bottom:100px;
       >li{
         padding:0 15px;
         width:100%;
