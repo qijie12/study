@@ -16,7 +16,9 @@
             </p>
           </div>
         </div>
-        <div class="information_right"><i>VIP2</i></div>
+        <div class="information_right" @click="jumpvip">
+          <i>VIP2</i>
+        </div>
       </div>
       <div class="balance_box">
         <p class="balance">Balance</p>
@@ -183,7 +185,7 @@ const funcList =ref([
   },
   {
     url:financial,
-    text:'Financial',
+    text:'Financial Records',
     path:'/financial',
   },
   {
@@ -242,6 +244,9 @@ const setList =ref([
   },
 ])
 
+const jumpvip=()=>{
+  router.push('/vip')
+};
 
 const jumpPerson= (params)=>{
   if(params.path){
@@ -414,6 +419,7 @@ const jump = (params) => {
       border: 1px solid #e5e7eb;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      text-align:top;
       > li {
         padding: 10px 0;
         width: 100%;

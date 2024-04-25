@@ -20,20 +20,24 @@
         </p>
         <p class="visitTime">
           <span class="time">2024-04-02 19:42:13</span>
-          <span class="iconfont icon-youjiantou" @click="showRight"> </span>
+          <span class="iconfont icon-youjiantou" @click="show"> </span>
         </p>
         <van-popup
+          :overlay="false"
           z-index="2"
           v-model:show="showRight"
           close-on-click-overlay="true"
           position="right"
-          :style="{ width: '90%', height: '100%' }"
+          :style="{ width: '100%', height:'100%' }"
         >
           <van-nav-bar
             title="Announcement"
             left-arrow
             @click-left="onClickLeft"
           />
+          <div class="vanCon">
+             <div></div>
+          </div>
         </van-popup>
       </div>
     </div>
@@ -42,10 +46,13 @@
 
 <script setup>
 import { ref } from "vue";
-const showRight = () => {};
-const onClickLeft = () =>{ 
-    history.back();
-}
+const showRight =ref(false);
+const show = () =>{ 
+    showRight.value=true
+};
+const onClickLeft = () => history.back();
+
+
 </script>
 
 <style lang="scss">
@@ -57,7 +64,7 @@ const onClickLeft = () =>{
   .announTop {
     width: 100%;
     height: 46px;
-    z-index: 5;
+    // z-index: 5;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -78,6 +85,7 @@ const onClickLeft = () =>{
   .announCon {
     width: 100%;
     padding: 10px 16px 0 16px;
+    position:relative;
     .visit {
       padding: 15px;
       width: 100%;
@@ -104,6 +112,17 @@ const onClickLeft = () =>{
         .time {
           color: #8c8e87;
           font-size: 12px;
+        }
+      }
+      .van-popup{
+       position:absolute;
+       bottom:0;
+       height:100%; 
+        .vanCon{
+          width:100%;
+          height:100%;
+          padding:16px;
+          background:#f7f7f7;
         }
       }
     }

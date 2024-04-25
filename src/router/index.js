@@ -118,6 +118,12 @@ const routes = [
     name:'cs',
     component:()=>import('../views/personalBox/cs.vue')
   },
+  {
+    path:'/vip',
+    name:'vip',
+    component:()=>import('../views/personalBox/vip.vue')
+  },
+  
 ];
 
 const router = createRouter({
