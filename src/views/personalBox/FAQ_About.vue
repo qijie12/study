@@ -66,7 +66,7 @@ const activeNames = ref(["1"]);
 const active =ref(0);
 
 const jumpMe =()=>{
-   router.push('/me')
+   router.back()
 };
 
 const onClickTab=()=>{

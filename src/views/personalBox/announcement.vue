@@ -35,8 +35,12 @@
             left-arrow
             @click-left="onClickLeft"
           />
-          <div class="vanCon">
-             <div></div>
+          <div class="vanBox">
+             <div class="vanCon">
+                  <h4>⭐️⭐️To visit our official website</h4>
+                  <p>2024-04-02 19:42:13</p>
+                  <div>⭐️⭐️To visit our official website, be sure to use the link below,https:lkgame.xyz// Please remember! Make sure not provide personal data and personal transactions in any form and for any reason to other parties on behalf of LURSSENVIP. Our side does not make private chats or calls to all members. Please inform all Referrals/other Members about this to avoid fraud. Thank you for your attention and cooperation.</div>
+             </div>
           </div>
         </van-popup>
       </div>
@@ -46,11 +50,21 @@
 
 <script setup>
 import { ref } from "vue";
+import {useRouter} from 'vue-router'
 const showRight =ref(false);
+
+const router = useRouter()
+
+const jumpMe = () => {
+  router.go(-1)
+}
+
 const show = () =>{ 
     showRight.value=true
 };
-const onClickLeft = () => history.back();
+const onClickLeft = () => {
+  showRight.value=false
+};
 
 
 </script>
@@ -115,14 +129,47 @@ const onClickLeft = () => history.back();
         }
       }
       .van-popup{
-       position:absolute;
-       bottom:0;
-       height:100%; 
-        .vanCon{
+        background:#f7f7f7;
+        .vanBox{
           width:100%;
-          height:100%;
+          height:calc(100vh - 46px);
           padding:16px;
-          background:#f7f7f7;
+          .vanCon{
+            width:100%;
+            height:100%;
+            background:#ffffff;
+            padding:15px;
+            border-radius:10px;
+            >h4{
+              font-size:16px;
+              font-weight:500;
+              color:#594735;
+            }
+            >p{
+              color:#8c8e87;
+              font-size:12px;
+              padding-bottom:15px;
+              border-bottom:0.2px solid #ccc;
+            }
+            >div{
+              padding-top:20px;
+              font-size:14px;
+              color: #61a951;
+              line-height:22px;
+            }
+          }
+        }
+        .van-nav-bar {
+          .van-nav-bar__content{
+            .van-nav-bar__left{
+              .van-badge__wrapper{
+                  color:#594735;
+              }          
+            }
+            .van-nav-bar__title{
+              font-size:14px;
+            }
+          }
         }
       }
     }

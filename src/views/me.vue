@@ -204,10 +204,12 @@ const personageList=ref([
   {
     url:agent,
     text:'Agent Management',
+    path:'/agent'
   },
   {
     url:bet_Records,
     text:'Bet Records',
+    path:'/bet'
   },
   {
     url:announcement,

@@ -149,7 +149,7 @@ const conceal=()=>{
 
 const router = useRouter();
 const jumpMe = () => {
-  router.push("/me");
+  router.back();
 };
 
 const swipeList = ref([

@@ -122,7 +122,7 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 
 const jumpMe = () => {
-  router.push("/me");
+  router.back();
 };
 </script>
 

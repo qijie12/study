@@ -7,13 +7,11 @@
     </div>
 
     <van-dropdown-menu active-color="#594735">
-      <van-dropdown-item
-        v-model="value1"
-        :options="option1"
+      <van-dropdown-item     
         title="Last 15 days"
-        :class="{ 'active-title': isTitleSelected }"
+       
       >
-        <ul>
+        <!-- <ul>
           <li
             v-for="(item, index) in ulList"
             :key="index"
@@ -26,11 +24,14 @@
         <div class="button">
           <van-button type="primary">Reset</van-button>
           <van-button type="primary" color="#fb5757">Confirm</van-button>
-        </div>
+        </div> -->
       </van-dropdown-item>
 
-      <van-dropdown-item v-model="value2" :options="option2" title="ALL">
-        <ul class="allBox">
+      <van-dropdown-item v-model="value2" :options="option2" 
+      @click="popup" 
+      title="ALL">  
+
+        <!-- <ul class="allBox">
           <li
             v-for="(item, index) in allList"
             :key="index"
@@ -43,9 +44,13 @@
         <div class="button">
           <van-button type="primary">Reset</van-button>
           <van-button type="primary" color="#fb5757">Confirm</van-button>
-        </div>
+        </div> -->
       </van-dropdown-item>
     </van-dropdown-menu>
+
+<van-popup v-model:show="showTop" overlay position="top" :style="{ height: '30%' }" />
+
+
 
     <div class="financialImg">
         <img src="../../assets/img/financial-background.png"/>
@@ -61,6 +66,11 @@ const router = useRouter();
 
 const jumpMe = () => {
   router.push("/Me");
+};
+
+const showTop=ref(false);
+const popup=()=>{
+  showTop.value=true
 };
 
 const ulList = ref([

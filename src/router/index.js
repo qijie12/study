@@ -123,6 +123,16 @@ const routes = [
     name:'vip',
     component:()=>import('../views/personalBox/vip.vue')
   },
+  {
+    path:'/bet',
+    name:'bet',
+    component:()=>import('../views/personalBox/bet.vue')
+  },
+  {
+    path:'/agent',
+    name:'agent',
+    component:()=>import('../views/personalBox/agent.vue')
+  },
   
 ];
 
