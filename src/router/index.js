@@ -133,6 +133,11 @@ const routes = [
     name:'agent',
     component:()=>import('../views/personalBox/agent.vue')
   },
+  {
+    path:'/display',
+    name:'display',
+    component:()=>import('../views/personalBox/display.vue')
+  },
   
 ];
 

@@ -185,7 +185,7 @@ const route = useRoute()
 const router = useRouter();
 
 const jumpHome = () => {
-  router.push("/home");
+  router.back();
 };
 const amountIndex = ref(0);
 
