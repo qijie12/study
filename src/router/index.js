@@ -138,6 +138,16 @@ const routes = [
     name:'display',
     component:()=>import('../views/personalBox/display.vue')
   },
+  {
+    path:'/reportForms',
+    name:'reportForms',
+    component:()=>import('../views/personalBox/reportForms.vue')
+  },
+  {
+    path:'/member',
+    name:'member',
+    component:()=>import('../views/personalBox/member.vue')
+  },
   
 ];
 

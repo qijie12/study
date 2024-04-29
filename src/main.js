@@ -9,6 +9,5 @@ import 'vant/lib/index.css';
 
 import router from './router'; // 引入你的路由文件
 
-
 createApp(App).use(Vant).use(router).use(pinia).mount('#app');
     
