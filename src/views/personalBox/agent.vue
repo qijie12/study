@@ -57,7 +57,9 @@
                   :class="{ active: dateListIndex === index }"
                 >
                   {{ item.text }}
-                  <div v-show="index === dateListIndex"><span>√</span></div>
+                  <div v-show="index === dateListIndex">
+                    <div class="checked"><svg width="1em" height="1em" viewBox="0 0 17 13" version="1.1" xmlns="http://www.w3.org/2000/svg"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(-2832.000000, -1103.000000)" stroke="#FFFFFF" stroke-width="3"><g transform="translate(2610.000000, 955.000000)"><g transform="translate(24.000000, 91.000000)"><g transform="translate(179.177408, 36.687816)"><polyline points="34.2767388 22 24.797043 31.4796958 21 27.6826527"></polyline></g></g></g></g></g></svg></div>
+                  </div>
                 </li>
               </ul>
               <hr style="border-color: #606163; margin-top: 30px" />
@@ -70,7 +72,9 @@
                   :class="{ active: offlineIndex === index }"
                 >
                   {{ item.text }}
-                  <div v-show="offlineIndex === index"><span>√</span></div>
+                  <div v-show="offlineIndex === index">
+                    <div class="checked"><svg width="1em" height="1em" viewBox="0 0 17 13" version="1.1" xmlns="http://www.w3.org/2000/svg"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(-2832.000000, -1103.000000)" stroke="#FFFFFF" stroke-width="3"><g transform="translate(2610.000000, 955.000000)"><g transform="translate(24.000000, 91.000000)"><g transform="translate(179.177408, 36.687816)"><polyline points="34.2767388 22 24.797043 31.4796958 21 27.6826527"></polyline></g></g></g></g></g></svg></div>
+                  </div>
                 </li>
               </ul>
 
@@ -79,7 +83,8 @@
                   Clean-up Condition
                 </van-button>
                 <van-button type="primary" color="#3479d4" @click="close">
-                  Search >
+                  Search
+                  <span class="iconfont icon-youjiantou"></span>
                 </van-button>
               </div>
             </van-collapse-item>
@@ -452,10 +457,10 @@ const offlineList = ref([
                     font-size: 13px;
                     position: relative;
                     &.active {
-                      border: 1px solid #177ddc;
+                      border-color:#177ddc; 
                       color: #177ddc;
                     }
-                    > div {
+                    >div {
                       border-top: 8px solid transparent;
                       border-left: 10px solid transparent;
                       border-bottom: 8px solid #177ddc;
@@ -463,11 +468,13 @@ const offlineList = ref([
                       position: absolute;
                       bottom: 0;
                       right: 0;
-                      > span {
-                        position: absolute;
-                        color: #ffffff;
-                        bottom: -13px;
-                      }
+                        .checked{
+                            z-index:5;
+                            position:absolute;
+                            left:-1px;
+                            bottom:-13px;
+                            font-size:10px;
+                          }
                     }
                   }
                 }
@@ -491,7 +498,7 @@ const offlineList = ref([
                       border: 1px solid #177ddc;
                       color: #177ddc;
                     }
-                    > div {
+                    >div {
                       border-top: 8px solid transparent;
                       border-left: 10px solid transparent;
                       border-bottom: 8px solid #177ddc;
@@ -499,11 +506,13 @@ const offlineList = ref([
                       position: absolute;
                       bottom: 0;
                       right: 0;
-                      > span {
-                        position: absolute;
-                        color: #ffffff;
-                        bottom: -13px;
-                      }
+                     .checked{
+                            z-index:5;
+                            position:absolute;
+                            left:-1px;
+                            bottom:-13px;
+                            font-size:10px;
+                          }
                     }
                   }
                 }

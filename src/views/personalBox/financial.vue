@@ -11,7 +11,7 @@
         title="Last 15 days"
        
       >
-        <!-- <ul>
+        <ul>
           <li
             v-for="(item, index) in ulList"
             :key="index"
@@ -24,14 +24,14 @@
         <div class="button">
           <van-button type="primary">Reset</van-button>
           <van-button type="primary" color="#fb5757">Confirm</van-button>
-        </div> -->
+        </div>
       </van-dropdown-item>
 
       <van-dropdown-item v-model="value2" :options="option2" 
       @click="popup" 
       title="ALL">  
 
-        <!-- <ul class="allBox">
+        <ul class="allBox">
           <li
             v-for="(item, index) in allList"
             :key="index"
@@ -44,7 +44,7 @@
         <div class="button">
           <van-button type="primary">Reset</van-button>
           <van-button type="primary" color="#fb5757">Confirm</van-button>
-        </div> -->
+        </div>
       </van-dropdown-item>
     </van-dropdown-menu>
 
