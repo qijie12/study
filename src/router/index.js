@@ -148,6 +148,17 @@ const routes = [
     name:'member',
     component:()=>import('../views/personalBox/member.vue')
   },
+  {
+    path:'/exercise',
+    name:'exercise',
+    component:()=>import('../views/personalBox/exercise.vue')
+  },
+  {
+    path:'/shop',
+    name:'shop',
+    component:()=>import('../views/personalBox/shop.vue')
+  },
+ 
   
 ];
 

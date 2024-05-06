@@ -856,7 +856,7 @@ const gameList = ref([
         width:300px;
         height:400px;
         h4{
-          color: #323223;;
+          color: #323223;
         }
       }
     }
