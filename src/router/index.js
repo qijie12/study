@@ -136,17 +136,17 @@ const routes = [
   {
     path:'/display',
     name:'display',
-    component:()=>import('../views/personalBox/display.vue')
+    component:()=>import('../views/widgetBox/display.vue')
   },
   {
     path:'/reportForms',
     name:'reportForms',
-    component:()=>import('../views/personalBox/reportForms.vue')
+    component:()=>import('../views/widgetBox/reportForms.vue')
   },
   {
     path:'/member',
     name:'member',
-    component:()=>import('../views/personalBox/member.vue')
+    component:()=>import('../views/widgetBox/member.vue')
   },
   {
     path:'/exercise',
@@ -154,11 +154,15 @@ const routes = [
     component:()=>import('../views/personalBox/exercise.vue')
   },
   {
-    path:'/shop',
-    name:'shop',
-    component:()=>import('../views/personalBox/shop.vue')
+    path:'/turnplate',
+    name:'turnplate',
+    component:()=>import('../views/widgetBox/turnplate.vue')
   },
- 
+  {
+    path:'/promotion',
+    name:'promotion',
+    component:()=>import('../views/widgetBox/promotion.vue')
+  },
   
 ];
 

@@ -10,4 +10,4 @@ export function login(params) {
     method: 'post',
     data: params,
   });
-}
+};

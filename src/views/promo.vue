@@ -10,7 +10,7 @@
     </div>
 
     <div class="center_con">
-      <div class="cen_img" v-for="(item, index) in imgList" :key="index">
+      <div class="cen_img" v-for="(item, index) in imgList" :key="index" @click="jumpDif(item)">
         <img :src="item.url" @click="call_Activity"/>
         <div class="cen_text">
           <span class="cen_time">{{ item.time }}</span>
@@ -40,21 +40,31 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+import {useRouter} from 'vue-router';
 import bottomComp from "../components/bottomComp.vue";
 import turnplate from "../assets/img/turnplate.png";
 import personage from "../assets/img/upload_live.png";
 import {Activity} from '../api/Activity';
 
+const router =useRouter();
 const imgList = ref([
   {
     url: turnplate,
     time: "2024-03-11 09:28:20~2024-04-30 20:09:56",
+    path:'/turnplate'
   },
   {
     url: personage,
     time: "2024-04-10 08:00:00~2024-04-30 08:00:00",
+    path:'/promotion'
   },
 ]);
+
+const jumpDif=(params)=>{
+  if(params.path){
+    router.push(params.path);
+  }
+}
 
 const call_Activity =async()=>{
   let res =await Activity();
@@ -71,6 +81,7 @@ onMounted(() => {
   width: 100%;
   height: 100vh;
   background-color: rgb(255, 255, 255);
+  font-family: PingFang SC-Bold, PingFang SC;
   .promo_top {
     height: 50px;
     display: flex;
