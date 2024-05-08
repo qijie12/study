@@ -101,7 +101,7 @@
          </div>
        </li> -->
     </ul>
-    
+
     <div class="button">
       <van-button
         type="primary"
@@ -181,35 +181,65 @@
         <div class="copyright">©LURSSENVIP. All rights reserved</div>
       </div>
     </div>
-    
 
-    <div class="setpBox">
-        <van-popup
+    <!-- <div class="setpBox">
+      <van-popup
         v-model:show="showBottom"
         position="bottom"
-        round closeable
+        round
+        closeable
         :style="{ height: '40.5%' }"
       >
-      <div class="popTop">
-        <img src="../assets/img/game_picture10.jpg"/>
-        <b>Learn how to earn cash through lottery games</b>
-      </div>
-      <div class="title">Deposit 100 & experience lottery games</div>
-      <div class="setp">
-        <p class="setpTit">Complete the steps below to getrewards</p>
-        <p class="setpCon">①、Deposit $100 and bet on lottery games.</p>
-        <p class="setpCon">②、Contact your mentor to request the activation code.</p>
-        <p class="setpCon">③、Get commission</p>
-      </div>
-      <van-button type="primary" block @click="showCode">GET ₹20</van-button>
-    </van-popup>
-    </div>
+        <div class="popTop">
+          <img src="../assets/img/game_picture10.jpg" />
+          <b>Learn how to earn cash through lottery games</b>
+        </div>
+        <div class="title">Deposit 100 & experience lottery games</div>
+        <div class="setp">
+          <p class="setpTit">Complete the steps below to getrewards</p>
+          <p class="setpCon">①、Deposit $100 and bet on lottery games.</p>
+          <p class="setpCon">
+            ②、Contact your mentor to request the activation code.
+          </p>
+          <p class="setpCon">③、Get commission</p>
+        </div>
+        <van-button type="primary" block @click="showCode">GET ₹20</van-button>
+      </van-popup>
+    </div> -->
     <div class="codeBox">
-      <van-popup v-model:show="showCenter" round  >
+      <van-popup v-model:show="showCenter" round>
         <div>
           <h4>Setp 1.</h4>
+          <p>
+            Get the
+            <span>activation code</span>
+            from your assigned receptionist.
+          </p>
+          <img src="../assets/img/telegram.png" />
+          <hr style="border: 0.5px solid #fda922;margin-bottom:20px;" />
+          <h4>Setp 2.</h4>
+          <p>
+            Enter the
+            <span>activation code</span>
+            from the receptionist
+          </p>
+          <van-form @submit="onSubmit">          
+              <van-field
+                v-model="username"
+                placeholder="Please enter the activation code"
+                :rules="[{ required: true, message: 'Please enter the activation code' }]"
+              />
+              
+          </van-form>
+
+          <van-button type="primary" block color="linear-gradient(to right,#ffec00,#feba00)">Submit</van-button>
         </div>
-      </van-popup>  
+      </van-popup>
+    </div>
+    <div class="moreBox">
+      <van-popup v-model:show="showCenter2" round>
+
+      </van-popup>
     </div>
 
     <bottomComp></bottomComp>
@@ -238,15 +268,16 @@ import game_img8 from "../assets/img/game_picture8.png";
 
 const route = useRoute();
 
-const showBottom=ref(false);
-const showCenter=ref(false);
-const appear=()=>{
-  showBottom.value=true
-}
+const showBottom = ref(false);
+const showCenter = ref(false);
 
-const showCode=()=>{
-  showCenter.value=true
-}
+const appear = () => {
+  showBottom.value = true;
+};
+
+const showCode = () => {
+  showCenter.value = true;
+};
 
 const rollList = ref([
   {
@@ -507,7 +538,7 @@ const gameList = ref([
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     grid-gap: 10px;
-    >li {
+    > li {
       background: rgb(255, 255, 255);
       width: 100%;
       height: 120px;
@@ -797,67 +828,109 @@ const gameList = ref([
       }
     }
   }
-  .setpBox{
-    .van-popup{
-    padding:15px;
-    .popTop{
-      padding-right:30px;
-      width:100%;
-      height:50px;
-      display:flex;
-      align-items:center;
-      font-size:14px;
-      color:#303030;
-      line-height:22px;
-      >img{
-        width:50px;
-        height:100%;
-        margin-right:10px;
-      }
-    }
-    .title{
-      width:100%;
-      height:40px;
-      font-size:12px;
-      font-weight:700;
-      color:#999;
-      border-top:1px solid #f1f1f1;
-      border-bottom:1px solid #f1f1f1;
-      line-height:38px;
-      margin:10px 0 12px 0;
-    }
-    .setp{
-      margin-bottom:20px;
-      font-size:14px;
-      font-weight:700;
-      color:#303030;
-      .setpTit{
-        padding-bottom:10px;
-      }
-      .setpCon{
-        line-height:21px;
-      }
-    }
-    .van-button{
-      height:50px;
-      background:linear-gradient(to right, #ffec00,#feba00);
-      border-color:transparent;
-      .van-button__text{
-        color:#303030;
-        font-weight:700;
-        font-size:22px;
-      }
-    }
-  }
-  }
-  .codeBox{
-    .van-popup{
-      >div{
-        width:300px;
-        height:400px;
-        h4{
-          color: #323223;
+  .setpBox {
+    .van-popup {
+      padding: 15px;
+      .popTop {
+        padding-right: 30px;
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        color: #303030;
+        line-height: 22px;
+        > img {
+          width: 50px;
+          height: 100%;
+          margin-right: 10px;
         }
+      }
+      .title {
+        width: 100%;
+        height: 40px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #999;
+        border-top: 1px solid #f1f1f1;
+        border-bottom: 1px solid #f1f1f1;
+        line-height: 38px;
+        margin: 10px 0 12px 0;
+      }
+      .setp {
+        margin-bottom: 10px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #303030;
+        .setpTit {
+          padding-bottom: 5px;
+        }
+        .setpCon {
+          line-height: 21px;
+        }
+      }
+      .van-button {
+        height: 50px;
+        background: linear-gradient(to right, #ffec00, #feba00);
+        border-color: transparent;
+        .van-button__text {
+          color: #303030;
+          font-weight: 700;
+          font-size: 22px;
+        }
+      }
+    }
+  }
+  .codeBox {
+    .van-popup {
+      > div {
+        width: 300px;
+        height: 400px;
+        padding: 0 10px;
+        text-align: center;
+        > h4 {
+          color: #323223;
+          margin: 10px 0 15px 0;    
+        }
+        
+        >p {
+          font-size: 16px;
+          color: #303030;
+          font-weight: 600;
+          > span {
+            color: #ee0a24;
+          }
+        }
+        > img {
+          width: 70px;
+          height: 70px;
+          margin-top: 10px;
+        }
+        .van-form{
+          margin:10px 0 15px 0;
+          .van-field{
+            background:#f4f4f4;
+            .van-field__body{
+              .van-field__control{
+                font-weight:700;
+                color: #303030;
+                font-size:14px; 
+              }
+                       
+            }
+            .van-field__error-message{
+                color:#ee0a24;
+                font-size:12px;
+                font-weight:700;
+              }
+          }
+        }
+        .van-button{  
+         .van-button__text{
+          color:#303030;
+          font-weight: 700;
+         }  
+        } 
       }
     }
   }
