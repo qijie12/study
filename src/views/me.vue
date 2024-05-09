@@ -164,8 +164,6 @@ const copyID =()=>{
       // alert('已复制ID: ' + id.value);
       showSuccessToast('Successful \n replication')
 };
-
-
 // const jumpWith =()=>{
 //   router.push({
 //     path: '/deposit',
@@ -174,6 +172,46 @@ const copyID =()=>{
 //     }
 //   })
 // };
+const jumpvip=()=>{
+  router.push('/vip')
+};
+
+const jumpPerson= (params)=>{
+  if(params.path){
+    router.push(params.path)
+  };
+};
+
+const jumpDif=(params)=>{
+  if(params.path && !params.query){
+    router.push(params.path)
+  }else if(params.query){
+    router.push({
+      path:params.path,
+      query:params.query,
+    })
+  }
+}; 
+
+const jump = (params) => {
+  if(params.path && !params.query) {
+    router.push(params.path)
+  }else if(params.query){
+    router.push({
+      path: params.path,
+      query:params.query,
+    })
+  }
+}
+// const getRoute = (path, query) => {
+//   if(!path || !query) {
+//     console.log("path/query不存在")
+//     return false
+//   }
+//    console.log("path/query存在")
+// }
+
+// getRoute('1', '2')
 const funcList =ref([
   {
     url:withsrawal,
@@ -223,8 +261,6 @@ const personageList=ref([
   },
 ])
 
-
-
 const setList =ref([
   {
     url:FAQ,
@@ -246,48 +282,7 @@ const setList =ref([
   },
 ])
 
-const jumpvip=()=>{
-  router.push('/vip')
-};
-
-const jumpPerson= (params)=>{
-  if(params.path){
-    router.push(params.path)
-  };
-};
-
-const jumpDif=(params)=>{
-  if(params.path && !params.query){
-    router.push(params.path)
-  }else if(params.query){
-    router.push({
-      path:params.path,
-      query:params.query,
-    })
-  }
-}; 
-
-const jump = (params) => {
-  if(params.path && !params.query) {
-    router.push(params.path)
-  }else if(params.query){
-    router.push({
-      path: params.path,
-      query:params.query,
-    })
-  }
-}
-
-// const getRoute = (path, query) => {
-//   if(!path || !query) {
-//     console.log("path/query不存在")
-//     return false
-//   }
-//    console.log("path/query存在")
-// }
-
-// getRoute('1', '2')
-
+ 
 </script>
 
 <style lang="scss">

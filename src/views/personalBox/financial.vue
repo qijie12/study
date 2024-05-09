@@ -64,11 +64,17 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
 
+const value2=ref();
+const option2=ref();
+const showTop=ref(false);
+const ulListIndex = ref(0);
+
+const bright = (index) => {
+  ulListIndex.value = index;
+};
 const jumpMe = () => {
   router.push("/Me");
 };
-
-const showTop=ref(false);
 const popup=()=>{
   showTop.value=true
 };
@@ -80,10 +86,6 @@ const ulList = ref([
   { text: "Last 15 days" },
   { text: "Last 30 days" },
 ]);
-const ulListIndex = ref(0);
-const bright = (index) => {
-  ulListIndex.value = index;
-};
 
 const allList = ref([
   { text: "ALL" },

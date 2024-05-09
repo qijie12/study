@@ -163,6 +163,11 @@ const routes = [
     name:'promotion',
     component:()=>import('../views/widgetBox/promotion.vue')
   },
+  {
+    path:'/records',
+    name:'records',
+    component:()=>import('../views/widgetBox/records.vue')
+  },
   
 ];
 

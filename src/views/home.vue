@@ -60,7 +60,7 @@
     <div class="task_title">💎 The daily update task</div>
 
     <ul class="game_list">
-      <li v-for="(item, index) in gameList" :key="index" @click="showBottom">
+      <li v-for="(item, index) in gameList" :key="index">
         <div class="game_top">
           <img :src="item.url" />
           <div class="game_text">
@@ -78,7 +78,7 @@
               <span>{{ item.ensure }}</span>
             </div>
           </div>
-          <div class="sum" @click="appear">{{ item.num }}</div>
+          <div class="sum" @click="appear(index)">{{ item.num }}</div>
         </div>
       </li>
       <!-- <li>       
@@ -182,7 +182,7 @@
       </div>
     </div>
 
-    <!-- <div class="setpBox">
+    <div class="setpBox">
       <van-popup
         v-model:show="showBottom"
         position="bottom"
@@ -205,7 +205,7 @@
         </div>
         <van-button type="primary" block @click="showCode">GET ₹20</van-button>
       </van-popup>
-    </div> -->
+    </div>
     <div class="codeBox">
       <van-popup v-model:show="showCenter" round>
         <div>
@@ -236,9 +236,15 @@
         </div>
       </van-popup>
     </div>
-    <div class="moreBox">
-      <van-popup v-model:show="showCenter2" round>
 
+    <div class="moreBox">
+      <van-popup v-model:show="showCenter2" round >
+        <div @click="jumpDeposit">
+          <img src="../assets/img/vip_ad-e682480a.png"/>
+          <div class="but">
+            I WANT TO MAKE MORE!!
+          </div>
+        </div>
       </van-popup>
     </div>
 
@@ -248,7 +254,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute ,useRouter} from "vue-router";
 import topComp from "../components/topComp.vue";
 import bottomComp from "../components/bottomComp.vue";
 import headImg from "../assets/img/img23-0452ef16.png";
@@ -266,18 +272,34 @@ import game_img6 from "../assets/img/game_picture6.jpg";
 import game_img7 from "../assets/img/game_picture7.jpg";
 import game_img8 from "../assets/img/game_picture8.png";
 
+
 const route = useRoute();
+const router = useRouter();
 
-const showBottom = ref(false);
+const username=ref()
 const showCenter = ref(false);
-
-const appear = () => {
-  showBottom.value = true;
+const showBottom = ref(false);
+const showCenter2 =ref(false);
+const appear = (index) => {
+ 
+    if (index === 0) {
+    showBottom.value = !showBottom.value;
+  } else if(index !=0){
+    showCenter2.value = !showBottom.value;
+  }
+  
 };
+const onSubmit=()=>{}
 
 const showCode = () => {
   showCenter.value = true;
 };
+
+const jumpDeposit=()=>{
+  router.push('/deposit')
+};
+
+
 
 const rollList = ref([
   {
@@ -931,6 +953,35 @@ const gameList = ref([
           font-weight: 700;
          }  
         } 
+      }
+    }
+  }
+  .moreBox {
+    .van-popup {
+      >div {
+        width: 320px;
+        height: 480px;
+        overflow:hidden;
+        position:relative;
+       >img{
+        width:100%;
+        height:100%;
+       }
+       .but{
+         position:absolute;
+         width:100%;
+         height:70px;
+         bottom:0;
+         background-image:url('../assets/img/red-bg.png');
+         background-size:cover;
+         display:flex;
+         align-items:center;
+         justify-content:center;
+         color:#ffffff;
+         font-size:20px;
+         font-weight:800;
+        
+       }
       }
     }
   }

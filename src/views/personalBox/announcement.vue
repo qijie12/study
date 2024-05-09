@@ -26,7 +26,7 @@
           :overlay="false"
           z-index="2"
           v-model:show="showRight"
-          close-on-click-overlay="true"
+          :close-on-click-overlay="true"
           position="right"
           :style="{ width: '100%', height:'100%' }"
         >
@@ -50,7 +50,8 @@
 
 <script setup>
 import { ref } from "vue";
-import {useRouter} from 'vue-router'
+import {useRouter} from 'vue-router';
+import {Announcement} from '../../api/Announcement';
 const showRight =ref(false);
 
 const router = useRouter()
@@ -66,6 +67,15 @@ const onClickLeft = () => {
   showRight.value=false
 };
 
+const call_Announcement= async()=>{
+  let params={
+      // content:content.value,
+      // content_text:content_text.value,
+      // publish_date:publish_date.value,
+  };
+   let res= await Announcement(params);
+   console.log(res,'Announcement-----------')
+}
 
 </script>
 

@@ -23,6 +23,9 @@ import {ref} from 'vue';
 import {useRouter} from 'vue-router';
 
 const router=useRouter();
+
+const value1=ref();
+const value2=ref();
 const onClickLeft=()=>{
   router.back()
 };

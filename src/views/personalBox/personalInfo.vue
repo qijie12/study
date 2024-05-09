@@ -120,6 +120,9 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
+const username=ref()
+const password=ref()
+const onSubmit=()=>{}
 
 const jumpMe = () => {
   router.back();

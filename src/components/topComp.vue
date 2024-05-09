@@ -16,18 +16,39 @@
         <img class="title_img" src="../assets/img/logo-dice.png" />
         <b>LURSSENVIP</b>
       </div>
-      <img class="bottom_flag" src="../assets/img/flag-img.png" />
+      <img
+        class="bottom_flag"
+        src="../assets/img/flag-img.png"
+        @click="toast"
+      /> 
+      
+      <!-- <van-popup v-model:show="show"  position="top" :style="{ height: '5.9%',width:'27.5%',top: '90px', left: '72%'}" :overlay="false">
+        
+      </van-popup>   -->
+      <div class="hint" v-show="show">  
+        <img src="../assets/img/flag-img.png"/>
+        <span>English</span>
+      </div>
     </div>
+     
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref , onMounted, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
+
 const router = useRouter();
+
 const jump_download = () => {
   router.push("/download");
 };
+
+const show =ref(false);
+const toast=()=>{
+  show.value=!show.value;
+};
+
 </script>
 
 <style lang="scss">
@@ -39,6 +60,7 @@ const jump_download = () => {
   top: 0;
   z-index: 10;
   height: 88px;
+
   .box-top {
     height: 48px;
     width: 100%;
@@ -115,7 +137,33 @@ const jump_download = () => {
     .bottom_flag {
       width: 24px;
       height: 24px;
-    }
+    } 
+    // .van-popup{    
+    //     background:rgba(51, 51, 51,.9);
+    //     border-radius:8px;      
+    // }
+    .hint{    
+      width:103px;
+      height:48px;
+      background:rgba(51, 51, 51,.9);
+      padding:6px 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-radius:8px;
+      position:absolute;
+      right:0;
+      bottom:-48px;      
+      >img{
+        width:24px;
+        height:24px;
+      }
+      >span{
+        font-size:14px;
+        color:#ffffff;
+      }
+    } 
   }
+  
 }
 </style>

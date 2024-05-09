@@ -4,7 +4,7 @@
       <div class="depositTop">
       <span class="iconfont icon-arrow-left" @click="jumpHome"></span>
       <b>Deposit</b>
-      <div class="records"><span>Transaction Records</span></div>
+      <div class="records" @click="jumpRecords"><span>Transaction Records</span></div>
     </div>
 
     <van-tabs
@@ -184,14 +184,30 @@ import { useRoute,useRouter } from "vue-router";
 const route = useRoute()
 const router = useRouter();
 
+const value=ref();
+const password=ref();
+const number=ref();
+const active=ref(0);
+const amountIndex = ref(0);
+
+const onClickTab=()=>{};
+const onSubmit=()=>{};
 const jumpHome = () => {
   router.back();
 };
-const amountIndex = ref(0);
-
+const jumpRecords=()=>{
+  router.push('/records')
+}
 const lightChecked = (index) => {
   amountIndex.value = index;
 };
+
+onMounted(() => {
+  let params = route.query;
+  if(params?.tab) {
+    active.value = 1
+  }
+});
 
 const amountList = ref([
   { num: "100" },
@@ -203,20 +219,12 @@ const amountList = ref([
   { num: "10k" },
 ]);
 
-const active=ref(0);
-
-onMounted(() => {
-  let params = route.query;
-  if(params?.tab) {
-    active.value = 1
-  }
-});
 </script>
 
 <style lang="scss">
 #share-deposit-box {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   font-family: PingFang SC-Bold, PingFang SC;
   background: rgb(255, 255, 255);
   padding: 0 10px;

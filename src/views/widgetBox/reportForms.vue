@@ -38,6 +38,7 @@ import { useRouter } from "vue-router";
 import pinkTopComp from "../../components/pinkTopComp.vue";
 
 const router = useRouter();
+const active=ref()
 const jumpMe = () => {
   router.go(-2);
 };
