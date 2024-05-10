@@ -195,9 +195,11 @@ const copyID =()=>{
   height: 100%;
   font-family: PingFang SC-Bold, PingFang SC;
   background: rgb(255, 255, 255);
+  overflow:hidden;
     &::-webkit-scrollbar {
     display: none; 
    }
+
   .van-nav-bar {
     // &::after {
     //   display: none;

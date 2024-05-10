@@ -21,11 +21,22 @@
 
    <div id="Deposit-con" v-if="!active">   
     <h4>Deposit method</h4>
-    <div class="currency">
-      <b>Deposit by fiat currency</b>
-    </div>
+    <ul class="currency" >
+      <li v-for="(item,index) in currencyList" :key="index"
+       @click="lightCurrency(index)"
+      :class="{active:currencyIndex===index}"
+     >
+         <b>{{item.text}}</b>
+      </li>
+      <!-- <li >
+        <b>Deposit by fiat currency</b>
+      </li>
+      <li>
+        <b>Deposit by USDT</b>
+      </li> -->
+    </ul>
 
-    <div class="deposit_amount">
+    <div class="deposit_amount" v-if="currencyIndex===0" >
       <p class="amountTitle">Deposit amount</p>
       <van-cell-group inset>
         <van-field v-model="value" placeholder="Please input">
@@ -59,6 +70,30 @@
        Confirm
        </van-button>
     </div>
+
+    <div class="usdt" v-else-if="currencyIndex===1">
+       <p class="usdtTit">Depost chain name</p>
+       <van-field  model-value="TRC20-USDT" readonly placeholder="Please input" :is-link="true">    
+       </van-field>
+
+       <p class="usdtTit">Deposit amount</p>
+       <van-field  placeholder="Please input" v-model="usdtAmount" type="number"> 
+         <template #right-icon>
+           <span>USDT</span>
+         </template>   
+       </van-field>
+       <p class="restrict">Deposit amount of USDT >> Minimum: 1.00 USDT, Maximum: 10,000.00 USDT</p>
+       <div class="convert">
+        <p class="num">1.00 USDT =</p>
+        <p class="ing">78.00 INR</p>
+        <p class="trial">Trial calculation</p>
+        <van-button type="primary" block color="linear-gradient(to bottom,#324a70,#446291)"
+        >₹{{ formattedAmount  }}</van-button>
+       </div>
+
+       <van-button class="confirm" type="primary" block >Confirm</van-button>
+    </div>
+
     </div>
     
     <div id="Withdrawal-con" v-else>
@@ -178,23 +213,47 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted ,computed ,watch } from "vue";
 import { useRoute,useRouter } from "vue-router";
-
 const route = useRoute()
 const router = useRouter();
+
+const usdtAmount=ref('');
+
+// 假设这里有一个函数可以将输入的 USDT 转换为 INR
+const convertToINR = (usdt) => {
+  // 这里是转换的逻辑，暂时用假数据替代
+  return parseFloat(usdt) * 78; // 假设每个 USDT 转换为 78 INR
+};
+// 格式化输出函数，每隔三位添加一个逗号
+const formatAmount = (amount) => {
+  return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+const formattedAmount = ref('0,00'); // 默认设置为 '0,00'
+
+// 监听输入框的变化
+watch(usdtAmount, (newValue, oldValue) => {
+  if (newValue === '') {
+    formattedAmount.value = '0,00'; // 如果输入框值为空，则将按钮的默认值设置为 '0,00'
+  } else {
+    formattedAmount.value = formatAmount(convertToINR(newValue)) + ',00';
+  }
+});
 
 const value=ref();
 const password=ref();
 const number=ref();
 const active=ref(0);
 const amountIndex = ref(0);
-
+const currencyIndex = ref(0);
 const onClickTab=()=>{};
 const onSubmit=()=>{};
 const jumpHome = () => {
   router.back();
 };
+
+
+
 const jumpRecords=()=>{
   router.push('/records')
 }
@@ -202,6 +261,9 @@ const lightChecked = (index) => {
   amountIndex.value = index;
 };
 
+const lightCurrency=(index)=>{
+  currencyIndex.value = index;
+}
 onMounted(() => {
   let params = route.query;
   if(params?.tab) {
@@ -219,15 +281,21 @@ const amountList = ref([
   { num: "10k" },
 ]);
 
+const currencyList=ref([
+  {text:'Deposit by fiat currency'},
+  {text:'Deposit by USDT'}
+]);
+
 </script>
 
 <style lang="scss">
 #share-deposit-box {
   width: 100%;
   height: 100%;
+  overflow:hidden;
   font-family: PingFang SC-Bold, PingFang SC;
   background: rgb(255, 255, 255);
-  padding: 0 10px;
+  padding: 0 12px;
   position:relative;
   .top_top{
     background: rgb(255, 255, 255);
@@ -267,21 +335,33 @@ const amountList = ref([
       font-size: 14px;
       color: #323232;
     }
-    .currency {
+    >.currency{
+      display:flex;
+      justify-content:space-between; 
+      >li {
       width: 170px;
       height: 60px;
-      background: #ffd1d1;
       border-radius: 10px;
-      border: 2px solid #ff5454;
+      
+      background: #eeeeee;
       display: flex;
       justify-content: center;
       padding: 0 8px;
       align-items: center;
       text-align: center;
+      &:last-child{
+        width: 170px;
+        height: 40px;
+      }
+      &.active{
+        background: #ffd1d1;
+        border: 2px solid #ff5454;
+      }
       > b {
         color: #594735;
         font-size: 14px;
       }
+    }
     }
     .deposit_amount {
       margin-top: 25px;
@@ -334,6 +414,60 @@ const amountList = ref([
         .noticeTitle {
           color: #ff5454;
         }
+      }
+    }
+    .usdt{    
+      .usdtTit{
+        margin-top: 25px;
+        font-size: 13px;
+        color: #594735;
+        margin-bottom: 5px;
+      }
+      >.van-field{
+        background: rgb(242, 242, 242);
+          .van-field__right-icon {
+            > span {
+              color: #594735;
+            }
+          }
+      }
+      .restrict{
+        font-size:12px;
+        color:#ff5858;
+        line-height:1.8;
+      }
+      .convert{
+        width:100%;
+        height:166px;
+        border-radius:8px;
+        box-shadow:inset 2px 2px 8px #0003, inset -2px -2px 8px #00000008;
+        padding:16px 16px 15px 16px;
+        margin-bottom:10px;
+        .num{
+          color:#868686;
+          font-size:14px; 
+        }
+        .ing{
+          color:#000000;
+          font-size:18px;
+          margin:8px 0 22px 0; 
+        } 
+        .trial{
+          color:#000000;
+          font-size:13px; 
+          background:linear-gradient()
+        }
+        .van-button{
+          .van-button__text{
+            font-weight:600;
+            font-size:16px;
+          }
+        }
+      }
+      .confirm{
+        height:40px;
+        background:#f1f1f1;
+        border-color:transparent;
       }
     }
   }
