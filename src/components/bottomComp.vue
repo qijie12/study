@@ -46,6 +46,7 @@ import home from "../assets/img/home11-img.png";
 import home_active from "../assets/img/home.png";
 import promo from "../assets/img/promo-img.png";
 import promo_active from "../assets/img/promo1-img.png";
+import dice from "../assets/img/logo111.png";
 import dice_active from "../assets/img/logo-dice.png";
 import deposit from "../assets/img/deposit-img.png";
 import me from "../assets/img/me-img.png";
@@ -84,7 +85,7 @@ const menuList = ref([
   {
     path: "/Games",
     title: "Games",
-    url: dice_active,
+    url: dice,
     active: dice_active,
   },
   {

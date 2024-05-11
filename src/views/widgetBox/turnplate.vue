@@ -6,7 +6,7 @@
       <div @click="popup"><span>Spin Record</span></div>
     </div>
     <div class="con">
-      <div class="turnplateMoney">
+      <div class="turnplateMoney" :class="{active: isStartAnimation}">
         <div
           class="prize-list"
           style="
@@ -43,10 +43,7 @@
           <div
             class="prize-item"
             style="
-              width: 3.50811rem;
-              height: 6.7rem;
               transform: rotate(15deg);
-              transform-origin: 50% 100%;
             "
           >
             <p>58</p>
@@ -54,10 +51,7 @@
           <div
             class="prize-item"
             style="
-              width: 3.50811rem;
-              height: 6.7rem;
               transform: rotate(45deg);
-              transform-origin: 50% 100%;
             "
           >
             <p>88</p>
@@ -65,10 +59,7 @@
           <div
             class="prize-item"
             style="
-              width: 3.50811rem;
-              height: 6.7rem;
               transform: rotate(75deg);
-              transform-origin: 50% 100%;
             "
           >
             <p>188</p>
@@ -76,10 +67,8 @@
           <div
             class="prize-item"
             style="
-              width: 3.50811rem;
-              height: 6.7rem;
               transform: rotate(105deg);
-              transform-origin: 50% 100%;
+              
             "
           >
             <p>288</p>
@@ -87,10 +76,8 @@
           <div
             class="prize-item"
             style="
-              width: 3.50811rem;
-              height: 6.7rem;
               transform: rotate(135deg);
-              transform-origin: 50% 100%;
+              
             "
           >
             <p>488</p>
@@ -98,10 +85,8 @@
           <div
             class="prize-item"
             style="
-              width: 3.50811rem;
-              height: 6.7rem;
               transform: rotate(165deg);
-              transform-origin: 50% 100%;
+              
             "
           >
             <p>588</p>
@@ -109,10 +94,8 @@
           <div
             class="prize-item"
             style="
-              width: 3.50811rem;
-              height: 6.7rem;
               transform: rotate(195deg);
-              transform-origin: 50% 100%;
+              
             "
           >
             <p>688</p>
@@ -120,10 +103,8 @@
           <div
             class="prize-item"
             style="
-              width: 3.50811rem;
-              height: 6.7rem;
               transform: rotate(225deg);
-              transform-origin: 50% 100%;
+              
             "
           >
             <p>788</p>
@@ -131,10 +112,7 @@
           <div
             class="prize-item"
             style="
-              width: 3.50811rem;
-              height: 6.7rem;
               transform: rotate(255deg);
-              transform-origin: 50% 100%;
             "
           >
             <p>888</p>
@@ -142,10 +120,7 @@
           <div
             class="prize-item"
             style="
-              width: 3.50811rem;
-              height: 6.7rem;
               transform: rotate(285deg);
-              transform-origin: 50% 100%;
             "
           >
             <p>988</p>
@@ -153,24 +128,18 @@
           <div
             class="prize-item"
             style="
-              width: 3.50811rem;
-              height: 6.7rem;
               transform: rotate(315deg);
-              transform-origin: 50% 100%;
             "
           >
-            <p>IPHONE 15 PRO MAX</p>
+            <p class="name">IPHONE 15 PRO MAX</p>
           </div>
           <div
             class="prize-item"
             style="
-              width: 3.50811rem;
-              height: 6.7rem;
               transform: rotate(345deg);
-              transform-origin: 50% 100%;
             "
           >
-            <p>YAMAHA R15</p>
+            <p class="name">YAMAHA R15</p>
           </div>
         </div>
       </div>
@@ -269,23 +238,32 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { Turnlate } from "../../api/Turnplate";
 import { useRouter } from "vue-router";
-
+import { showToast } from 'vant';
 const router = useRouter();
 
+const showPopover =ref(false);
 const backtrack = () => {
   router.back();
 };
 const showCenter = ref(false);
+const isStartAnimation = ref(false)
 const popup = () => {
   showCenter.value = true;
 };
 const hidden = () => {
   showCenter.value = false;
 };
-
+const actions =ref ([
+      { text: '选项一' },
+      { text: '选项二' },
+      { text: '选项三' },
+    ]);
+const onSelect = () =>{
+   showPopover.value=true
+}
 // const call_Turnlate= async()=>{
 //     let params={
 //         id:amount.value,
@@ -309,6 +287,12 @@ const call_Turnlate = () => {
     })
     .catch((err) => {});
 };
+
+onMounted(() => {
+  setInterval(() => {
+    isStartAnimation.value = !isStartAnimation.value
+  },500)
+})
 </script>
 
 <style lang="scss">
@@ -359,39 +343,58 @@ const call_Turnlate = () => {
     }
     .turnplateMoney {
       z-index: 2;
-      width: 100%;
-      height: 384px;
+      width: 330px;
+      height: 330px;
       position: relative;
       background-image: url("../../assets/img/turnplate-bg.png");
+      background-position: 0px 0px;
       background-repeat: no-repeat;
       background-size: cover;
-      top: -20px;
-      margin: 0 auto;
+      top: 0px;
+      left: 20px;
+      // margin: 0 auto;
+      overflow: hidden;
+      transform: scale(1.2); //sclae 放大缩小
+      &.active {
+         background-position: -330px 0px;
+      }
 
       .prize-list {
         position: relative;
-        width: 295px;
-        height: 295px;
+        width: 254px;
+        height: 254px;
         border-radius: 50%;
         border: none;
         overflow: hidden;
         margin: 0 auto;
-        top: 45px;
-        left: 4px;
+        top: 37px;
+        left: 0px;
+        
         .prize-item {
+          width: 3.50811rem;
+          height: 7.1rem;
           position: absolute;
           left: 0;
           right: 0;
-          top: 38px;
+          top: 20px;
           margin: 0 auto;
           padding-top: 14px;
+          transform-origin: 50% 100%;
+          
           > p {
-            font-size: 20px;
+            font-size: 14px;
             font-weight: 600;
             white-space: nowrap;
             text-align: center;
             width: 100%;
             line-height: 370px;
+            transform: rotate(90deg);
+            padding-right: 50px;
+            &.name {
+              font-size: 8px;
+              white-space: nowrap;
+              transform: rotate(90deg) translateX(-20px);
+            }
           }
         }
       }
@@ -401,9 +404,9 @@ const call_Turnlate = () => {
       height: 75px;
       margin: auto;
       position: relative;
-      top: -255px;
+      top: -203px;
       z-index: 8;
-      left: 4px;
+      left: 0px;
       > img {
         height: 100%;
         width: 100%;
@@ -423,13 +426,14 @@ const call_Turnlate = () => {
         z-index: 8;
         position: absolute;
         left: 72px;
+        top:-4px;
       }
     }
     .winJackpot {
       width: 100%;
       padding: 0 12px;
       position: relative;
-      top: -300px;
+      top: -260px;
       .outer_space {
         position: relative;
         z-index: 5;
@@ -445,17 +449,20 @@ const call_Turnlate = () => {
           position: absolute;
           top: 24px;
           left: -2px;
-          transform: rotate(65deg);
-          animation: moveRightToLeft 5s infinite alternate; /* 应用动画效果 */
+          // transform: rotate(65deg);
+          animation: moveRightToLeft 3s infinite linear; /* 应用动画效果 */
           @keyframes moveRightToLeft {
             0% {
-              left: 0px; /* 从右侧边界开始 */
+              // left: 0px; /* 从右侧边界开始 */
+              transform: translateX(0px) rotate(65deg);
             }
             50% {
-              left: -10px; /* 移动到左侧边界 */
+              // left: -20px; /* 移动到左侧边界 */
+              transform:  translateX(-10px) rotate(65deg);
             }
             100% {
-              left: 0px; /* 返回右侧边界 */
+              // left: 0px; /* 返回右侧边界 */
+              transform:  translateX(0px) rotate(65deg);
             }
           }
         }

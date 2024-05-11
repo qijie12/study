@@ -16,39 +16,54 @@
         <img class="title_img" src="../assets/img/logo-dice.png" />
         <b>LURSSENVIP</b>
       </div>
-      <img
+      <!-- <img
         class="bottom_flag"
         src="../assets/img/flag-img.png"
         @click="toast"
-      /> 
-      
-      <!-- <van-popup v-model:show="show"  position="top" :style="{ height: '5.9%',width:'27.5%',top: '90px', left: '72%'}" :overlay="false">
-        
-      </van-popup>   -->
-      <div class="hint" v-show="show">  
-        <img src="../assets/img/flag-img.png"/>
+      /> -->
+
+      <van-popover v-model:show="showPopover" theme="dark" :actions="actions" placement="bottom-end" :show-arrow="false" @select="onSelect">
+        <template #reference>
+          <img
+            class="bottom_flag" 
+            src="../assets/img/flag-img.png"     
+          />
+        </template>
+      </van-popover>
+      <!-- <div class="hint" v-show="show">
+        <img src="../assets/img/flag-img.png" />
         <span>English</span>
-      </div>
+      </div> -->
     </div>
-     
   </div>
 </template>
 
 <script setup>
-import { ref , onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
-
+import flag from '../assets/img/flag-img.png'
 const router = useRouter();
 
+const showPopover =ref(false);
+const actions =ref ([
+      {url:'flag', text: 'English' },
+    ]);
 const jump_download = () => {
   router.push("/download");
 };
 
-const show =ref(false);
-const toast=()=>{
-  show.value=!show.value;
+const show = ref(false);
+const toast = () => {
+  show.value = !show.value;
 };
 
+const clickFunc = () =>{
+  // showPopover.value = true
+}
+
+const onSelect = (v) =>{
+  console.log(v, 'v------------')
+}
 </script>
 
 <style lang="scss">
@@ -137,33 +152,32 @@ const toast=()=>{
     .bottom_flag {
       width: 24px;
       height: 24px;
-    } 
-    // .van-popup{    
+    }
+    // .van-popup{
     //     background:rgba(51, 51, 51,.9);
-    //     border-radius:8px;      
+    //     border-radius:8px;
     // }
-    .hint{    
-      width:103px;
-      height:48px;
-      background:rgba(51, 51, 51,.9);
-      padding:6px 12px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      border-radius:8px;
-      position:absolute;
-      right:0;
-      bottom:-48px;      
-      >img{
-        width:24px;
-        height:24px;
+    .hint {
+      width: 103px;
+      height: 48px;
+      background: rgba(51, 51, 51, 0.9);
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 8px;
+      position: absolute;
+      right: 0;
+      bottom: -48px;
+      > img {
+        width: 24px;
+        height: 24px;
       }
-      >span{
-        font-size:14px;
-        color:#ffffff;
+      > span {
+        font-size: 14px;
+        color: #ffffff;
       }
-    } 
+    }
   }
-  
 }
 </style>

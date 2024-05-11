@@ -39,7 +39,8 @@
     <div class="deposit_amount" v-if="currencyIndex===0" >
       <p class="amountTitle">Deposit amount</p>
       <van-cell-group inset>
-        <van-field v-model="value" placeholder="Please input">
+        <van-field v-model="value" placeholder="Please input" type="number" @input="integer1"
+        >
            <template #right-icon>
             <span>ING</span>
            </template>
@@ -51,7 +52,7 @@
           @click="lightChecked(index)"
           :class="{active: amountIndex === index}"
         >
-           <span>{{item.num}}</span>
+           <span>{{item.name}}</span>
         </li>    
       </ul>
 
@@ -65,7 +66,8 @@
       <div class="confirm"></div>
       <van-button 
       type="primary"block
-      color="#ff5454"
+      color="#f1f1f1"
+      :style="{backgroundColor:confirmButtonColor}"
        >
        Confirm
        </van-button>
@@ -77,7 +79,7 @@
        </van-field>
 
        <p class="usdtTit">Deposit amount</p>
-       <van-field  placeholder="Please input" v-model="usdtAmount" type="number"> 
+       <van-field  placeholder="Please input" v-model="amount" type="number"  @input="integer"> 
          <template #right-icon>
            <span>USDT</span>
          </template>   
@@ -91,7 +93,8 @@
         >₹{{ formattedAmount  }}</van-button>
        </div>
 
-       <van-button class="confirm" type="primary" block >Confirm</van-button>
+       <van-button class="confirm" type="primary" block 
+       :style="{ backgroundColor: confirmButtonColor }">Confirm</van-button>
     </div>
 
     </div>
@@ -217,8 +220,20 @@ import { ref, onMounted ,computed ,watch } from "vue";
 import { useRoute,useRouter } from "vue-router";
 const route = useRoute()
 const router = useRouter();
-
-const usdtAmount=ref('');
+const value=ref('');
+const password=ref();
+const number=ref();
+const active=ref(0);
+const amountIndex = ref(0);
+const confirmIndex = ref(0);
+const currencyIndex = ref(0);
+const onClickTab=()=>{};
+const onSubmit=()=>{};
+const jumpHome = () => {
+  router.back();
+};
+const confirmButtonColor=ref('#f75a59');
+const amount=ref('');
 
 // 假设这里有一个函数可以将输入的 USDT 转换为 INR
 const convertToINR = (usdt) => {
@@ -232,33 +247,39 @@ const formatAmount = (amount) => {
 const formattedAmount = ref('0,00'); // 默认设置为 '0,00'
 
 // 监听输入框的变化
-watch(usdtAmount, (newValue, oldValue) => {
+watch(amount, (newValue, oldValue) => {
   if (newValue === '') {
     formattedAmount.value = '0,00'; // 如果输入框值为空，则将按钮的默认值设置为 '0,00'
   } else {
     formattedAmount.value = formatAmount(convertToINR(newValue)) + ',00';
   }
 });
-
-const value=ref();
-const password=ref();
-const number=ref();
-const active=ref(0);
-const amountIndex = ref(0);
-const currencyIndex = ref(0);
-const onClickTab=()=>{};
-const onSubmit=()=>{};
-const jumpHome = () => {
-  router.back();
-};
-
-
+const integer=() =>{
+      // 只允许输入数字
+      amount.value = amount.value.replace(/\D/g, '');
+      
+      if (amount.value >= 1 && amount.value <= 10000) {
+        confirmButtonColor.value = '#f75a59'; // 在指定范围内的颜色
+      } else {
+        confirmButtonColor.value = '#f1f1f1'; // 不在指定范围内的颜色
+      }
+      
+    };
+const integer1=()=>{
+    value.value=value.value.replace(/\D/g,'')
+    if (value.value >= 1 && value.value <= 10000) {
+        confirmButtonColor.value = '#f75a59'; // 在指定范围内的颜色
+      } else {
+        confirmButtonColor.value = '#f1f1f1'; // 不在指定范围内的颜色
+      }
+ };
 
 const jumpRecords=()=>{
   router.push('/records')
 }
 const lightChecked = (index) => {
   amountIndex.value = index;
+  value.value = amountList.value[index].num;
 };
 
 const lightCurrency=(index)=>{
@@ -268,17 +289,18 @@ onMounted(() => {
   let params = route.query;
   if(params?.tab) {
     active.value = 1
-  }
+  };
+   lightChecked(0);
 });
 
 const amountList = ref([
-  { num: "100" },
-  { num: "500" },
-  { num: "1k" },
-  { num: "2k" },
-  { num: "3k" },
-  { num: "5k" },
-  { num: "10k" },
+  { num: 100, name: '100' },
+  { num: 500, name: '500'},
+  { num: 1000, name: '1k' },
+  { num: 2000, name: '2k' },
+  { num: 3000, name: '3k' },
+  { num: 5000, name: '5k' },
+  { num: 10000, name: '10k' },
 ]);
 
 const currencyList=ref([

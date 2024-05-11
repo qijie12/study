@@ -24,7 +24,7 @@
       text="⭐️⭐️To visit our official website, be sure to use the link below,https:lkgame.xyz// Please remember! Make sure not provide personal data and personal transactions in any form and for any reason to other parties on behalf of LURSSENVIP. Our side does not make private chats or calls to all members. Please inform all Referrals/other Members about this to avoid fraud. Thank you for your attention and cooperation."
     >
     <template #right-icon>
-      <span class="iconfont icon-tongzhixiaoxi" style="padding-left:5px;color:#e46161"></span>
+      <span @click="jumpAnn" class="iconfont icon-tongzhixiaoxi" style="padding-left:5px;color:#e46161"></span>
     </template>
     </van-notice-bar>
 
@@ -42,7 +42,7 @@
          </div>
        </div>
        <ul class="func_R">
-          <li>
+          <li @click="jumpAgent">
             <img src="../assets/img/agent_img.png"/>
             <span>AGENT</span>
           </li>
@@ -131,6 +131,7 @@
 
 <script setup>
 import {ref} from 'vue';
+import {useRouter} from"vue-router";
 import topComp from "../components/topComp.vue";
 import bottomComp from '../components/bottomComp.vue';
 import game_img1 from '../assets/img/game_picture2.jpg';
@@ -158,7 +159,14 @@ import live from '../assets/img/live-img.png';
 // import 'swiper/css/pagination';
 // import { Swiper, SwiperSlide } from 'swiper/vue';
 // import { EffectCoverflow, Pagination, Autoplay } from 'swiper';
+const router=useRouter();
 const gameIndex = ref(0)
+const jumpAgent=()=>{
+  router.push('/agent')
+};
+const jumpAnn=()=>{
+  router.push('/announcement')
+}
 
 const gameListList =ref([
   {
