@@ -5,7 +5,7 @@
     <div class="swipe">
       <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
         <van-swipe-item v-for="(item, index) in swipeList" :key="index">
-          <img :src="item.url" />
+          <img :src="item.img_url" />
         </van-swipe-item>
         <!-- <van-swipe-item>
           <img src="../assets/img/swipe-img1.png" />
@@ -253,7 +253,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref , onMounted } from "vue";
 import { useRoute ,useRouter} from "vue-router";
 import topComp from "../components/topComp.vue";
 import bottomComp from "../components/bottomComp.vue";
@@ -271,7 +271,7 @@ import game_img5 from "../assets/img/game_picture5.jpg";
 import game_img6 from "../assets/img/game_picture6.jpg";
 import game_img7 from "../assets/img/game_picture7.jpg";
 import game_img8 from "../assets/img/game_picture8.png";
-
+import {Swipe} from '../api/Swipe';
 
 const route = useRoute();
 const router = useRouter();
@@ -299,7 +299,14 @@ const jumpDeposit=()=>{
   router.push('/deposit')
 };
 
-
+const call_Swipe = async () =>{
+   let params={
+     type: 1,
+   }
+   let res=await Swipe(params);
+   console.log(res,'Swipe===============');
+   swipeList.value=res.data.content.banner;
+};
 
 const rollList = ref([
   {
@@ -345,10 +352,7 @@ const rollList = ref([
 ]);
 
 const swipeList = ref([
-  { url: swipe1 },
-  { url: swipe2 },
-  { url: swipe3 },
-  { url: swipe4 },
+ 
 ]);
 
 const privacyList = ref([
@@ -443,6 +447,10 @@ const gameList = ref([
     backgroundColor: "linear-gradient(90deg, #FF9966 15%, #FF5E62 75%)",
   },
 ]);
+
+onMounted(()=>{
+  call_Swipe()
+});
 </script>
 
 <style lang="scss">

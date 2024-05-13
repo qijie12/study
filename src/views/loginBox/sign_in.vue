@@ -84,7 +84,7 @@ import { all } from "axios";
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { login } from "../../api/login";
-
+import {setItem} from '../../common/auth';
 const router = useRouter();
 const active = ref(0);
 const phone = ref("");
@@ -111,8 +111,10 @@ const call_login = async () => {
     password: password.value,
     type: active.value ? "email" : "phone",
   };
+  
   let res = await login(params);
   console.log(res, "res5555555555555--------------");
+  setItem('token',res.data.token);
   router.push('/home');
 };
 

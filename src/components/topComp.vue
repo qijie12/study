@@ -63,7 +63,13 @@ const clickFunc = () =>{
 
 const onSelect = (v) =>{
   console.log(v, 'v------------')
-}
+};
+
+const actionsList =ref ([
+      { text: '选项一' },
+      { text: '选项二' },
+      { text: '选项三' },
+    ]);
 </script>
 
 <style lang="scss">

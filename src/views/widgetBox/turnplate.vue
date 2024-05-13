@@ -6,7 +6,7 @@
       <div @click="popup"><span>Spin Record</span></div>
     </div>
     <div class="con">
-      <div class="turnplateMoney" :class="{active: isStartAnimation}">
+      <div class="turnplateMoney" :class="{active: isStartAnimation}">   
         <div
           class="prize-list"
           style="
@@ -40,106 +40,14 @@
             color: rgb(224, 219, 219);
           "
         >
+        
           <div
             class="prize-item"
-            style="
-              transform: rotate(15deg);
+            v-for="(item,index) in priceList" :key="index"
+            :style="prizeStyle(index)
             "
           >
-            <p>58</p>
-          </div>
-          <div
-            class="prize-item"
-            style="
-              transform: rotate(45deg);
-            "
-          >
-            <p>88</p>
-          </div>
-          <div
-            class="prize-item"
-            style="
-              transform: rotate(75deg);
-            "
-          >
-            <p>188</p>
-          </div>
-          <div
-            class="prize-item"
-            style="
-              transform: rotate(105deg);
-              
-            "
-          >
-            <p>288</p>
-          </div>
-          <div
-            class="prize-item"
-            style="
-              transform: rotate(135deg);
-              
-            "
-          >
-            <p>488</p>
-          </div>
-          <div
-            class="prize-item"
-            style="
-              transform: rotate(165deg);
-              
-            "
-          >
-            <p>588</p>
-          </div>
-          <div
-            class="prize-item"
-            style="
-              transform: rotate(195deg);
-              
-            "
-          >
-            <p>688</p>
-          </div>
-          <div
-            class="prize-item"
-            style="
-              transform: rotate(225deg);
-              
-            "
-          >
-            <p>788</p>
-          </div>
-          <div
-            class="prize-item"
-            style="
-              transform: rotate(255deg);
-            "
-          >
-            <p>888</p>
-          </div>
-          <div
-            class="prize-item"
-            style="
-              transform: rotate(285deg);
-            "
-          >
-            <p>988</p>
-          </div>
-          <div
-            class="prize-item"
-            style="
-              transform: rotate(315deg);
-            "
-          >
-            <p class="name">IPHONE 15 PRO MAX</p>
-          </div>
-          <div
-            class="prize-item"
-            style="
-              transform: rotate(345deg);
-            "
-          >
-            <p class="name">YAMAHA R15</p>
+            <p>{{ item.title }}</p>
           </div>
         </div>
       </div>
@@ -238,57 +146,70 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { Turnlate } from "../../api/Turnplate";
-import { useRouter } from "vue-router";
+import { useRoute,useRouter } from "vue-router";
 import { showToast } from 'vant';
+
+const route = useRoute();
 const router = useRouter();
 
 const showPopover =ref(false);
+const priceList = ref([])
 const backtrack = () => {
   router.back();
 };
 const showCenter = ref(false);
 const isStartAnimation = ref(false)
+
+// 计算 平均每个奖品角度
+const rotateAngle = computed(() => {
+  return 360 / priceList.value.length;
+});
+
+const prizeStyle = computed(() => {
+    const _degree = rotateAngle.value;
+    return (i) => {
+      return `
+        width: ${(_degree * Math.PI * 7) / 180}rem;
+        height: 7rem;
+        transform: rotate(${_degree * i + _degree / 2}deg);
+        transform-origin: 50% 100%;
+      `;
+    };
+  });
+
 const popup = () => {
   showCenter.value = true;
 };
 const hidden = () => {
   showCenter.value = false;
 };
-const actions =ref ([
-      { text: '选项一' },
-      { text: '选项二' },
-      { text: '选项三' },
-    ]);
 const onSelect = () =>{
    showPopover.value=true
-}
-// const call_Turnlate= async()=>{
-//     let params={
-//         id:amount.value,
-//         title:string.value,
-//         template_id:number.value,
-//         probability:number.value,
-//     }
-//     let res = await Turnlate(params);
-//     console.log(res,'turnlate==============')
-// }
-const call_Turnlate = () => {
-  let params = {
-    id: amount.value,
-    title: string.value,
-    template_id: number.value,
-    probability: number.value,
-  };
-  Turnlate(params)
-    .then((res) => {
-      console.log(res, "turn................");
-    })
-    .catch((err) => {});
 };
 
+const call_Turnlate= async()=>{
+    let params = {
+      wheel_template_id: 1
+    };
+    let res = await Turnlate(params);
+    console.log(res,'turnlate==============');
+    priceList.value = res.data.wheelInfo;
+  
+}
+// const call_Turnlate = () => {
+//   Turnlate()
+//     .then((res) => {
+//       console.log(res, "turn................");
+//     })
+//     .catch((err) => {});
+// };
+
 onMounted(() => {
+  console.log(route.params, 'route-----------')
+  console.log(route.query, 'route-----------')
+  call_Turnlate()
   setInterval(() => {
     isStartAnimation.value = !isStartAnimation.value
   },500)
@@ -390,7 +311,17 @@ onMounted(() => {
             line-height: 370px;
             transform: rotate(90deg);
             padding-right: 50px;
-            &.name {
+            
+          }
+          &:last-child {
+            p {
+              font-size: 8px;
+              white-space: nowrap;
+              transform: rotate(90deg) translateX(-20px);
+            }
+          }
+          &:nth-last-child(2) {
+            p {
               font-size: 8px;
               white-space: nowrap;
               transform: rotate(90deg) translateX(-20px);

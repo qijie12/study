@@ -10,10 +10,17 @@
     </div>
 
     <div class="center_con">
-      <div class="cen_img" v-for="(item, index) in imgList" :key="index" @click="jumpDif(item)">
-        <img :src="item.url" @click="call_Activity"/>
+      <div
+        class="cen_img"
+        v-for="(item, index) in imgList"
+        :key="index"
+        @click="jumpDif(item, index)"
+      >
+        <img :src="item.image" />
         <div class="cen_text">
-          <span class="cen_time">{{ item.time }}</span>
+          <span class="cen_time"
+            >{{ item.start_time }} - {{ item.end_time }}</span
+          >
           <span class="iconfont icon-youjiantou"></span>
         </div>
       </div>
@@ -40,39 +47,58 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import {useRouter} from 'vue-router';
+import { useRouter } from "vue-router";
 import bottomComp from "../components/bottomComp.vue";
 import turnplate from "../assets/img/turnplate.png";
 import personage from "../assets/img/upload_live.png";
-import {Activity} from '../api/Activity';
+import { Activity } from "../api/Activity";
 
-const router =useRouter();
-const imgList = ref([
-  {
-    url: turnplate,
-    time: "2024-03-11 09:28:20~2024-04-30 20:09:56",
-    path:'/turnplate'
-  },
-  {
-    url: personage,
-    time: "2024-04-10 08:00:00~2024-04-30 08:00:00",
-    path:'/promotion'
-  },
-]);
+const router = useRouter();
+const imgList = ref([]);
 
-const jumpDif=(params)=>{
-  if(params.path){
-    router.push(params.path);
+const jumpDif = (params, index) => {
+  let dataParams = {
+    start: params.start_time,
+    end: params.end_time,
+  };
+  // let obj = {
+  //   name: "123",
+  // };
+  // ``  // 模板字符串 ${} 通过这种方式可以填写变量
+  // ... // 扩展运算符 通过...把对象里面的所有属性拿出来
+  // let dataParams111 = {
+  //   ...params,
+  //   ...obj,
+  // };
+  if (!index) {
+    router.push({
+      path: "/turnplate",
+      query: dataParams,
+    });
+  } else if (index === 1) {
+    router.push({
+      path: "/promotion",
+      query: params,
+    });
   }
-}
+  // router.push({
+  //   path: '/turnplate',
+  //   query: dataParams
+  // });
+  // router.push({
+  //   name: 'turnplate',
+  //   params: dataParams
+  // });
+};
 
-const call_Activity =async()=>{
-  let res =await Activity();
-  console.log(res,'Activity-----------------')
+const call_Activity = async () => {
+  let res = await Activity();
+  console.log(res, "Activity*************");
+  imgList.value = res.data;
 };
 
 onMounted(() => {
-  
+  call_Activity();
 });
 </script>
 

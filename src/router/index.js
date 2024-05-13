@@ -168,6 +168,11 @@ const routes = [
     name:'records',
     component:()=>import('../views/widgetBox/records.vue')
   },
+  {
+    path:'/axiosEx',
+    name:'axiosEx',
+    component:()=>import('../views/widgetBox/axiosEx.vue')
+  }
   
 ];
 

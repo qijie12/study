@@ -10,12 +10,17 @@
 </template>
   
 <script setup>
-import {ref} from 'vue';
-import {useRouter} from 'vue-router';
+import {ref, onMounted} from 'vue';
+import {useRouter,useRoute} from 'vue-router';
 const router =useRouter();
+const route =useRoute();
  const onClickLeft=()=>{
     router.back()
  }
+
+ onMounted(() => {
+  console.log(route.query, 'query--------------')
+ })
 </script>
 
 <style lang="scss">
