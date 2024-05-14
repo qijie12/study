@@ -284,14 +284,7 @@ const lightChecked = (index) => {
 
 const lightCurrency=(index)=>{
   currencyIndex.value = index;
-}
-onMounted(() => {
-  let params = route.query;
-  if(params?.tab) {
-    active.value = 1
-  };
-   lightChecked(0);
-});
+};
 
 const amountList = ref([
   { num: 100, name: '100' },
@@ -307,6 +300,14 @@ const currencyList=ref([
   {text:'Deposit by fiat currency'},
   {text:'Deposit by USDT'}
 ]);
+
+onMounted(() => {
+  let params = route.query;
+  if(params?.tab) {
+    active.value = 1
+  };
+   lightChecked(0);
+});
 
 </script>
 

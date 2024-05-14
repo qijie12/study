@@ -26,7 +26,7 @@ newParams.interceptors.response.use(
         return res;
     },
     (err)=>{}
-)
+);
 
 // export function get(url,params){
 //     return axios.get(url,{

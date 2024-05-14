@@ -36,11 +36,16 @@
             @click-left="onClickLeft"
           />
           <div class="vanBox">
-             <div class="vanCon">
+            <div class="vanCon" v-for="(item,index) in vanConList" :key="index">
+              <h4>{{item.title}}</h4>
+              <p>{{item.publish_date}}</p>
+              <div>{{item.content_text}}</div>
+            </div>
+             <!-- <div class="vanCon">
                   <h4>⭐️⭐️To visit our official website</h4>
                   <p>2024-04-02 19:42:13</p>
                   <div>⭐️⭐️To visit our official website, be sure to use the link below,https:lkgame.xyz// Please remember! Make sure not provide personal data and personal transactions in any form and for any reason to other parties on behalf of LURSSENVIP. Our side does not make private chats or calls to all members. Please inform all Referrals/other Members about this to avoid fraud. Thank you for your attention and cooperation.</div>
-             </div>
+             </div> -->
           </div>
         </van-popup>
       </div>
@@ -49,13 +54,12 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref , onMounted} from "vue";
 import {useRouter} from 'vue-router';
 import {Announcement} from '../../api/Announcement';
-const showRight =ref(false);
 
 const router = useRouter()
-
+const showRight =ref(false);
 const jumpMe = () => {
   router.go(-1)
 }
@@ -69,13 +73,18 @@ const onClickLeft = () => {
 
 const call_Announcement= async()=>{
   let params={
-      // content:content.value,
-      // content_text:content_text.value,
-      // publish_date:publish_date.value,
+      type:1
   };
    let res= await Announcement(params);
-   console.log(res,'Announcement-----------')
-}
+   console.log(res,'Announcement-----------');
+   vanConList.value=res.data
+};
+
+const vanConList=ref([])
+
+onMounted(()=>{
+  call_Announcement()
+})
 
 </script>
 
