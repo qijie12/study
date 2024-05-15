@@ -1,7 +1,6 @@
 <template>
   <div id="share-games-box">
     <topComp></topComp>
-
     <van-swipe
       class="my-swipe"
       :autoplay="3000"

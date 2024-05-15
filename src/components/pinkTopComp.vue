@@ -24,8 +24,8 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
-const jumpMe = () => {
-  router.back();
+const jumpMe =()=> {
+  router.push('/me');
 };
 </script>
 

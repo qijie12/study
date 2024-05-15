@@ -1,6 +1,6 @@
 <template>
   <div id="share-member-box">
-    <pinkTopComp @click="jumpMe"></pinkTopComp>
+    <pinkTopComp ></pinkTopComp>
 
     <div class="head">
       <span class="iconfont icon-arrow-left" @click="jump()"></span>
