@@ -60,25 +60,25 @@
     <div class="task_title">💎 The daily update task</div>
 
     <ul class="game_list">
-      <li v-for="(item, index) in gameList" :key="index">
+      <li v-for="(item, index) in alltask" :key="index">
         <div class="game_top">
-          <img :src="item.url" />
+          <img :src="item.img" />
           <div class="game_text">
-            <b>{{ item.title }}</b>
-            <p>{{ item.text }}</p>
+            <b>{{ item.game_brief }}</b>
+            <p>{{ item.game_title }}</p>
           </div>
         </div>
-        <div class="lock"><img :src="item.src" /></div>
+        <div class="lock"><img :src="lock" /></div>
         <div class="game_botttom">
           <div class="money_box">
             <div class="money">
-              <div class="vip" :style="{ background: item.backgroundColor }">
-                {{ item.vip }}
+              <div class="vip" :style="{ background: returnBgColor(item.user_level) }">
+                VIP{{ item.user_level }}
               </div>
-              <span>{{ item.ensure }}</span>
+              <span>SECURITY DEPOSIT:{{ item.start_amount }}</span>
             </div>
           </div>
-          <div class="sum" @click="appear(index)">{{ item.num }}</div>
+          <div class="sum" @click="appear(index)">+₹{{ item.game_reward }}</div>
         </div>
       </li>
       <!-- <li>       
@@ -102,12 +102,13 @@
        </li> -->
     </ul>
 
-    <div class="button">
+    <div class="button" v-show="showButton">
       <van-button
         type="primary"
         block
         color="linear-gradient(to right,#ffec00,#feba00)"
         style="color: #000000"
+        @click="loadMore"
       >
         + View more tasks
       </van-button>
@@ -216,34 +217,38 @@
             from your assigned receptionist.
           </p>
           <img src="../assets/img/telegram.png" />
-          <hr style="border: 0.5px solid #fda922;margin-bottom:20px;" />
+          <hr style="border: 0.5px solid #fda922; margin-bottom: 20px" />
           <h4>Setp 2.</h4>
           <p>
             Enter the
             <span>activation code</span>
             from the receptionist
           </p>
-          <van-form @submit="onSubmit">          
-              <van-field
-                v-model="username"
-                placeholder="Please enter the activation code"
-                :rules="[{ required: true, message: 'Please enter the activation code' }]"
-              />
-              
+          <van-form @submit="onSubmit">
+            <van-field
+              v-model="username"
+              placeholder="Please enter the activation code"
+              :rules="[
+                { required: true, message: 'Please enter the activation code' },
+              ]"
+            />
           </van-form>
 
-          <van-button type="primary" block color="linear-gradient(to right,#ffec00,#feba00)">Submit</van-button>
+          <van-button
+            type="primary"
+            block
+            color="linear-gradient(to right,#ffec00,#feba00)"
+            >Submit</van-button
+          >
         </div>
       </van-popup>
     </div>
 
     <div class="moreBox">
-      <van-popup v-model:show="showCenter2" round >
+      <van-popup v-model:show="showCenter2" round>
         <div @click="jumpDeposit">
-          <img src="../assets/img/vip_ad-e682480a.png"/>
-          <div class="but">
-            I WANT TO MAKE MORE!!
-          </div>
+          <img src="../assets/img/vip_ad-e682480a.png" />
+          <div class="but">I WANT TO MAKE MORE!!</div>
         </div>
       </van-popup>
     </div>
@@ -253,8 +258,8 @@
 </template>
 
 <script setup>
-import { ref , onMounted } from "vue";
-import { useRoute ,useRouter} from "vue-router";
+import { ref, onMounted, computed } from "vue";
+import { useRoute, useRouter } from "vue-router";
 import topComp from "../components/topComp.vue";
 import bottomComp from "../components/bottomComp.vue";
 import headImg from "../assets/img/img23-0452ef16.png";
@@ -271,41 +276,39 @@ import game_img5 from "../assets/img/game_picture5.jpg";
 import game_img6 from "../assets/img/game_picture6.jpg";
 import game_img7 from "../assets/img/game_picture7.jpg";
 import game_img8 from "../assets/img/game_picture8.png";
-import {Swipe} from '../api/Swipe';
-
+import { Swipe } from "../api/Swipe";
+// import {homeList} from '../api/homeList';
 const route = useRoute();
 const router = useRouter();
 
-const username=ref()
+const username = ref();
 const showCenter = ref(false);
 const showBottom = ref(false);
-const showCenter2 =ref(false);
+const showCenter2 = ref(false);
 const appear = (index) => {
- 
-    if (index === 0) {
+  if (index === 0) {
     showBottom.value = !showBottom.value;
-  } else if(index !=0){
+  } else if (index != 0) {
     showCenter2.value = !showBottom.value;
   }
-  
 };
-const onSubmit=()=>{}
+const onSubmit = () => {};
 
 const showCode = () => {
   showCenter.value = true;
 };
 
-const jumpDeposit=()=>{
-  router.push('/deposit')
+const jumpDeposit = () => {
+  router.push("/deposit");
 };
 
-const call_Swipe = async () =>{
-   let params={
-     type: 1,
-   }
-   let res=await Swipe(params);
-   console.log(res,'Swipe===============');
-   swipeList.value=res.data.content.banner;
+const call_Swipe = async () => {
+  let params = {
+    type: 1,
+  };
+  let res = await Swipe(params);
+  console.log(res, "Swipe===============");
+  swipeList.value = res.data.content.banner;
 };
 
 const rollList = ref([
@@ -351,9 +354,7 @@ const rollList = ref([
   },
 ]);
 
-const swipeList = ref([
- 
-]);
+const swipeList = ref([]);
 
 const privacyList = ref([
   { text: "Policy and privacy" },
@@ -363,7 +364,170 @@ const privacyList = ref([
   { text: "FAQ" },
 ]);
 
-const gameList = ref([
+// 计算属性 - 监听某个组合发生变化就触发
+const alltask = computed(() => {
+  // 数据重组 - 合并数据
+  let arr = [...allItems.value, ...oneTask.value]
+  // 数组遍历
+  arr.some(item => {
+    if(item?.info) {
+      item.img = item.info.icon;
+    }
+    // Number(xxx) 转数字方法
+    item.sort = Number(item.sort)
+  })
+
+  // 数组排序
+  // sort排序方法
+  arr.sort((a,b) => a.sort - b.sort)
+
+  // splice数组截取方法 0代表从什么位置开始截取 initNum.value代表结束截取的位置
+  arr = arr.splice(0, initNum.value)
+  return arr
+});
+
+const bgColorList=[
+  {
+    user_level: 1,
+    background: 'linear-gradient(90deg, #00B09B 15%, #96C93D 75%)'
+  },
+  {
+    user_level: 2,
+    background: 'linear-gradient(90deg, #9C34A9 15%, #F25E43 75%)'
+  },
+  {
+    user_level: 3,
+    background: 'linear-gradient(90deg, #FFD194 15%, #D1913C 75%)'
+  },
+  {
+    user_level: 4,
+    background: 'linear-gradient(90deg, #FF9966 15%, #FF5E62 75%)'
+  },
+  {
+    user_level: 5,
+    background: 'linear-gradient(90deg, #6A82FB 15%, #DECBA4 75%)'
+  },
+  {
+    user_level: 6,
+    background: 'linear-gradient(to right, #FBD786, #F7797D)'
+  },
+  {
+    user_level: 7,
+    background: 'linear-gradient(90deg, #9C34A9 15%, #F25E43 75%)'
+  },
+  {
+    user_level: 8,
+    background: 'linear-gradient(90deg, #8E2DE2 15%, #4A00E0 75%)'
+  },
+  {
+    user_level: 9,
+    background: 'linear-gradient(90deg, #302B63 15%, #24243E 75%)'
+  },
+  {
+    user_level: 10,
+    background: 'linear-gradient(90deg,rgba(156, 252, 248, 0.5) 15%,rgba(110, 123, 251, 1) 75%)'
+  },
+  {
+    user_level: 11,
+    background: 'linear-gradient(90deg,#9796F0 15%,rgba(253, 199, 212, 0.8) 75%)'
+  },
+  {
+    user_level: 12,
+    background: 'linear-gradient(90deg, #33001B 15%, #FF0084 75%)'
+  }
+];
+
+const returnBgColor = (level) => {
+  // find查找方法
+  let params = bgColorList.find(item => item.user_level === Number(level))
+  return params ? params.background : 'linear-gradient(90deg, #9C34A9 15%, #F25E43 75%)';
+};
+
+// 全部的任务数据--------
+// 游戏任务列表
+const allItems = ref([
+  {
+    url: game_img1,
+    src: lock,
+    title: "Play game and provide feedback",
+    text: "Play the mini-game and write feedback",
+    vip: "VIP1",
+    ensure: "SECURITY DEPOSIT: 50",
+    num: "+₹20",
+    backgroundColor:
+      "linear-gradient(to right,rgb(36, 176, 156),rgb(152, 202, 77))",
+  },
+  {
+    url: game_img2,
+    src: lock,
+    title: "Add your own personal receptionist",
+    text: "Add a dedicated receptionist to get high commissions",
+    vip: "VIP1",
+    ensure: "SECURITY DEPOSIT: 70",
+    num: "+₹20",
+    backgroundColor:
+      "linear-gradient(to right,rgb(36, 176, 156),rgb(152, 202, 77))",
+  },
+  {
+    url: game_img3,
+    src: lock,
+    title: "Learn how to earn cash through lottery games",
+    text: "Deposit 100 & experience lottery games",
+    vip: "VIP2",
+    ensure: "SECURITY DEPOSIT: 90",
+    num: "+₹30",
+    backgroundColor: "linear-gradient(90deg, #9C34A9 15%, #F25E43 75%)",
+  },
+  {
+    url: game_img4,
+    src: lock,
+    title: "Play games with your mentor",
+    text: "Play games with your mentor",
+    vip: "VIP2",
+    ensure: "SECURITY DEPOSIT: 20",
+    num: "+₹20",
+    backgroundColor: "linear-gradient(90deg, #9C34A9 15%, #F25E43 75%)",
+  },
+  {
+    url: game_img5,
+    src: lock,
+    title: "Share with 2 of your friends",
+    text: "Share it with your friends",
+    vip: "VIP3",
+    ensure: "SECURITY DEPOSIT: 20",
+    num: "+₹20",
+    backgroundColor: "linear-gradient(90deg, #FFD194 15%, #D1913C 75%)",
+  },
+  {
+    url: game_img6,
+    src: lock,
+    title: "Play game and provide feedback",
+    text: "Play the mini-game and write feedback",
+    vip: "VIP3",
+    ensure: "SECURITY DEPOSIT: 100",
+    num: "+₹100",
+    backgroundColor: "linear-gradient(90deg, #FFD194 15%, #D1913C 75%)",
+  },
+  {
+    url: game_img7,
+    src: lock,
+    title: "Play game and provide feedback",
+    text: "Play the mini-game and write feedback",
+    vip: "VIP4",
+    ensure: "SECURITY DEPOSIT: 120",
+    num: "+₹120",
+    backgroundColor: "linear-gradient(90deg, #FF9966 15%, #FF5E62 75%)",
+  },
+  {
+    url: game_img8,
+    src: lock,
+    title: "Play game and provide feedback",
+    text: "Play the mini-game and write feedback",
+    vip: "VIP4",
+    ensure: "SECURITY DEPOSIT:120",
+    num: "+₹120",
+    backgroundColor: "linear-gradient(90deg, #FF9966 15%, #FF5E62 75%)",
+  },
   {
     url: game_img1,
     src: lock,
@@ -447,9 +611,46 @@ const gameList = ref([
     backgroundColor: "linear-gradient(90deg, #FF9966 15%, #FF5E62 75%)",
   },
 ]);
+// 一次性任务列表
+const oneTask = ref([]);
+// 初始化展示每次加载的任务数量
+const initNum = ref(8);
+// 加载更多任务
+const loadMore = () => {
+  // += 解析为 initNum.value = initNum.value + 8
+  initNum.value += 8;
+  // showButton.value=false;
+};
 
-onMounted(()=>{
-  call_Swipe()
+const showButton = ref(true);
+const call_homeList= async()=>{
+  let params={
+    type:16
+  };
+  let res =await Swipe(params);
+  console.log(res,'homeList1111111111111');
+
+  // 拿到游戏任务数据
+  allItems.value=res.data.content.game;
+
+  // 拿到一次性任务数据
+  // 对象遍历 for in 方法
+  // Array.isArray判断数据是否为数组
+  // typeof xxx 返回 string number boolean object等等
+  let task = res.data.content.newer
+  for (const key in task) {
+    if(Array.isArray(task[key])) {
+      oneTask.value.push(...task[key])
+    } else if(typeof task[key] === 'object') {
+      oneTask.value.push(task[key])
+    }
+  }
+  console.log(oneTask.value, 'oneTask-------')
+};
+
+onMounted(() => {
+  call_Swipe();
+  call_homeList()
 });
 </script>
 
@@ -571,7 +772,7 @@ onMounted(()=>{
     > li {
       background: rgb(255, 255, 255);
       width: 100%;
-      height: 120px;
+      // height: 120px;
       border-radius: 5px;
       overflow: hidden;
       position: relative;
@@ -654,7 +855,8 @@ onMounted(()=>{
               justify-content: center;
               align-items: center;
               height: 100%;
-              width: 56px;
+              width: 60px;
+              // width:56px
               // background: linear-gradient(
               //   to right,
               //   rgb(36, 176, 156),
@@ -667,6 +869,7 @@ onMounted(()=>{
             }
 
             > span {
+              margin-left:5px;
               font-weight: bold;
               font-size: 12px;
               color: #cc9707;
@@ -920,10 +1123,10 @@ onMounted(()=>{
         text-align: center;
         > h4 {
           color: #323223;
-          margin: 10px 0 15px 0;    
+          margin: 10px 0 15px 0;
         }
-        
-        >p {
+
+        > p {
           font-size: 16px;
           color: #303030;
           font-weight: 600;
@@ -936,60 +1139,58 @@ onMounted(()=>{
           height: 70px;
           margin-top: 10px;
         }
-        .van-form{
-          margin:10px 0 15px 0;
-          .van-field{
-            background:#f4f4f4;
-            .van-field__body{
-              .van-field__control{
-                font-weight:700;
+        .van-form {
+          margin: 10px 0 15px 0;
+          .van-field {
+            background: #f4f4f4;
+            .van-field__body {
+              .van-field__control {
+                font-weight: 700;
                 color: #303030;
-                font-size:14px; 
+                font-size: 14px;
               }
-                       
             }
-            .van-field__error-message{
-                color:#ee0a24;
-                font-size:12px;
-                font-weight:700;
-              }
+            .van-field__error-message {
+              color: #ee0a24;
+              font-size: 12px;
+              font-weight: 700;
+            }
           }
         }
-        .van-button{  
-         .van-button__text{
-          color:#303030;
-          font-weight: 700;
-         }  
-        } 
+        .van-button {
+          .van-button__text {
+            color: #303030;
+            font-weight: 700;
+          }
+        }
       }
     }
   }
   .moreBox {
     .van-popup {
-      >div {
+      > div {
         width: 320px;
         height: 480px;
-        overflow:hidden;
-        position:relative;
-       >img{
-        width:100%;
-        height:100%;
-       }
-       .but{
-         position:absolute;
-         width:100%;
-         height:70px;
-         bottom:0;
-         background-image:url('../assets/img/red-bg.png');
-         background-size:cover;
-         display:flex;
-         align-items:center;
-         justify-content:center;
-         color:#ffffff;
-         font-size:20px;
-         font-weight:800;
-        
-       }
+        overflow: hidden;
+        position: relative;
+        > img {
+          width: 100%;
+          height: 100%;
+        }
+        .but {
+          position: absolute;
+          width: 100%;
+          height: 70px;
+          bottom: 0;
+          background-image: url("../assets/img/red-bg.png");
+          background-size: cover;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #ffffff;
+          font-size: 20px;
+          font-weight: 800;
+        }
       }
     }
   }
