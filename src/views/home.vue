@@ -133,6 +133,7 @@
               font-weight: bold;
               font-size: 22px;
             "
+            @click="earnStep"
           >
             START EARNING
           </van-button>
@@ -252,6 +253,11 @@
         </div>
       </van-popup>
     </div>
+ 
+  <div class="earnButton">
+    <van-popup v-model:show="showCenter" round :style="{ padding: '64px' }" />
+  </div>
+  
 
     <bottomComp></bottomComp>
   </div>
